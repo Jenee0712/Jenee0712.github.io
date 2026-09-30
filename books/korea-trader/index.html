@@ -1,0 +1,1855 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《韩国最强法人交易员的获利关键》深度研读</title>
+<style>
+:root {
+  --page-bg: #F7F8FA; --page-surface: #FFFFFF; --page-surface-muted: #F1F3F6;
+  --page-border: #E3E7ED; --page-text: #1F2733; --page-text-secondary: #4A5568;
+  --page-text-muted: #8592A6; --page-text-disabled: #B9C2CF;
+  --page-brand: #0B5CAB; --page-brand-text: #083E72; --page-brand-soft: #E8F0F9; --page-brand-soft-strong: #CBDEEE;
+  --success: #1B7F4D; --soft-success: #E3F2E9; --danger: #C0392B; --soft-danger: #FAE8E6;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Courier New", monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font-sans); color: var(--page-text); background: var(--page-bg); line-height: 1.7; font-size: 15px; }
+.wrap { max-width: 1020px; margin: 0 auto; padding: 0 20px; }
+.ic { width: 18px; height: 18px; } .ic-lg { width: 22px; height: 22px; }
+a { color: var(--page-brand); text-decoration: none; } a:hover { text-decoration: underline; }
+
+.report-intro { background: linear-gradient(160deg, var(--page-brand-text) 0%, #0A4C8C 60%, #0B5CAB 100%); color: #fff; padding: 58px 0 46px; }
+.report-intro__content { max-width: 1020px; margin: 0 auto; padding: 0 20px; }
+.report-intro .eyebrow { font-size: 13px; letter-spacing: .18em; opacity: .75; margin: 0 0 10px; }
+.report-intro h1 { font-size: 32px; margin: 0 0 10px; line-height: 1.3; }
+.report-intro .subtitle { font-size: 15.5px; opacity: .85; margin: 0 0 16px; max-width: 760px; }
+.intro-summary { font-size: 14.5px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 14px 18px; max-width: 860px; }
+.intro-meta { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 18px 0 0; font-size: 13px; opacity: .85; }
+.intro-meta span { display: inline-flex; align-items: center; gap: 7px; }
+.intro-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 22px 0 0; }
+.intro-stats .stat { background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.16); border-radius: 10px; padding: 14px 16px; }
+.intro-stats strong { font-size: 22px; display: block; line-height: 1.3; }
+.intro-stats span { font-size: 12.5px; opacity: .8; display: block; margin-top: 3px; line-height: 1.5; }
+
+.sticky-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--page-border); transform: translateY(-100%); transition: transform .25s ease; }
+.sticky-nav.show { transform: none; }
+.sticky-nav__inner { max-width: 1020px; margin: 0 auto; padding: 0 16px; display: flex; align-items: center; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+.sticky-nav__inner::-webkit-scrollbar { display: none; }
+.sticky-nav__brand { font-size: 13px; font-weight: 700; color: var(--page-brand-text); white-space: nowrap; padding-right: 10px; }
+.sticky-nav a { font-size: 13px; color: var(--page-text-secondary); padding: 11px 10px 9px; white-space: nowrap; border-bottom: 2px solid transparent; }
+.sticky-nav a:hover { text-decoration: none; color: var(--page-brand); }
+.sticky-nav a.active { color: var(--page-brand); border-bottom-color: var(--page-brand); font-weight: 600; }
+
+.toc { padding-top: 48px; }
+.toc-card { background: var(--page-surface); border: 1px solid var(--page-border); border-radius: 12px; padding: 24px 26px; }
+.toc-card h2 { margin: 0; font-size: 17px; display: flex; align-items: center; gap: 10px; }
+.toc-card ol { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 28px; }
+.toc-card li { display: flex; align-items: baseline; gap: 10px; padding: 4px 0; }
+.toc-card li .no { font-family: var(--font-mono); font-size: 12px; color: var(--page-brand); font-weight: 700; width: 20px; flex-shrink: 0; }
+.toc-card li a { color: var(--page-text); font-size: 14.5px; }
+.toc-card li .en { color: var(--page-text-muted); font-size: 12px; margin-left: 4px; }
+
+section.sec { padding: 56px 0 10px; scroll-margin-top: 64px; }
+.sec-head { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+.sec-no { font-family: var(--font-mono); font-size: 12.5px; font-weight: 700; color: var(--page-brand-text); border: 1px solid var(--page-brand-soft-strong); background: var(--page-brand-soft); padding: 3px 11px; border-radius: 999px; white-space: nowrap; }
+.sec-icon { color: var(--page-brand); display: inline-flex; }
+.sec-head h2 { margin: 0; font-size: 24px; line-height: 1.35; }
+.sec-sub { color: var(--page-text-muted); font-size: 14px; margin: 6px 0 26px; }
+
+mark.hl { background: var(--page-brand-soft-strong); color: var(--page-brand-text); padding: 1px 6px; border-radius: 5px; font-weight: 600; font-style: normal; white-space: nowrap; }
+.pg { font-family: var(--font-mono); font-size: 11px; color: var(--page-text-muted); background: var(--page-surface-muted); border-radius: 4px; padding: 0 5px; white-space: nowrap; }
+
+.callout { background: var(--page-surface); border: 1px solid var(--page-border); border-radius: 12px; padding: 18px 22px; display: flex; gap: 14px; margin: 22px 0; }
+.callout__icon { color: var(--page-brand); flex-shrink: 0; margin-top: 3px; }
+.callout__body { flex: 1; min-width: 0; }
+.callout__body .label { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--page-text-muted); margin: 0 0 6px; }
+.callout__body p { margin: 0 0 6px; font-size: 14.5px; }
+.callout__body p:last-child { margin-bottom: 0; }
+.callout--danger .callout__icon { color: var(--danger); }
+.callout--danger .callout__body .label { color: var(--danger); }
+
+.arg-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 18px 0 8px; }
+.arg-step { border: 1px solid var(--page-border); border-radius: 10px; padding: 12px 13px; background: var(--page-surface); }
+.arg-step .k { font-family: var(--font-mono); font-size: 11px; color: var(--page-brand); font-weight: 700; display: block; margin-bottom: 5px; letter-spacing: .04em; }
+.arg-step .t { font-size: 13px; font-weight: 700; margin: 0 0 4px; }
+.arg-step .d { font-size: 12px; color: var(--page-text-muted); margin: 0; line-height: 1.6; }
+
+.rel-list { list-style: none; margin: 14px 0; padding: 0; }
+.rel-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; padding: 10px 2px; border-bottom: 1px solid var(--page-border); font-size: 14px; }
+.rel-list li:last-child { border-bottom: none; }
+.rel-k { font-size: 11.5px; font-weight: 700; border-radius: 5px; padding: 1px 8px; flex-shrink: 0; }
+.rel-k--pre { background: var(--page-surface-muted); color: var(--page-text-secondary); }
+.rel-k--der { background: var(--page-brand-soft); color: var(--page-brand-text); }
+.rel-k--ref { background: var(--soft-danger); color: #A40E26; }
+.rel-k--ext { background: #F3EEFB; color: #5B34B5; }
+
+.btn-row { display: flex; gap: 10px; margin: 0 0 18px; }
+.btn { font-size: 13px; padding: 7px 15px; border-radius: 8px; border: 1px solid var(--page-border); background: #fff; color: var(--page-text-secondary); cursor: pointer; font-family: inherit; display: inline-flex; align-items: center; gap: 7px; }
+.btn:hover { border-color: var(--page-brand); color: var(--page-brand); }
+.ch-group { display: flex; align-items: center; gap: 12px; margin: 30px 0 14px; }
+.ch-group h3 { margin: 0; font-size: 15px; white-space: nowrap; }
+.ch-group .rule { flex: 1; height: 1px; background: var(--page-border); }
+.chapter-card { border: 1px solid var(--page-border); border-radius: 12px; background: #fff; margin-bottom: 12px; overflow: hidden; }
+.chapter-head { display: flex; width: 100%; text-align: left; background: none; border: none; padding: 15px 20px; cursor: pointer; gap: 14px; align-items: flex-start; font-family: inherit; font-size: inherit; color: inherit; }
+.chapter-head:hover { background: var(--page-surface); }
+.chapter-no { font-family: var(--font-mono); font-weight: 700; font-size: 12.5px; color: var(--page-brand-text); background: var(--page-brand-soft); border-radius: 8px; padding: 7px 10px; line-height: 1; margin-top: 3px; flex-shrink: 0; min-width: 44px; text-align: center; }
+.chapter-title { flex: 1; min-width: 0; }
+.chapter-title h3 { margin: 0; font-size: 16px; line-height: 1.45; }
+.chapter-title h3 .pages { font-family: var(--font-mono); font-size: 11.5px; color: var(--page-text-muted); font-weight: 400; margin-left: 8px; }
+.chapter-claim { margin: 5px 0 0; font-size: 13.5px; color: var(--page-text-secondary); line-height: 1.65; }
+.chapter-chev { color: var(--page-text-muted); transition: transform .28s ease; flex-shrink: 0; margin-top: 5px; }
+.chapter-card.open .chapter-chev { transform: rotate(180deg); }
+.chapter-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+.chapter-card.open .chapter-body { grid-template-rows: 1fr; }
+.chapter-body-inner { overflow: hidden; }
+.chapter-body-content { padding: 16px 20px 20px 78px; border-top: 1px dashed var(--page-border); }
+.ch-block { margin-bottom: 14px; }
+.ch-block h4 { font-size: 12px; margin: 0 0 8px; color: var(--page-text-muted); font-weight: 700; letter-spacing: .08em; display: flex; align-items: center; gap: 7px; }
+.ch-block ul { margin: 0; padding-left: 18px; }
+.ch-block li { margin-bottom: 7px; font-size: 14px; line-height: 1.7; }
+.ch-link { font-size: 13px; color: var(--page-text-secondary); background: var(--page-surface); border: 1px dashed var(--page-border); border-radius: 8px; padding: 9px 14px; margin: 0; }
+.ch-link strong { color: var(--page-brand-text); }
+
+.chain { max-width: 880px; margin: 0 auto; }
+.layer-node { border: 1px solid var(--page-border); border-radius: 12px; background: #fff; padding: 18px 22px; }
+.layer-head { display: flex; align-items: center; gap: 13px; margin-bottom: 4px; }
+.layer-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--page-brand-soft); color: var(--page-brand); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.layer-title { flex: 1; min-width: 0; }
+.layer-title h3 { margin: 0; font-size: 16.5px; }
+.layer-title .sub { font-size: 12.5px; color: var(--page-text-muted); }
+.cycle-tag { font-size: 11.5px; font-weight: 700; padding: 3px 11px; border-radius: 999px; border: 1px solid var(--page-border); background: var(--page-surface); color: var(--page-text-secondary); white-space: nowrap; flex-shrink: 0; }
+.layer-body dl { display: grid; grid-template-columns: 1.2fr 1.2fr 1fr; gap: 12px 20px; margin: 12px 0 0; }
+.layer-body dt { font-size: 11.5px; color: var(--page-text-muted); font-weight: 700; margin-bottom: 3px; letter-spacing: .06em; }
+.layer-body dd { margin: 0; font-size: 13px; line-height: 1.65; }
+.flow-connector { display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 8px 0; }
+.flow-connector .arr { color: var(--page-brand); }
+.flow-connector .lbl { font-size: 12.5px; color: var(--page-text-muted); text-align: center; max-width: 620px; line-height: 1.55; }
+
+.tbl-title { font-size: 14px; font-weight: 700; margin: 22px 0 4px; display: flex; align-items: center; gap: 8px; }
+.tbl-note { font-size: 12.5px; color: var(--page-text-muted); margin: 0 0 10px; }
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--page-border); border-radius: 12px; }
+table.tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.tbl th { background: var(--page-surface-muted); text-align: left; font-size: 12.5px; padding: 10px 14px; border-bottom: 1px solid var(--page-border); color: var(--page-text-secondary); white-space: nowrap; font-weight: 700; }
+.tbl td { padding: 11px 14px; border-bottom: 1px solid var(--page-border); vertical-align: top; line-height: 1.65; }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl .pos { font-weight: 700; color: var(--page-brand-text); }
+.tbl td .pg { display: inline-block; margin-top: 2px; }
+
+.signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.signal-card { border: 1px solid var(--page-border); border-radius: 12px; padding: 16px 20px; background: #fff; }
+.signal-card h4 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 14.5px; }
+.signal-card ul { margin: 0; padding-left: 18px; font-size: 13.5px; }
+.signal-card li { margin-bottom: 6px; }
+.timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 14px 0; }
+.tl-node { border: 1px solid var(--page-border); border-radius: 12px; padding: 13px 14px; background: var(--page-surface); }
+.tl-node time { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--page-brand-text); display: block; margin-bottom: 5px; }
+.tl-node p { margin: 0; font-size: 12.5px; line-height: 1.6; color: var(--page-text-secondary); }
+.qa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.qa-card { border: 1px solid var(--page-border); border-radius: 12px; padding: 16px 20px; background: #fff; }
+.qa-card h4 { margin: 0 0 8px; font-size: 14.5px; display: flex; gap: 9px; line-height: 1.5; }
+.qa-card h4 .qno { font-family: var(--font-mono); color: var(--page-brand); font-size: 13px; flex-shrink: 0; }
+.qa-card p { font-size: 13.5px; margin: 0; color: var(--page-text-secondary); }
+.qa-card .how { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--page-border); font-size: 12.5px; color: var(--page-text-muted); }
+
+/* 06 案例与投资标的 */
+.ctx-pill { display: inline-block; font-size: 11px; font-weight: 700; line-height: 1; padding: 4px 9px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
+.ctx-pill--pos { background: var(--soft-success); color: var(--success); }
+.ctx-pill--neg { background: var(--soft-danger); color: var(--danger); }
+.ctx-pill--demo { background: var(--page-brand-soft); color: var(--page-brand-text); }
+.ctx-pill--mention { background: var(--page-surface-muted); color: var(--page-text-muted); }
+.asset-group { border: 1px solid var(--page-border); border-radius: 12px; background: #fff; margin-bottom: 16px; overflow: hidden; }
+.asset-group-head { display: flex; align-items: center; gap: 10px; padding: 12px 18px; background: var(--page-surface-muted); border-bottom: 1px solid var(--page-border); }
+.asset-group-head svg { color: var(--page-brand); flex-shrink: 0; }
+.asset-group-head .g-name { font-size: 14px; font-weight: 700; color: var(--page-brand-text); flex: 1; }
+.asset-group-head .g-count { font-family: var(--font-mono); font-size: 11.5px; color: var(--page-text-muted); }
+.asset-item { display: flex; gap: 12px; padding: 13px 18px; border-bottom: 1px solid var(--page-border); }
+.asset-item:last-child { border-bottom: none; }
+.asset-item .ctx-pill { align-self: flex-start; margin-top: 2px; }
+.asset-item .a-name { width: 158px; flex-shrink: 0; font-size: 13.5px; font-weight: 700; color: var(--page-text); }
+.asset-item .a-name .a-type { display: block; font-size: 11.5px; font-weight: 400; color: var(--page-text-muted); margin-top: 2px; }
+.asset-item .a-body { flex: 1; min-width: 0; font-size: 13px; line-height: 1.65; color: var(--page-text-secondary); }
+.asset-item .a-body .a-data { color: var(--page-text); }
+.asset-item .a-judge { font-size: 12.5px; color: var(--page-text-muted); margin-top: 3px; }
+.asset-item .a-pg { flex-shrink: 0; align-self: flex-start; margin-top: 2px; }
+.case-note { font-size: 12.5px; color: var(--page-text-muted); background: var(--page-surface); border: 1px dashed var(--page-border); border-radius: 8px; padding: 9px 14px; margin: 0 0 14px; }
+.ctx-legend { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 16px; font-size: 12.5px; color: var(--page-text-secondary); }
+
+footer { margin-top: 64px; border-top: 1px solid var(--page-border); background: var(--page-surface); padding: 30px 0 40px; }
+footer .f-title { font-size: 13px; font-weight: 700; color: var(--page-text-secondary); margin: 0 0 8px; }
+footer p { font-size: 12.5px; color: var(--page-text-muted); margin: 0 0 6px; }
+
+@media print {
+  .sticky-nav, .btn-row { display: none !important; }
+  .chapter-body { grid-template-rows: 1fr !important; }
+  section.sec { padding: 28px 0 6px; page-break-inside: avoid; }
+  a { color: inherit; }
+}
+@media (max-width: 860px) {
+  .layer-body dl { grid-template-columns: 1fr 1fr; }
+  .timeline { grid-template-columns: repeat(2, 1fr); }
+  .arg-flow { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .report-intro h1 { font-size: 26px; }
+  .intro-stats { grid-template-columns: 1fr; }
+  .toc-card ol { grid-template-columns: 1fr; }
+  .sec-head h2 { font-size: 20px; }
+  .signal-grid, .qa-grid, .timeline, .layer-body dl { grid-template-columns: 1fr; }
+  .chapter-body-content { padding: 14px 18px 18px; }
+  .tbl--stack { display: block; }
+  .tbl--stack thead { display: none; }
+  .tbl--stack tbody, .tbl--stack tr, .tbl--stack td { display: block; width: 100%; }
+  .tbl--stack tr { border-bottom: 1px solid var(--page-border); padding: 6px 14px; }
+  .tbl--stack tr:last-child { border-bottom: none; }
+  .tbl--stack td { border: none; padding: 5px 0; }
+  .tbl--stack td::before { content: attr(data-label); display: block; font-size: 11.5px; font-weight: 700; color: var(--page-text-muted); margin-bottom: 2px; }
+  .asset-item { flex-direction: column; gap: 6px; padding: 11px 14px; }
+  .asset-item .a-name { width: auto; }
+}
+</style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></g></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></g></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></g></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></g></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></g></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></g></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></g></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></g></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></g></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></g></symbol>
+    <symbol id="i-arrowdown" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></g></symbol>
+    <symbol id="i-arrowright" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></g></symbol>
+    <symbol id="i-target" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></g></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></g></symbol>
+    <symbol id="i-dollar" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></g></symbol>
+    <symbol id="i-brain" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a4 4 0 0 0-4 4v1a4 4 0 0 0-4 4 4 4 0 0 0 2 3.46V17a3 3 0 0 0 6 0V6a4 4 0 0 0 0-4z"/><path d="M12 2a4 4 0 0 1 4 4v1a4 4 0 0 1 4 4 4 4 0 0 1-2 3.46V17a3 3 0 0 1-6 0V6a4 4 0 0 1 0-4z"/></g></symbol>
+<symbol id="i-briefcase" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="report-intro" id="top">
+  <div class="report-intro__content">
+    <p class="eyebrow">书籍深度研读 · 交易体系落地映射</p>
+    <h1>《韩国最强法人交易员的获利关键》深度研读</h1>
+    <p class="subtitle">一位25年券商老兵的法人视角：价值分析 + 技术分析 + 市况分析三位一体的交易操作系统</p>
+    <p class="intro-summary">本书核心论点：<mark class="hl">人无法赢过市场，只有顺应它才能生存、获得收益</mark>。作者朴炳昌以法人交易员的实战视角，构建了一套"先判断市况→再选产业→再选个股→严守纪律"的完整交易体系。全书从散户七大亏损心理出发，经由技术分析（10秒选股/量价关系/50%原则）、价值分析（本益比/股价净值比/财报解读）、市况分析（股息贴现模型/供需结构/汇率利率）三大工具，最终落地为实战中的资金管理、停损纪律与心态控制。本书不是"预测市场"的方法论，而是"顺应市场"的操作手册。</p>
+    <div class="intro-meta">
+      <span><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg>原著：朴炳昌 (Park Byoung Chang)</span>
+      <span><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>数据截至 2021年初（2022年繁体中文版）</span>
+      <span><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg>序文 + 7部57章 · EPUB</span>
+    </div>
+    <div class="intro-stats">
+      <div class="stat"><strong>3大分析工具</strong><span>技术分析 + 价值分析 + 市况分析，构成交易操作系统三支柱</span></div>
+      <div class="stat"><strong>7+12+11</strong><span>7个亏损关键 + 12个市场真相 + 11道进阶题，层层递进</span></div>
+      <div class="stat"><strong>50案例 · 40标的</strong><span>全书案例总账 + 投资标的盘，按资产类型分组并标注叙事语境</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="sticky-nav" aria-label="页面导航">
+  <div class="sticky-nav__inner">
+    <span class="sticky-nav__brand">法人交易员 · 研读</span>
+    <a href="#overview">概览</a>
+    <a href="#skeleton">书籍骨架</a>
+    <a href="#chain">交易体系图谱</a>
+    <a href="#mapping">落地映射</a>
+    <a href="#indicators">指标追踪</a>
+    <a href="#cases">案例与标的</a>
+    <a href="#risks">风险反证</a>
+    <a href="#conclusion">可操作结论</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <nav class="toc" id="toc" aria-label="目录">
+    <div class="toc-card">
+      <h2>目录</h2>
+      <ol>
+        <li><span class="no">01</span><a href="#overview">全书概览与核心论点<span class="en">结构逻辑 · 误区 · 观点关联</span></a></li>
+        <li><span class="no">02</span><a href="#skeleton">书籍知识骨架<span class="en">序文 + 7部57章折叠卡片</span></a></li>
+        <li><span class="no">03</span><a href="#chain">交易体系认知图谱<span class="en">三支柱层级 · 传导逻辑</span></a></li>
+        <li><span class="no">04</span><a href="#mapping">交易体系落地映射<span class="en">方法 × 场景 × 步骤 × 依据</span></a></li>
+        <li><span class="no">05</span><a href="#indicators">关键指标追踪清单<span class="en">先行/同步指标 · 买卖信号</span></a></li>
+        <li><span class="no">06</span><a href="#cases">案例与投资标的<span class="en">案例总账 · 标的盘分组</span></a></li>
+        <li><span class="no">07</span><a href="#risks">风险与反证<span class="en">风险矩阵 · 失效传导链</span></a></li>
+        <li><span class="no">08</span><a href="#conclusion">可操作结论<span class="en">关注位置 · 待验证问题</span></a></li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ===== 01 全书概览 ===== -->
+    <section class="sec" id="overview">
+      <div class="sec-head"><span class="sec-no">01</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-book"/></svg></span><h2>全书概览与核心论点</h2></div>
+      <p class="sec-sub">还原书籍的知识骨架：章节逻辑、核心论点与论证链条</p>
+
+      <div class="callout">
+        <span class="callout__icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-quote"/></svg></span>
+        <div class="callout__body">
+          <p class="label">核心论点</p>
+          <p><strong>人无法赢过市场，只有顺应它才能生存、获得收益。</strong>股票投资不是预测市场，而是建立一套"市况判断→产业选择→个股分析→买卖时机→资金管理"的操作系统，并像机器人一样严格执行原则。技术分析告诉你"何时买卖"，价值分析告诉你"买卖什么"，市况分析告诉你"现在该不该买卖"——三者缺一不可。<span class="pg">序文</span></p>
+        </div>
+      </div>
+
+      <p style="font-size:14px;color:var(--page-text-secondary);margin:18px 0 6px;"><strong>全书论证链条（五步递进）</strong></p>
+      <div class="arg-flow">
+        <div class="arg-step"><span class="k">STEP 1</span><p class="t">破除迷思</p><p class="d">第1部7个亏损关键 + 第2部12个市场真相 → 散户亏损根源 = 与市场对抗 + 缺乏原则</p></div>
+        <div class="arg-step"><span class="k">STEP 2</span><p class="t">三大工具</p><p class="d">第3部技术分析（10秒选股/量价/50%原则）+ 第4部价值分析（PER/PBR/财报）+ 第5部市况分析（DDM/供需/汇率利率）</p></div>
+        <div class="arg-step"><span class="k">STEP 3</span><p class="t">实战落地</p><p class="d">第6部全流程模拟：开户→选产业→选个股→定目标价→线图判断时机→持有管理→卖股</p></div>
+        <div class="arg-step"><span class="k">STEP 4</span><p class="t">进阶认知</p><p class="d">第7部11题：卖空/套利/CB·BW/第三方配股/CDS/10年危机论/产业转移/ELS陷阱/机器人/主力股/ETF</p></div>
+        <div class="arg-step"><span class="k">STEP 5</span><p class="t">终极纪律</p><p class="d">资金管理（停损/中止交易/提领获利）+ 心态控制（不锚定/不贪婪/不恐惧）= 投资成功的终极要素</p></div>
+      </div>
+
+      <p style="font-size:14px;color:var(--page-text-secondary);margin:26px 0 6px;"><strong>散户七大误区（第1部）</strong></p>
+      <div class="callout callout--danger">
+        <span class="callout__icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-alert"/></svg></span>
+        <div class="callout__body">
+          <p class="label">常见错误认知</p>
+          <p>1. <strong>与市场对抗</strong> — 试图创造机会而非等待机会；锚定偏差使每次投资无法"归零重新开始" <span class="pg">S05</span></p>
+          <p>2. <strong>和主力硬碰硬</strong> — 散户如"猪"跑到牛前面与熊战斗→被杀；市场四种动物：牛/熊=主力，羊=聪明散户，猪=鲁莽散户 <span class="pg">S06</span></p>
+          <p>3. <strong>无法掌握卖股时机</strong> — 贪婪+主观判断；分批买卖法：涨时先卖50% <span class="pg">S07</span></p>
+          <p>4. <strong>不肯认错</strong> — 卖掉赚钱股、留下亏损股（散户反向操作）；以1亿韩元为基准持股3-4项 <span class="pg">S08</span></p>
+          <p>5. <strong>光说不练</strong> — 客观分析4支股却只买跌的那支；"股票投资是和自己的心理战" <span class="pg">S09</span></p>
+          <p>6. <strong>道听涂说</strong> — 选举股暴涨后跌回原价或更低；"剩下的只有空壳公司和亏损" <span class="pg">S10</span></p>
+          <p>7. <strong>一知半解</strong> — WSJ猴子射飞镖实验；股市=概率游戏，成功要素="顺应市场" <span class="pg">S11</span></p>
+        </div>
+      </div>
+
+      <p style="font-size:14px;color:var(--page-text-secondary);margin:26px 0 6px;"><strong>核心观点关联</strong></p>
+      <ul class="rel-list">
+        <li><span class="rel-k rel-k--pre">前提</span><span>市场是低效率市场 + 非理性心理的组合 <span class="pg">S14</span></span><svg class="ic" style="color:var(--page-brand)"><use href="#i-arrowright"/></svg><span><strong>推论</strong>：散户亏损根源 = "投资原则的混乱"，不是信息不足</span></li>
+        <li><span class="rel-k rel-k--pre">前提</span><span>股价事先反映经济趋势 <span class="pg">S19/S43</span></span><svg class="ic" style="color:var(--page-brand)"><use href="#i-arrowright"/></svg><span><strong>推论</strong>：景气谷底时股市已上涨；景气繁荣时股市已达高点</span></li>
+        <li><span class="rel-k rel-k--der">延伸</span><span>技术分析三基础（K线/均线/成交量）<span class="pg">S26</span></span><svg class="ic" style="color:var(--page-brand)"><use href="#i-arrowright"/></svg><span><strong>延伸</strong>：10秒选股法 + 量价八法则 + 50%原则 → 买卖时机判断</span></li>
+        <li><span class="rel-k rel-k--der">延伸</span><span>价值分析（PER/PBR/财报）<span class="pg">S33-35</span></span><svg class="ic" style="color:var(--page-brand)"><use href="#i-arrowright"/></svg><span><strong>延伸</strong>：合理总市值 = 预估净利 × 合理本益比 → 目标股价</span></li>
+        <li><span class="rel-k rel-k--der">延伸</span><span>股息贴现模型 P=D/(R-G) <span class="pg">S39</span></span><svg class="ic" style="color:var(--page-brand)"><use href="#i-arrowright"/></svg><span><strong>推论</strong>：低利率+高成长=市场涨；高利率+低成长=市场跌（经济停滞）</span></li>
+        <li><span class="rel-k rel-k--ref">反驳</span><span>"好公司=好股票" <span class="pg">S17</span></span><svg class="ic" style="color:var(--danger)"><use href="#i-x"/></svg><span>好公司不等于好股票；跌势中好公司不会独自上涨；须同时判断市况+产业+个股</span></li>
+        <li><span class="rel-k rel-k--ref">反驳</span><span>"推荐报告=买进依据" <span class="pg">S36</span></span><svg class="ic" style="color:var(--danger)"><use href="#i-x"/></svg><span>报告用来选公司（打造投资池），不是买进依据；实际买进由市况/产业/供需判断</span></li>
+        <li><span class="rel-k rel-k--ref">反驳</span><span>"固定幅度停损（5%/3%一律卖）" <span class="pg">S53</span></span><svg class="ic" style="color:var(--danger)"><use href="#i-x"/></svg><span>停损应视个股属性+技术面+市况决定；指标股跌10%可续等，谣言小股跌1-2%就危险</span></li>
+        <li><span class="rel-k rel-k--ext">结论</span><span>资金管理和心态控制 &gt; 基本面/技术分析 <span class="pg">S50</span></span><svg class="ic" style="color:var(--page-brand)"><use href="#i-arrowright"/></svg><span><strong>终极要素</strong>：建立原则→严格执行→逐步调整；"股票投资最危险的就是失去原则"</span></li>
+      </ul>
+    </section>
+
+    <!-- ===== 02 书籍知识骨架 ===== -->
+    <section class="sec" id="skeleton">
+      <div class="sec-head"><span class="sec-no">02</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-layers"/></svg></span><h2>书籍知识骨架</h2></div>
+      <p class="sec-sub">序文 + 7部57章折叠卡片：每章一句话核心论断、关键案例与数据、章节之间的论证关系。点击卡片展开。</p>
+      <div class="btn-row">
+        <button class="btn" id="expand-all" type="button"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg>展开全部</button>
+        <button class="btn" id="collapse-all" type="button"><svg class="ic" aria-hidden="true" style="transform:rotate(180deg)"><use href="#i-chev"/></svg>收起全部</button>
+      </div>
+
+      <!-- 序文 -->
+      <div class="ch-group"><h3>序文</h3><span class="rule"></span></div>
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">序</span>
+          <div class="chapter-title"><h3>新冠暴跌与金钱游戏的市场</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>新冠暴跌：KOSPI三周2200→1439点（-35%）；2020年2月下旬起约1.5个月外资净卖出23兆韩元，散户净买入接盘（"东学蚂蚁运动"）</li>
+            <li><strong>人无法赢过市场，只有顺应它才能生存</strong>；股市是"金钱游戏的市场"，"金钱的力量"支配一切</li>
+            <li>方法论定位：价值分析+走势分析+市况分析三大工具，但"忠于基本概念，秉持单纯的投资逻辑"</li></ul>
+          </div>
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-activity"/></svg>关键数据</h4>
+            <ul><li>2008危机后QE：道指6469→9568（+357%）；KOSPI 892→2607（+192%）</li>
+            <li>作者：朴炳昌，证券公司从业25年以上</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <!-- 第1部 -->
+      <div class="ch-group"><h3>第1部 · 七个亏损关键</h3><span class="rule"></span></div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">1.1</span>
+          <div class="chapter-title"><h3>尝试与市场对抗</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>迷宫/扫帚当马比喻→思维多样性；适应性地形理论(Fitness Landscape)</li>
+            <li>最危险心态=否定与否认，警惕锚定偏差；每次投资都是"新的专案"</li>
+            <li>不要试图创造收益机会，而是等待它</li></ul>
+          </div>
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-activity"/></svg>关键案例</h4>
+            <ul><li>惠蒂埃名言："最令人感伤的话：啊，那时候应该要这么做！"→映射："啊，那时候应该要卖掉/买……"</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">1.2</span>
+          <div class="chapter-title"><h3>和主力硬碰硬</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>市场四种动物——牛/熊=主力（外资/国内法人/大户），羊/猪=散户</li>
+            <li>羊观察牛熊胜负再靠向赢家→获利；猪跑到牛前面与熊战斗→被杀</li>
+            <li>"市场不会今天就关门。永远有明天，机会终会到来。"</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">1.3</span>
+          <div class="chapter-title"><h3>无法掌握卖股的时机</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>Fred C. Kelly抓火鸡故事（箱中12只→11→8→…→0，老人空手而归）</li>
+            <li><strong>分批买卖法</strong>：上涨起贪念时先卖50%，剩50%满足贪心，即使跌回买进价也因已获利50%而不亏</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">1.4</span>
+          <div class="chapter-title"><h3>不肯认错</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>卖洋装商人比喻（红/绿/黄裙→老手10%起打折清黄裙、钱转进红裙）</li>
+            <li>散户反向操作：卖掉赚钱股、留下亏损股</li>
+            <li>专家组合纪律：<strong>以1亿韩元为基准持股3-4项</strong></li>
+            <li>判断对错极简标准：股价按预期走=对，反之=错，马上认错</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">1.5</span>
+          <div class="chapter-title"><h3>光说不练</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>专家案例：介绍4支（2涨停+1支+5%+1支-5%），他实际买的一定是-5%那支</li>
+            <li>恐惧/欲望/财务顾虑使实战偏离客观分析；"股票投资是和自己的心理战"</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">1.6</span>
+          <div class="chapter-title"><h3>道听涂说乱买股</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>反问推荐人"你在多少钱买进多少？"</li>
+            <li>选举股案例：大选前涌现，与公司价值无关，暴涨后跌回原价或更低</li>
+            <li>没分析的投资=短期投机</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">1.7</span>
+          <div class="chapter-title"><h3>一知半解，只凭运气</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>WSJ猴子射飞镖实验（10个月三组皆亏，猴子损失少6倍）</li>
+            <li>Larry Hite："相信未来可预测则失败率更高，抛弃贪念和恐惧是投资定律"</li>
+            <li>Jim Slater祖鲁法则：聚焦+重押小型股；股市=概率游戏，成功要素="顺应市场"</li>
+            <li>机器人vs专家：机器人靠走势反复买卖微幅收益胜出（3个月短赛）</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <!-- 第2部 -->
+      <div class="ch-group"><h3>第2部 · 十二个市场真相</h3><span class="rule"></span></div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">2.1</span>
+          <div class="chapter-title"><h3>用长远角度看股票投资</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>CMA账户引入；基金问题：经理季度评价→无法长期投资</li>
+            <li>500-1000亿韩元新基金案例：资金越多报酬率越低→恶性循环</li>
+            <li>直接投资现实残酷：价值+走势+时机层层复杂</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">2.2</span>
+          <div class="chapter-title"><h3>股市是低效率市场与非理性心理</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>2017《韩国经济日报》1000人问卷：股票="赌局/空壳"43.1%、"运气"24.8%</li>
+            <li>散户亏损根源="投资原则的混乱"</li>
+            <li>市场食物链：外资赚国内投资人的钱、法人赚散户的钱、大散户赚韭菜散户的钱</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">2.3</span>
+          <div class="chapter-title"><h3>利空是短期还是长期</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>核心法则：分析结果是"杂音(Noise)"→买进时机；长期利空→卖出</strong></li>
+            <li>大部分利空都是短期杂音；在聪明投资人买进的时机卖出是散户通病</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">2.4</span>
+          <div class="chapter-title"><h3>神秘资讯与股价涨跌</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>关键不是情报真伪，而是"情报流通管道内的人是否有拉抬股价的力量"</li>
+            <li>法人像约好一样同时集中买卖</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">2.5</span>
+          <div class="chapter-title"><h3>公司好和股票好是两回事</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>"好股票指的不是好公司，而是能让人获利的股票"</li>
+            <li>跌势中好公司不会独自上涨；有经济周期/产业周期/市场涨跌周期</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">2.6</span>
+          <div class="chapter-title"><h3>业绩超预期不等于股价上扬</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>"法人先买业绩好的公司→目标价上调报告吸引散户→发布财报良好当天卖出"</li>
+            <li>"巨额冲销(big bath)"=财报反映未来所有最大损失→下季不再意外亏损+基期效应</li>
+            <li>年度业绩已全数反映于股价时，季度持续超预期股价仍跌→须"从上到下"(top-down)分析</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">2.7</span>
+          <div class="chapter-title"><h3>景气跌到谷底，市场却上升的秘密</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>美国1950年后负增长年份统计：负增长当年和后一年股市上扬</li>
+            <li>1998外汇危机韩国经济-6.9%，股市一年多从300点涨到1000点</li>
+            <li>2020新冠：KOSPI一个月2200→1439，两个月重回2200+；原因=股市事先预期经济+基期效应+无差别流动性供给</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">2.8</span>
+          <div class="chapter-title"><h3>在外资吃香的股市中赚取报酬</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>买进顺序：外资→国内法人→散户</strong>；法人买进让外资获利、散户买进让法人获利→散户套在高点</li>
+            <li>FTSE全球资金约4400兆韩元（韩国占2%）、MSCI约4000兆韩元（韩国占14%）</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">2.9</span>
+          <div class="chapter-title"><h3>愈是亏损的企业，股价愈容易暴涨</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>短期飙涨股共通点=资本额小/流通股数少/价格低/大股东或外资法人低持有</li>
+            <li>转机股：净利从10-20亿暴增到100亿的公司市值 > 每年固定净利100亿的公司</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">2.10</span>
+          <div class="chapter-title"><h3>群众盲目追高杀低的陷阱</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>2016英国脱欧：KOSPI盘中-4.73%、KOSDAQ盘中-7.11%；韩国市值缩水47兆韩元</li>
+            <li>格言"主妇背着哭泣小孩出现在券商=高点"</li>
+            <li>主力策略=驱使群众抛售→低价买→诱群众追买→高价卖</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">2.11</span>
+          <div class="chapter-title"><h3>大型股一定比中小型股安全？</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>产业周期联动的大型股应在一个周期内切出投资；成长利基中小型股可长期投资；社会议题概念股只能短线</strong></li>
+            <li>不在自己周期的大型股股价可能腰斩</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">2.12</span>
+          <div class="chapter-title"><h3>投资要成功，需要自信和知识</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>"有了年纪就缺乏动能→不知不觉变成非自愿的价值投资人"</li>
+            <li>散户无法用衍生品避险→<strong>设定停损并确实遵守=最好的风险管理</strong></li>
+            <li>平时预备投资"库存"（先分析市场/产业/领先个股）</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <!-- 第3部 -->
+      <div class="ch-group"><h3>第3部 · 技术分析</h3><span class="rule"></span></div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">3.1</span>
+          <div class="chapter-title"><h3>用十秒从线图走势中找出个股</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>线图三基础=K线+移动平均线(5日/20日/60日)+成交量；辅助指标都以三基础为底</li>
+            <li><strong>10秒三判据</strong>：①K线颜色大小（长红K+巨量=可靠）②成交量（高量+长红K=买方强）③均线角度方向（右上+多头排列=上升趋势）</li>
+            <li>均线"发散"：间隔向上扩大=短线飙涨→卖出讯号；向下扩大=短线暴跌→买进讯号</li>
+            <li><strong>K线暂时落到5日均线以下="压力下跌"=最佳买入时机</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">3.2</span>
+          <div class="chapter-title"><h3>成交量是判断买卖时机的核心</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>买进时机=主力开始买进的时间点；卖出时机=主力开始卖出的时间点=成交量大幅增加的那天</strong></li>
+            <li>"你可以隐瞒价格，但无法隐瞒成交量"</li>
+            <li>量价八法则：量增+长红K=买进量；量增+长黑K=卖出量；大涨高价区激增量=转跌讯号；大跌低价圈激增量=转涨讯号</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">3.3</span>
+          <div class="chapter-title"><h3>牛熊战争与50%原则</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>不是"外资大量买进"而是"外资抬价并大量买进"才让股价上升</li>
+            <li><strong>50%原则</strong>：10000起涨+10%至11000，买方平均价约10500；长红K后的黑K落在升幅30-50%=修正下跌（后市再涨）；跌破50%=趋势下跌</li>
+            <li>前日长黑K+今日量增红K收复跌幅50%以上=更强买方进场</li>
+            <li>KOSPI实例：2020春50%线2100急跌至1439，反弹至50%线1900横盘数周后突破→走势转强</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">3.4</span>
+          <div class="chapter-title"><h3>抓住买卖时机的六大要素</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>时间/价格/成交量/走势/停顿/速度</strong></li>
+            <li>时间：当冲集中开盘后+收盘前一小时；一般投资人=年初年末/营收季/消息面波动期</li>
+            <li>价格：目标价至少=预期亏损的3倍以上（获利补偿倍率3倍）；避开整数价位下单</li>
+            <li>停顿：瞬间底盘Stop+二重多重底盘Pause；在多重底盘形成时分批买进</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">3.5</span>
+          <div class="chapter-title"><h3>开盘后和收盘前的关键一小时</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>上午10点前=决定"今天涨跌"；下午2:30-3:30=决定"明天涨跌"</strong></li>
+            <li>短线交易者近70%交易在上午10点前、30%在下午2点后</li>
+            <li><strong>"个股跌至第一次买进价格不该再加码，按照预测方向上涨时才能再买进"</strong></li>
+            <li>牛市早盘下跌=买进时机；空头市场下午判断买进为佳</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">3.6</span>
+          <div class="chapter-title"><h3>法人教你用辅助指标</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>技术指标几乎都是滞后指标；线图只是"事后的"分析</li>
+            <li>实操筛选漏斗：技术面搜寻+基本面搜寻+外资法人连续净买入→选定约10支关注→用MACD/RSI/KD/布林通道/OBV标示讯号</li>
+            <li><strong>"先决定想要投资的股票，再利用辅助指标的讯号来判断"</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <!-- 第4部 -->
+      <div class="ch-group"><h3>第4部 · 价值分析</h3><span class="rule"></span></div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">4.1</span>
+          <div class="chapter-title"><h3>KINX案例——法人交易系统看个股</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>KINX=KOSDAQ网络公司（CDN/云端）；2020-04-09：总市值2904亿韩元/外资持有21.79%</li>
+            <li>业绩：营业利益率19.36%→27.09%（2017-2020预期）；净收入留存率2361%→3384%</li>
+            <li><strong>股价2020年3月中35000→4月初64000（+50%+），35000时本益比5.9倍→飙涨后约15倍</strong></li>
+            <li>威廉·欧尼尔：选年度和季度净利持续成长3-5年的公司；巴菲特："投资ROE连续三年以上超过15%的公司"</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">4.2</span>
+          <div class="chapter-title"><h3>本益比和股价净值比的使用诀窍</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>PER=10倍=10年回收；韩国通常10倍、美中20倍+</li>
+            <li><strong>"高本益比买进，低本益比卖出"</strong>（收益100亿市值5000亿=50倍，一年后收益1000亿→变5倍）</li>
+            <li>PBR适用时机=经济不景气/信用危机/破产风险</li>
+            <li><strong>判断要相对比较而非绝对数字</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">4.3</span>
+          <div class="chapter-title"><h3>依据景气循环决定价值股类型</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>安全边际=内在价值-市场价值</li>
+            <li><strong>景气不好（低成长低利率）→成长价值股/内需股；景气好（经济成长+升息）→资产价值股/景气循环股/出口股</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">4.4</span>
+          <div class="chapter-title"><h3>企业分析报告的正确运用方式</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>三个问题：①获悉时机（法人先拿到→股价已涨才公开）②市场局势（基本面vs情绪）③材料事前反映</li>
+            <li><strong>报告用来选公司（打造投资池），不是当作买进依据；实际买进由市况、产业现况、供需判断</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">4.5</span>
+          <div class="chapter-title"><h3>从财报找出获利端倪</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>财报季4/7/10/1月扩大周期性变动；QOQ/YOY</li>
+            <li>2014现代尾浦造船：预估600亿赤字→实际6060亿，股价19万→7万</li>
+            <li><strong>应对顺序：分析市况→产业业绩→企业稳定性→投资自己熟悉的产业和企业</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <!-- 第5部 -->
+      <div class="ch-group"><h3>第5部 · 市况分析</h3><span class="rule"></span></div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">5.1</span>
+          <div class="chapter-title"><h3>运用股息贴现模型</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>P＝D／（R－G）</strong>：利率愈低成长率愈高市场涨</li>
+            <li>浦上邦雄四局面：金融行情/业绩行情（涨）vs 反金融/反业绩行情（跌），分辨讯号＝利率</li>
+            <li>金髮女孩经济（低利率+合理成长）</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">5.2</span>
+          <div class="chapter-title"><h3>观察市场供需结构</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>外资细分：全球指数基金（影响市场方向）、避险基金/主动型（影响个股）</li>
+            <li>2020年1-5月外资净卖23兆韩元多为指数基金</li>
+            <li><strong>判断市况=确认趋势的主导者是谁（谁是牛谁是熊谁赢）</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">5.3</span>
+          <div class="chapter-title"><h3>确认汇率波动</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>韩元升值=经济好转良性循环；外资汇差计算：汇率1100→美元计价-9.09%</li>
+            <li><strong>危机时汇率大涨=外资认为利空严重急撤；汇率稳定=利空仅止于短期噪音</strong>（判断利空性质的首要确认指标）</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">5.4</span>
+          <div class="chapter-title"><h3>检视利率变化</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>殖利率曲线（10年-2年/3月利差）：变陡峭=肯定未来增长市场涨；变平缓或转负=未来成长不佳</li>
+            <li>低利率→成长股涨（FAANG/MAGA）；景气好转升息→价值股涨（炼油化工造船钢铁）</li>
+            <li><strong>本益比倒数vs利率：PER 40→预期报酬2.5%，利率&lt;2%才有投资价值</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">5.5</span>
+          <div class="chapter-title"><h3>分析指数与个股线图</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>买进三法则（判断低点）</strong>：跌破20日均线急跌→量暴增→量减→量再增+红K/十字→分批买进</li>
+            <li><strong>卖出一法则（判断高点）</strong>：上涨初期量增→无量上涨→量突然激增+十字/黑K→卖部分</li>
+            <li>李佛摩原则：<strong>市场的顶点=市场高点与指标股高点交叉</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">5.6</span>
+          <div class="chapter-title"><h3>观察行情与市场类型</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>五种行情：趋势上涨/趋势下跌/上涨后箱型/下跌后箱型/主题行情</li>
+            <li>趋势上涨：龙头股集中投资持有到趋势结束（2005-2007化工炼油造船钢铁代表股涨超10倍）</li>
+            <li>流动性行情：低成长低利率下资金集中成长股</li>
+            <li>主题行情：成长期待/政策期待/社会焦点而非公司价值（2018南北经济合作股涨5倍+）</li>
+            <li><strong>先确认行情类型，再采取对应的持有期间/投资金额/板块/买卖时机</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <!-- 第6部 -->
+      <div class="ch-group"><h3>第6部 · 模拟投资实战</h3><span class="rule"></span></div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">6.1</span>
+          <div class="chapter-title"><h3>为投资实战作准备</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>存钱买股坐等收益="祈祷交易"；投资如创业</li>
+            <li><strong>实战五步：市场条件→产业（成长周期）→个股→投资方法→买卖时机原则</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">6.2</span>
+          <div class="chapter-title"><h3>Genoray全流程实战案例</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>资金配置：<strong>现金20%+疫情强势产业50%箱型循环交易+工业4.0核心30%中长期</strong></li>
+            <li>价值分析：<strong>合理总市值=预估净利×合理本益比</strong>（Genoray净利150亿×10~15倍=1500~2250亿 vs 现市值1703亿→上涨空间5.8~32%）</li>
+            <li>三图综合：日线（5日均线上端买进）、周线（接近前高双重顶忧虑→保留观察）、月线（两年冷落后成交量增=市场恢复关注）</li>
+            <li><strong>不锚定买进价格</strong>（8000买12000卖后11000也该再买回；过去交易与这次交易是两次不相关事件）</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">6.3</span>
+          <div class="chapter-title"><h3>每个月存一点成长股</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>祖鲁法则=可承担资金内长期投资熟知企业</li>
+            <li><strong>每月薪资10-20%储蓄式投资→10年资产2-3亿（10倍非妄想）</strong></li>
+            <li>股价下跌时买进（除非企业成长出问题）；市场崩盘=长期投资者好消息</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">6.4</span>
+          <div class="chapter-title"><h3>想进场捡便宜，你要做好三件事</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>三件事：①时刻保有一定现金 ②投资池（各板块龙头股组成）③恐慌清单（具备经济护城河的企业）</strong></li>
+            <li>Pat Dorsey经济护城河：品牌/专利/法定许可+成本优势+网络效应</li>
+            <li>暴跌后最早反弹的是先前最强产业</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">6.5</span>
+          <div class="chapter-title"><h3>最危险的就是"失去原则"</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>资金管理和心态控制比基本面/技术分析更重要</li>
+            <li><strong>成为机器人：价值变化就承认事实，讯号出现就执行</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">6.6</span>
+          <div class="chapter-title"><h3>实战必备的资金管理技巧</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>停损两法：定率法/定额法；短线2-3%以内</li>
+            <li><strong>中止交易：亏损50%需100%收益回本、亏损30%需43%</strong></li>
+            <li><strong>提领赚到的钱</strong>（存入储蓄/债券/REITs/节税型产品）</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">6.7</span>
+          <div class="chapter-title"><h3>根据市况决定股票和现金的比例</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>强势市场股票80%/现金20%；下跌市场股票20%/现金80%</strong></li>
+            <li>杠杆投资：2-2.5倍，暴跌30-40%保证金不足被断头；非特殊情况千万别杠杆</li>
+            <li>侦察兵策略：初期只投入部分本金，按预期走才追加</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">6.8</span>
+          <div class="chapter-title"><h3>实战最困难的一步：卖股</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>分散卖出：指标股先卖10%观察、非指标股先卖30%</strong></li>
+            <li><strong>停损不可用固定幅度：视个股属性+技术面+市况决定</strong></li>
+            <li>停损最重要的不是方法而是确实遵循；卖出后又涨=承认错误重新买进</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <!-- 第7部 -->
+      <div class="ch-group"><h3>第7部 · 十一道进阶题</h3><span class="rule"></span></div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">7.1</span>
+          <div class="chapter-title"><h3>卖空和信用交易</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>借贷余额占整体股数10-20%；散戶不能自由融券=外资法人特惠</li>
+            <li><strong>确认未偿还余额、卖空者和数量；被集中卖空的股票至少检查一次原因</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">7.2</span>
+          <div class="chapter-title"><h3>套利交易</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>套利程式交易超过每日市场交易金额10%时影响市场动向</li>
+            <li><strong>"尾巴摇狗"现象（期货摆布现货）；法人无原因买卖某股=套利清仓，非价值判断</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">7.3</span>
+          <div class="chapter-title"><h3>可转换公司债与附认股权公司债</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>CB=债券+转股权；BW=债券+新股优先认购权</li>
+            <li><strong>频繁发行CB/BW→流通股数过度增加→原投资人股份稀释→股价下跌原因</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">7.4</span>
+          <div class="chapter-title"><h3>现金增资（第三方配股）</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>资金用途决定股价：改善财务结构=大幅下跌；新工厂/新技术=短期跌后重新上涨</strong></li>
+            <li>多年期主力操作固定模式：草创期投资→拉抬→无偿配股→释放消息→高点获利</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">7.5</span>
+          <div class="chapter-title"><h3>CDS与衍生性金融商品</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>危机时CDS大幅上涨=估算危机水准标准：急涨时卖掉危险资产，CDS下跌稳定后再投资</strong></li>
+            <li>不了解结构切勿投资</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">7.6</span>
+          <div class="chapter-title"><h3>十年周期危机论</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>资本主义=泡沫形成→破灭→萧条→极端措施→再膨胀循环</li>
+            <li>朱格拉10年周期（1862法国医生提出）；<strong>QE效果已尽→财政政策；危机逼近讯号可观察，勿被每日市场和媒体蒙蔽</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">7.7</span>
+          <div class="chapter-title"><h3>主力产业的国家转移</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>产业霸权转移：美国→日本→韩国→中国</li>
+            <li>第四次产业革命三关键字=数位/物理学/生技</li>
+            <li><strong>不执着过去产业类别，投资新兴产业成长型公司</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">7.8</span>
+          <div class="chapter-title"><h3>"中风险、中收益"商品的陷阱</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>2003-2015到期偿还ELS平均实现损益率-37.28%</strong></li>
+            <li>"中风险中收益"实为"中间区段内提供中等收益"——超出预期区间（危机）时损失巨大</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">7.9</span>
+          <div class="chapter-title"><h3>机器人投顾和演算法买卖</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>2016机器人vs人类报酬率大战：机器人完胜——但仅3个月"交易游戏"非投资</li>
+            <li><strong>分工结论：人类负责投资（未来成长性判断），机器人负责交易和资产分配</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">7.10</span>
+          <div class="chapter-title"><h3>从成交量看主力股端倪</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li><strong>主力囤入流通股数40%以上后抬价；识别唯一可靠痕迹=成交量</strong></li>
+            <li>模式：量异常暴增（平均量5-10倍）+红K/十字→量减→长时间孤立→量再度激增→即将暴涨</li>
+            <li>"价格暴涨的股票，绝对会出现惊人的成交量"</li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" aria-expanded="false">
+          <span class="chapter-no">7.11</span>
+          <div class="chapter-title"><h3>投资人必懂的ETF</h3></div>
+          <svg class="ic chapter-chev" aria-hidden="true"><use href="#i-chev"/></svg>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg>核心论断</h4>
+            <ul><li>柏格："对缺乏个股投资眼光的散户而言是最好的商品"</li>
+            <li>优点：双向投资/领域广/管理费低(0.3%)/交易自由</li>
+            <li><strong>杠杆/反向型ETF长期持有乖离（展期成本）——比分段短期交易更利</strong></li></ul>
+          </div>
+        </div></div></div>
+      </div>
+
+    </section>
+
+    <!-- ===== 03 交易体系认知图谱 ===== -->
+    <section class="sec" id="chain">
+      <div class="sec-head"><span class="sec-no">03</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-map"/></svg></span><h2>交易体系认知图谱</h2></div>
+      <p class="sec-sub">作者构建的"三大分析工具 + 资金管理 + 心态控制"五层交易操作系统 <span class="pg">序文-S50</span></p>
+      <div class="chain">
+
+        <div class="layer-node">
+          <div class="layer-head">
+            <span class="layer-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-eye"/></svg></span>
+            <div class="layer-title"><h3>第一层：市况分析（判断现在该不该买卖）</h3><p class="sub">宏观环境 → 决定仓位与方向</p></div>
+            <span class="cycle-tag">第5部 S39-44</span>
+          </div>
+          <div class="layer-body"><dl>
+            <div><dt>核心工具</dt><dd>股息贴现模型 P=D/(R-G)；浦上邦雄四局面理论；殖利率曲线</dd></div>
+            <div><dt>关键变量</dt><dd>利率（FOMC/ECB）、汇率波动、市场供需结构（外资/法人/散户主导者）</dd></div>
+            <div><dt>输出</dt><dd>行情类型判断（趋势上涨/下跌/箱型/流动性/主题）→ 仓位比例（80:20 或 20:80）</dd></div>
+          </dl></div>
+        </div>
+
+        <div class="flow-connector"><svg class="ic arr" aria-hidden="true"><use href="#i-arrowdown"/></svg><p class="lbl">市况判断后 → 选择当前周期内的强势产业 <span class="pg">S44/S46</span></p></div>
+
+        <div class="layer-node">
+          <div class="layer-head">
+            <span class="layer-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-layers"/></svg></span>
+            <div class="layer-title"><h3>第二层：价值分析（决定买卖什么）</h3><p class="sub">企业基本面 → 筛选投资池</p></div>
+            <span class="cycle-tag">第4部 S33-37</span>
+          </div>
+          <div class="layer-body"><dl>
+            <div><dt>核心工具</dt><dd>PER（本益比）、PBR（股价净值比）、财报分析（营业利益率/留存率/负债比/ROE）</dd></div>
+            <div><dt>核心公式</dt><dd>合理总市值 = 预估净利 × 合理本益比 → 目标股价；景气差→成长价值股；景气好→资产价值股</dd></div>
+            <div><dt>输出</dt><dd>各板块龙头股组成的"投资池"（约10支关注标的）</dd></div>
+          </dl></div>
+        </div>
+
+        <div class="flow-connector"><svg class="ic arr" aria-hidden="true"><use href="#i-arrowdown"/></svg><p class="lbl">投资池确定后 → 用技术分析判断精确买卖时机 <span class="pg">S31</span></p></div>
+
+        <div class="layer-node">
+          <div class="layer-head">
+            <span class="layer-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-activity"/></svg></span>
+            <div class="layer-title"><h3>第三层：技术分析（决定何时买卖）</h3><p class="sub">线图与量价 → 执行信号</p></div>
+            <span class="cycle-tag">第3部 S26-31</span>
+          </div>
+          <div class="layer-body"><dl>
+            <div><dt>三基础</dt><dd>K线（牛熊战争结果）+ 移动平均线（5/20/60日）+ 成交量（"无法隐瞒"的核心）</dd></div>
+            <div><dt>核心法则</dt><dd>10秒选股法；量价八法则；50%原则；买进三法则/卖出一法则；六大要素（时间/价格/量/走势/停顿/速度）</dd></div>
+            <div><dt>输出</dt><dd>买进/卖出信号 + 停损价位 + 目标价（获利补偿倍率3倍）</dd></div>
+          </dl></div>
+        </div>
+
+        <div class="flow-connector"><svg class="ic arr" aria-hidden="true"><use href="#i-arrowdown"/></svg><p class="lbl">信号触发后 → 资金管理与心态控制决定最终成败 <span class="pg">S50-S53</span></p></div>
+
+        <div class="layer-node">
+          <div class="layer-head">
+            <span class="layer-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-dollar"/></svg></span>
+            <div class="layer-title"><h3>第四层：资金管理（控制风险敞口）</h3><p class="sub">仓位 + 停损 + 提领</p></div>
+            <span class="cycle-tag">第6部 S51-53</span>
+          </div>
+          <div class="layer-body"><dl>
+            <div><dt>仓位控制</dt><dd>强势市场80:20；下跌市场20:80；侦察兵策略（先投部分本金）；绝不杠杆</dd></div>
+            <div><dt>停损纪律</dt><dd>短线2-3%；长线视个股属性+技术面+市况；亏损50%需100%回本→中止交易</dd></div>
+            <div><dt>获利管理</dt><dd>分批卖出（指标股10%/非指标股30%）；提领赚到的钱存入储蓄/债券/REITs</dd></div>
+          </dl></div>
+        </div>
+
+        <div class="flow-connector"><svg class="ic arr" aria-hidden="true"><use href="#i-arrowdown"/></svg><p class="lbl">所有纪律的执行基础 → 心态控制 <span class="pg">S50</span></p></div>
+
+        <div class="layer-node">
+          <div class="layer-head">
+            <span class="layer-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-brain"/></svg></span>
+            <div class="layer-title"><h3>第五层：心态控制（终极要素）</h3><p class="sub">战胜贪婪与恐惧</p></div>
+            <span class="cycle-tag">第1部+第6部 S50</span>
+          </div>
+          <div class="layer-body"><dl>
+            <div><dt>核心原则</dt><dd>"资金管理和心态控制比基本面/技术分析更重要"；成为机器人——价值变化就承认事实，讯号出现就执行</dd></div>
+            <div><dt>七种心理陷阱</dt><dd>与市场对抗/和主力硬碰硬/无法卖股/不肯认错/光说不练/道听涂说/一知半解</dd></div>
+            <div><dt>解药</dt><dd>建立原则→实战运用→逐步调整；"股票投资最危险的就是失去原则"</dd></div>
+          </dl></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== 04 落地映射 ===== -->
+    <section class="sec" id="mapping">
+      <div class="sec-head"><span class="sec-no">04</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-scale"/></svg></span><h2>交易体系落地映射</h2></div>
+      <p class="sec-sub">将书中方法论映射为可执行的交易步骤：方法 × 适用场景 × 落地步骤 × 书中依据</p>
+
+      <div class="callout">
+        <span class="callout__icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-check"/></svg></span>
+        <div class="callout__body">
+          <p class="label">铁律</p>
+          <p><strong>先判断市况→再选产业→再选个股→严守纪律。</strong>三大分析工具缺一不可：技术分析告诉你"何时买卖"，价值分析告诉你"买卖什么"，市况分析告诉你"现在该不该买卖"。<span class="pg">序文</span></p>
+        </div>
+      </div>
+
+      <div class="tbl-title"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg>交易操作系统落地映射表</div>
+      <p class="tbl-note">按交易流程排列：从宏观判断到微观执行，每一步对应书中的具体方法</p>
+      <div class="tbl-wrap">
+        <table class="tbl tbl--stack">
+          <thead><tr><th>环节</th><th>方法</th><th>适用场景</th><th>落地步骤</th><th>书中依据</th></tr></thead>
+          <tbody>
+            <tr><td class="pos" data-label="环节">市况判断</td><td data-label="方法">股息贴现模型 P=D/(R-G)</td><td data-label="场景">判断当前市场处于何种行情（趋势上涨/下跌/箱型/流动性/主题）</td><td data-label="步骤">①观察利率方向（FOMC/ECB/央行决议）②确认汇率波动方向 ③判断外资/法人/散户谁是主导者 ④确定行情类型→决定仓位比例</td><td data-label="依据"><span class="pg">S39-S44</span></td></tr>
+            <tr><td class="pos" data-label="环节">仓位配置</td><td data-label="方法">股票/现金比例管理</td><td data-label="场景">根据市况调整风险敞口</td><td data-label="步骤">强势市场→股票80%/现金20%；下跌市场→股票20%/现金80%；初期用"侦察兵"部分投入，按预期追加</td><td data-label="依据"><span class="pg">S52</span></td></tr>
+            <tr><td class="pos" data-label="环节">产业选择</td><td data-label="方法">景气循环+产业周期</td><td data-label="场景">确定当前周期内的强势板块</td><td data-label="步骤">景气差→成长价值股/内需股/工业4.0；景气好→资产价值股/景气循环股/出口股；选当下最强板块的龙头股</td><td data-label="依据"><span class="pg">S35/S44/S61</span></td></tr>
+            <tr><td class="pos" data-label="环节">个股筛选</td><td data-label="方法">价值分析漏斗</td><td data-label="场景">从强势板块中筛选投资池</td><td data-label="步骤">①营业利益率持续上升 ②留存率充足+负债比&lt;100% ③ROE连续3年&gt;15% ④多家法人共同持有 ⑤大股东稳定 ⑥合理总市值=预估净利×合理PER</td><td data-label="依据"><span class="pg">S33/S34/S47</span></td></tr>
+            <tr><td class="pos" data-label="环节">买进时机</td><td data-label="方法">技术分析信号</td><td data-label="场景">确定精确买入时点</td><td data-label="步骤">①10秒三判据（K线/量/均线）②5日均线"压力下跌"=最佳买入 ③量增+长红K=买方强 ④多头排列+发散向上=上升趋势 ⑤分批买入（侦察兵→追加）</td><td data-label="依据"><span class="pg">S26-S29</span></td></tr>
+            <tr><td class="pos" data-label="环节">卖出时机</td><td data-label="方法">分批卖出+分散卖出</td><td data-label="场景">获利了结或趋势反转</td><td data-label="步骤">①指标股先卖10%观察，非指标股先卖30% ②量突然激增+十字/黑K→卖部分 ③上涨趋势放缓卖股，下跌趋势加快卖股 ④HTS交易卖出系统自动上修</td><td data-label="依据"><span class="pg">S53/S31</span></td></tr>
+            <tr><td class="pos" data-label="环节">停损执行</td><td data-label="方法">动态停损</td><td data-label="场景">判断错误时的风险控制</td><td data-label="步骤">①短线2-3%以内 ②长线视个股属性+技术面+市况（非固定幅度）③跌破日线/周线支撑价即卖 ④谣言小股跌破买进价立刻出脱 ⑤指标股因价值买进跌10%可续等</td><td data-label="依据"><span class="pg">S51/S53</span></td></tr>
+            <tr><td class="pos" data-label="环节">危机应对</td><td data-label="方法">恐慌清单+行家投资</td><td data-label="场景">市场暴跌时的择优挑选</td><td data-label="步骤">①确认汇率稳定→利空仅止于短期噪音 ②CDS急涨→先卖危险资产 ③用"恐慌清单"（经济护城河企业）在暴跌时买入 ④暴跌后最早反弹的是先前最强产业</td><td data-label="依据"><span class="pg">S49/S41/S59</span></td></tr>
+            <tr><td class="pos" data-label="环节">长期积累</td><td data-label="方法">每月储蓄式投资成长股</td><td data-label="场景">散户长期财富积累</td><td data-label="步骤">①每月薪资10-20%投入 ②选自己熟悉的成长产业中有护城河的小型企业 ③股价下跌时加买（除非企业成长出问题）④与成长无关的暴涨卖出 ⑤提领获利存入安全资产</td><td data-label="依据"><span class="pg">S48/S51</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ===== 05 关键指标追踪清单 ===== -->
+    <section class="sec" id="indicators">
+      <div class="sec-head"><span class="sec-no">05</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-activity"/></svg></span><h2>关键指标追踪清单</h2></div>
+      <p class="sec-sub">基于书中逻辑提炼的可定期跟踪的先行/同步指标，含买入/卖出触发条件</p>
+
+      <div class="tbl-title">五大核心追踪指标</div>
+      <div class="tbl-wrap">
+        <table class="tbl tbl--stack">
+          <thead><tr><th>指标</th><th>类型</th><th>数据来源</th><th>买入触发</th><th>卖出触发</th><th>书中依据</th></tr></thead>
+          <tbody>
+            <tr><td class="pos" data-label="指标">央行利率决议（FOMC/ECB/韩国金融货币委员会）</td><td data-label="类型">先行</td><td data-label="来源">央行官网</td><td data-label="买入">降息/维持低利率→成长股买入时机</td><td data-label="卖出">连续升息→价值股涨/成长股承压</td><td data-label="依据"><span class="pg">S39/S42</span></td></tr>
+            <tr><td class="pos" data-label="指标">汇率波动（美元/本币）</td><td data-label="类型">先行</td><td data-label="来源">外汇市场</td><td data-label="买入">汇率稳定→利空为短期噪音；韩元升值→经济好转</td><td data-label="卖出">汇率急涨→外资急撤→系统性风险</td><td data-label="依据"><span class="pg">S41</span></td></tr>
+            <tr><td class="pos" data-label="指标">外资/法人/散户净买卖方向</td><td data-label="类型">同步</td><td data-label="来源">交易所每日数据</td><td data-label="买入">外资连续净买入+抬价→跟随；散户大量买入→警惕高点</td><td data-label="卖出">外资连续净卖出→等外资回档再反弹</td><td data-label="依据"><span class="pg">S20/S40</span></td></tr>
+            <tr><td class="pos" data-label="指标">成交量异常（个股/指数）</td><td data-label="类型">同步</td><td data-label="来源">HTS线图</td><td data-label="买入">量增+长红K；大跌低价圈激增量；量暴增后孤立→再度激增</td><td data-label="卖出">大涨高价区激增量+十字/黑K；量增+长黑K</td><td data-label="依据"><span class="pg">S27/S64</span></td></tr>
+            <tr><td class="pos" data-label="指标">CDS权利金（国家信用违约）</td><td data-label="类型">先行</td><td data-label="来源">金融市场</td><td data-label="买入">CDS下跌至稳定→重新投资危险资产</td><td data-label="卖出">CDS急涨→卖掉股票等危险资产</td><td data-label="依据"><span class="pg">S59</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:14px;color:var(--page-text-secondary);margin:26px 0 6px;"><strong>买卖信号框架</strong></p>
+      <div class="signal-grid">
+        <div class="signal-card">
+          <h4><svg class="ic" style="color:var(--success)" aria-hidden="true"><use href="#i-arrowdown"/></svg>买入信号（书中提炼）</h4>
+          <ul>
+            <li><strong>市况面</strong>：降息+流动性充裕+汇率稳定 <span class="pg">S39/S41</span></li>
+            <li><strong>供需面</strong>：外资/法人连续净买入+抬价 <span class="pg">S20</span></li>
+            <li><strong>技术面</strong>：K线落到5日均线以下（压力下跌）；买进三法则（急跌→量增→量减→量再增+红K）<span class="pg">S26/S43</span></li>
+            <li><strong>价值面</strong>：PER低于同业/历史均值；PBR&lt;1且财务稳定 <span class="pg">S34</span></li>
+            <li><strong>危机面</strong>：市场暴跌但企业成长未变→行家投资时机 <span class="pg">S49</span></li>
+          </ul>
+        </div>
+        <div class="signal-card">
+          <h4><svg class="ic" style="color:var(--danger)" aria-hidden="true"><use href="#i-arrowdown"/></svg>卖出信号（书中提炼）</h4>
+          <ul>
+            <li><strong>市况面</strong>：连续升息+汇率急涨+CDS飙升 <span class="pg">S42/S41/S59</span></li>
+            <li><strong>供需面</strong>：散户大量涌入+法人开始出货 <span class="pg">S20</span></li>
+            <li><strong>技术面</strong>：大涨高价区激增量+十字/黑K；量增+长黑K；上涨趋势放缓 <span class="pg">S27/S64/S53</span></li>
+            <li><strong>价值面</strong>：年度业绩已全数反映于股价；PER远超同业/历史均值 <span class="pg">S18/S34</span></li>
+            <li><strong>危机面</strong>：市场顶点=高点与指标股高点交叉；主力出货完毕 <span class="pg">S43/S20</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 06 案例与投资标的 ===== -->
+    <section class="sec" id="cases">
+      <div class="sec-head"><span class="sec-no">06</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-briefcase"/></svg></span><h2>案例与投资标的</h2></div>
+      <p class="sec-sub">全书案例总账 + 书中提及的全部投资标的（按资产类型分组，标注叙事语境）</p>
+
+      <p class="case-note">全书共收录 <strong>50 个案例</strong>（企业案例 14 个、事件案例 13 个、寓言/格言 9 个、操作示范 8 个、实验/调查 3 个、规律/理论 3 个），覆盖序文与全部 7 部；提及投资标的 <strong>40 项</strong>，按 6 类资产分组。反面警示与正面案例分列，防止误读为推荐清单。</p>
+
+      <div class="tbl-title">案例总账（按书内部序）</div>
+      <div class="tbl-wrap">
+        <table class="tbl tbl--stack">
+          <thead><tr><th>案例</th><th>类型</th><th>背景与核心数据</th><th>服务的论点</th><th>依据</th></tr></thead>
+          <tbody>
+            <tr><td class="pos" data-label="案例">序文｜2020新冠暴跌与散户接盘</td><td data-label="类型">事件</td><td data-label="背景">KOSPI三周内2200→1439点（-35%）；外资1.5个月净卖23兆韩元，散户净买入接盘（"东学蚂蚁运动"）</td><td data-label="论点">股市是"金钱游戏的市场"；暴跌后必有反弹与流动性救援</td><td data-label="依据"><span class="pg">S03</span></td></tr>
+            <tr><td class="pos" data-label="案例">序文｜2008后QE长牛</td><td data-label="类型">事件</td><td data-label="背景">道指6469→9568（+357%）；KOSPI 892→2607（+192%）</td><td data-label="论点">危机后零利率+QE注入流动性，市场先于经济反弹</td><td data-label="依据"><span class="pg">S03</span></td></tr>
+            <tr><td class="pos" data-label="案例">P1｜老鼠迷宫与扫帚当马</td><td data-label="类型">寓言</td><td data-label="背景">碰壁的老鼠换路走；小孩把扫帚当马骑</td><td data-label="论点">思维多样性：勿用既定观念判断市场</td><td data-label="依据"><span class="pg">S05</span></td></tr>
+            <tr><td class="pos" data-label="案例">P1｜适应性地形理论</td><td data-label="类型">理论</td><td data-label="背景">生物须适应环境变化才能生存（青蛙舌头为吃苍蝇进化）</td><td data-label="论点">顺应市场而非对抗；警惕锚定偏差</td><td data-label="依据"><span class="pg">S05</span></td></tr>
+            <tr><td class="pos" data-label="案例">P1｜抓火鸡的箱子</td><td data-label="类型">寓言</td><td data-label="背景">Fred C. Kelly：箱中12只火鸡陆续飞走11→8→…→0，老人贪心等回笼空手而归</td><td data-label="论点">贪念导致错过卖出时机→分批卖出法</td><td data-label="依据"><span class="pg">S07</span></td></tr>
+            <tr><td class="pos" data-label="案例">P1｜卖洋装的商人</td><td data-label="类型">寓言</td><td data-label="背景">红裙卖罄/绿裙一半/黄裙零购；老手10%起打折清黄裙、钱转进红裙</td><td data-label="论点">散户反向操作（卖盈守亏）是亏损根源</td><td data-label="依据"><span class="pg">S08</span></td></tr>
+            <tr><td class="pos" data-label="案例">P1｜酒馆谈股与实战偏离</td><td data-label="类型">事件</td><td data-label="背景">专家介绍4支（2涨停+1支+5%+1支-5%），实际买的是-5%那支</td><td data-label="论点">恐惧/欲望/财务顾虑使实战偏离客观分析</td><td data-label="依据"><span class="pg">S09</span></td></tr>
+            <tr><td class="pos" data-label="案例">P1｜WSJ猴子射飞镖</td><td data-label="类型">实验</td><td data-label="背景">10个月三组皆亏，猴子损失比专家组少6倍（作者解读=偶发）</td><td data-label="论点">股市是概率游戏，无恒久不变的策略</td><td data-label="依据"><span class="pg">S11</span></td></tr>
+            <tr><td class="pos" data-label="案例">P1｜J.P.摩根与电梯</td><td data-label="类型">人物</td><td data-label="背景">"市场会上下波动吧，如同这个电梯"</td><td data-label="论点">保持谦逊，未来不可预测（Larry Hite同义）</td><td data-label="依据"><span class="pg">S11</span></td></tr>
+            <tr><td class="pos" data-label="案例">P1｜学士/硕士/博士寓言</td><td data-label="类型">寓言</td><td data-label="背景">昆虫→蜻蜓→蜻蜓的眼睛，知识越深视野越窄</td><td data-label="论点">一知半解只凭运气最危险</td><td data-label="依据"><span class="pg">S11</span></td></tr>
+            <tr><td class="pos" data-label="案例">P1｜Jim Slater祖鲁法则</td><td data-label="类型">人物方法</td><td data-label="背景">聚焦熟知领域+重押小型股</td><td data-label="论点">择优挑选优于分散投资</td><td data-label="依据"><span class="pg">S11/S48</span></td></tr>
+            <tr><td class="pos" data-label="案例">P1｜机器人vs专家大赛</td><td data-label="类型">实验</td><td data-label="背景">2016韩国经济频道：机器人完胜人类，但仅3个月"交易游戏"</td><td data-label="论点">人机分工：人判断成长性，机器执行交易</td><td data-label="依据"><span class="pg">S11/S63</span></td></tr>
+            <tr><td class="pos" data-label="案例">P2｜CMA账户与散户回避</td><td data-label="类型">事件</td><td data-label="背景">散户回避证券公司开户；欧美以股票理财、韩国以不动产理财</td><td data-label="论点">韩国散户十有八九失败源于认知与习惯</td><td data-label="依据"><span class="pg">S13</span></td></tr>
+            <tr><td class="pos" data-label="案例">P2｜基金经理恶性循环</td><td data-label="类型">事件</td><td data-label="背景">500-1000亿韩元新基金：资金越多报酬率越低→行情变化亏损→换经理→赎回循环</td><td data-label="论点">季度评价机制使基金经理无法长期投资</td><td data-label="依据"><span class="pg">S13</span></td></tr>
+            <tr><td class="pos" data-label="案例">P2｜千人投资认知问卷</td><td data-label="类型">调查</td><td data-label="背景">2017韩国经济日报1000人：股票联想"赌局/空壳"43.1%、"运气"24.8%、"诈欺"7.6%</td><td data-label="论点">散户亏损根源是"投资原则的混乱"</td><td data-label="依据"><span class="pg">S14</span></td></tr>
+            <tr><td class="pos" data-label="案例">P2｜英国脱欧公投暴跌</td><td data-label="类型">事件</td><td data-label="背景">2016-06-23：KOSPI盘中-4.73%收-3.09%；韩国市值缩水47兆韩元、全球蒸发约3000兆</td><td data-label="论点">群众盲目追高杀低；暴跌常是短期杂音</td><td data-label="依据"><span class="pg">S22</span></td></tr>
+            <tr><td class="pos" data-label="案例">P2｜"主妇背着哭泣小孩"格言</td><td data-label="类型">格言</td><td data-label="背景">主妇开户潮=市场高点信号</td><td data-label="论点">主力驱使群众追高，散户接盘套牢</td><td data-label="依据"><span class="pg">S22</span></td></tr>
+            <tr><td class="pos" data-label="案例">P2｜FTSE/MSCI与温布尔登现象</td><td data-label="类型">数据</td><td data-label="背景">FTSE全球资金约4400兆韩元（韩国占2%）、MSCI约4000兆（占14%）</td><td data-label="论点">买进顺序：外资→国内法人→散户</td><td data-label="依据"><span class="pg">S20</span></td></tr>
+            <tr><td class="pos" data-label="案例">P2｜2020散户"行家投资"</td><td data-label="类型">事件</td><td data-label="背景">外资净卖23兆韩元，市场仍从1450涨至2150</td><td data-label="论点">暴跌后最早反弹的是先前最强产业</td><td data-label="依据"><span class="pg">S20</span></td></tr>
+            <tr><td class="pos" data-label="案例">P2｜短期飙涨股画像</td><td data-label="类型">规律</td><td data-label="背景">资本额小/流通股数少/价格低/大股东与外资法人低持有</td><td data-label="论点">小资金拉抬要选待售量少的股票</td><td data-label="依据"><span class="pg">S21</span></td></tr>
+            <tr><td class="pos" data-label="案例">P2｜转机股估值倾斜</td><td data-label="类型">规律</td><td data-label="背景">净利10-20亿暴增至100亿的公司市值＞每年固定净利100亿的公司</td><td data-label="论点">股价倾斜上升反映未来期待</td><td data-label="依据"><span class="pg">S21</span></td></tr>
+            <tr><td class="pos" data-label="案例">P3｜专家10秒扫股法</td><td data-label="类型">操作</td><td data-label="背景">HTS一张线图约10秒，扫过2000+支上市股</td><td data-label="论点">K线/量/均线三基础比辅助指标更重要</td><td data-label="依据"><span class="pg">S26</span></td></tr>
+            <tr><td class="pos" data-label="案例">P3｜KOSPI 50%原则三段实战</td><td data-label="类型">事件</td><td data-label="背景">2018-19年2350→2000、反弹50%线2180失败终跌1900；2019下半年突破50%线→2300；2020春50%线2100急跌1439→反弹至50%线1900横盘数周后突破</td><td data-label="论点">长红K后黑K落在升幅30-50%=修正下跌；跌破50%=趋势下跌</td><td data-label="依据"><span class="pg">S28</span></td></tr>
+            <tr><td class="pos" data-label="案例">P3｜均线发散信号</td><td data-label="类型">信号</td><td data-label="背景">均线间隔向上扩大=短线飙涨→卖出讯号；向下扩大=短线暴跌→买进讯号</td><td data-label="论点">均线发散预示动能将尽</td><td data-label="依据"><span class="pg">S26</span></td></tr>
+            <tr><td class="pos" data-label="案例">P3｜开盘一小时攻防示范</td><td data-label="类型">操作</td><td data-label="背景">前日收38000→次日38500开盘跌至37000：不跌破先买第一波，跌破则观察能否重回</td><td data-label="论点">"个股跌至第一次买进价格不该再加码"</td><td data-label="依据"><span class="pg">S30</span></td></tr>
+            <tr><td class="pos" data-label="案例">P3｜量价八法则</td><td data-label="类型">规律</td><td data-label="背景">"你可以隐瞒价格，但无法隐瞒成交量"；量增+长红K=买进量；大涨高价区激增量=转跌</td><td data-label="论点">买进时机=主力开始买进的那天=成交量大幅增加日</td><td data-label="依据"><span class="pg">S27</span></td></tr>
+            <tr><td class="pos" data-label="案例">P3｜HTS图形搜寻条件</td><td data-label="类型">操作</td><td data-label="背景">价格超越前日黑K50%+量比前日增200%以上=牛占优势股</td><td data-label="论点">检验自设讯号盈亏是否优于股价净值比（演算法买卖起源）</td><td data-label="依据"><span class="pg">S28</span></td></tr>
+            <tr><td class="pos" data-label="案例">P4｜KINX全案分析</td><td data-label="类型">企业</td><td data-label="背景">2020-04：总市值2904亿韩元/外资21.79%/流动率51.88%；营业利益率19.36%→27.09%；股价3月中35000→4月初64000（详见标的盘）</td><td data-label="论点">成长指标齐升+多家法人共同持有+募集资金用于扩建=价值分析示范</td><td data-label="依据"><span class="pg">S33</span></td></tr>
+            <tr><td class="pos" data-label="案例">P4｜PER市场共识三例</td><td data-label="类型">数据</td><td data-label="背景">2017道指23倍（专家认为不高估）vs韩国11倍（没人认为低估）；2000 IT泡沫超100倍；2015生技热潮50-100倍</td><td data-label="论点">合理本益比由市场投资人共同认可决定（集体共识）</td><td data-label="依据"><span class="pg">S34</span></td></tr>
+            <tr><td class="pos" data-label="案例">P4｜2016升息资产价值股行情</td><td data-label="类型">事件</td><td data-label="背景">造船/建筑/汽车/钢铁PBR约0.4-0.6倍，市场认为至少0.7-1倍→涨40-50%后修正</td><td data-label="论点">PBR适用时机=经济不景气/信用危机/破产风险</td><td data-label="依据"><span class="pg">S34</span></td></tr>
+            <tr><td class="pos" data-label="案例">P4｜现代尾浦造船财报落差</td><td data-label="类型">企业</td><td data-label="背景">2014预估600亿赤字→实际6060亿；股价19万→13万→7万</td><td data-label="论点">财报落差多来自预料外费用；先分析市况再选产业</td><td data-label="依据"><span class="pg">S37</span></td></tr>
+            <tr><td class="pos" data-label="案例">P4｜LG Innotek连续超预期</td><td data-label="类型">企业</td><td data-label="背景">2014年Q2营业收益899亿超预期→年初7万涨至7月15万；Q3 1029亿再超预期</td><td data-label="论点">连续几季收益提高+低效率市场→财报公布前后上涨</td><td data-label="依据"><span class="pg">S18/S37</span></td></tr>
+            <tr><td class="pos" data-label="案例">P4｜欧尼尔与巴菲特选股标准</td><td data-label="类型">人物方法</td><td data-label="背景">年度和季度净利持续成长3-5年（欧尼尔）；ROE连续3年以上超15%（巴菲特）</td><td data-label="论点">选股纪律的量化门槛</td><td data-label="依据"><span class="pg">S33</span></td></tr>
+            <tr><td class="pos" data-label="案例">P4｜分析师报告三点问题</td><td data-label="类型">规律</td><td data-label="背景">获悉时机（法人先拿到）/市场局势（基本面与情绪分离）/材料事前反映（"推荐报告出炉那天就是卖出时"）</td><td data-label="论点">报告用来选公司（打造投资池），非买进依据</td><td data-label="依据"><span class="pg">S36</span></td></tr>
+            <tr><td class="pos" data-label="案例">P5｜浦上邦雄四局面理论</td><td data-label="类型">理论</td><td data-label="背景">金融行情→业绩行情（涨）vs反金融→反业绩（跌），分辨讯号=利率</td><td data-label="论点">P=D/(R-G)：利率愈低成长率愈高市场涨</td><td data-label="依据"><span class="pg">S39/S42</span></td></tr>
+            <tr><td class="pos" data-label="案例">P5｜殖利率曲线预测</td><td data-label="类型">信号</td><td data-label="背景">10年-2年/3月利差：变陡峭=市场涨；变平缓或转负=市场跌（2019年底转负→短期暴跌）</td><td data-label="论点">曲线形态是未来增长的先行指标</td><td data-label="依据"><span class="pg">S42</span></td></tr>
+            <tr><td class="pos" data-label="案例">P5｜汇率外资损益计算</td><td data-label="类型">数据</td><td data-label="背景">1:1000买1000元股：汇率1100→美元计价-9.09%；汇率900→+11%</td><td data-label="论点">危机时汇率大涨=外资急撤；汇率稳定=利空仅短期噪音</td><td data-label="依据"><span class="pg">S41</span></td></tr>
+            <tr><td class="pos" data-label="案例">P5｜2020指数基金卖压</td><td data-label="类型">事件</td><td data-label="背景">2020年1-5月外资净卖23兆韩元，多为全球指数基金所为</td><td data-label="论点">判断市况=确认趋势的主导者是谁（谁赢）</td><td data-label="依据"><span class="pg">S40</span></td></tr>
+            <tr><td class="pos" data-label="案例">P5｜李佛摩市场顶点原则</td><td data-label="类型">人物方法</td><td data-label="背景">市场顶点=市场高点与指标股高点交叉（现代重工2007见顶；2008后三星电子；2020暴跌后Kakao率先创新高）</td><td data-label="论点">指标股是市场风向标</td><td data-label="依据"><span class="pg">S43</span></td></tr>
+            <tr><td class="pos" data-label="案例">P5｜2018年初KOSPI头肩顶</td><td data-label="类型">事件</td><td data-label="背景">长黑K+量增→头肩顶→暴跌</td><td data-label="论点">卖出一法则：量突然激增+十字/黑K→卖部分</td><td data-label="依据"><span class="pg">S43</span></td></tr>
+            <tr><td class="pos" data-label="案例">P5｜五种行情分类</td><td data-label="类型">框架</td><td data-label="背景">趋势上涨（2005-07化工炼油造船钢铁涨超10倍）/趋势下跌/箱型（2011-17 KOSPI箱型但KOSDAQ制药生技涨10倍+）/流动性/主题（2018南北高峰会南北经济合作股涨5倍+）</td><td data-label="论点">先确认行情类型，再定持有期间/金额/板块/时机</td><td data-label="依据"><span class="pg">S44</span></td></tr>
+            <tr><td class="pos" data-label="案例">P6｜2020-06市况判断示范</td><td data-label="类型">操作</td><td data-label="背景">无限QE流性行情+基期效应；强势产业=电动车电池/自动驾驶/氢能/电商/远距平台/生技/系统半导体/5G/内容/云端</td><td data-label="论点">实战五步：市场条件→产业→个股→投资方法→买卖时机</td><td data-label="依据"><span class="pg">S46</span></td></tr>
+            <tr><td class="pos" data-label="案例">P6｜Genoray全流程实战</td><td data-label="类型">企业</td><td data-label="背景">2020净利150亿×10-15倍=1500-2250亿 vs 市值1703亿→上涨空间5.8-32%；3月低点4510时PER 6.7倍（详见标的盘）</td><td data-label="论点">合理总市值=预估净利×合理本益比；不锚定买进价格</td><td data-label="依据"><span class="pg">S47</span></td></tr>
+            <tr><td class="pos" data-label="案例">P6｜三星电子20年23倍</td><td data-label="类型">企业</td><td data-label="背景">2000年投资三星电子持有20年=23倍</td><td data-label="论点">每月储蓄式投资成长股，10年资产2-3亿（10倍非妄想）</td><td data-label="依据"><span class="pg">S48</span></td></tr>
+            <tr><td class="pos" data-label="案例">P6｜恐慌清单三件事</td><td data-label="类型">方法</td><td data-label="背景">现金储备+投资池（各板块龙头股）+恐慌清单（Pat Dorsey护城河：品牌/专利/法定许可/成本优势/网络效应）</td><td data-label="论点">每次暴跌都诞生行家收益；三件事是捡便宜的准备</td><td data-label="依据"><span class="pg">S49</span></td></tr>
+            <tr><td class="pos" data-label="案例">P6｜亏损50%需100%回本</td><td data-label="类型">数据</td><td data-label="背景">亏损30%需43%收益回本、亏损50%需100%；单笔亏损30-40%后心态转为"赚回本金"</td><td data-label="论点">中止交易纪律：连续亏损后退出市场调整</td><td data-label="依据"><span class="pg">S51</span></td></tr>
+            <tr><td class="pos" data-label="案例">P6｜杠杆断头风险</td><td data-label="类型">数据</td><td data-label="背景">2-2.5倍杠杆：1亿本金买2.5亿股票，涨40%=本金100%收益，跌40%=一无所有</td><td data-label="论点">非特殊情况千万别杠杆；暴跌30-40%保证金不足断头</td><td data-label="依据"><span class="pg">S52</span></td></tr>
+            <tr><td class="pos" data-label="案例">P6｜HTS交易卖出系统</td><td data-label="类型">操作</td><td data-label="背景">10000买设定11000卖，涨至10700自动上修至11500</td><td data-label="论点">移动停利：上涨趋势放缓卖股，让获利奔跑</td><td data-label="依据"><span class="pg">S53</span></td></tr>
+            <tr><td class="pos" data-label="案例">P7｜韩国邮政免税套利</td><td data-label="类型">企业</td><td data-label="背景">2010-2012套利规模1兆韩元、占程式交易57%；2017-04免税重启</td><td data-label="论点">套利程式超每日成交10%时影响市场动向</td><td data-label="依据"><span class="pg">S56</span></td></tr>
+            <tr><td class="pos" data-label="案例">P7｜"尾巴摇狗"现象</td><td data-label="类型">现象</td><td data-label="背景">箱型整理区间出现期货摆布现货的现象</td><td data-label="论点">法人无原因买卖某股=套利清仓，非价值判断</td><td data-label="依据"><span class="pg">S56</span></td></tr>
+            <tr><td class="pos" data-label="案例">P7｜KOSDAQ第三方配股操纵全案</td><td data-label="类型">企业</td><td data-label="背景">3000元第三方配股→6000箱型→9000→无偿配股传言15000→高点16000宣布无偿配股除权后9000→新事业消息23000→下跌；顾问公司成本1500、15000卖出（10倍）（详见标的盘）</td><td data-label="论点">多年期主力操作固定模式：草创期投资→拉抬→无偿配股→释放消息→高点获利</td><td data-label="依据"><span class="pg">S58</span></td></tr>
+            <tr><td class="pos" data-label="案例">P7｜2008金融危机复盘</td><td data-label="类型">事件</td><td data-label="背景">房价泡沫（贷款超房价80%）→雷曼破产→零利率→QE（柏南克"直升机撒钱"）→2015首次升息失败</td><td data-label="论点">朱格拉10年周期（上升/爆发/清算）；QE效果已尽转财政政策</td><td data-label="依据"><span class="pg">S60</span></td></tr>
+            <tr><td class="pos" data-label="案例">P7｜ELS到期损失统计</td><td data-label="类型">数据</td><td data-label="背景">2003-2015到期偿还ELS平均实现损益率-37.28%；恒指ELS腰斩；德国公债DLS本金亏100%</td><td data-label="论点">"中风险中收益"实为区间内中等收益，危机时损失巨大</td><td data-label="依据"><span class="pg">S62</span></td></tr>
+            <tr><td class="pos" data-label="案例">P7｜AlphaGo与机器投顾</td><td data-label="类型">事件</td><td data-label="背景">2016 AlphaGo击败李世乭；机器投顾缺陷：基础数据错误/历史类推（滞后）/黑色星期一连环卖出</td><td data-label="论点">分工：人负责投资判断，机器负责交易与资产分配</td><td data-label="依据"><span class="pg">S63</span></td></tr>
+            <tr><td class="pos" data-label="案例">P7｜主力囤货四阶段</td><td data-label="类型">规律</td><td data-label="背景">主力囤入流通股数40%以上后抬价；成交量识别四阶段：异常暴增（平均量5-10倍）→孤立沉寂（量降至10-20%）→再度激增+红K→即将暴涨</td><td data-label="论点">"价格暴涨的股票，绝对会出现惊人的成交量"</td><td data-label="依据"><span class="pg">S64</span></td></tr>
+            <tr><td class="pos" data-label="案例">P7｜柏格与ETF普及</td><td data-label="类型">人物</td><td data-label="背景">2002韩国引进ETF；管理费约0.3% vs 一般基金约2%；柏格："对缺乏选股眼光的散户是最好的商品"</td><td data-label="论点">不会选股就买ETF；注意杠杆/反向长期持有乖离</td><td data-label="依据"><span class="pg">S65</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tbl-title" style="margin-top:30px;">投资标的盘</div>
+      <div class="ctx-legend">
+        语境标签：
+        <span class="ctx-pill ctx-pill--neg">反面警示</span>
+        <span class="ctx-pill ctx-pill--demo">操作演示</span>
+        <span class="ctx-pill ctx-pill--pos">正面案例</span>
+        <span class="ctx-pill ctx-pill--mention">顺带提及</span>
+        <span>共 40 项：韩国个股 14 / 海外个股 4 / 债券与结构产品 6 / 衍生品与信用工具 5 / ETF 4 / 指数与宏观资产 7</span>
+      </div>
+
+      <div class="asset-group">
+        <div class="asset-group-head"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"/></svg><span class="g-name">个股 · 韩国（KOSPI/KOSDAQ）</span><span class="g-count">14 项</span></div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--neg">反面警示</span>
+          <div class="a-name">三星电子<span class="a-type">大型股 · 指标股</span></div>
+          <div class="a-body">"好公司≠好股票"教学案例：买进数月不涨反跌；现金流+--型（与KINX同型）；2008年后市场指标股。另有正面注脚：2000年投资持有20年=<span class="a-data">23倍</span>。<div class="a-judge">书中判断：好公司变好股票需要市场周期配合，长短线结论不同</div></div>
+          <span class="pg a-pg">S17/S33/S43/S48</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--neg">反面警示</span>
+          <div class="a-name">现代重工／现代尾浦造船<span class="a-type">造船 · 指标股</span></div>
+          <div class="a-body">2004-2007年指标股，2007年见顶（李佛摩原则案例）；现代尾浦2014年预估600亿赤字→实际6060亿，股价<span class="a-data">19万→13万→7万</span>。<div class="a-judge">书中判断：指标股高点=市场顶点；财报落差来自预料外费用</div></div>
+          <span class="pg a-pg">S43/S37</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--neg">反面警示</span>
+          <div class="a-name">KOSDAQ主力操纵股（未具名）<span class="a-type">中小型股</span></div>
+          <div class="a-body">3000元第三方配股→6000箱型→9000→15000（无偿配股传言）→高点16000宣布无偿配股除权后9000→23000→下跌；顾问公司成本1500、15000卖出（<span class="a-data">10倍获利</span>）。<div class="a-judge">书中判断：多年期主力操作固定模式，散户勿追消息股</div></div>
+          <span class="pg a-pg">S58</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--neg">反面警示</span>
+          <div class="a-name">生技情报炒股股（未具名）<span class="a-type">生技 · 小型股</span></div>
+          <div class="a-body">股价15000→30000→60000元， circulating 情报称"等到90000元开始卖"，原始来源无法追溯。<div class="a-judge">书中判断：关键不是情报真伪，而是流通管道内的人是否有拉抬股价的力量</div></div>
+          <span class="pg a-pg">S16</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--neg">反面警示</span>
+          <div class="a-name">选举股<span class="a-type">主题股</span></div>
+          <div class="a-body">大选前一年涌现，与公司价值无关，暴涨后跌回原价或更低。<div class="a-judge">书中判断："剩下的只有空壳公司的股票和亏损"；没分析的投资=短期投机</div></div>
+          <span class="pg a-pg">S10</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--neg">反面警示</span>
+          <div class="a-name">旧三驾马车（建设/银行/证券）与浦项钢铁<span class="a-type">旧龙头股</span></div>
+          <div class="a-body">被新市值前列（三星电子/海力士/三星生技/NAVER等）排挤挤出。<div class="a-judge">书中判断：不在自己周期的大型股可能腰斩，应在一个周期内切出</div></div>
+          <span class="pg a-pg">S23</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--demo">操作演示</span>
+          <div class="a-name">KINX<span class="a-type">KOSDAQ网络股</span></div>
+          <div class="a-body">2020-04-09：总市值2904亿韩元/外资持有21.79%/流动率51.88%；营业额473→743亿（2017-2020E）、营业利益率19.36%→27.09%、净收入留存率2361%→3384%、负债比最低9.54%；股价3月中<span class="a-data">35000→4月初64000（+83%）</span>，本益比5.9→约15倍。<div class="a-judge">书中判断：全案示范——成长指标齐升+多家法人共同持有+募集资金用于扩建=股价上涨</div></div>
+          <span class="pg a-pg">S33</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--demo">操作演示</span>
+          <div class="a-name">Genoray<span class="a-type">医疗设备股</span></div>
+          <div class="a-body">2020净利150亿×10-15倍=1500-2250亿 vs 市值1703亿→上涨空间5.8-32%，目标价12400-15400 vs 现价11700；3月低点<span class="a-data">4510时PER 6.7倍</span>=被低估买进时机；负债比31.7%、留存率2400%。<div class="a-judge">书中判断：合理总市值=预估净利×合理本益比；持有管理"不锚定买进价格"</div></div>
+          <span class="pg a-pg">S47</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--demo">操作演示</span>
+          <div class="a-name">Kakao<span class="a-type">平台股</span></div>
+          <div class="a-body">2020疫情暴跌后率先突破前高、连创新高（李佛摩原则正面印证）。<div class="a-judge">书中判断：暴跌后最早反弹的是先前最强产业</div></div>
+          <span class="pg a-pg">S43/S46</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--pos">正面案例</span>
+          <div class="a-name">LG Innotek<span class="a-type">电子材料股</span></div>
+          <div class="a-body">2014年Q2营业收益899亿超预期→年初7万涨至7月<span class="a-data">15万</span>；Q3 1029亿再超预期。<div class="a-judge">书中判断：连续几季收益提高+低效率市场→财报公布前后上涨</div></div>
+          <span class="pg a-pg">S18/S37</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--mention">顺带提及</span>
+          <div class="a-name">市值前列股组<span class="a-type">大型股</span></div>
+          <div class="a-body">三星电子/海力士/三星生技/NAVER/LG化学/Celltrion/三星SDI/Kakao=韩国市值前列。<div class="a-judge">书中判断：产业周期联动的大型股应在一个周期内切出投资</div></div>
+          <span class="pg a-pg">S23</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--mention">顺带提及</span>
+          <div class="a-name">龙头股特征组<span class="a-type">成长股</span></div>
+          <div class="a-body">Kakao/三星SDI/Celltrion/EcoProBM/LG化学：收益增幅最多、上涨最早最大、修正最小。<div class="a-judge">书中判断：龙头股三判据（收益/涨势/抗跌）</div></div>
+          <span class="pg a-pg">S46</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--mention">顺带提及</span>
+          <div class="a-name">Genoray实战选股池<span class="a-type">股票池（14支）</span></div>
+          <div class="a-body">Seegene/KINX/RFHIC/InnoWireless/DOUZONE/LG化学/三星SDI/EcoProBM/三星电子/S&S Tech/Kakao/NAVER/真露/UBcare。<div class="a-judge">书中判断：现金20%+疫情强势产业50%箱型循环+工业4.0核心30%中长期的配置示范</div></div>
+          <span class="pg a-pg">S47</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--mention">顺带提及</span>
+          <div class="a-name">Gabia 与 三星Active资产管理等投信<span class="a-type">大股东 · 法人持仓</span></div>
+          <div class="a-body">Gabia为KINX大股东（业务协同）；10多家投信共同持有KINX。<div class="a-judge">书中判断：多家法人共同持有＞一两家大量持有；大股东质量影响稳定性</div></div>
+          <span class="pg a-pg">S33</span>
+        </div>
+      </div>
+
+      <div class="asset-group">
+        <div class="asset-group-head"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"/></svg><span class="g-name">个股 · 海外</span><span class="g-count">4 项</span></div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--pos">正面案例</span>
+          <div class="a-name">FAANG/MAGA<span class="a-type">美股成长股</span></div>
+          <div class="a-body">低利率时代最大受益者；2020年亚马逊/网飞/Google/特斯拉/苹果领涨。<div class="a-judge">书中判断：低利率→成长股涨；升息转价值股</div></div>
+          <span class="pg a-pg">S42</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--mention">顺带提及</span>
+          <div class="a-name">Alphabet/高通/辉达/亚马逊/脸书<span class="a-type">科技龙头</span></div>
+          <div class="a-body">第四次产业革命领先者（数位/物理/生技三关键字）。</div><div class="a-judge">书中判断：投资新兴产业成长型公司</div>
+          <span class="pg a-pg">S61</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--mention">顺带提及</span>
+          <div class="a-name">卡内基钢铁/JP摩根/杜邦/福特/标准石油<span class="a-type">美国产业史</span></div>
+          <div class="a-body">1802-1903年美国产业霸权建立（卡内基1892/JP摩根1878/杜邦1802/福特1903/洛克斐勒标准石油→埃克森美孚雪佛龙）。</div><div class="a-judge">书中判断：产业霸权转移路径起点</div>
+          <span class="pg a-pg">S61</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--mention">顺带提及</span>
+          <div class="a-name">新日铁/三菱/丰田/三井/东芝/索尼<span class="a-type">日本产业史</span></div>
+          <div class="a-body">日本接棒美国产业霸权（钢铁/造船/半导体第一）。</div><div class="a-judge">书中判断：美日靠金融资本+储备货币地位转移霸权不伤经济</div>
+          <span class="pg a-pg">S61</span>
+        </div>
+      </div>
+
+      <div class="asset-group">
+        <div class="asset-group-head"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"/></svg><span class="g-name">债券与结构产品</span><span class="g-count">6 项</span></div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--neg">反面警示</span>
+          <div class="a-name">ELS/DLS/ELD（非保本型）<span class="a-type">股权连结结构产品</span></div>
+          <div class="a-body">恒指ELS（维持基准50%条件）腰斩成真；德国公债DLS本金亏损<span class="a-data">100%</span>；2003-2015到期偿还ELS平均实现损益率<span class="a-data">-37.28%</span>；2015年ELS规模100兆+。<div class="a-judge">书中判断：标的跌破基准（如80%）按整体下跌率亏损；"中风险中收益"是区间内概念，危机时损失巨大</div></div>
+          <span class="pg a-pg">S62</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--neg">反面警示</span>
+          <div class="a-name">债券型基金/配息基金<span class="a-type">"中风险中收益"基金</span></div>
+          <div class="a-body">与ELS/DLS同列"中风险中收益"代表商品；保本型=本金定存+零头资金买期权，收益与定存无异。<div class="a-judge">书中判断：暴跌后发行的才值得投资，但发行者选热门标的</div></div>
+          <span class="pg a-pg">S62</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--demo">操作演示</span>
+          <div class="a-name">CB 可转换公司债<span class="a-type">混合债</span></div>
+          <div class="a-body">债券+转股权：转换后债券失效、负债变资本额、财务结构好转；法人在成长企业上市前投资CB待股价涨转股获利。<div class="a-judge">书中判断：频繁发行CB→流通股过度增加→原投资人股份稀释→股价下跌</div></div>
+          <span class="pg a-pg">S57</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--demo">操作演示</span>
+          <div class="a-name">BW 附认股权公司债<span class="a-type">混合债</span></div>
+          <div class="a-body">债券+新股优先认购权；重新报价条款（转换价可调至70%）被恶意用于炒股主力收购。<div class="a-judge">书中判断：投资前必查资本变动明细+转换时期/价格/数量（尤其第三方配股）</div></div>
+          <span class="pg a-pg">S57</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--pos">正面案例</span>
+          <div class="a-name">储蓄/债券/REITs/节税型产品<span class="a-type">安全资产</span></div>
+          <div class="a-body">提领赚到的钱存入安全资产，防乘数效应一次失败赔光所有获利。<div class="a-judge">书中判断：获利落袋是资金管理纪律的一环</div></div>
+          <span class="pg a-pg">S51</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--mention">顺带提及</span>
+          <div class="a-name">银行借贷/发行公司债<span class="a-type">企业募资渠道</span></div>
+          <div class="a-body">企业三种募资：银行借贷/发债=负债；发行新股=资产。<div class="a-judge">书中判断：募集资金用途决定股价方向</div></div>
+          <span class="pg a-pg">S57</span>
+        </div>
+      </div>
+
+      <div class="asset-group">
+        <div class="asset-group-head"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"/></svg><span class="g-name">衍生品与信用工具</span><span class="g-count">5 项</span></div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--neg">反面警示</span>
+          <div class="a-name">期货期权/结构型商品<span class="a-type">杠杆权利金交易</span></div>
+          <div class="a-body">无实体权利金交易：到期未达目标=本金归零；只问"稳定吗/收益多少"非常危险。<div class="a-judge">书中判断：不了解结构切勿投资</div></div>
+          <span class="pg a-pg">S59</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--neg">反面警示</span>
+          <div class="a-name">信用交易/股票质押贷款/应收帐款交易<span class="a-type">杠杆工具</span></div>
+          <div class="a-body">2-2.5倍杠杆：1亿本金买2.5亿股票，涨40%=本金100%收益，跌40%=<span class="a-data">一无所有</span>；质押贷款期限3-6个月。<div class="a-judge">书中判断：非特殊情况千万别杠杆；过去金融危机开端=杠杆投资房地产</div></div>
+          <span class="pg a-pg">S52</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--demo">操作演示</span>
+          <div class="a-name">股票期货（期现套利）<span class="a-type">衍生品</span></div>
+          <div class="a-body">F-S=基数B（正/逆价差），到期日3/6/9/12月第二个星期四收敛；韩国邮政2010-2012免税套利规模<span class="a-data">1兆韩元</span>、占程式交易57%。<div class="a-judge">书中判断：套利程式超每日成交10%时影响市场；箱型区间"尾巴摇狗"</div></div>
+          <span class="pg a-pg">S56</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--demo">操作演示</span>
+          <div class="a-name">CDS 信用违约交换权利金<span class="a-type">信用衍生品</span></div>
+          <div class="a-body">韩国政府国际债券违约权利金=韩国CDS；危机时CDS大幅上涨=估算危机水平的标准。<div class="a-judge">书中判断：CDS急涨→先卖危险资产；CDS下跌稳定→重新投资</div></div>
+          <span class="pg a-pg">S59</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--demo">操作演示</span>
+          <div class="a-name">融券卖空/借股信用交易<span class="a-type">信用交易</span></div>
+          <div class="a-body">韩国原则禁止裸卖空、准许融券借股；借贷余额占整体股数<span class="a-data">10-20%</span>；散户被限制、外资法人活跃。<div class="a-judge">书中判断：被集中卖空的股票至少检查一次原因（卖空者不会平白无故抛售）</div></div>
+          <span class="pg a-pg">S55</span>
+        </div>
+      </div>
+
+      <div class="asset-group">
+        <div class="asset-group-head"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"/></svg><span class="g-name">ETF 指数股票型基金</span><span class="g-count">4 项</span></div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--neg">反面警示</span>
+          <div class="a-name">杠杆型ETF（2X/4X）与合成ETF<span class="a-type">杠杆/合成ETF</span></div>
+          <div class="a-body">杠杆/反向型长期持有乖离（展期成本）；合成ETF承担交易对手信用风险，须确认NAV资产结构。<div class="a-judge">书中判断：分段短期交易比长期持有更有利；选追踪误差小的管理公司</div></div>
+          <span class="pg a-pg">S65</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--pos">正面案例</span>
+          <div class="a-name">指数ETF<span class="a-type">被动基金</span></div>
+          <div class="a-body">2002韩国引进；管理费约<span class="a-data">0.3%</span> vs 一般基金约2%；柏格："对缺乏个股投资眼光的散户是最好的商品"；覆盖国家/原物料/产业/主题。<div class="a-judge">书中判断：不会选股就用ETF；注意海外汇率风险与股息所得稅15.4%</div></div>
+          <span class="pg a-pg">S65</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--demo">操作演示</span>
+          <div class="a-name">反向ETF<span class="a-type">避险工具</span></div>
+          <div class="a-body">市场下跌可买反向ETF——散户也能避险（衍生品之外的唯一途径）。<div class="a-judge">书中判断："市场上升买指数杠杆ETF，市场下跌买指数反向ETF"</div></div>
+          <span class="pg a-pg">S65</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--demo">操作演示</span>
+          <div class="a-name">生技ETF（产业型）<span class="a-type">产业ETF</span></div>
+          <div class="a-body">板块行情用ETF替代个股。<div class="a-judge">书中判断："生技好就不用选股，买生技ETF"</div></div>
+          <span class="pg a-pg">S65</span>
+        </div>
+      </div>
+
+      <div class="asset-group">
+        <div class="asset-group-head"><svg class="ic" aria-hidden="true"><use href="#i-briefcase"/></svg><span class="g-name">指数与宏观资产</span><span class="g-count">7 项</span></div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--demo">操作演示</span>
+          <div class="a-name">KOSPI 韩国综合股价指数<span class="a-type">市场指数</span></div>
+          <div class="a-body">50%原则三段实战教学标本：2018-19年2350→2000→反弹50%线2180失败→1900；2019下半年突破→2300；2020春50%线2100急跌1439→反弹1900横盘数周后突破。<div class="a-judge">书中判断：指数本身即可用技术分析判断买卖时机</div></div>
+          <span class="pg a-pg">S28/S43</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--pos">正面案例</span>
+          <div class="a-name">KOSDAQ 韩国创业板指数<span class="a-type">市场指数</span></div>
+          <div class="a-body">2015起制药生技涨<span class="a-data">10倍+</span>；2020新冠暴跌后率先超越暴跌前高点。<div class="a-judge">书中判断：指数箱型时板块可独立走强（报酬率游戏）</div></div>
+          <span class="pg a-pg">S19/S44</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--mention">顺带提及</span>
+          <div class="a-name">道琼/纳斯达克/S&P500<span class="a-type">美股指数</span></div>
+          <div class="a-body">2008后道指6500→29000（10余年）；2020新冠道指29000→18213（-37%），3月底反弹。<div class="a-judge">书中判断：股市事先预期经济+基期效应+无差别流动性供给</div></div>
+          <span class="pg a-pg">S19</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--mention">顺带提及</span>
+          <div class="a-name">日经/德国DAX/法国CAC<span class="a-type">全球指数</span></div>
+          <div class="a-body">2016脱欧当日：日经-7.92%、德国-6.82%、法国-8.04%。</div><div class="a-judge">书中判断：全球危机联动，暴跌多为一时杂音</div>
+          <span class="pg a-pg">S22</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--demo">操作演示</span>
+          <div class="a-name">汇率（韩元/美元）<span class="a-type">外汇</span></div>
+          <div class="a-body">1:1000买1000元股：汇率1100→美元计价-9.09%、汇率900→+11%；韩元升值=经济好转良性循环。<div class="a-judge">书中判断：汇率稳定与否是判断利空性质的首要确认指标</div></div>
+          <span class="pg a-pg">S41</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--mention">顺带提及</span>
+          <div class="a-name">不动产<span class="a-type">房地产</span></div>
+          <div class="a-body">韩国以不动产理财（对比欧美以股票理财）；杠杆投资房地产=过去金融危机开端；2020散户入市动机之一是"未抓住不动产大涨机会"。<div class="a-judge">书中判断：仅作对照背景，未展开投资方法</div></div>
+          <span class="pg a-pg">S03/S52</span>
+        </div>
+        <div class="asset-item">
+          <span class="ctx-pill ctx-pill--mention">顺带提及</span>
+          <div class="a-name">比特币<span class="a-type">加密货币</span></div>
+          <div class="a-body">散户"未抓住比特币大涨的补偿心理"被列为2020年蜂拥入市的原因之一。<div class="a-judge">书中判断：仅作动机描述，未展开分析——书中唯一的加密货币提及</div></div>
+          <span class="pg a-pg">S03</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 07 风险与反证 ===== -->
+    <section class="sec" id="risks">
+      <div class="sec-head"><span class="sec-no">07</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-alert"/></svg></span><h2>风险与反证</h2></div>
+      <p class="sec-sub">书中逻辑的失效条件、最先受损环节与传导路径</p>
+
+      <div class="callout callout--danger">
+        <span class="callout__icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-alert"/></svg></span>
+        <div class="callout__body">
+          <p class="label">核心前提</p>
+          <p>全书体系建立在三大前提之上：<mark class="hl">资本主义不崩溃</mark>、<mark class="hl">市场可被三维度（技术+价值+市况）分析</mark>、<mark class="hl">散户可通过纪律克服非理性</mark>。任一前提崩塌，则体系失效。</p>
+        </div>
+      </div>
+
+      <div class="tbl-title">风险矩阵：五大失效假设与传导链</div>
+      <div class="tbl-wrap">
+        <table class="tbl tbl--stack">
+          <thead><tr><th>失效假设</th><th>最先受损环节</th><th>传导路径</th><th>书中应对</th></tr></thead>
+          <tbody>
+            <tr><td class="pos" data-label="失效假设">连续升息+流动性枯竭（利率长期高于成长率）</td><td data-label="受损">市况分析层：股息贴现模型失效，P=D/(R-G)中R&gt;G→理论价格归零</td><td data-label="传导">升息→成长股估值塌缩→法人减仓→散户接盘→暴跌→停损触发→恐慌抛售螺旋</td><td data-label="应对">转价值股/景气循环股；降低股票比例至20%；持有现金等待 <span class="pg">S35/S52</span></td></tr>
+            <tr><td class="pos" data-label="失效假设">技术分析滞后性加剧（算法交易主导市场，传统量价信号被操纵）</td><td data-label="受损">技术分析层：10秒选股法/成交量判据失效</td><td data-label="传导">算法高频交易占日成交量&gt;10%→量价信号被"尾巴摇狗"→假突破/假跌破频发→散户按信号操作反被收割</td><td data-label="应对">结合基本面筛选漏斗（营业利益增加率+负债比+法人净买入）过滤噪音；承认线图是"事后分析" <span class="pg">S31/S63/S79</span></td></tr>
+            <tr><td class="pos" data-label="失效假设">产业霸权转移加速（韩国主力产业被中国/东南亚全面替代）</td><td data-label="受损">价值分析层：韩国龙头股PER/PBR锚点失效</td><td data-label="传导">半导体/造船/显示器外流→韩国出口塌缩→韩元贬值→外资撤离→KOSPI估值体系重构</td><td data-label="应对">投资新兴产业成长型公司；用ETF分散国别风险；关注国家转移路径中的下一站 <span class="pg">S61/S65</span></td></tr>
+            <tr><td class="pos" data-label="失效假设">黑天鹅频率超预期（十年周期危机论失准，危机间隔缩短）</td><td data-label="受损">实战层：恐慌清单/现金储备策略来不及反应</td><td data-label="传导">危机频密→现金储备机会成本过高→"行家投资"变成"频繁止损"→长期复利被侵蚀</td><td data-label="应对">每月储蓄式投资成长股（摊平时点风险）；用反向ETF对冲；承认"无人能保证周期准确" <span class="pg">S48/S60/S65</span></td></tr>
+            <tr><td class="pos" data-label="失效假设">散户心理纪律无法执行（知道但做不到）</td><td data-label="受损">全部层级：从认知到执行全面崩溃</td><td data-label="传导">贪婪→追高→锚定→不肯认错→越摊越平→亏损50%需100%回本→心态怯懦→更大失败</td><td data-label="应对">建立原则→实战→调整；"成为机器人"；停损最重要的不是方法而是确实遵循 <span class="pg">S50/S51/S53</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <span class="callout__icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-eye"/></svg></span>
+        <div class="callout__body">
+          <p class="label">作者自承的局限</p>
+          <p>朴炳昌在序文中明确表示"太过复杂的内容比一无所知更有可能带来不好的结果"，刻意不用复杂模型 <span class="pg">S03</span>。这意味着：本书体系是<strong>简化版实战框架</strong>，适合散户个人投资者，不适合大规模机构资金管理。书中对衍生品（期权/期货/结构型商品）的态度是"不了解结构切勿投资" <span class="pg">S59</span>，而非深入分析其风险对冲价值。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 08 可操作结论 ===== -->
+    <section class="sec" id="conclusion">
+      <div class="sec-head"><span class="sec-no">08</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-compass"/></svg></span><h2>可操作结论</h2></div>
+      <p class="sec-sub">基于全书逻辑提炼的当前关注位置与待验证问题</p>
+
+      <div class="tbl-title">当前最值得关注的 3 个位置</div>
+      <div class="qa-grid">
+        <div class="qa-card">
+          <h4><span class="qno">A</span><svg class="ic" style="color:var(--success)" aria-hidden="true"><use href="#i-target"/></svg> 降息周期中的成长股布局窗口</h4>
+          <p>当央行维持低利率或降息时（P=D/(R-G)中R下降），成长股估值空间打开。按书中逻辑：选<strong>自己熟悉的成长产业中有护城河的小型企业</strong>，每月薪资10-20%储蓄式投入，股价下跌时加买。</p>
+          <div class="how">验证方式：跟踪FOMC/韩国金融货币委员会利率决议；确认汇率稳定（利空为短期噪音）；用技术面三基础（K线+均线+量）确认法人进场信号</div>
+        </div>
+        <div class="qa-card">
+          <h4><span class="qno">B</span><svg class="ic" style="color:var(--page-brand)" aria-hidden="true"><use href="#i-eye"/></svg> 暴跌后的"行家投资"时机</h4>
+          <p>每次危机（外汇危机/IT泡沫/PIGS/2008/2020）都诞生行家收益。三件事准备：<strong>①保有一定现金</strong>（不能100%持股）<strong>②投资池</strong>（各板块龙头股，暴跌后最早反弹的是先前最强产业）<strong>③恐慌清单</strong>（具备经济护城河的企业）。</p>
+          <div class="how">验证方式：CDS急涨→先卖危险资产→CDS下跌稳定后重新投资；确认"企业成长未变"则利空为杂音→买进时机</div>
+        </div>
+        <div class="qa-card">
+          <h4><span class="qno">C</span><svg class="ic" style="color:var(--danger)" aria-hidden="true"><use href="#i-shield"/></svg> 连续升息末期的防御转换</h4>
+          <p>当连续升息+汇率急涨+CDS飙升同时出现时，书中明确指向<strong>股票比例降至20%、现金80%</strong>。景气好+升息环境→资产价值股/景气循环股（炼油化工造船机械钢铁）取代成长股。</p>
+          <div class="how">验证方式：殖利率曲线变平缓或转负（10年-2年利差缩小）=未来成长不佳信号；观察外资连续净卖出方向</div>
+        </div>
+      </div>
+
+      <div class="tbl-title" style="margin-top:30px;">需要进一步验证的 3 个问题</div>
+      <div class="qa-grid" style="grid-template-columns:1fr;">
+        <div class="qa-card">
+          <h4><span class="qno">Q1</span>算法交易占比超过10%后，传统量价信号的有效性是否显著下降？</h4>
+          <p>书中承认"线图只是事后的分析"，算法买卖规模已达数兆韩元 <span class="pg">S40/S63</span>。当算法占日成交量比重持续上升，10秒选股法和成交量八法则的胜率是否仍优于随机？需要用韩国市场近5年数据回测验证。</p>
+          <div class="how">验证方式：取KOSPI前200大个股，对比"量增+长红K"信号在算法交易占比高低区间的胜率和期望收益</div>
+        </div>
+        <div class="qa-card">
+          <h4><span class="qno">Q2</span>"每月储蓄式投资成长股10年2-3亿"的复利假设在韩国市场是否成立？</h4>
+          <p>书中声称每月薪资10-20%投入成长股10年可达2-3亿韩元（10倍）<span class="pg">S48</span>。此结论依赖韩国股市长期年化收益率&gt;15%的假设。需要用KOSPI/KOSDAQ 2000-2025年实际数据验证定投策略的真实回报。</p>
+          <div class="how">验证方式：模拟每月定投KOSPI 200指数+KOSDAQ 150指数，计算10年/15年/20年复合年化收益率</div>
+        </div>
+        <div class="qa-card">
+          <h4><span class="qno">Q3</span>产业霸权转移路径中，韩国下一阶段竞争力领域能否复制前代龙头的10倍涨幅？</h4>
+          <p>书中列出韩国竞争力领域：5G通讯/系统半导体/自动驾驶/电动车电池/新药/次世代显示器/生技机器/网络云端 <span class="pg">S61</span>。但这些领域面临中国竞争加剧和地缘政治风险。需要评估哪些领域具备"护城河"（品牌/专利/网络效应/成本优势）而非仅是政策扶持。</p>
+          <div class="how">验证方式：对比各领域龙头企业的ROE连续性（是否&gt;15%连续3年）、负债比（&lt;100%）、营业利益率趋势</div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:28px;">
+        <span class="callout__icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-brain"/></svg></span>
+        <div class="callout__body">
+          <p class="label">一句话总结</p>
+          <p><strong>人无法赢过市场，只有顺应它才能生存。</strong>建立"价值+技术+市况"三维分析框架，用纪律克服贪婪与恐惧，在暴跌时择优买进、在狂热时分批卖出——这是朴炳昌25年法人交易员经验浓缩的核心公式。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="f-title">引用说明</p>
+    <p>本报告所有页码引用（格式 <span class="pg">SXX</span>）对应 EPUB 序文序号（Spine ID），非印刷页码。引用内容来自朴炳昌《韩国最强法人交易员的获利关键》（2020年繁体版）。</p>
+    <p>报告基于原书内容提炼，不构成投资建议。投资有风险，决策须谨慎。</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav = document.querySelector('.sticky-nav');
+  var secs = document.querySelectorAll('section.sec');
+  var links = document.querySelectorAll('.sticky-nav a');
+  var ticking = false;
+  function onScroll(){
+    if(!ticking){ requestAnimationFrame(function(){
+      var y = window.scrollY;
+      if(y > 300) nav.classList.add('show'); else nav.classList.remove('show');
+      var cur = '';
+      secs.forEach(function(s){ if(s.offsetTop - 120 <= y) cur = s.id; });
+      links.forEach(function(a){
+        a.classList.toggle('active', a.getAttribute('href') === '#' + cur);
+      });
+      ticking = false;
+    }); ticking = true; }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  document.querySelectorAll('.chapter-head').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      btn.closest('.chapter-card').classList.toggle('open');
+    });
+  });
+
+  var expandAll = document.querySelector('.btn-expand');
+  var collapseAll = document.querySelector('.btn-collapse');
+  if(expandAll) expandAll.addEventListener('click', function(){
+    document.querySelectorAll('.chapter-card').forEach(function(c){ c.classList.add('open'); });
+  });
+  if(collapseAll) collapseAll.addEventListener('click', function(){
+    document.querySelectorAll('.chapter-card').forEach(function(c){ c.classList.remove('open'); });
+  });
+})();
+</script>
+</body>
+</html>

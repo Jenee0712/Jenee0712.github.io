@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《抄底实战66招》深度研读</title>
+<style>
+:root {
+  --page-bg: #FFFFFF;
+  --page-surface: #F6F8FA;
+  --page-surface-muted: #EDF1F6;
+  --page-border: #D8DEE6;
+  --page-text: #1F2328;
+  --page-text-secondary: #424A53;
+  --page-text-muted: #66707B;
+  --page-text-disabled: #98A2AE;
+  --page-brand: #0969DA;
+  --page-brand-hover: #0860C8;
+  --page-brand-active: #0550AE;
+  --page-brand-soft: #EAF2FC;
+  --page-brand-soft-strong: #D6E6FA;
+  --page-brand-text: #0550AE;
+  --success: #1A7F37;
+  --soft-success: #EAF4EC;
+  --danger: #CF222E;
+  --soft-danger: #FCEBEA;
+  --warning: #9A6700;
+  --soft-warning: #FBF3DC;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "Cascadia Mono", Consolas, "Courier New", monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font-sans); color: var(--page-text); background: var(--page-bg); line-height: 1.7; font-size: 15px; }
+.wrap { max-width: 1020px; margin: 0 auto; padding: 0 20px; }
+.ic { width: 18px; height: 18px; } .ic-lg { width: 22px; height: 22px; }
+a { color: var(--page-brand); text-decoration: none; } a:hover { text-decoration: underline; }
+
+.report-intro { background: var(--page-brand-soft); border-bottom: 1px solid var(--page-border); }
+.report-intro__content { max-width: 1020px; margin: 0 auto; padding: 60px 24px 48px; }
+.report-intro .eyebrow { margin: 0 0 10px; font-size: 12.5px; font-weight: 700; letter-spacing: .14em; color: var(--page-brand-text); }
+.report-intro h1 { margin: 14px 0 10px; font-size: 34px; line-height: 1.3; letter-spacing: .01em; }
+.report-intro .subtitle { margin: 0 0 16px; font-size: 17px; color: var(--page-text-secondary); max-width: 760px; }
+.intro-summary { max-width: 830px; margin: 22px 0 0; font-size: 15px; color: var(--page-text); }
+.intro-meta { display: flex; flex-wrap: wrap; gap: 6px 22px; margin: 20px 0 0; color: var(--page-text-muted); font-size: 13px; }
+.intro-meta span { display: inline-flex; align-items: center; gap: 7px; }
+.intro-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 26px 0 0; }
+.intro-stats .stat { background: #fff; border: 1px solid var(--page-border); border-radius: 12px; padding: 16px 18px; }
+.intro-stats strong { font-size: 22px; display: block; line-height: 1.3; color: var(--page-brand-text); font-variant-numeric: tabular-nums; }
+.intro-stats span { font-size: 12.5px; color: var(--page-text-muted); display: block; margin-top: 4px; line-height: 1.5; }
+
+.sticky-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--page-border); transform: translateY(-100%); transition: transform .25s ease; }
+.sticky-nav.show { transform: none; }
+.sticky-nav__inner { max-width: 1020px; margin: 0 auto; padding: 0 16px; display: flex; align-items: center; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+.sticky-nav__inner::-webkit-scrollbar { display: none; }
+.sticky-nav__brand { font-size: 13px; font-weight: 700; color: var(--page-brand-text); white-space: nowrap; padding-right: 10px; }
+.sticky-nav a { font-size: 13px; color: var(--page-text-secondary); padding: 11px 10px 9px; white-space: nowrap; border-bottom: 2px solid transparent; }
+.sticky-nav a:hover { text-decoration: none; color: var(--page-brand); }
+.sticky-nav a.active { color: var(--page-brand); border-bottom-color: var(--page-brand); font-weight: 600; }
+
+.toc { padding-top: 48px; }
+.toc-card { background: var(--page-surface); border: 1px solid var(--page-border); border-radius: 12px; padding: 24px 26px; }
+.toc-card h2 { margin: 0; font-size: 17px; display: flex; align-items: center; gap: 10px; }
+.toc-card ol { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 28px; }
+.toc-card li { display: flex; align-items: baseline; gap: 10px; padding: 4px 0; }
+.toc-card li .no { font-family: var(--font-mono); font-size: 12px; color: var(--page-brand); font-weight: 700; width: 20px; flex-shrink: 0; }
+.toc-card li a { color: var(--page-text); font-size: 14.5px; }
+
+section.sec { padding: 56px 0 10px; scroll-margin-top: 64px; }
+.sec-head { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+.sec-no { font-family: var(--font-mono); font-size: 12.5px; font-weight: 700; color: var(--page-brand-text); border: 1px solid var(--page-brand-soft-strong); background: var(--page-brand-soft); padding: 3px 11px; border-radius: 999px; white-space: nowrap; }
+.sec-icon { color: var(--page-brand); display: inline-flex; }
+.sec-head h2 { margin: 0; font-size: 24px; line-height: 1.35; }
+.sec-sub { color: var(--page-text-muted); font-size: 14px; margin: 6px 0 26px; }
+
+mark.hl { background: var(--page-brand-soft-strong); color: var(--page-brand-text); padding: 1px 6px; border-radius: 5px; font-weight: 600; font-style: normal; white-space: nowrap; }
+.pg { font-family: var(--font-mono); font-size: 11px; color: var(--page-text-muted); background: var(--page-surface-muted); border-radius: 4px; padding: 0 5px; white-space: nowrap; }
+
+.callout { background: var(--page-surface); border: 1px solid var(--page-border); border-radius: 12px; padding: 18px 22px; display: flex; gap: 14px; margin: 22px 0; }
+.callout__icon { color: var(--page-brand); flex-shrink: 0; margin-top: 3px; }
+.callout__body { flex: 1; min-width: 0; }
+.callout__body .label { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--page-text-muted); margin: 0 0 6px; }
+.callout__body p { margin: 0 0 6px; font-size: 14.5px; }
+.callout__body p:last-child { margin-bottom: 0; }
+.callout--danger .callout__icon { color: var(--danger); }
+.callout--danger .callout__body .label { color: var(--danger); }
+
+.arg-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 18px 0 8px; }
+.arg-step { border: 1px solid var(--page-border); border-radius: 10px; padding: 12px 13px; background: var(--page-surface); }
+.arg-step .k { font-family: var(--font-mono); font-size: 11px; color: var(--page-brand); font-weight: 700; display: block; margin-bottom: 5px; letter-spacing: .04em; }
+.arg-step .t { font-size: 13px; font-weight: 700; margin: 0 0 4px; }
+.arg-step .d { font-size: 12px; color: var(--page-text-muted); margin: 0; line-height: 1.6; }
+
+.rel-list { list-style: none; margin: 14px 0; padding: 0; }
+.rel-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; padding: 10px 2px; border-bottom: 1px solid var(--page-border); font-size: 14px; }
+.rel-list li:last-child { border-bottom: none; }
+.rel-k { font-size: 11.5px; font-weight: 700; border-radius: 5px; padding: 1px 8px; flex-shrink: 0; }
+.rel-k--pre { background: var(--page-surface-muted); color: var(--page-text-secondary); }
+.rel-k--der { background: var(--page-brand-soft); color: var(--page-brand-text); }
+.rel-k--ref { background: var(--soft-danger); color: #A40E26; }
+.rel-k--ext { background: #F3EEFB; color: #5B34B5; }
+
+.btn-row { display: flex; gap: 10px; margin: 0 0 18px; }
+.btn { font-size: 13px; padding: 7px 15px; border-radius: 8px; border: 1px solid var(--page-border); background: #fff; color: var(--page-text-secondary); cursor: pointer; font-family: inherit; display: inline-flex; align-items: center; gap: 7px; }
+.btn:hover { border-color: var(--page-brand); color: var(--page-brand); }
+.ch-group { display: flex; align-items: center; gap: 12px; margin: 30px 0 14px; }
+.ch-group h3 { margin: 0; font-size: 15px; white-space: nowrap; }
+.ch-group .rule { flex: 1; height: 1px; background: var(--page-border); }
+.chapter-card { border: 1px solid var(--page-border); border-radius: 12px; background: #fff; margin-bottom: 12px; overflow: hidden; }
+.chapter-head { display: flex; width: 100%; text-align: left; background: none; border: none; padding: 15px 20px; cursor: pointer; gap: 14px; align-items: flex-start; font-family: inherit; font-size: inherit; color: inherit; }
+.chapter-head:hover { background: var(--page-surface); }
+.chapter-no { font-family: var(--font-mono); font-weight: 700; font-size: 12.5px; color: var(--page-brand-text); background: var(--page-brand-soft); border-radius: 8px; padding: 7px 10px; line-height: 1; margin-top: 3px; flex-shrink: 0; min-width: 44px; text-align: center; }
+.chapter-title { flex: 1; min-width: 0; }
+.chapter-title h3 { margin: 0; font-size: 16px; line-height: 1.45; }
+.chapter-claim { margin: 5px 0 0; font-size: 13.5px; color: var(--page-text-secondary); line-height: 1.65; }
+.chapter-chev { color: var(--page-text-muted); transition: transform .28s ease; flex-shrink: 0; margin-top: 5px; }
+.chapter-card.open .chapter-chev { transform: rotate(180deg); }
+.chapter-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+.chapter-card.open .chapter-body { grid-template-rows: 1fr; }
+.chapter-body-inner { overflow: hidden; }
+.chapter-body-content { padding: 16px 20px 20px 78px; border-top: 1px dashed var(--page-border); }
+.ch-block { margin-bottom: 14px; }
+.ch-block h4 { font-size: 12px; margin: 0 0 8px; color: var(--page-text-muted); font-weight: 700; letter-spacing: .08em; display: flex; align-items: center; gap: 7px; }
+.ch-block ul { margin: 0; padding-left: 18px; }
+.ch-block li { margin-bottom: 7px; font-size: 14px; line-height: 1.7; }
+
+.chain { max-width: 880px; margin: 0 auto; }
+.layer-node { border: 1px solid var(--page-border); border-radius: 12px; background: #fff; padding: 18px 22px; }
+.layer-head { display: flex; align-items: center; gap: 13px; margin-bottom: 4px; }
+.layer-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--page-brand-soft); color: var(--page-brand); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.layer-title { flex: 1; min-width: 0; }
+.layer-title h3 { margin: 0; font-size: 16.5px; }
+.layer-title .sub { font-size: 12.5px; color: var(--page-text-muted); }
+.cycle-tag { font-size: 11.5px; font-weight: 700; padding: 3px 11px; border-radius: 999px; border: 1px solid var(--page-border); background: var(--page-surface); color: var(--page-text-secondary); white-space: nowrap; flex-shrink: 0; }
+.layer-body dl { display: grid; grid-template-columns: 1.2fr 1.2fr 1fr; gap: 12px 20px; margin: 12px 0 0; }
+.layer-body dt { font-size: 11.5px; color: var(--page-text-muted); font-weight: 700; margin-bottom: 3px; letter-spacing: .06em; }
+.layer-body dd { margin: 0; font-size: 13px; line-height: 1.65; }
+.flow-connector { display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 8px 0; }
+.flow-connector .arr { color: var(--page-brand); }
+.flow-connector .lbl { font-size: 12.5px; color: var(--page-text-muted); text-align: center; max-width: 620px; line-height: 1.55; }
+
+.tbl-title { font-size: 14px; font-weight: 700; margin: 22px 0 4px; display: flex; align-items: center; gap: 8px; }
+.tbl-note { font-size: 12.5px; color: var(--page-text-muted); margin: 0 0 10px; }
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--page-border); border-radius: 12px; }
+table.tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.tbl th { background: var(--page-surface-muted); text-align: left; font-size: 12.5px; padding: 10px 14px; border-bottom: 1px solid var(--page-border); color: var(--page-text-secondary); white-space: nowrap; font-weight: 700; }
+.tbl td { padding: 11px 14px; border-bottom: 1px solid var(--page-border); vertical-align: top; line-height: 1.65; }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl .pos { font-weight: 700; color: var(--page-brand-text); }
+.tbl td .pg { display: inline-block; margin-top: 2px; }
+
+.signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.signal-card { border: 1px solid var(--page-border); border-radius: 12px; padding: 16px 20px; background: #fff; }
+.signal-card h4 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 14.5px; }
+.signal-card ul { margin: 0; padding-left: 18px; font-size: 13.5px; }
+.signal-card li { margin-bottom: 6px; }
+
+.timeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 14px 0; }
+.tl-node { border: 1px solid var(--page-border); border-radius: 12px; padding: 13px 14px; background: var(--page-surface); }
+.tl-node time { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--page-brand-text); display: block; margin-bottom: 5px; }
+.tl-node p { margin: 0; font-size: 12.5px; line-height: 1.6; color: var(--page-text-secondary); }
+
+.qa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.qa-card { border: 1px solid var(--page-border); border-radius: 12px; padding: 16px 20px; background: #fff; }
+.qa-card h4 { margin: 0 0 8px; font-size: 14.5px; display: flex; gap: 9px; line-height: 1.5; }
+.qa-card h4 .qno { font-family: var(--font-mono); color: var(--page-brand); font-size: 13px; flex-shrink: 0; }
+.qa-card p { font-size: 13.5px; margin: 0; color: var(--page-text-secondary); }
+
+.ctx-pill { display: inline-block; font-size: 11px; font-weight: 700; line-height: 1; padding: 4px 9px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
+.ctx-pill--pos { background: var(--soft-success); color: var(--success); }
+.ctx-pill--neg { background: var(--soft-danger); color: var(--danger); }
+.ctx-pill--demo { background: var(--page-brand-soft); color: var(--page-brand-text); }
+.ctx-pill--mention { background: var(--page-surface-muted); color: var(--page-text-muted); }
+.asset-group { border: 1px solid var(--page-border); border-radius: 12px; background: #fff; margin-bottom: 16px; overflow: hidden; }
+.asset-group-head { display: flex; align-items: center; gap: 10px; padding: 12px 18px; background: var(--page-surface-muted); border-bottom: 1px solid var(--page-border); }
+.asset-group-head .g-name { font-size: 14px; font-weight: 700; color: var(--page-brand-text); flex: 1; }
+.asset-group-head .g-count { font-family: var(--font-mono); font-size: 11.5px; color: var(--page-text-muted); }
+.asset-item { display: flex; gap: 12px; padding: 13px 18px; border-bottom: 1px solid var(--page-border); }
+.asset-item:last-child { border-bottom: none; }
+.asset-item .a-name { width: 150px; flex-shrink: 0; font-size: 13.5px; font-weight: 700; color: var(--page-text); }
+.asset-item .a-name .a-type { display: block; font-size: 11.5px; font-weight: 400; color: var(--page-text-muted); margin-top: 2px; }
+.asset-item .a-body { flex: 1; min-width: 0; font-size: 13px; line-height: 1.65; color: var(--page-text-secondary); }
+.asset-item .a-body .a-data { color: var(--page-text); }
+
+footer { margin-top: 64px; border-top: 1px solid var(--page-border); background: var(--page-surface); padding: 30px 0 40px; }
+footer .f-title { font-size: 13px; font-weight: 700; color: var(--page-text-secondary); margin: 0 0 8px; }
+footer p { font-size: 12.5px; color: var(--page-text-muted); margin: 0 0 6px; }
+
+@media print {
+  .sticky-nav, .btn-row { display: none !important; }
+  .report-intro { background: none; }
+  .chapter-body { grid-template-rows: 1fr !important; }
+  section.sec { padding: 28px 0 6px; page-break-inside: avoid; }
+  a { color: inherit; }
+}
+</style>
+
+<style id="srcModalCss">
+/* ---- 原文弹窗（p.XX 点击查看原书） ---- */
+.src-modal { position: fixed; inset: 0; z-index: 999; display: none; align-items: center; justify-content: center; padding: 22px; background: rgba(31,35,40,.48); }
+.src-modal.open { display: flex; }
+.src-modal__card { background: #fff; border: 1px solid var(--page-border, #D8DEE6); border-radius: 12px; max-width: 780px; width: 100%; max-height: 85vh; display: flex; flex-direction: column; box-shadow: 0 18px 56px rgba(31,35,40,.2); }
+.src-modal__head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--page-border, #D8DEE6); }
+.src-modal__title { font-weight: 700; font-size: 15px; color: var(--page-text, #1F2328); line-height: 1.5; }
+.src-modal__title small { display: block; font-weight: 400; color: var(--page-text-muted, #66707B); font-size: 12.5px; margin-top: 2px; }
+.src-modal__close { border: none; background: none; font-size: 22px; line-height: 1; cursor: pointer; color: var(--page-text-muted, #66707B); padding: 2px 8px; border-radius: 6px; }
+.src-modal__close:hover { background: var(--page-surface, #F6F8FA); color: var(--page-text, #1F2328); }
+.src-modal__body { padding: 18px 22px; overflow-y: auto; font-size: 15px; line-height: 1.95; color: var(--page-text, #1F2328); white-space: pre-wrap; word-break: break-word; }
+.src-modal__foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 18px; border-top: 1px solid var(--page-border, #D8DEE6); flex-wrap: wrap; }
+.src-modal__nav { display: flex; gap: 8px; align-items: center; }
+.src-modal__select { font: inherit; font-size: 13px; padding: 5px 8px; border-radius: 8px; border: 1px solid var(--page-border, #D8DEE6); background: #fff; color: var(--page-text, #1F2328); max-width: 340px; }
+.src-btn { font: inherit; font-size: 13px; padding: 6px 14px; border-radius: 8px; border: 1px solid var(--page-border, #D8DEE6); background: #fff; color: var(--page-text, #1F2328); cursor: pointer; text-decoration: none; display: inline-block; }
+.src-btn:hover:not(:disabled) { border-color: var(--page-brand, #0969DA); color: var(--page-brand, #0969DA); }
+.src-btn:disabled { opacity: .4; cursor: default; }
+.src-btn--primary { background: var(--page-brand, #0969DA); border-color: var(--page-brand, #0969DA); color: #fff; }
+.src-btn--primary:hover { background: var(--page-brand-hover, #0860C8); color: #fff; }
+a.pg-link { color: inherit; text-decoration: none; cursor: pointer; }
+a.pg-link:hover, a.pg-link:focus { color: var(--page-brand, #0969DA); text-decoration: underline; text-underline-offset: 3px; }
+.src-open-row { margin: 0 0 16px; }
+a.src-open { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--page-brand-text, #0550AE); border: 1px solid var(--page-brand-soft-strong, #D6E6FA); background: var(--page-brand-soft, #EAF2FC); padding: 6px 14px; border-radius: 999px; text-decoration: none; cursor: pointer; }
+a.src-open:hover { background: var(--page-brand-soft-strong, #D6E6FA); }
+@media print { .src-modal, .src-open-row { display: none !important; } }
+</style>
+</head>
+<body>
+
+<!-- Sticky Nav -->
+<nav class="sticky-nav" id="stickyNav">
+<div class="sticky-nav__inner">
+<span class="sticky-nav__brand">抄底66招</span>
+<a href="#sec01" data-sec="sec01">核心论证</a>
+<a href="#sec02" data-sec="sec02">章节精读</a>
+<a href="#sec03" data-sec="sec03">知识图谱</a>
+<a href="#sec04" data-sec="sec04">实战指引</a>
+<a href="#sec05" data-sec="sec05">批判审视</a>
+<a href="#sec06" data-sec="sec06">案例与标的</a>
+<a href="#sec07" data-sec="sec07">待验证</a>
+</div>
+</nav>
+
+<!-- 00 封面 -->
+<header class="report-intro">
+<div class="report-intro__content">
+<p class="eyebrow">BOOK DEEP READING</p>
+<h1>《抄底实战66招：从台股赚一亿变可能》深度研读</h1>
+<p class="subtitle">郭泰31年台股实战经验的集大成之作——「位置哲学」操盘法完整体系：底部区买进、头部区卖出，只赚大波段，平均获利5倍。</p>
+<div class="intro-summary">
+本书以艾略特波浪理论为骨架，融合价值投资、技术分析、量价关系与反群众心理，构建出「抄底派」的完整操作体系。核心主张：散户应在股价循环底部区大胆分批买进，抱牢主流股至头部区果断出清，利用大波段价差实现财富自由。
+</div>
+<div class="intro-meta">
+<span>作者：郭泰</span>
+<span>增订版</span>
+<span>台股操作实战</span>
+<span>66招 + 7大单元</span>
+</div>
+<div class="intro-stats">
+<div class="stat"><strong>7 PART</strong><span>从入门到放空<br>完整操作体系</span></div>
+<div class="stat"><strong>4次循环</strong><span>台股31年实战<br>数据验证</span></div>
+<div class="stat"><strong>平均5倍</strong><span>底部买进头部卖出<br>大波段报酬率</span></div>
+</div>
+</div>
+</header>
+
+<!-- TOC -->
+<div class="wrap toc">
+<div class="toc-card">
+<h2>
+<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+研读报告目录
+</h2>
+<ol>
+<li><span class="no">01</span><a href="#sec01">核心论证链</a></li>
+<li><span class="no">02</span><a href="#sec02">章节精读卡片</a></li>
+<li><span class="no">03</span><a href="#sec03">领域知识图谱</a></li>
+<li><span class="no">04</span><a href="#sec04">实战行动指引</a></li>
+<li><span class="no">05</span><a href="#sec05">批判性审视</a></li>
+<li><span class="no">06</span><a href="#sec06">案例与投资标的</a></li>
+<li><span class="no">07</span><a href="#sec07">待验证问题</a></li>
+</ol>
+</div>
+</div>
+
+<div class="wrap">
+
+<!-- 01 核心论证链 -->
+<section class="sec" id="sec01">
+<div class="sec-head">
+<span class="sec-no">01</span>
+<span class="sec-icon"><svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
+<h2>核心论证链</h2>
+</div>
+<p class="sec-sub">郭泰「位置哲学」的五步论证：从为什么到怎么做</p>
+
+<div class="arg-flow">
+<div class="arg-step">
+<span class="k">STEP 1</span>
+<p class="t">8成散户亏钱</p>
+<p class="d">欠缺正确观念、基本功、操作技巧、量价认知、赢家策略</p>
+</div>
+<div class="arg-step">
+<span class="k">STEP 2</span>
+<p class="t">股价有循环</p>
+<p class="d">艾略特8波段理论：5波多头+3波空头，周而复始</p>
+</div>
+<div class="arg-step">
+<span class="k">STEP 3</span>
+<p class="t">底部可判断</p>
+<p class="d">11个讯号确认底部区：月KD跌破20、成交量萎缩、M1B落底等</p>
+</div>
+<div class="arg-step">
+<span class="k">STEP 4</span>
+<p class="t">大胆买抱牢</p>
+<p class="d">分批买进5-7档，挑3-5档主流股，抱到头部区确认才出清</p>
+</div>
+<div class="arg-step">
+<span class="k">STEP 5</span>
+<p class="t">平均5倍报酬</p>
+<p class="d">台股4次循环验证：底部买进→头部卖出，平均投资报酬率5倍</p>
+</div>
+</div>
+
+<div class="callout">
+<span class="callout__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></span>
+<div class="callout__body">
+<p class="label">核心命题</p>
+<p>「底部区买进、头部区卖出」——买对位置，永远不会受伤。买进时机永远比卖出时机重要。在股价循环的a、c、i三个位置买进，就不会亏钱。</p>
+</div>
+</div>
+
+<div class="callout">
+<span class="callout__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+<div class="callout__body">
+<p class="label">关键数据支撑</p>
+<p>台股第1循环多头38个月（1987.1→1990.2），第2循环6年11个月，第3循环6年2个月，第4循环9年3个月。每次循环从底部到头部，平均报酬率约5倍。底部区成交量萎缩83%-86%，头部区成交量暴增7-11倍。</p>
+</div>
+</div>
+</section>
+
+<!-- 02 章节精读 -->
+<section class="sec" id="sec02">
+<div class="sec-head">
+<span class="sec-no">02</span>
+<span class="sec-icon"><svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span>
+<h2>章节精读卡片</h2>
+</div>
+<p class="sec-sub">7大PART、66招的核心论点与方法论，按章节展开</p>
+
+<div class="btn-row">
+<button class="btn" onclick="document.querySelectorAll('.chapter-card').forEach(c=>c.classList.add('open'))">全部展开</button>
+<button class="btn" onclick="document.querySelectorAll('.chapter-card').forEach(c=>c.classList.remove('open'))">全部收起</button>
+</div>
+
+<!-- PART1 -->
+<div class="ch-group"><h3>PART1 从了解股市赚赔的原因开始</h3><span class="rule"></span></div>
+
+<div class="chapter-card">
+<button class="chapter-head" onclick="this.parentElement.classList.toggle('open')">
+<span class="chapter-no">1-10</span>
+<div class="chapter-title">
+<h3>散户亏钱的5大原因 & 股市赢家的3个等级</h3>
+<p class="chapter-claim">8成散户亏钱源于：观念错误、缺基本功、不懂技巧、不知量价、无赢家策略。真正高手分初段（逮底卖头）、中段（多空双赚）、高段（每波精准）。</p>
+</div>
+<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</button>
+<div class="chapter-body"><div class="chapter-body-inner">
+<div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="1" href="#">查看原文 · 第 1–10 招（弹窗逐招阅读）</a></div>
+
+<div class="ch-block">
+<h4>核心论点</h4>
+<ul>
+<li>8成散户亏钱的5大原因：缺正确观念、缺操盘基本功、不谙操作技巧、不了解量价关系、不懂赢家策略</li>
+<li>投顾老师是市场解释者而非预测者，跟随操作不可靠</li>
+<li>6种性格的人赚不到钱：心浮气躁、缺乏主见、忍受不了套牢、追涨杀跌、无风险概念、输不起</li>
+<li>大钱留给中长线的人赚——持股至少2年才能赚足整个多头波段</li>
+<li>沃迈克的种稻哲学：播种比收割重要，买进时机比卖出时机重要</li>
+</ul>
+</div>
+<div class="ch-block">
+<h4>关键方法</h4>
+<ul>
+<li>精读15本经典好书融会贯通（葛兰姆、彼得林区、巴菲特、科斯托兰尼等）</li>
+<li>以严肃态度面对股市：先问能赔多少，再问能赚多少</li>
+<li>成为初段高手为目标：10年磨剑</li>
+</ul>
+</div>
+</div>
+</div></div>
+</div>
+
+<!-- PART2 -->
+<div class="ch-group"><h3>PART2 进入股市前该知道的10件事</h3><span class="rule"></span></div>
+
+<div class="chapter-card">
+<button class="chapter-head" onclick="this.parentElement.classList.toggle('open')">
+<span class="chapter-no">11-20</span>
+<div class="chapter-title">
+<h3>买股如买房——10个必知问题</h3>
+<p class="chapter-claim">像买房子一样慎重买股票。价值理论核心：崩盘时买进物超所值的高殖利率绩优股。底部区11个讯号确认进场时机。</p>
+</div>
+<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</button>
+<div class="chapter-body"><div class="chapter-body-inner">
+<div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="11" href="#">查看原文 · 第 11–20 招（弹窗逐招阅读）</a></div>
+
+<div class="ch-block">
+<h4>核心论点</h4>
+<ul>
+<li>抱著买房心态买股票：买前必须弄清楚10个问题</li>
+<li>股价上涨8个原因：经济因素(6成9)、公司业绩、潜力发现、波浪走完、暴跌反弹、溢价增资、轧空行情、股权相争</li>
+<li>股价下跌6个因素：经济萧条、经营不善、波浪走完5波、利率高涨、金融危机、财政利空(证所税)</li>
+<li>利空事件反而是买股良机：911事件、SARS疫情均为底部区最佳买点</li>
+<li>分辨上涨与反弹、下跌与回档：反弹不超过原跌幅2/3</li>
+</ul>
+</div>
+<div class="ch-block">
+<h4>关键方法</h4>
+<ul>
+<li>价值投资6条件：获益性佳、稳定性高、成长性好、财务良好、高派股利、股价低(PE<9, P/B<1.2)</li>
+<li>底部区11个讯号：月K走完8波、成交量萎缩、融资跌幅>大盘跌幅、盘整不破底、政府干预、红K线、日K打底、月KD<20黄金交叉、本益比超跌、M1B落底4-5月、期指价格发现</li>
+<li>利用台指期「价格发现」功能确认底部区</li>
+</ul>
+</div>
+</div>
+</div></div>
+</div>
+
+<!-- PART3 -->
+<div class="ch-group"><h3>PART3 扎稳马步 练好基本功</h3><span class="rule"></span></div>
+
+<div class="chapter-card">
+<button class="chapter-head" onclick="this.parentElement.classList.toggle('open')">
+<span class="chapter-no">21-31</span>
+<div class="chapter-title">
+<h3>位置理论与总经基本功</h3>
+<p class="chapter-claim">「位置理论」：买在a、c、i三个位置就不会受伤。景气循环与股价循环密切相关，M1B与M2交叉是趋势判断的关键指标。</p>
+</div>
+<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</button>
+<div class="chapter-body"><div class="chapter-body-inner">
+<div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="21" href="#">查看原文 · 第 21–31 招（弹窗逐招阅读）</a></div>
+
+<div class="ch-block">
+<h4>核心论点</h4>
+<ul>
+<li>长抱高殖利率股效益惊人：台塑100万元→50年后10亿（复利千倍）</li>
+<li>位置理论：8波段中只有a(底部)、c(次底部)、i(新循环底部)三个买点安全</li>
+<li>不频繁买卖：0.285%手续费+0.3%交易税=0.585%，帽客171次就赔光本金</li>
+<li>和号子保持距离：避免追涨杀跌的群众效应</li>
+<li>景气循环领先或落后股价循环0-3个月</li>
+<li>利率与汇率影响股价：降息=政府做多，升息=政府做空</li>
+<li>通膨：短期股价涨（资产增值），长期股价跌（资金撤离）</li>
+<li>M1B与M2黄金交叉=多头讯号，死亡交叉=空头讯号</li>
+</ul>
+</div>
+</div>
+</div></div>
+</div>
+
+<!-- PART4 -->
+<div class="ch-group"><h3>PART4 学习技术分析 入门第1步</h3><span class="rule"></span></div>
+
+<div class="chapter-card">
+<button class="chapter-head" onclick="this.parentElement.classList.toggle('open')">
+<span class="chapter-no">32-45</span>
+<div class="chapter-title">
+<h3>12种技术分析操作法</h3>
+<p class="chapter-claim">从KD线、移动平均线、RSI到反群众心理，12种技术分析工具的实战应用。月KD值研判长期趋势最准确，5月RSI背离是长线到顶的强烈警讯。</p>
+</div>
+<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</button>
+<div class="chapter-body"><div class="chapter-body-inner">
+<div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="32" href="#">查看原文 · 第 32–45 招（弹窗逐招阅读）</a></div>
+
+<div class="ch-block">
+<h4>12种技术分析工具一览</h4>
+<ul>
+<li><strong>KD线</strong>：月K值跌破20后黄金交叉=长多讯号（31年仅7次）</li>
+<li><strong>移动平均线</strong>：季线翻扬=空翻多；跌破年线=多翻空</li>
+<li><strong>乖离率</strong>：10日乖离率<-10%=超卖买进；>10%=超买卖出</li>
+<li><strong>MACD</strong>：DIF零轴上穿越MACD=上升波段；零轴下穿越=下跌波段</li>
+<li><strong>RSI</strong>：5月RSI做头背离=长线出脱讯号（2017年10月10,793点实例）</li>
+<li><strong>心理线</strong>：25%以下超卖、75%以上超买，仅适用短线</li>
+<li><strong>反群众心理</strong>：人弃我取、人取我与；4项指标判断极端情绪</li>
+<li><strong>宝塔线</strong>：翻红买、翻黑卖；盘局是盲点</li>
+<li><strong>ADL/ADR/OBOS</strong>：大盘短期走势预测，背离为反转讯号</li>
+<li><strong>买空卖空</strong>：当日冲销，帽客专利，一般人少碰</li>
+<li><strong>进三退一</strong>：涨3成卖、跌1成卖，新手简易法</li>
+<li><strong>退出观望</strong>：盘整期不买不卖，台股盘整占50%时间</li>
+</ul>
+</div>
+</div>
+</div></div>
+</div>
+
+<!-- PART5 -->
+<div class="ch-group"><h3>PART5 看懂量价变化 跨入中段班</h3><span class="rule"></span></div>
+
+<div class="chapter-card">
+<button class="chapter-head" onclick="this.parentElement.classList.toggle('open')">
+<span class="chapter-no">46-51</span>
+<div class="chapter-title">
+<h3>量价关系的6大法则</h3>
+<p class="chapter-claim">成交量是唯一的诚实人。底部区成交量萎缩83-86%，头部区暴增7-11倍并出现量价背离。量是因价是果，量是先行指标。</p>
+</div>
+<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</button>
+<div class="chapter-body"><div class="chapter-body-inner">
+<div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="46" href="#">查看原文 · 第 46–51 招（弹窗逐招阅读）</a></div>
+
+<div class="ch-block">
+<h4>量价9大法则</h4>
+<ul>
+<li>量是因价为果；量是先行指标</li>
+<li>股价落底→成交量明显萎缩；股价到头→成交量明显暴增</li>
+<li>价量同步（涨+量增、跌+量缩）=买进</li>
+<li>价量背离（涨+量缩、跌+量增）=卖出</li>
+<li>末升段股价创新高但量不增=卖出讯号</li>
+<li>底部区成交量极度萎缩=大好时机</li>
+<li>冲关第3次成功，量须达前2次均量的1.2倍</li>
+<li>突破颈线/趋势线必须伴随大量</li>
+<li>周成交量突破法：盘整周量总和>上档卖压总和=即将突破</li>
+</ul>
+</div>
+</div>
+</div></div>
+</div>
+
+<!-- PART6 -->
+<div class="ch-group"><h3>PART6 运用精准策略 往高手之路迈进</h3><span class="rule"></span></div>
+
+<div class="chapter-card">
+<button class="chapter-head" onclick="this.parentElement.classList.toggle('open')">
+<span class="chapter-no">52-60</span>
+<div class="chapter-title">
+<h3>赢家策略：循环、选股、黑马</h3>
+<p class="chapter-claim">科斯托兰尼循环图：4000点以下低潮期买进，4000-8000盘整期抱牢，8000以上高潮期出脱。选股首重产业强势股，4要素找黑马。</p>
+</div>
+<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</button>
+<div class="chapter-body"><div class="chapter-body-inner">
+<div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="52" href="#">查看原文 · 第 52–60 招（弹窗逐招阅读）</a></div>
+
+<div class="ch-block">
+<h4>核心策略</h4>
+<ul>
+<li>科斯托兰尼循环图：低潮期(<4000)买→盘整期(4000-8000)抱→高潮期(>8000)卖</li>
+<li>道氏理论：暴跌之后必暴涨（1988年证所税事件：8831→5585→7596）</li>
+<li>4种解套方法：持股抱牢(底部区)、摊低成本(底部区)、停损走人(头部区)、换股操作</li>
+<li>选股首重产业强势股：每次循环强势类股不同，涨幅差距巨大</li>
+<li>挖掘潜伏底股票：3年以上底部+极低成交量+突然大量突破=10倍以上涨幅</li>
+<li>4要素找黑马：产业远景、有主力照顾、曾经飙涨过、资本额<10亿</li>
+<li>长期投资0050有机会打败大盘</li>
+<li>董监事改选行情：3-4月股权争夺期</li>
+</ul>
+</div>
+</div>
+</div></div>
+</div>
+
+<!-- PART7 -->
+<div class="ch-group"><h3>PART7 精研放空技巧 晋升投资赢家</h3><span class="rule"></span></div>
+
+<div class="chapter-card">
+<button class="chapter-head" onclick="this.parentElement.classList.toggle('open')">
+<span class="chapter-no">61-66</span>
+<div class="chapter-title">
+<h3>放空操作与B高最佳空点</h3>
+<p class="chapter-claim">多空两面操作才能获取最大利润。B高（B波反弹高点）才是最佳空点。放空需面对3种压力、小心3个陷阱。</p>
+</div>
+<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+</button>
+<div class="chapter-body"><div class="chapter-body-inner">
+<div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="61" href="#">查看原文 · 第 61–66 招（弹窗逐招阅读）</a></div>
+
+<div class="ch-block">
+<h4>放空操作要点</h4>
+<ul>
+<li>台股多头时间约为空头的3倍（195个月 vs 73个月），放空胜算较低</li>
+<li>放空3种压力：莫须有罪名、被轧空的精神折磨、胜算低于做多</li>
+<li>放空3个陷阱：股东会/除权强制回补、做手诱空、多空地位不平等</li>
+<li>辨别走空4讯号：月KD80死亡交叉、跌破年线、跌破上升趋势线、M1B/M2死亡交叉</li>
+<li>B高才是最佳空点：h点（第7波反弹高点）空头行情才算确立</li>
+<li>位置理论总结：2个好买点(a,c)、2个好卖点(d,f)、1个最佳空点(h)</li>
+</ul>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+
+<!-- 03 知识图谱 -->
+<section class="sec" id="sec03">
+<div class="sec-head">
+<span class="sec-no">03</span>
+<span class="sec-icon"><svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg></span>
+<h2>领域知识图谱</h2>
+</div>
+<p class="sec-sub">「抄底派」操作体系的三层架构：哲学层→方法层→工具层</p>
+
+<div class="chain">
+<div class="layer-node">
+<div class="layer-head">
+<span class="layer-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg></span>
+<div class="layer-title">
+<h3>哲学层：位置哲学</h3>
+<span class="sub">郭泰原创理论</span>
+</div>
+<span class="cycle-tag">核心</span>
+</div>
+<div class="layer-body">
+<dl>
+<div><dt>核心命题</dt><dd>买在底部区、卖在头部区，位置决定成败</dd></div>
+<div><dt>理论基础</dt><dd>艾略特波浪理论 + 葛兰姆价值理论 + 道氏股价理论</dd></div>
+<div><dt>操作信条</dt><dd>「忍字脚下遍地黄金」——赚的是忍耐的钱</dd></div>
+</dl>
+</div>
+</div>
+
+<div class="flow-connector">
+<span class="arr">▼</span>
+<span class="lbl">哲学层指导方法层：位置判断→操作策略</span>
+</div>
+
+<div class="layer-node">
+<div class="layer-head">
+<span class="layer-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></span>
+<div class="layer-title">
+<h3>方法层：5步操盘法</h3>
+<span class="sub">从底部到头部的完整流程</span>
+</div>
+<span class="cycle-tag">实战</span>
+</div>
+<div class="layer-body">
+<dl>
+<div><dt>Step 1</dt><dd>逮到底部区（11个讯号确认）</dd></div>
+<div><dt>Step 2</dt><dd>大胆分批买进（5-7档，分3批）</dd></div>
+<div><dt>Step 3</dt><dd>挑出主流股（走势最强3-5档）</dd></div>
+<div><dt>Step 4</dt><dd>抱牢持股（直到头部区确认）</dd></div>
+<div><dt>Step 5</dt><dd>逮到头部区，分批出清</dd></div>
+<div><dt>辅助方法</dt><dd>反群众心理 + 利空事件买进 + 退出观望</dd></div>
+</dl>
+</div>
+</div>
+
+<div class="flow-connector">
+<span class="arr">▼</span>
+<span class="lbl">方法层需要工具层支撑：判断底部/头部的具体工具</span>
+</div>
+
+<div class="layer-node">
+<div class="layer-head">
+<span class="layer-icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
+<div class="layer-title">
+<h3>工具层：技术分析 + 量价 + 总经</h3>
+<span class="sub">三大类判断工具</span>
+</div>
+<span class="cycle-tag">工具</span>
+</div>
+<div class="layer-body">
+<dl>
+<div><dt>技术指标</dt><dd>月KD、移动平均线、RSI、MACD、乖离率、心理线、宝塔线、ADL/ADR/OBOS</dd></div>
+<div><dt>量价工具</dt><dd>OBV能量潮、TAPI线、月成交量变化、周成交量突破法</dd></div>
+<div><dt>总经指标</dt><dd>M1B/M2交叉、利率/汇率、景气循环、融资余额</dd></div>
+</dl>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 04 实战指引 -->
+<section class="sec" id="sec04">
+<div class="sec-head">
+<span class="sec-no">04</span>
+<span class="sec-icon"><svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></span>
+<h2>实战行动指引</h2>
+</div>
+<p class="sec-sub">从书中提炼的可执行操作清单</p>
+
+<div class="signal-grid">
+<div class="signal-card">
+<h4>
+<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+底部区买进清单
+</h4>
+<ul>
+<li>确认月KD值跌破20后形成黄金交叉</li>
+<li>月成交量萎缩至高峰期的15%以下</li>
+<li>M1B年增率落底后4-5个月</li>
+<li>台指期未破前低（价格发现）</li>
+<li>政府连续降息干预</li>
+<li>分3批买进，每次等额</li>
+<li>初始选5-7档，后缩至3-5档主流</li>
+</ul>
+</div>
+<div class="signal-card">
+<h4>
+<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M15 9l-6 6M9 9l6 6"/></svg>
+头部区卖出清单
+</h4>
+<ul>
+<li>月KD值在80附近形成死亡交叉</li>
+<li>5月RSI出现做头背离</li>
+<li>股价跌破年线且带量见缺口</li>
+<li>股价跌破上升趋势线</li>
+<li>月成交量暴增但股价不动或下跌</li>
+<li>M1B/M2形成死亡交叉</li>
+<li>趁利多消息发布时分批卖出</li>
+</ul>
+</div>
+</div>
+
+<div class="tbl-title">台股4次循环关键数据</div>
+<div class="tbl-wrap">
+<table class="tbl">
+<thead>
+<tr><th>循环</th><th>底部区</th><th>头部区</th><th>多头时长</th><th>空头时长</th><th>底部成交量</th><th>头部成交量</th></tr>
+</thead>
+<tbody>
+<tr><td class="pos">第1次</td><td>1985.7 636点</td><td>1990.2 12,682点</td><td>38个月</td><td>9个月</td><td>727亿/月</td><td>35,245亿/月</td></tr>
+<tr><td class="pos">第2次</td><td>1990.10 2,485点</td><td>1997.2 10,256点</td><td>6年11个月</td><td>约4年7个月</td><td>4,557亿/月</td><td>51,972亿/月</td></tr>
+<tr><td class="pos">第3次</td><td>2001.9 3,411点</td><td>2007.10 9,859点</td><td>6年2个月</td><td>14个月</td><td>6,572亿/月</td><td>50,316亿/月</td></tr>
+<tr><td class="pos">第4次</td><td>2008.11 3,955点</td><td>2018.1 11,270点</td><td>9年3个月</td><td>—</td><td>8,630亿/月</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="tbl-title">各循环强势类股排行</div>
+<div class="tbl-wrap">
+<table class="tbl">
+<thead>
+<tr><th>循环</th><th>第1名</th><th>第2名</th><th>第3名</th><th>电子股</th><th>金融股</th></tr>
+</thead>
+<tbody>
+<tr><td class="pos">第3次</td><td>营建 8.15倍</td><td>橡胶 7.32倍</td><td>观光 7.2倍</td><td>2.63倍</td><td>2.55倍</td></tr>
+<tr><td class="pos">第4次(1波)</td><td>汽车 5.66倍</td><td>玻璃陶瓷 4.15倍</td><td>营建 4.05倍</td><td>2.41倍</td><td>2.5倍</td></tr>
+<tr><td class="pos">第4次(2波)</td><td colspan="4">电子股为主流（晶圆代工、手机概念、苹果概念）</td><td>—</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- 05 批判审视 -->
+<section class="sec" id="sec05">
+<div class="sec-head">
+<span class="sec-no">05</span>
+<span class="sec-icon"><svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+<h2>批判性审视</h2>
+</div>
+<p class="sec-sub">5个需要注意的局限与风险</p>
+
+<div class="callout callout--danger">
+<span class="callout__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+<div class="callout__body">
+<p class="label">局限1：台股中心主义</p>
+<p>全书所有论据均来自台股历史数据（1985-2018），未涉及美股、A股或其他市场。台股产业结构以电子代工为主，与美股以科技创新驱动的逻辑不同。方法论移植到其他市场需审慎验证。</p>
+</div>
+</div>
+
+<div class="callout callout--danger">
+<span class="callout__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span>
+<div class="callout__body">
+<p class="label">局限2：幸存者偏差</p>
+<p>书中引用的成功案例（如宏达电4.1倍、台塑千倍复利）均为幸存者。未提及同期间失败的案例。潜伏底股票可能永远不爆发，底部区判断也可能错误（如「跳B杀C」的惨烈下杀）。</p>
+</div>
+</div>
+
+<div class="callout callout--danger">
+<span class="callout__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span>
+<div class="callout__body">
+<p class="label">局限3：时间成本巨大</p>
+<p>每次循环多头行情长达2-9年，意味著资金锁定时间极长。对一般散户而言，2-3年不出结果的心理压力、机会成本均未充分讨论。书中以「乌龟为师」的比喻虽美，但忽略了流动性需求。</p>
+</div>
+</div>
+
+<div class="callout callout--danger">
+<span class="callout__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span>
+<div class="callout__body">
+<p class="label">局限4：技术分析的落后性</p>
+<p>书中坦承移动平均线、MACD均为落后指标。M1B/M2交叉也是落后指标。底部区11个讯号中多数为确认讯号而非领先讯号，实际操作时可能已错过最佳买点。</p>
+</div>
+</div>
+
+<div class="callout callout--danger">
+<span class="callout__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg></span>
+<div class="callout__body">
+<p class="label">局限5：放空操作的现实困难</p>
+<p>书中建议多空两面操作，但坦承放空胜算仅为做多的1/3时间窗口，且面临强制回补、轧空风险、多空不平等地位。对一般散户而言，放空的可操作性存疑。</p>
+</div>
+</div>
+</section>
+
+<!-- 06 案例与标的 -->
+<section class="sec" id="sec06">
+<div class="sec-head">
+<span class="sec-no">06</span>
+<span class="sec-icon"><svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></span>
+<h2>案例与投资标的</h2>
+</div>
+<p class="sec-sub">书中出现的具体投资案例与标的，按资产类别分组</p>
+
+<div class="ctx-legend">
+<span>情境标签：</span>
+<span class="ctx-pill ctx-pill--pos">正面案例</span>
+<span class="ctx-pill ctx-pill--neg">反面警示</span>
+<span class="ctx-pill ctx-pill--demo">操作示范</span>
+<span class="ctx-pill ctx-pill--mention">附带提及</span>
+</div>
+
+<div class="tbl-title">案例摘要</div>
+<div class="tbl-wrap">
+<table class="tbl">
+<thead>
+<tr><th>案例</th><th>类型</th><th>核心内容</th><th>情境</th></tr>
+</thead>
+<tbody>
+<tr><td>沃迈克种稻哲学</td><td>操作理念</td><td>农夫在暴跌时买30档S&P股票，在狂涨时卖出，每次大赚</td><td><span class="ctx-pill ctx-pill--pos">正面案例</span></td></tr>
+<tr><td>乌龟高手友人</td><td>操作典范</td><td>纵横台股36年，赚数亿元，只做第3波，以乌龟为师</td><td><span class="ctx-pill ctx-pill--pos">正面案例</span></td></tr>
+<tr><td>老陈退休金亏光</td><td>散户悲剧</td><td>1000万退休金，听明牌追涨杀跌，1年多亏光</td><td><span class="ctx-pill ctx-pill--neg">反面警示</span></td></tr>
+<tr><td>老林夫妇定存缩水</td><td>通膨警示</td><td>1000万定存，利率从9.5%→1%，购买力持续缩水</td><td><span class="ctx-pill ctx-pill--neg">反面警示</span></td></tr>
+<tr><td>台塑复利奇迹</td><td>长期投资</td><td>100万买台塑→50年后10亿（年15%复利千倍）</td><td><span class="ctx-pill ctx-pill--pos">正面案例</span></td></tr>
+<tr><td>李志村买台塑</td><td>内部人投资</td><td>1983年100万→14年后1400万（14倍）</td><td><span class="ctx-pill ctx-pill--pos">正面案例</span></td></tr>
+<tr><td>宏达电大波段</td><td>价差操作</td><td>2008.11买256元→2011.4卖1300元（4.1倍）</td><td><span class="ctx-pill ctx-pill--demo">操作示范</span></td></tr>
+<tr><td>宏碁放空</td><td>放空操作</td><td>2011.2放空80.4元→2011.3回补60元（10张赚24万）</td><td><span class="ctx-pill ctx-pill--demo">操作示范</span></td></tr>
+<tr><td>1988年证所税暴跌</td><td>利空买进</td><td>8831→5585（19个跌停）→反弹至7596</td><td><span class="ctx-pill ctx-pill--demo">操作示范</span></td></tr>
+<tr><td>911事件底部</td><td>利空买进</td><td>2001.9.11隔天跌224点，7天后到3411底部</td><td><span class="ctx-pill ctx-pill--demo">操作示范</span></td></tr>
+<tr><td>SARS疫情底部</td><td>利空买进</td><td>2003.3跌111点，1个月后止跌，展开55个月多头</td><td><span class="ctx-pill ctx-pill--demo">操作示范</span></td></tr>
+<tr><td>2008底部区</td><td>综合实战</td><td>11个讯号全部出现，3955点买进</td><td><span class="ctx-pill ctx-pill--demo">操作示范</span></td></tr>
+<tr><td>投顾老师</td><td>反面教材</td><td>解释者非预测者，成功例子展示、失败不提</td><td><span class="ctx-pill ctx-pill--neg">反面警示</span></td></tr>
+<tr><td>潜伏底：农林/工矿/国寿</td><td>特殊形态</td><td>底部潜伏3年+，爆发后涨幅50倍以上</td><td><span class="ctx-pill ctx-pill--pos">正面案例</span></td></tr>
+<tr><td>儒鸿(1476)</td><td>潜伏底候选</td><td>2008-2010有潜伏底味道</td><td><span class="ctx-pill ctx-pill--mention">附带提及</span></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="tbl-title" style="margin-top:32px">投资标的分组</div>
+
+<div class="asset-group">
+<div class="asset-group-head">
+<span class="g-name">高殖利率绩优股（长期持有型）</span>
+<span class="g-count">5档</span>
+</div>
+<div class="asset-item">
+<div class="a-name">台塑 (1301)<span class="a-type">塑胶类</span></div>
+<div class="a-body">50年间年均获利率≥15%，100万→50年后10亿。李志村1983年买100万→14年后1400万。<span class="ctx-pill ctx-pill--pos" style="margin-left:6px">正面案例</span></div>
+</div>
+<div class="asset-item">
+<div class="a-name">南亚 (1303)<span class="a-type">塑胶类</span></div>
+<div class="a-body">与台塑同列长期高殖利率绩优股代表。<span class="ctx-pill ctx-pill--mention">附带提及</span></div>
+</div>
+<div class="asset-item">
+<div class="a-name">台化 (1326)<span class="a-type">化学类</span></div>
+<div class="a-body">长期高殖利率绩优股，年年高配息。<span class="ctx-pill ctx-pill--mention">附带提及</span></div>
+</div>
+<div class="asset-item">
+<div class="a-name">台积电 (2330)<span class="a-type">电子类</span></div>
+<div class="a-body">2012年中80元→2017.12涨至266元（潜力被发现）。同时列为高殖利率股。<span class="ctx-pill ctx-pill--pos">正面案例</span></div>
+</div>
+<div class="asset-item">
+<div class="a-name">中碳 (1723)<span class="a-type">化学类</span></div>
+<div class="a-body">长期高殖利率绩优股代表。<span class="ctx-pill ctx-pill--mention">附带提及</span></div>
+</div>
+</div>
+
+<div class="asset-group">
+<div class="asset-group-head">
+<span class="g-name">大波段价差股（抄底操作型）</span>
+<span class="g-count">3档</span>
+</div>
+<div class="asset-item">
+<div class="a-name">宏达电 (2498)<span class="a-type">电子类</span></div>
+<div class="a-body"><span class="a-data">2008.11买256元→2011.4卖1300元，投资报酬率4.1倍。</span>MACD零轴上黄金交叉后展开飙涨行情。<span class="ctx-pill ctx-pill--demo" style="margin-left:6px">操作示范</span></div>
+</div>
+<div class="asset-item">
+<div class="a-name">宏碁 (2353)<span class="a-type">电子类</span></div>
+<div class="a-body"><span class="a-data">2011.2放空80.4元→2011.3回补60元，10张赚24万。</span>月KD死亡交叉+跌破年线+大M头确认走空。<span class="ctx-pill ctx-pill--demo" style="margin-left:6px">操作示范</span></div>
+</div>
+<div class="asset-item">
+<div class="a-name">儒鸿 (1476)<span class="a-type">纺织类</span></div>
+<div class="a-body">2008-2010有潜伏底特征，可能出现10倍以上涨幅。<span class="ctx-pill ctx-pill--mention">附带提及</span></div>
+</div>
+</div>
+
+<div class="asset-group">
+<div class="asset-group-head">
+<span class="g-name">ETF / 基金</span>
+<span class="g-count">1档</span>
+</div>
+<div class="asset-item">
+<div class="a-name">台湾50 (0050)<span class="a-type">ETF</span></div>
+<div class="a-body">元大台湾卓越50证券投资信托基金。每季自动选取市值最大前50家，可融资融券，证交税仅0.1%。施升辉「佛性投资术」标的。<span class="ctx-pill ctx-pill--pos">正面案例</span></div>
+</div>
+</div>
+
+<div class="asset-group">
+<div class="asset-group-head">
+<span class="g-name">类股（各循环强势板块）</span>
+<span class="g-count">4组</span>
+</div>
+<div class="asset-item">
+<div class="a-name">第1循环强势<span class="a-type">1985-1990</span></div>
+<div class="a-body">金融股（国泰人寿曾涨至1985元，6档逾千元）+ 传产。<span class="ctx-pill ctx-pill--mention">附带提及</span></div>
+</div>
+<div class="asset-item">
+<div class="a-name">第2循环强势<span class="a-type">1990-1997</span></div>
+<div class="a-body">电子股（电子业荣景）。<span class="ctx-pill ctx-pill--mention">附带提及</span></div>
+</div>
+<div class="asset-item">
+<div class="a-name">第3循环强势<span class="a-type">2001-2007</span></div>
+<div class="a-body">营建8.15倍、橡胶7.32倍、观光7.2倍、水泥7倍、钢铁6.66倍、塑胶6.1倍、航运5.54倍。<span class="ctx-pill ctx-pill--demo" style="margin-left:6px">操作示范</span></div>
+</div>
+<div class="asset-item">
+<div class="a-name">第4循环强势<span class="a-type">2008-2018</span></div>
+<div class="a-body">第1波：汽车5.66倍、玻璃陶瓷4.15倍、营建4.05倍。第2波：电子（晶圆代工、手机、苹果概念）。<span class="ctx-pill ctx-pill--demo" style="margin-left:6px">操作示范</span></div>
+</div>
+</div>
+
+<div class="asset-group">
+<div class="asset-group-head">
+<span class="g-name">历史事件标的（利空买进案例）</span>
+<span class="g-count">5档</span>
+</div>
+<div class="asset-item">
+<div class="a-name">1988证所税事件<span class="a-type">加权指数</span></div>
+<div class="a-body">8831→5585（19个跌停）→反弹至7596。利空暴跌后暴涨的典型。<span class="ctx-pill ctx-pill--demo" style="margin-left:6px">操作示范</span></div>
+</div>
+<div class="asset-item">
+<div class="a-name">1990崩盘<span class="a-type">加权指数</span></div>
+<div class="a-body">12682→2485（惨跌8成），9个月完成。许多投资人破产。<span class="ctx-pill ctx-pill--neg" style="margin-left:6px">反面警示</span></div>
+</div>
+<div class="asset-item">
+<div class="a-name">2001 911事件<span class="a-type">加权指数</span></div>
+<div class="a-body">隔天跌224点收3952，7天后到3411底部区——最佳买点。<span class="ctx-pill ctx-pill--demo" style="margin-left:6px">操作示范</span></div>
+</div>
+<div class="asset-item">
+<div class="a-name">2003 SARS<span class="a-type">加权指数</span></div>
+<div class="a-body">当月跌111点，1个月后止跌4044，展开55个月多头。<span class="ctx-pill ctx-pill--demo" style="margin-left:6px">操作示范</span></div>
+</div>
+<div class="asset-item">
+<div class="a-name">2008雷曼兄弟<span class="a-type">加权指数</span></div>
+<div class="a-body">9859→3955，C波主跌段。11个底部讯号全部出现。<span class="ctx-pill ctx-pill--demo" style="margin-left:6px">操作示范</span></div>
+</div>
+</div>
+</section>
+
+<!-- 07 待验证 -->
+<section class="sec" id="sec07">
+<div class="sec-head">
+<span class="sec-no">07</span>
+<span class="sec-icon"><svg class="ic-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg></span>
+<h2>待验证问题</h2>
+</div>
+<p class="sec-sub">书中主张需要进一步验证的开放性问题</p>
+
+<div class="qa-grid">
+<div class="qa-card">
+<h4><span class="qno">Q1</span>位置理论在非台股市场是否有效？</h4>
+<p>波浪理论+位置哲学完全基于台股4次循环验证。美股、A股、港股的循环周期、参与者结构、监管环境均不同，需要独立验证。</p>
+</div>
+<div class="qa-card">
+<h4><span class="qno">Q2</span>底部区11个讯号的假阳性率？</h4>
+<p>书中以3次成功经验（2485、3411、3955）证明讯号有效，但未讨论是否有「讯号出现但非底部」的失败案例。样本数仅3次，统计显著性不足。</p>
+</div>
+<div class="qa-card">
+<h4><span class="qno">Q3</span>「平均5倍报酬」的计算基础？</h4>
+<p>5倍报酬的计算假设：买在最低点、卖在最高点、抱牢不卖、选到主流股。实际上这4个条件同时满足的概率极低。需要更严谨的回测。</p>
+</div>
+<div class="qa-card">
+<h4><span class="qno">Q4</span>放空策略的长期期望值？</h4>
+<p>放空胜算低（仅1/3时间窗口）、压力大、风险不对称（亏损理论上无限），加上强制回补与禁止放空等行政干预，散户放空的实际期望值可能为负。</p>
+</div>
+<div class="qa-card">
+<h4><span class="qno">Q5</span>台塑复利模型是否可复制？</h4>
+<p>100万→50年后10亿的计算假设每年15%获利率持续50年不间断。但台塑自身也经历过多次景气循环，实际配息并非稳定15%。</p>
+</div>
+<div class="qa-card">
+<h4><span class="qno">Q6</span>未来循环是否仍遵循历史模式？</h4>
+<p>台股市场结构已大幅改变（ETF占比提升、外资占比提升、当冲盛行），历史循环模式是否仍适用存疑。作者自己也承认「电子股快速兴衰」的现象。</p>
+</div>
+</div>
+</section>
+
+</div>
+
+<footer>
+<div class="wrap">
+<p class="f-title">研读报告说明</p>
+<p>本报告基于《抄底实战66招：从台股赚一亿变可能》（郭泰著）EPUB全文提取分析生成。</p>
+<p>报告中的页码、数据、案例均来自原书内容，未做外部补充。</p>
+<p>本报告仅供学习研究使用，不构成任何投资建议。</p>
+<p>交互提示：每张章节卡片展开后顶部有「查看原文」入口——弹窗内可逐招阅读原书全文（共 66 招，已转简体），支持上一招/下一招与招数目录跳转。</p></div>
+</footer>
+
+<script>
+// Sticky nav
+const nav = document.getElementById('stickyNav');
+const secs = document.querySelectorAll('section.sec');
+const navLinks = nav.querySelectorAll('a[data-sec]');
+let ticking = false;
+function onScroll() {
+  if (!ticking) { requestAnimationFrame(() => {
+    const y = window.scrollY;
+    nav.classList.toggle('show', y > 400);
+    let cur = '';
+    secs.forEach(s => { if (s.offsetTop - 100 <= y) cur = s.id; });
+    navLinks.forEach(a => a.classList.toggle('active', a.dataset.sec === cur));
+    ticking = false;
+  }); ticking = true; }
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+</script>
+<script type="application/json" id="srcData">{"bookName":"抄底实战66招","tips":[{"no":1,"title":"第 1 招8成的散户都亏钱的原因","short":"8成的散户都亏钱的原因","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 1 招\n8成的散户都亏钱的原因\n\n▶ 大师心法 ◀\n\n在股市里,亏钱为赚钱之母。\n\n 很多人都知道十赌九输,可是很少人知道,在股市里,10个投资人之中就有8个亏钱。并非我在危言耸听,根据长期统计资料显示,投入股市的散户,有8成亏钱,只有2成是赚钱的。\n\n为什么那8成的散户会亏钱呢?根据我多年来的观察与分析,不外乎下列5大原因:\n\n➊ 对股票欠缺正确观念,诸如:\n\n● 不知道股市赚的是忍耐的钱\n\n● 轻易相信分析师的话\n\n● 买卖股票过于轻率\n\n● 根本不研读经典书籍\n\n● 不了解股价上涨的原因\n\n● 不了解股价下跌的原因\n\n➋ 欠缺操盘基本功\n\n● 不知何谓价值投资\n\n● 不知在股价崩盘时买进高殖利率股\n\n● 股价循环走到底部区时不敢分批买进\n\n● 不知经济景气与股价之间的关系\n\n● 不知资金与股价之间的关系\n\n➌ 不谙操作技巧,诸如:\n\n● KD线操作法\n\n● 移动平均线操作法\n\n● 上升与下降趋势操作法\n\n● RSI操作法\n\n● 反群众心理操作法\n\n➍ 不了解量价之间的关系,诸如:\n\n● 没能力从量价变化看出股价走到底即反空为多\n\n● 没能力从量价变化看出股价走到头即反多为空\n\n● 没能力从成交量变化研判出股价即将突破盘局\n\n➎ 不懂赢家策略,诸如:\n\n● 不知利用股价循环来低买高卖\n\n● 股票套牢根本不知如何解套\n\n● 搞不清楚产业类别及强势类股\n\n● 不知挑选可能飙涨的黑马股\n\n倘若你多年来买卖股票老是亏钱,请诚实检讨一下这5个原因,哪一个是你经常犯的错误呢?","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTEtMS54aHRtbA=="},{"no":2,"title":"第 2 招加入投顾老师的会员 不会包准赚","short":"加入投顾老师的会员 不会包准赚","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 2 招\n加入投顾老师的会员 不会包准赚\n\n▶ 大师心法 ◀\n\n解说过去,投顾老师个个是天才;预测未来,人人成了白痴。\n\n 大多数的投资人刚开始都把股市当成发财的天堂,在对股票还一知半解的情况下,就冒冒失失地进场买股,结果不外乎下列2种情况:\n\n其一,倒霉的人一进场就碰到空头市场,立刻遭受洗礼,被市场痛宰得体无完肤。\n\n其二,幸运的人进场就碰到多头市场,但在恐惧与贪婪2大心理因素作祟之下,追涨杀跌,热中短线,抢进抢出,结果大多也是以亏钱收场。\n\n投资人在亏钱之后心有不甘,必定会对外寻求奥援,最简便的方式就是看投顾老师的解盘节目,许多人从中午收盘后就开始看不同投顾老师的解盘节目直到深夜,经过自己数周、甚至数月的检验后,就选择当中解盘最神准的老师,缴交数万元会费加入会员。\n\n投资人加入会员,按照投顾老师的指示进场买卖之后才发现,实际上,买卖与电视解盘有很大的差距,投顾老师每每在电视上讲得头头是道、档档神准,实际操盘时却荒腔走板,为什么会这样呢?根据我深入研究,原因有3:\n\n➊ 投顾老师是市场的解释者,而非市场的预测者。\n\n他们根本无法准确预测股票的涨跌,他们只是迎合群众与迁就市场,并对股价的涨跌做出解释的人罢了。\n\n➋ 股价涨跌的机率各半,而投顾老师预测股价涨跌的机率也是各半,有一半猜中的机会。\n\n投顾老师只会提出操作成功的例子,永远不会告诉你操作失败的例子。\n\n➌ 单枪匹马,缺乏预测每日涨跌的本钱。\n\n跟拥有坚强研究团队的投信公司与外资比较之下,投顾老师大部分都是单枪匹马,或是带著2、3位助理而已,怎么可能有足够的能力预测股票的涨跌,特别是预测短线或每日的涨跌。\n\n股市每次做头,都是投顾老师一致看好之时。台股在2011年2月的9,220点的做头,也是在所谓的财经专家与投顾老师都看好,一致口径要冲上万点之时。\n\n不知道大家有没有思考过一个有趣的问题,倘若这些投顾老师能神准地预测某档股票的涨跌,那么待在家里买卖股票,就能轻松赚大钱了,何苦每天上电视解盘,招收会员,每人收年费3、5万元,还要自己辛苦地传Call讯给会员报明牌呢?","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTEtMi54aHRtbA=="},{"no":3,"title":"第 3 招这6种人别想在股市赚到钱","short":"这6种人别想在股市赚到钱","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 3 招\n这6种人别想在股市赚到钱\n\n▶ 大师心法 ◀\n\n性格决定命运,当然也决定你在股市的成败。\n\n 股市是一个诡谲的投资场所,根据我长年的观察,具备下列6种性格的人一定赚不到钱。\n\n➊ 心浮气躁的人\n\n买进股票之后,坐立难安、患得患失,股票涨停板就眉开眼笑,兴奋得整晚睡不著觉;跌停板就如丧考妣,伤心得吃不下饭。这种得失心太重、心浮气躁的人,最容易误判行情,导致赚不到钱。\n\n➋ 缺乏主见的人\n\n这种人缺乏判断行情多空的能力,只好人云亦云,忽多忽空,随波逐流。他们最喜欢在号子里四处打探小道消息,听信明牌、追涨杀跌,最后都成为主力或作手的俎上肉。\n\n➌ 忍受不了套牢的人\n\n投入股市,因套牢而受煎熬是常有的事,纵使买在底部区也难免遭到短套,只有修养功夫到家的人才忍受得住这种煎熬。时常见到投资人忍受不了套牢的折磨,亏本售出,自然赚不到钱。\n\n➍ 老是追涨杀跌的人\n\n有些投资人喜欢天天泡在号子里面,这种人最容易受到现场群众的情绪感染,习惯于跟随群众追涨杀跌,当然也就赚不到钱。\n\n➎ 没有风险概念的人\n\n股票是一种高利润、高风险的投资工具,如果忽略了股市的风险与险恶,把全部积蓄都投入的话,就容易患得患失,影响研判行情的能力,所以赚不到钱。\n\n➏ 输不起的人\n\n投资股票,有赚有赔乃是稀松平常之事,多赚少赔或是大赚小赔,日子久了才会成为赢家。有一种输不起的人,亏钱就怪东怪西、口出恶言,搞得全家鸡犬不宁,这种人也赚不到钱。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTEtMy54aHRtbA=="},{"no":4,"title":"第 4 招股市这头怪兽 很可能吞了你","short":"股市这头怪兽 很可能吞了你","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 4 招\n股市这头怪兽 很可能吞了你\n\n▶ 大师心法 ◀\n\n小心!股市这一头怪兽,收拾过许多英雄好汉。\n\n 股市的崩盘,指的是艾略特波浪理论中,空头行情第8波(即C波)的主跌段,此波下杀既急又狠、惊涛骇浪,大多数的投资人都忍不住这种追杀,遭强迫断头或卖出持股,损失不赀,甚至倾家荡产。\n\n美国最典型的崩盘,大概就是1929年的华尔街股市大暴跌。从1921年第4季开始,华尔街股市在美国经济繁荣的刺激下,欣欣向荣,到1929年10月为止,持续走了95个月、将近8年的大多头行情,股价涨幅达5倍。\n\n这95个月内,早期的上涨主要反映经济成长、企业获利提升、资金宽松等合理因素。然而到了后期,股价的上涨完全脱离基本面,在投机行情炒作之下,变成一窝蜂疯狂买进的现象。当时人人都在谈论的热门话题就是股票,连四处兜生意的擦鞋童也是满口股票经。\n\n到了1929年的10月24日,股价从最高点暴跌,不但结束了95个月的多头行情,股价惨跌87%,并且走入长达33个月的空头行情。许多投资人在一夕之间倾家荡产,并造成美国经济大萧条与1930年代全球经济恐慌。\n\n美国华尔街最近一次的崩盘,是道琼指数从2007年10月的14,198点崩盘至2009年3月的6,469点。\n\n而台股最典型的崩盘,要数1990年2月的大暴跌,那是台股的第一次崩盘。\n\n从1987年1月开始,台湾股市的情况跟华尔街股市一样,在经济繁荣与游资极为充沛的两大利多刺激之下,加权股价指数从1,039点起涨,到1990年2月为止,持续38个月的多头行情,加权指数大涨至12,682点,股价涨幅高达12倍。\n\n跟华尔街股市如出一辙,台湾股市早期的上涨反映了景气繁荣与资金宽松等基本面,到了最后则演变成一面倒总买进的投机行情。在1990年初,股票成为全民运动,不只是公务员、上班族、老师、警察、计程车司机、商店老板等热中股票,就连学生、和尚、尼姑也投入股市。\n\n到了1990年2月,股价从最高点12,682点暴跌,不但结束了38个月的多头行情,股价惨跌8成,跌至同年10月的2,485点。许多投资人在大暴跌中,惨遭断头而破产,妻离子散,情况非常地凄惨。\n\n台股的第2次崩盘发生于2000年2月,加权指数从10,393点下跌到2001年9月的3,411点。\n\n台股最近一次崩盘,是加权指数从2007年10月的9,859点崩跌至2008年11月的3,955点,此次也是风声鹤唳,惊心动魄。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTEtNC54aHRtbA=="},{"no":5,"title":"第 5 招钱放银行只会越来越薄","short":"钱放银行只会越来越薄","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 5 招\n钱放银行只会越来越薄\n\n▶ 大师心法 ◀\n\n不懂理财,会使人不知不觉中变成穷人。\n\n 先说低利率。利率指的是使用资金的成本,通常习惯用年利率来表示使用1年期的成本支出。\n\n举例来说,张三向银行借款100万元,1年的利息支出是3万元,那么年利率就是3%。反过来说,张三若把100万元存在银行,银行每年只肯支付1万元的利息,其年利率就是1%。\n\n为什么我们说现在是低利率的年代呢?因为目前台湾各大银行的定期存款年利率大都在1%左右,纵使你有1,000万元存款,每年也只能领到10万元利息,根本不够生活。\n\n我的朋友老林夫妻在1988年时,年满60岁先后退休。夫妻俩一辈子省吃俭用存了300万元,再加上夫妻各领一笔300多万元的退休金,总共约有1,000万元的积蓄。\n\n老林的子女都已经成家自立,当时他就把这1,000万元存在银行里,每年大约有95万元利息(以1988年9.5%的年利率计算),夫妻俩光吃利息就绰绰有余,每天可以吃吃小馆、打打小牌,悠悠哉哉过日子。\n\n可惜好景不常,到了1997年左右,银行的年利率从9.5%降到6%,也就是说,老林存在银行里的1,000万元,这时每年只会领到60万元利息,比先前少了35万元。夫妻俩每月平均算下来,可花费的金额为5万元,省下吃馆子的钱,还能过日子。\n\n到了2009年情况更糟,银行定存利率降到1%,换言之,老林存在银行里的1,000万元,这时每年只领到10万元利息,光靠利息根本无法生活,必须吃老本过日子,这就是低利率的年代。\n\n再来谈谈高通膨。\n\n通膨就是通货膨胀,简言之,指的是在一定期间内(通常是1年),物价呈现持续上涨的现象。举例来说,假如今年初你手中有1万元现金,若今年通膨5%的话,也就是物价上涨5%,如此一来,到了年底你手中的1万元,就约剩下相当于年初9,500元的购买力了。\n\n近几年来,台湾平均的年通货膨胀率大约在3%左右。我们假设每年的通货膨胀率仍旧是3%,那么老林1,000万元的定存,10年后将贬值为737万元,20年后将贬值为544万元,30年后将贬值为401万元。因此,在通膨影响之下,把钱存在银行里,短期看来是最安全的,但从长期看来却是最危险的。\n\n那么,因应低利率、高通膨的年代,要避免财富缩水,最有效的方法就是赶紧理财,而股票投资乃是最方便的理财工具。其他像债券、共同基金、期货、房地产、黄金等也是常见的理财工具。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTEtNS54aHRtbA=="},{"no":6,"title":"第 6 招用股利和价差 从股市获利","short":"用股利和价差 从股市获利","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 6 招\n用股利和价差 从股市获利\n\n▶ 大师心法 ◀\n\n价差与股利都很可观,要赚哪一种钱,悉听尊便。\n\n 买卖股票的第一个利润叫做「价差利得」,那是你在底部区(或是次底部区)买进的股票,等到它涨到头部区时才卖出,这中间有相当大的价差利益,就称作买卖股票的价差利得。\n\n举例来说,投资人若在台股第4个循环的底部区,于2008年11月21日花25万6,000元买进1,000股的宏达电(当天最低价256元),紧抱2年5个月,当股价涨到2011年4月28日的1,300元(当天最高价)卖出的话,价差利得高达104万4,000元。\n\n投资25万6,000元,在短短2年5个多月间,就获利高达投资额的4.1倍,由此可见,买对股票、买对时机,并且卖对时点的话,其价差利得十分惊人。\n\n买卖股票的第二个利润叫做「股利利得」,那是当你在号子里买入上市公司的股票,成为该公司的股东之后,只要该公司经营良好有盈余,你每年均能获得该公司所配发的现金股利(即配息)或股票股利(即配股)。\n\n根据证券交易法的规定,上市公司董事会有权决定盈余是全部配息、全部配股,或部分配息部分配股。通常正派经营的绩优公司唯恐配股会造成股本膨胀、影响原持股股东权益,故会采取全部配息的方式。\n\n台股经营绩效良好,年年高配息的公司并不多,严格说来,只能以台塑、南亚、台化、台积电、中碳这5档股票为代表。\n\n一般说来,投资人大都仅注意到价差利得,而忽略了股利利得。其实股利利得依长期复利计算下来,其获利并不亚于价差利得,关于这个部分,我们在第22招再详述。\n\n除了上述的价差利得与股利利得之外,还有一种利润叫做「增资认股利得」。你所买进股票的这家公司,当它由于业务扩大或扩建新厂必须增资时,你就有优先认购增资股份的权利。通常原股东认购均以面额10元为准,而股票的市价大都高于面额,这中间的价差就是增资认股利得。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTEtNi54aHRtbA=="},{"no":7,"title":"第 7 招这3种人买股 绝对不会亏","short":"这3种人买股 绝对不会亏","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 7 招\n这3种人买股 绝对不会亏\n\n▶ 大师心法 ◀\n\n真正的股市高手,都会尽量避免在媒体上抛头露面。\n\n 多年来,股市里流传著一句话:股市只有3种人赚得到钱,第1种人是从事内线交易的人,第2种人是真正的股市高手,第3种人则是跟随高手操作的人。\n\n先说内线交易。\n\n上市公司若须处理土地或资产、增减资本、配发股息或股票等,将影响股价涨跌至巨。上述的种种行为均须召开股东大会,并经董事会依法定程序同意,再经会计师查核签证后,才能公开。\n\n在消息未公开之前,事先获悉内线消息的董监事、大股东与主办人员,先行买进或放空,再利用投资大众普遍热中追逐短线价差的心理,在市场资讯不足的情况下,故意发布利多或利空消息,引诱投资大众上钩,并从中谋取不当利益,此一举动即称之为「内线交易」。\n\n另外,公司接获或流失大订单、新产品开发成功或失败、营运出现重大转机或亏损等,也都是董监事、大股东以及经理人等最先知道,所以常听到有人嘲讽说:「千线万线(指技术分析常用的移动平均线与趋势线等)不如一条内线。」\n\n内线消息当然管用,内线交易必然会赚钱,但一般投资人根本无处获知内线消息,而且从事内线交易乃违法行为,遭逮获者依法除必须归还价差利益之外,还会被课以刑责,最高可处2年以下有期徒刑。\n\n再来谈谈股市高手。我把股市里面真正的高手区分为下列3个等级:\n\n➊ 初段高手\n\n此一等级的高手深谙道氏股价理论与艾略特波浪理论,熟知班杰明.葛拉汉(Benjamin Graham)的价值理论,精通罗伯.爱德华(Robert D. Edwards)与约翰.麦基(John Magee)的种种技术分析,熟读过《股票作手回忆录》(Reminiscences of a Stock Operator)与《杰西.李佛摩股市操盘术》(How to Trade in Stocks),他们有能力在每次的股价循环中逮到底部,大胆买进,而且抱牢持股卖在头部。\n\n➋ 中段高手\n\n此等级的高手比初段高手还要高一级,他们非但能逮到底部大胆买进,抱牢持股卖在头部,而且有能力在空头行情中抓到B波的高点狠狠放空,多空两头都赚(有关B高,请见第66招)。\n\n➌ 高段高手\n\n此等级的高手比中段高手更高一级,乃是高手中的高手,他们有能力研判出每一个波段(指波浪理论8个波段的每一个波段而言)的高低点,第1波做多,第2波放空,第3波做多,第4波放空,第5波做多,第6波放空,第7波做多,第8波放空,听起来像是神仙在操作。我没有见过高段高手,不过据说日本江户时代的本间宗久即属此号人物,他乃是K线分析鼻祖。\n\n我建议投资人不用太心急,应以10年磨成好剑的毅力,立志10年之内把自己锻炼成初段高手,这就很了不起了。说来惭愧,我在台股跌跌撞撞18年之后,才勉强忝列初段高手。\n\n最后来谈一谈跟随高手操作。\n\n对股票一知半解又想从股市赚到钱的人,这是最便捷的方法,但是也有下列3个问题:\n\n1 电视与网路自称专家与高手的人一大堆,你很难判断谁是真正高手,谁又是骗子。\n\n2 真正的高手大都不愿抛头露面,也鲜少在电视上公开解盘,他们深知招摇容易惹祸上身,因此投资人几乎没有机会接触到这些人。\n\n3 就算投资人很幸运地碰到了一位股市高手,当他告诉你底部区已经来到,可以大胆分批买进时,由于你自己不懂,结果还是不敢依据股市高手的指示下场大笔买进。即使敢进场小买,也赚不到大钱。\n\n所以综合以上3点,我认为最好的方法就是:苦心钻研,把自己训练成真正的股市高手。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTEtNy54aHRtbA=="},{"no":8,"title":"第 8 招股市的不败传奇人物","short":"股市的不败传奇人物","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 8 招\n股市的不败传奇人物\n\n▶ 大师心法 ◀\n\n在股市里,买进时机永远比卖出时机重要。\n\n 据我所知,在股市里打滚的人,不论外资、投信、自营商、业内、或是做手、大户、中实户、散户,每种人都亏过钱(即有赚有亏),但传说中却有一个在股市不曾亏过钱的人。\n\n这个传奇人物名叫沃迈克(Womack),出现在美国理财专家约翰.特雷恩(John Train)所撰写的《投资的技术》(The Craft of Investing)一书中。根据休士顿一家美林证券老营业员(曾经替沃迈克买卖股票40年)的转述,沃迈克操作股票的情形大概是这样子。\n\n沃迈克是海湾镇(Baytown)的一个农夫,以种稻与养猪维生,平常忙于农事,根本没时间看盘,他既不懂基本分析,更谈不上什么技术分析。\n\n每当空头行情来临,他就会注意报纸的股市消息。当他读到股市暴跌创新低,财经专家预测道琼工业指数会再跌百点的新闻时,沃迈克就会出现在美林证券的营业厅(他几年才出现一次)。\n\n然后,他会从标准普尔里面挑选30档股价跌到10美元以下,获利稳定,并且每年固定配息的股票。他习惯花5万美元买进一堆标准普尔的股票,然后快乐地回家,把股票锁在保险柜里。\n\n经过几年(有时1、2年,有时3、4年),在股市大涨,分析师大谈道琼工业指数将创新高的时候,他就进城把几年前买进的30档标准普尔股票全部卖掉。\n\n通常30档股票结算下来,总会有一档变成壁纸,一文不值,可是其他档有的涨1倍,有的涨2倍,有的甚至涨5倍。总之,他每次都大赚一票。\n\n沃迈克似乎从未在股价触底时买进股票,也从未在股价涨到最高峰时卖股票。他习惯在股价的底部区附近买进,而后在高点附近卖出。\n\n他在买股票时根本没有停损的观念。在1970年左右,他看见道琼股价暴跌创新低,他毫不犹豫花5万美元买进30档标准普尔股票,不料道琼股价又破底跌了一段,沃迈克不慌不忙又多支出5万美元加码买进那些他原先低价买进的股票,结果这次让他狠狠赚进双倍。\n\n有人向他请教买股永远赚钱的秘诀,沃迈克毫不藏私,慷慨地提出他买卖股票的种稻哲学:\n\n我是一个农夫,我用种稻的方法买卖股票。种稻有两个时节最重要,一是播种的时机,一是收割的时机;买卖股票完全相同,也是两个时节最重要,一是买进的时机,一是卖出的时机。\n\n种稻,不可能每天、每周或每月播种,而能种出庄稼来。股票也是一样,不可能每天、每周或每月买股票而赚钱。\n\n对种稻而言,播种比收割更重要。对股票而言,买进时机比卖出时机更重要。投资人绝对不能随便出手,一定要等到股市崩盘,陷入低迷的情况时,才能择优(绩优高配息股)低价买进。低价买进的股票,当股价来到高档,你卖得太早,赚小钱;卖到高点,赚大钱;卖在开始回档之时,仍旧赚钱。切记!买点永远比卖点重要。\n\n沃迈克的种稻买股哲学跟我在第9招中提及的股市高手,两人操盘手法极为类似,值得投资人用心去体会与琢磨。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTEtOC54aHRtbA=="},{"no":9,"title":"第 9 招忍得住 才赚得到","short":"忍得住 才赚得到","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 9 招\n忍得住 才赚得到\n\n▶ 大师心法 ◀\n\n大家都知道,忍字头上一把刀,却不知忍字脚下遍地黄金。\n\n 我认识一位股市高手,纵横台股36年,股票市场从1982年8月的421点一直到2018年1月的11,270点,近36年总共4次的循环中,每一次的底部都被他逮个正著,也赚进数亿元。他操盘有下列4个特点:\n\n➊ 只要被他确认是底部区,他一定大胆地分批买进,纵使股价再下跌,亦勇于加码摊平。\n\n➋ 他精通波浪理论,仅赚波浪8波段之中上涨到第3波那一段,当股价来到第3波高点附近(譬如2015年4月的10,014点)必定出脱。他告诉我:「吃鱼要吃最肥美的鱼肚,股市里的鱼肚就是最没风险的上涨到第3波。」\n\n ➌ 不知何故,他只做多不做空,我问他原因,他总是淡淡地说:「不要太贪,赚到第3波就够了。」\n\n ➍ 他酷爱旅行。每一次出清持股大赚一票之后,立刻离开股市,到世界各地旅行,一去就是好几年,一直到那个循环走完,底部区再度浮现时,才会在股市又见到他的身影。\n\n他为人低调,生活俭朴,除了至亲好友,很少人知道他是股市高手。他有一项特别的嗜好——非常喜爱乌龟,家中水池里养了许多大小不一的乌龟,而且到世界各地搜购木刻、工刻、竹刻、石刻等形态不一的乌龟。\n\n我多次好奇地问他为何如此喜爱乌龟,他总是笑而不答,经过我一再地追问,他才淡淡地说:「在股市里,我以乌龟为师,因为我们赚的是忍耐的钱。」\n\n刚开始我没有完全领悟,后来我才了解。每一次在第3波高点卖出之后,要等到底部区的到来,这需要忍耐;底部区打底盘整一直到发动起涨,这也需要忍耐;从底部区抱到第3波的高点往往好几年,这更需要忍耐。\n\n股市里赚的真是忍耐的钱,难怪我这位高手友人会以最懂得忍耐的乌龟为师。\n\n写到这里我立刻想起欧洲投资大师安德列.科斯托兰(André Kostolany)的名言:「股市里所赚的钱往往不是靠脑袋,而是靠坐功。」什么是坐功呢?无非就是忍耐啊!","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTEtOS54aHRtbA=="},{"no":10,"title":"第 10 招大钱留给中长线的人赚","short":"大钱留给中长线的人赚","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 10 招\n大钱留给中长线的人赚\n\n▶ 大师心法 ◀\n\n投资人要从台股赚进1亿元,是不容易,但很有可能。\n\n 投资股票,若依投资时间的长短而言,大约可分为以下3大类:\n\n➊ 帽客与短线客\n\n这包括当天在号子里抢进抢出、当日冲销以赚取价差的帽客(请见第43招),以及几天内赚得价差就获利了结的短线客。他们大都精通技术分析,经验丰富,反应灵敏。然而因为他们的盈亏全凭经验、技术与运气,所以风险很大。\n\n➋ 短期投资者\n\n通常持股期间达数个月就获利出脱的人,称之为短期投资者。由于他们持股期间只有数个月,因此无法依股价的循环买在底部、卖在头部,所以获利均不如中长期投资者,不过在风险上已比帽客与短线客降低许多。\n\n➌ 中长期投资者\n\n通常持股期间长达1年以上,甚至2、3年者,称为中长期投资者。他们具备正确的买股观念,洞悉股市赚赔的缘由,精通股票的基本分析与技术分析,懂得利用股价循环找到股价底部区之后,大胆买进,根本不关心股价每天的涨跌,等到行情来到头部区时,才逢高分批出脱,赚足整个多头大波段的数倍利润。\n\n我所谓的短线进出者,指的是前述的帽客、短线客以及短期投资者。他们为什么赚不到大钱呢?主要理由有3:\n\n➊ 帽客与短线客都是以股票为业,他们通常天天守在号子里,分秒必争、锱铢计较,必须随时注意大盘与个股的变动,任何风吹草动立刻影响他们的进出。本质上,他们都是赚到一点价差就跑的人(若买错方向,也是亏损一点就认赔卖出的人),当然不可能赚到波段的大钱。\n\n❷ 对于帽客与短线客而言,因为股票是他们的职业,所以大多会以赚足当月薪水为其操作目标。当赚到了当月设定的薪资目标之后(通常是数万元),就会卖股走人,所以赚不到大钱。\n\n❸ 从台股的4个循环中,第1个循环的多头行情走了3年2个月(1987年1月至1990年2月),第2个循环的多头行情走了6年11个月(1990年10月至1997年2月),第3个循环的多头行情走了6年2个月(2001年9月至2007年10月),第4个循环的多头行情走了9年3个月(2008年11月至2018年1月)。\n\n由此可知,要赚足每一次循环的多头行情,持股期间至少要2年。因此持股数个月的短期投资者纵使买在底部区,也赚不到整个多头波段的大钱。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTEtMTAueGh0bWw="},{"no":11,"title":"第 11 招抱著买房心态买股票","short":"抱著买房心态买股票","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 11 招\n抱著买房心态买股票\n\n▶ 大师心法 ◀\n\n买股不够谨慎,下场必定凄惨。\n\n 假设你想在台北市买一间中古屋,某房屋仲介公司介绍一间房屋给你,你在决定购买之前,必定会慎重查问下列10个问题:\n\n➊ 房屋的地点?曾经是凶宅吗?\n\n➋ 房屋的实际坪数?公共设施占多少坪?\n\n➌ 格局如何?共有几房几厅?采光如何?\n\n➍ 屋龄几年?排水顺畅?会漏水吗?辐射钢筋?\n\n➎ 距离市场、超市、医院近吗?\n\n➏ 交通是否方便?公车?捷运?\n\n ➐ 左邻右舍的水准如何?会喧哗吗?\n\n ➑ 住家附近有学校吗?小孩上学是否方便?\n\n➒ 住家附近的治安情况如何呢?\n\n➓ 卖价是多少呢?\n\n我想在上述10个问题没有完全弄清楚之前,你一定不会迷迷糊糊就下决定去购买。\n\n同理,你在进入股市买股票之前,也必须把下列10个问题弄清楚之后再下单,这些问题包括:\n\n➊ 8成散户买股亏钱的主要原因\n\n➋ 股市里什么人买股赚到了钱\n\n➌ 影响股价涨跌的因素\n\n➍ 基本分析\n\n➎ 技术分析\n\n➏ 成交量与股价的关系\n\n➐ 股市的人气与心理\n\n➑ 股市的经典理论\n\n➒ 正确买卖策略\n\n➓ 挑选飙股技巧\n\n若你对上述10个问题一无所知(或者所知有限)便投入股市里,就好比一个不懂泳技的人跳入河流之中,注定必死无疑。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTItMS54aHRtbA=="},{"no":12,"title":"第 12 招投资股票 莫忘风险相随","short":"投资股票 莫忘风险相随","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 12 招\n投资股票 莫忘风险相随\n\n▶ 大师心法 ◀\n\n切记!买卖股票是高风险的投资。\n\n 进入股市必须谨记在心的一句话就是:一定要有高风险意识。我再说一次,进入股市一定要有高风险意识,万万不可孤注一掷。\n\n为什么这句话这么重要呢?因为许多新手(也包括若干老手)轻忽买股的风险,轻者亏损钱财、夫妻失和,重者倾家荡产、家破人亡。\n\n我这么说,绝非危言耸听,只要你稍微留意,股市里发生上述情况的投资人,可说不胜枚举,比比皆是。\n\n我自己有个远房亲戚老陈,在1996年时,年满65岁退休,领到一笔500多万元的退休金,不久,他年迈的父亲去世,又分到500多万元的遗产,总共有1,000多万元现金在手上。\n\n以当时6%的银行定存利率,老陈只要把这笔钱存在银行里,他就能够每年领取60万元的利息,轻轻松松过日子。\n\n然而老陈上了40年的班,在家里无所事事,实在闷得发慌,适巧又碰到台股第2次循环第5波的大多头行情,使他产生「股票市场」就是「发财天堂」的错觉,于是他就在对股票一知半解的情况下,迅速找了附近一家号子开户,勇敢地投入股市。\n\n自从进入股市之后,老陈就变得非常忙碌。每天上午8点就到号子打探消息,9点看盘,中午12点收盘(当时只到12点),之后匆匆用过餐,就赶去听专家解盘,下午2点急著买份《联合晚报》阅读盘后消息,晚餐后急著看《股市快报》,晚上9点半收听另一个专家在电台的解盘,次日一大早还得速读《经济日报》与《工商时报》。\n\n如此周而复始,日复一日。老陈跟许多散户一样随波逐流,听信小道消息,追逐明牌,喜爱短线进出,老是追涨杀跌,因此半年下来亏损了300多万元。\n\n这时,我劝老陈就此罢手。他听到后扭曲著脸痛苦地说:「那是300多万元,不是3万多元!我发誓一定要从股市赚回来。」\n\n虽然我一再警告老陈股票的风险,并指出他这种操盘方式赚不到钱,平时非常理性的他,这时像中邪一般,什么话都听不进去。\n\n老陈继续在股市里打滚,每日的作息照旧,1年多之后他不幸碰到从1997年8月的10,256点下杀到1999年2月5,422 点的空头行情,剩余600多万元资金亏损殆尽。老陈在一夕之间老了10岁,整天哀声叹气,担心以后的日子不知怎么过。\n\n股市里面有无数的老陈,所以我不怕你嫌我啰嗦,再说一次,进入股市一定要有高风险的意识。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTItMi54aHRtbA=="},{"no":13,"title":"第 13 招熟读15本经典好书","short":"熟读15本经典好书","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 13 招\n熟读15本经典好书\n\n▶ 大师心法 ◀\n\n我就是精读这15本书之后,才对股市融会贯通。\n\n 读者看到这个标题可能会忍俊不禁,因为从来只听过「做学生要读书」,没听过「做股票要读书」的。\n\n没错,想成为股市投资高手赚大钱,不但要读书,而且一定要精读下列这15本经典好书:\n\n➊ 班杰明.葛兰姆(Benjamin Graham)的《智慧型股票投资人》(The Intelligent Investor,寰宇出版)。\n\n➋ 彼得.林区(Peter Lynch)与约翰.罗斯查得(John Rothchild)的《彼得林区选股战略》(One Up on Wall Street,财信出版)。\n\n➌ 罗伯特.海格斯壮(Robert G. Hagstrom, Jr.)的《值得长抱的股票巴菲特是这么挑的》(The Warren Buffett Way,远流出版)。\n\n➍ 维特.施伯伦(Victor Sperandeo)的《专业投机原理》(Trader Vic:Methods of wall Street Master,寰宇出版)。\n\n➎ 孟提(Lawrence Monti)的《艾略特波浪理论》(经史子集出版)。\n\n➏ 江瑞凯的《波浪理论解析—以台湾股市为例》(众文出版)。\n\n ➐ 是川银藏的《股市之神是川银藏》(时报出版)。\n\n ➑ 安德烈.科斯托兰尼(André Kostolany)的《一个投机者的告白》(Die Kunst uber Geld nacbzudenken,商业周刊出版)。\n\n➒ 司马迁的《史记.货殖列传》(商务出版)。\n\n➓ 威尔斯.威尔德(Welles Wilder)的《亚当理论》(The Adam Theory of Markets,寰宇出版)。\n\n⓫ 杰西.李佛摩(Jasse Livemore)的《杰西.李佛摩股市操盘术》(How to Trade in Stocks,寰宇出版)。\n\n ⓬ 罗伯.爱德华(Robert D.Edwards)与约翰.麦基(John Magee)的《股价趋势技术分析》(Technical Analysis of Stock Trends,寰宇出版)。\n\n⓭ 马克斯.甘特(Max Gunther)的《苏黎士投机定律》(The Zurich Axioms,寰宇出版)。\n\n⓮ 爱德温.李佛瑞(Edwin Leféve)的《股票作手回忆录》(Reminiscences of a Stock Operator,寰宇出版,共有2个版本,我推荐1997年5月真如翻译的版本)。\n\n⓯ 霍华.马克斯(Howard Marks)的《掌握市场周期》(Mastering the Market Cycle,商业周刊出版)。\n\n投资人若在读完这15本经典之后仍然无法融会贯通,不妨去翻翻我所写的《逮到底部 大胆进场》与《看准位置 只赚不赔》这2本书,或许会有所启发。\n\n对于钟爱基金的投资人,我推荐你们去读一读我的老友陈忠庆所写的《共同基金投资手册》,他是这方面的高手。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTItMy54aHRtbA=="},{"no":14,"title":"第 14 招以审慎的态度面对股市","short":"以审慎的态度面对股市","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 14 招\n以审慎的态度面对股市\n\n▶ 大师心法 ◀\n\n股票高手永远对股市充满敬畏之心。\n\n 买卖股票不是赚钱就是赔钱,千万不能以「试试看」或「碰碰运气」的态度来面对,也绝不能一时冲动,看到亲友在买,就一窝蜂跟著买。一定要以下列严肃的态度面对股市:\n\n➊ 投资人会判断错误,看错行情,而市场本身却永远不会犯错,因此对股市要战战兢兢、充满敬畏,投资人一旦对股市丧失敬畏之心,必败无疑。\n\n➋ 在股市要赚钱是一件困难的事情,必须勤奋读书,努力钻研,练就一身看盘的功力,当有本事判断行情之多空,买在底部卖在头部(或空在头部,补在底部),才有可能赚到股市的钱。\n\n➌ 进入股市,先不要问自己能赚多少,要先问自己能赔得起多少。先想赔钱,严设停损,万一看错行情买错方向时,才不至于弄得不可收拾。\n\n➍ 你是想投机还是投资?这是指持股期间的长短。有人持股2、3天,或1、2个星期,那是做短线,属投机性。有人持股1、2年、甚至2、3年,那是做长线,属投资性。投机与投资都能赚到钱,关键在你的买点与卖点。\n\n➎ 你事先设定的投资报酬率,是2成、3成、4成、5成、还是1倍?一般来说,台股每次的循环中,从底部区买进,抱紧持股,卖在头部区的话,平均的投资报酬率高达5倍。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTItNC54aHRtbA=="},{"no":15,"title":"第 15 招了解投资股市的都是哪些人","short":"了解投资股市的都是哪些人","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 15 招\n了解投资股市的都是哪些人\n\n▶ 大师心法 ◀\n\n知己知彼,才能百战百胜。\n\n 孙子兵法云:「知己知彼,百战不殆;不知彼而知己,一胜一负;不知彼,不知己,每战必败。」因此,投入股市之前,必须对其组成分子有深刻的了解,才能百战百胜。\n\n到2018年2月为止,台股的开户数量已达1千万户,我们可以从下列4个不同方向去了解这些投资人:\n\n方向1|从资金的多寡\n\n➊ 法人机构:即超大额的投资单位,他们通常拥有新台币数10亿的资金,包括:外资、投信、政府基金、自营商均属之。\n\n➋ 大户:即大额的投资人,他们至少拥有新台币数亿元以上的资金,包括:财团、信托投资公司、上市公司董监事、主力等均属之。\n\n➌ 中实户:他们的财力稍逊于大户,其拥有的投资金额在新台币数千万到数亿元之间,以中小企业主占绝大部分。\n\n➍ 散户:即小额投资人,他们拥有几百万至千万元的资金可供投资,其分子非常广泛,从各行各业的上班族、教师、公务员、商店老板到计程车司机都有。目前散户每天平均成交额大约占总成交额的6成。\n\n方向2|从操盘技巧的优劣程度\n\n➊ 拥有优秀的操盘技巧:他们有正确的股票观念与高超的操盘技巧,这些人包括:法人、大户、中实户,以及小部分的散户。\n\n➋ 一知半解者:投入股市多年,谈起股票头头是道,实盘买卖却是亏损累累,不论投资策略与操盘技巧都错误百出。许多散户属于这一类型。\n\n➌ 无知者:对股票一无所知,也不进修读书,每天道听涂说,打探小道消息,在号子里面容易受别人影响,抢进抢出,追涨杀跌。有些散户属于这一类型。\n\n方向3|从多空的角度\n\n➊ 多头:对股票后市看好,认为行情走多,先行买进股票,待股价涨至某个价位,再卖出股票赚取价差的人。台股的散户,大部分是多头。\n\n➋ 空头:对股票远景看坏,认为行情走空,先融券卖出股票,等低价时再补回,从中赚取价差的人。大部分的散户只会做多不会放空,只有少数股市好手才懂得如何放空,有关放空请见本书Part 7。\n\n➌ 死多头:不论客观的情势如何变化,始终看好后市的人。\n\n方向4|从持股期间的长短\n\n➊ 帽客与短线客:投资时间以天为单位。\n\n➋ 短期投资者:投资时间以月为单位。\n\n➌ 中长期投资者:投资时间以年为单位。\n\n详细内容见第10招。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTItNS54aHRtbA=="},{"no":16,"title":"第 16 招确立自己的投资目标","short":"确立自己的投资目标","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 16 招\n确立自己的投资目标\n\n▶ 大师心法 ◀\n\n投资人必须搞清楚自己是在做短期投机,还是长期投资?\n\n 投资人在进入股市之初,就必须先确立自己的投资目标,然后再采取不同的投资策略,最后慎选适合的投资标的。\n\n股市的投资目标,不外下列3种:\n\n目标1|短期投机\n\n➊ 以小型投机股为标的。\n\n➋ 若要投机抢短,必须眼明手快。买进之后股价上涨达到预期目标(譬如说涨了3成),便要毫不犹豫地立刻获利了结。\n\n➌ 当投机的原因消失时,不论赚赔立即出脱持股。\n\n➍ 投机抢进之后,股价不涨反跌,当跌过自己设定的停损点(譬如10%),立刻壮士断腕,认赔杀出。\n\n以短期投机为目标的投资人,最怕的是自乱步调,上涨时因贪念作祟,该卖而不卖,下跌时优柔寡断,该斩而不斩,最后弄得越陷越深,抱了一堆自己不想长抱的股票。再说,因为资金被套,也就丧失了其他投机获利的机会。\n\n目标2|长期投资\n\n投资人若以长期投资为投资目标时,其投资策略如下:\n\n➊ 必须选择财务结构健全、产业远景看好,长期以来派发股利的高殖利率绩优股为标的。\n\n➋ 当其股价循环来到底部低档区时,即大胆分批买进。\n\n➌ 因为其获利来源著眼在长期(甚至10年、20年)配息的惊人复利效果(见第22招),所以不会担心股价短期的波动。\n\n目标3|兼做短期投机与长期投资\n\n投资人若是为了同时满足短期投机的刺激与长期投资的效益,可采行两者兼做的方式。举例来说,假设投资人有500万元的资金,我建议拿5分之1,即100 万元去短期投资,另外5分之4,即400万元则去做长期投资。\n\n投资必须牢记在心的是,短期投机与长期投资一定要分得清清楚楚,绝不可越雷池一步,这样才不至于自乱阵脚,本末倒置,因小失大。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTItNi54aHRtbA=="},{"no":17,"title":"第 17 招搞懂股价上涨的8个原因","short":"搞懂股价上涨的8个原因","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 17 招\n搞懂股价上涨的8个原因\n\n▶ 大师心法 ◀\n\n股价上涨,必定事出有因。\n\n 投资人买进股票之后,都希望股价能够上涨。那么,到底是什么因素促使股价上涨呢?其因素极为复杂,基本上,是由供需所决定的,也就是需要面(即买方、多方)大于供给面(即卖方、空方)时,促使了股价上涨。\n\n倘若我们再进一步深入探讨,究竟是什么因素造成需要面大于供给面就会发现,促使股价上涨的主要原因不外乎下列8点:\n\n原因1|经济因素\n\n根据以往的统计资料显示,台湾股价上涨的原因中,有6成9是受到经济因素的影响。经济因素包括:经济繁荣、调降利率、增加货币供给额等等。相关说明见第28招~第31招。\n\n原因2|公司业绩良好\n\n传统的股价理论认为,股价会正确反应公司的营运成绩。当产业远景看好,公司的业绩良好,盈余增加,每年配发股利,投资人争相买其股票,股价自然就上涨。不过,实际影响股价上涨最大的因素是经济因素,产业远景与公司业绩的影响反而排在其次。\n\n原因3|公司的发展潜力被发现时\n\n有些公司发展初期,业绩平平,并不特别引人注目。后来潜力发挥出来,或因新产品开发成功,或因产品畅销,或因产品涨价,或因公司体质改善,造成获利率大幅攀升,结果促使股价呈倍数成长。晶圆代工大厂台积电(2330)股价从2012年中的80元左右一路上涨至2017年12月的266元,即为一例。\n\n原因4|月K线走完艾略特的8个波段\n\n根据艾略特波浪理论,股价在一个完整走势中,会呈现如波浪般的8个波段走法,走完8波段又来一个8波段,周而复始,不断循环。当股价的月K线走完8个波段时,亦即跌到了底部区,股价跌无可跌,再来就是上涨了。\n\n原因5|不合理的暴跌之后或跌深之时\n\n根据道氏股价理论与醉步理论,股价必定呈现如波浪般的走势,而且具备两个特质:一是现在跌得惨将来就涨得凶,一是股价终究会反应其应有的真实价值。因此,当股价发生不合理的暴跌或跌深,远低于其真实价值时,必定会吸引买盘介入,促使股价上涨。\n\n原因6|溢价现金增资的人为炒作\n\n若干小型投机股在办理溢价现金增资时,因为是有偿自掏腰包认股,所以公司大股东在担心无人认股的情况下,都会把股价炒到高达增资股股价1倍以上,如此一来,投资人才会踊跃去认购增资股。\n\n原因7|发生轧空行情时\n\n主力在炒作某支股票时,有人跟他对做(通常是公司派或是丙种经纪人)卖出股票或放空。主力吃下空头卖出的股票,股价不跌反涨。这时空头害怕想要回补,但筹码已被主力锁死,天天开盘涨停,空头回补无门,股价飙涨,出现轧空行情。不只个股,大盘有时也会出现轧空行情,台股于2012年11月至12月间,加权指数从7,061点上涨至7,757点,上涨了将近700点,这是轧空行情。\n\n原因8|发生股权相争时\n\n有时市场派与公司派会激烈争取股权,或该公司因改选董监事而发生激烈的股权之争,这时都会产生惊人的投机行情,股价呈现倍数飙涨。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTItNy54aHRtbA=="},{"no":18,"title":"第 18 招清楚股价下跌的6个因素","short":"清楚股价下跌的6个因素","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 18 招\n清楚股价下跌的6个因素\n\n▶ 大师心法 ◀\n\n股价下跌,也必定事出有因。\n\n 投资人买进股票之后,都很害怕股价下跌。那么,到底是什么因素促使股价下跌呢?\n\n基本上,还是由供需所决定,也就是供给面(卖方、空方)大于需要面(买方、多方)时,促使了股价下跌。\n\n倘若我们再进一步深入探讨,究竟是什么因素造成供给面大于需要面就会发现,促使股价下跌的主要原因不外乎下列6点:\n\n原因1|经济萧条时\n\n经济繁荣是影响股价上涨的主因之一;相反地,经济萧条则是影响股价下跌的主因之一。\n\n各国的经济景气均呈现繁荣→衰退→萧条→复苏→繁荣等4个阶段的循环现象。\n\n而股市通常提前4至6个月反映未来经济,因此当景气抵达繁荣阶段的高峰时,在衰退阶段前4至6个月,股价便会逐渐下跌。\n\n原因2|公司经营不善时\n\n一家上市公司经营不善,产品滞销,获利率下降,必定会影响股价下滑。依其影响程度的轻重,又可分为下列3种情况:\n\n➊ 情况较轻者,公司亏损,几年之内都无盈余,亦无息或无股可配。\n\n❷ 情况严重者,财务恶化,支票退票。这时不但股价暴跌,也会被金管会降为全额交割股。\n\n ❸ 情况最严重者,公司宣布倒闭,被勒令下市,公司股票变成一叠废纸。\n\n原因3|月K线走完艾略特的5个波段时\n\n根据艾略特波浪理论,在一个完整8波段循环中,前面的5个波段是多头行情,后面的3个波段是空头行情,当前面的5个波段多头行情走完,头部形成时,股价自然反多为空,开始走跌。\n\n原因4|利率高涨、银根紧缩时\n\n高利率是股价的天敌,为何高利率会促使股价下跌呢?理由有3:\n\n➊ 高利率时,投资人宁愿把资金放在银行生利息,而不愿投资股票,故股价会下跌。\n\n❷ 高利率时,公司营运利息负担较重,会影响其获利能力。获利能力下降时会导致股价下滑。\n\n ❸ 高利率自然会造成银根紧缩。银根之于股市就好比血液之于人体,银根紧缩之下,股价就易跌难涨了。\n\n原因5|世界性的金融危机\n\n2008年雷曼兄弟倒闭事件与2011年的希腊欧债危机等,均属世界性的金融危机,牵连甚广,影响全世界的股市,台股也不例外。\n\n原因6|发生重大财政利空\n\n台股最典型的重大财政利空就是宣布课征证所税(即证券交易所得税)、股龄达25年以上的投资人必定记忆犹新,在1988年9月24日因财政部宣布开征证所税,结果造成台股19个营业日无量暴跌。隔了24年后,财政部于2012年4月12日宣布证所税复征方案,台股随即应声下跌(2016年1月1日起停征)。证所税可以说是台股的天敌。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTItOC54aHRtbA=="},{"no":19,"title":"第 19 招分清上涨与反弹 下跌与回档","short":"分清上涨与反弹 下跌与回档","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 19 招\n分清上涨与反弹 下跌与回档\n\n▶ 大师心法 ◀\n\n股价的上涨与反弹不同,股价下跌与回档也不一样。\n\n 股市里要从熟手跃升到高手的第一课,就是要知道如何去分辨上涨与反弹、下跌与回档。\n\n上涨与反弹都是股价的上扬,下跌与回档都是股价的下滑,很容易搞混了,要分辨彼此的不同,必须先了解何谓反弹与回档。\n\n反弹乃是股价在空头行情中,跌深之后的一种技术性反应。换言之,股价虽然处于空头行情,可是在跌深而且价稳量缩之后,必然会产生技术性的反弹。\n\n举例来说,台股第3次循环的空头行情,是从2007年10月的9,859点下跌到2008年11月的3,955点。其中第6波(俗称A波)是从2007年10月的9,859点下跌到2008年1月的7,384点;第7波(俗称B波)是从2008年1月的7,384点反弹到2008年5月的9,309点;第8波(俗称C波)是从2008年5月的9,309点下跌到2008年11月的3,955点。很明显的,其中的第7波就是标准的反弹(见图2-1)。\n\n至于回档,这乃是股价在多头行情中,涨多之后的一种技术性反应。换言之,股价虽然处于多头走势,可是在涨多之后遭遇获利回吐的卖压,必然会产生技术性回档。\n\n举例来说,台股第3次循环的多头行情,是从2001年9月的3,411点上涨到2007年10月的9,859点。其中第1波是从2001年9月的3,411点上涨到2002年4月的6,484点;第2波是从2002年4月的6,484点回档到2002年10月的3,845点;第3波是从2002年10月的3,845点上涨到2004年3月的7,135点;第4波是从2004年3月的7,135点回档到2004年8月的5,255点;第5波是从2004年8月的5,255点上涨到2007年10月的9,859点。很明显的,其中的第2波与第4波都是标准的回档(见图2-1)。\n\n另外,上涨与反弹可从下列3点去区别:\n\n➊ 上涨行情是一个多头的走势,趋势明显地向上,涨幅较长也较久;反弹行情只是暂时的弹升而已,反弹结束后趋势仍旧向下,依然是空头走势。\n\n❷ 上涨行情通常由若干多头部队领头向上攻,涨幅大,时间久,打的是长期持久战;反弹行情通常只是空头回补而已,涨幅小,时间短,不过是昙花一现。\n\n ❸ 反弹改变不了股价下跌的趋势。即使是强势反弹,其幅度顶多达到原先下跌幅度的3分之2,一定不会超过下跌幅度。\n\n下跌回档亦可从下列3点去区别:\n\n➊ 下跌行情是一个空头走势,趋势明显向下,跌幅较长也较久;回档整理只是暂时的下滑而已,回档结束后趋势仍旧向上,依然是多头的走势。\n\n❷ 下跌行情通常是由景气衰退、金融危机或资金紧缩等因素造成的,跌幅大,时间久。而回档整理通常是由获利回吐卖压或重大利空所造成的,跌幅小,时间短。\n\n ❸ 回档改变不了股价上涨的趋势。即使是强势回档,其下滑的幅度顶多达到原先上升幅度的3分之2,一定不会超过上升幅度。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTItOS54aHRtbA=="},{"no":20,"title":"第 20 招发生利空事件时进场买股","short":"发生利空事件时进场买股","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 20 招\n发生利空事件时进场买股\n\n▶ 大师心法 ◀\n\n股价走到低档区时,发生重大利空事件,反而是买进良机。\n\n 所谓利空事件是指,两岸发生重大政治变动、重大疫情,或是重大天灾等等。从1995年到2018年的23年间,台股发生过下列的利空事件:\n\n❶ 1995年7月19日:中国宣布,将于7月21日至28日于台湾外海试射飞弹。\n\n❷ 1997年3月21日:台湾发生严重的猪只口蹄疫事件。\n\n❸ 1999年7月9日:李登辉总统在接受《德国之声》访问时,提出「两国论」。\n\n❹ 1999年9月21日:台湾南投县集集附近发生芮氏规模7.3级大地震。\n\n❺ 2001年9月11日:美国纽约发生911自杀式恐怖攻击事件。\n\n❻ 2003年3月:台湾爆发SARS疫情。\n\n❼ 2006年8月12日:施明德宣布成立「百万人民反贪倒扁运动」。\n\n❽ 2008年9月:美国雷曼兄弟倒闭,造成世界金融危机。\n\n❾ 2010年4月至2011年10月:希腊债务危机。\n\n❿ 2018年3月:中美贸易战。\n\n通常股市新手碰到上述的利空事件,都会心生恐惧,急忙杀出股票。而高手碰到利空事件,一点也不害怕,不慌不忙地找买点捡便宜货,因为他知道每次的利空事件都是买进的好机会。\n\n为什么利空事件反而是买股的良机呢?因为不管是中国试射飞弹、宣布两国论,还是口蹄疫事件、爆发SARS疫情,或是超级大地震、恐怖攻击事件、雷曼兄弟倒闭等等,对股价的冲击总是短暂的(倒扁运动甚至对股价没什么冲击),没多久就恢复原状了。其中又以911恐怖攻击事件与爆发SARS疫情,更是来到底部区与次底部区的最佳买点,兹详述如下:\n\n911事件发生在纽约时间2001年9月11日上午8点半左右(台北时间是晚上9点半),隔天台股虽然大跌224点收3,952点,但仅仅又过了7个营业日就来到2001年9月26日的3,411点,这是台股第3个循环的底部区,乃是最佳买点(见图2-2)。\n\n至于台湾SARS疫情是爆发在2003年3月,当月虽然跌111点,大盘指数收4,321点,但仅隔1个月跌到4,044点就止跌,并展开头尾长达55个月的多头行情。2003年4月的4,044点是与2002年10月的3,845点等级相同的次底部区(见图2-3)。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTItMTAueGh0bWw="},{"no":21,"title":"第 21 招认识价值理论","short":"认识价值理论","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 21 招\n认识价值理论\n\n▶ 大师心法 ◀\n\n股价在崩盘时,反而是实现价值理论的大好时机。\n\n 价值理论又叫做价值投资(Value Investing),是由价值投资之父葛兰姆(Benjamin Graham)所创立,指股价来到物超所值的价位时(就像买日用品一定要等到打折时),才是敲进的最好时机。\n\n葛兰姆主张投资人在买股时一定要小心谨慎,只能买进「价格」低于「价值」的股票,而且买进的价格越被低估越好,因为「价格」与「价值」之间的缺口,就是投资安全的保障,他把这个缺口称之为安全边际(Margin of Safety)。\n\n价值理论牵涉到投资标的、投资时机以及投资期限3个问题,兹分述于下:\n\n问题❶ 投资标的 \n\n葛兰姆对于投资标的有下列6点严格规定:\n\n1 获益性佳(Profitability):在过去的10年内,每年投资报酬率至少达到10%。\n\n2 稳定性高(Stability):以10年为一期的获利趋势,与最近3年的获利状况做比较,并没有衰退的现象。\n\n3 成长性好(Growth):以10年为一期,年年均有稳定的成长。\n\n4 财务状况良好(Financial Position):公司的流动资产一直维持在流动负债的1.5至2倍之间。\n\n5 高派发股利(Dividends):过去10年来均采高派发股利政策。\n\n6 股价低(Price):本益比低于9倍,且股价低于净值的1.2倍。\n\n简言之,就是要挑选一家长期获利佳、财务状况良好、高配股利,而目前股价又处于低档的绩优公司。\n\n问题❷ 投资时机\n\n按照葛兰姆的说法,必须股价被严重低估,股价远低于其真实价值时,才是买进的良机。要符合上述的条件,通常只有股价崩盘,杀到C波的底部时才能吻合。\n\n问题❸ 投资期限\n\n葛兰姆主张长期持有这些高殖利率绩优股,以获取每年配息之后复利的惊人效益。有关此部分在接下来的第22招有详细解说。\n\n总之,价值理论的真谛就是:在崩盘时买进物超所值的高殖利率绩优股。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTMtMS54aHRtbA=="},{"no":22,"title":"第 22 招长抱高殖利率股效益惊人","short":"长抱高殖利率股效益惊人","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 22 招\n长抱高殖利率股效益惊人\n\n▶ 大师心法 ◀\n\n100万元买进台塑股票,50年后成为10亿富豪,这是复利惊人的效益。\n\n 此招内容乃是延续上一招而来,在葛兰姆的价值理论中,有两个重要的部分,一是在崩盘时买进高殖利率绩优股,一是买进之后长期持有,赚取复利的惊人利润。\n\n为什么买进高殖利率绩优股,并长期持有,就能够赚取复利的惊人利润呢?我们就举塑胶类股的龙头老大台塑来说明。\n\n台塑(1301)是长期获利稳定的绩优股,成立于1954年,从1962至2011年的50年间,长期平均下来每年至少有15%的获利率。\n\n假设某甲在1962年初以100万元买进台塑股票,然后以长期持有利滚利方式(即本年配发的股息加入下期本金的复利方式)操作,换言之,每年15%的配息又变成本金,于当年低档又买进股票。这么一来,会得到下列结果(见下表3-1):\n\n❶ 10年后,亦即到了1971年,投资的100万元增值为405万元。\n\n❷ 17年后,亦即到了1978年,投资的100万元增值10倍达到1,076万元,成为千万富翁。\n\n❸ 33年后,亦即到了1994年,投资的100万元增值百倍达到1亿零70万元,成为亿万富翁。\n\n❹ 50年后,亦即到了2011年,投资的100万元增值千倍达到10亿8,366 万元,成为10亿万富翁。\n\n此种「买进之后长期持有,赚取复利的惊人利润」,听起来像是天方夜谭,真的有人做到吗?有的,现任台塑董事长李志村就是一个实例,他在1983年(时任台塑副总经理)以100万元买进自己最熟悉的台塑股票,14年后,到了1996年增值为1,400万元,上涨了14倍。若是李志村继续持有至今,100万元的投资应该增值超过2亿6,350万元了。\n\n像台塑这样值得长期持有的高殖利率股,还有南亚(1303)、台化(1326)、台积电(2330)、中碳(1723)等,投资人可以在股市崩盘时买进这些股票。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTMtMi54aHRtbA=="},{"no":23,"title":"第 23 招抄底进场 才有翻倍的利润","short":"抄底进场 才有翻倍的利润","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 23 招\n抄底进场 才有翻倍的利润\n\n▶ 大师心法 ◀\n\n每次股价跌到底部区时,敢进场买进的人才能赚到翻倍利润。\n\n 股市里赚钱的诀窍无非就是低买高卖,亦即买在底部、卖在头部。当股价来到底部区时,要大胆进场,勇敢地分批买进,而后卖在头部区,这样平均可以有5倍左右的利润。\n\n我曾在2010年1月出版过一本名为《逮到底部 大胆进场》的书,书中详述我如何在2008年11月逮到3,955点底部区的经过,同时我也在书中毫无藏私地列举出底部区出现的下列11个讯号:\n\n❶ 月K线走完艾略特波浪理论的8个波段\n\n❷ 月成交量大幅萎缩\n\n❸ 融资余额的跌幅大于大盘的跌幅\n\n❹ 月K线走完8波段后,股价盘整不再破底\n\n❺ 政府一连串干预动作\n\n❻ 月K线走完8波段后出现红K线\n\n❼ 日K线完成打底形态\n\n❽ 月KD值跌到20以下盘整,形成黄金交叉\n\n❾ 股价超跌,本益比呈现物超所值的倍数\n\n❿ M1B年增率落底之后的4至5个月出现底部区\n\n⓫ 利用期指的「价格发现」功能确认底部区(见第24招)\n\n有兴趣的读者可以参考该书中详述的这11个讯号,准确地逮到每一次台股循环的底部区,限于篇幅此处不再赘述。\n\n根据我自己30年的操盘经验,不论是1990年10月的2,485点底部区,还是2011年9月的3,411点底部区,或是2008年11月的3,955点底部区,都会出现上述的11个讯号。因此,可以说底部区并不难抓,难的是要有勇气敢进场去买。\n\n每一次的底部区都是投资人最害怕之处,在空头行情C波的追杀过程中,股价下跌再下跌,重挫又重挫,投资人早已风声鹤唳,草木皆兵,能够不跟著杀出持股已属不易,大都没有能耐再去买进。\n\n底部区还有一大特色,必定是利空消息充斥。以2008年11月前后的消息,在雷曼兄弟事件影响与次贷风暴影响之下,美国各大银行随时都有倒闭危机,再看看国内,工业生产指数衰退3成,海关出口值衰退4成,工厂四处传出裁员与停工的消息。\n\n利空消息会使投资人裹足不前,明知该买而不敢买,要克服这种恐惧的心理,最好的方法就是分批买进。假设你计划拿出150万元买股票,那就分为3次,每次买50万元,3次买满,这就叫做分批买进。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTMtMy54aHRtbA=="},{"no":24,"title":"第 24 招利用台股指数期货确认底部区","short":"利用台股指数期货确认底部区","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 24 招\n利用台股指数期货确认底部区\n\n▶ 大师心法 ◀\n\n利用期指的价格发现功能确认底部区,等于是底部区出现10个讯号后最有力的保证。\n\n 所谓期指包含台湾加权股价指数期货(简称台指期)与摩根史坦利台股指数期货(简称摩台指),前者是由台湾期交所推出,后者是由新加坡国际金融交易所推出。\n\n目前台指期与摩台指每日成交量均达10万口左右,而且它是以台湾股票市场未来某一特定时点的指数(譬如1个月或2个月后)为交易标的物的期货契约,因为它有领先台股现货(即大盘)的功能,所以可以用来确认底部区。\n\n一般投资大众可能会认为,期指的标的物乃是台股现货的大盘指数,既然是先有现货的指数,后来才有期指的契约,那么,基于因果关系,台股期货的指数应该跟随著台股现货大盘的指数。可是事实上刚好相反,在一个成熟的股票市场中,期货的指数往往领先现货的大盘指数。换言之,期货的指数往往是现货大盘指数的领先指标,这也就是一般所说的,指数期货有「价格发现」的功能。\n\n由于期指具备了高财务杠杆、低交易成本、高流动性等特性,许多法人与大户拿来当做避险与套利的工具,而这些人对未来盘势反应灵敏,远胜于一般散户,因此指数期货常会领先大盘现货。此外,期货交易的是未来的股价指数,其中隐含对未来指数的预期反应,因此会领先现货指数。\n\n以艾略特波浪理论的8波走势中,走到空头行情的第8波(即杀C)时,市场普遍非常悲观,期货的跌势应该会领先现货;然而如果出现现货续创新低,而期货却没有创新低,依其价格发现的功能,即透露出底部形成的征兆。\n\n举例来说,台股第3次循环的第8波(即C波)是从2008年5月20日的9,309点往下杀,到了2008年11月21日创新低3,955点,跌破2008年10月28日的波段低点4,110点,但台指期11月21日低点3,815点,并未跌破10月28日波段低点3,811点,事后证实,11月21日的3,955点就是第8波最低点,也是台股第4循环的起涨点(见图3-1)。\n\n这是我逮到3,955点底部的重要参考指标之一。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTMtNC54aHRtbA=="},{"no":25,"title":"第 25 招这样买股不受伤","short":"这样买股不受伤","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 25 招\n这样买股不受伤\n\n▶ 大师心法 ◀\n\n选对位置进场买股,永远不会受伤。\n\n 只要是进场买过股票的人,人人都受过伤,意思是每个人都曾亏过钱。我就突发奇想问自己,有没有什么方法去买股,一定不会受伤的呢?其实是有的,只要买在每一次循环的底部区或是次底部区,就不会受伤。\n\n这要从艾略特的波浪理论说起,股价在一个完整的走势中,会呈现犹如波浪般的8个波段走法,前面5个波段是多头行情,而后面的3个波段是空头行情(见图3-2)。\n\n在多头行情的5个波段中,第1、第3、第5波段是上升走势,而第2与第4波段是回档整理;在空头行情的3个波段中,第6波段(又称A波)、第8波段(又称C波)是下跌走势,而第7波段(又称B波)是反弹整理。\n\n我们在艾略特8波段完整走势各波段的高低点位置标上a、b、c、d、e、f、g、h、i等9个英文字母,于是出现了下方图3-3,比照这两张图,我们发现,只有a、c、i这3个点可以买,因为:\n\n❶ a是第1波段的起源,是一个完整循环多头行情的起涨点,为底部区。\n\n❷ c是第3波段的起涨点,为次底部区。\n\n❸ i是此一完整循环空头行情的止跌点,同时,它又是另一个完整循环多头行情的起涨点,亦为底部区。\n\n❹ e是第5波段起涨点,看起来是买点,但万一股价仅走3波段,没走5波段,买在e就有风险。\n\n❺ g是第7波段反弹起涨点,反弹为多头逃命波,做多的话手脚一定要快,我自己不建议在此做多。\n\n❻ 总之,买在a、c、i等底部区或次底部区就不会受伤。在恰当的位置买进或卖出,就是我创建的「位置理论」。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTMtNS54aHRtbA=="},{"no":26,"title":"第 26 招不频繁买卖 获利不被费用吞噬","short":"不频繁买卖 获利不被费用吞噬","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 26 招\n不频繁买卖 获利不被费用吞噬\n\n▶ 大师心法 ◀\n\n买卖股票太频繁,股金会不知不觉被手续费与交易税赚走。\n\n 很少听到有人在股市长期赚到钱的,然而投资人不知有没有想到,有两种人是股市中永远稳赚不赔的大赢家,一种是证券经纪商,赚的是手续费,一种是财政部,赚的是证券交易税。\n\n先说证券经纪商的手续费。\n\n投资人不论买进或卖出股票,每次交易证券经纪商都要依成交金额,向投资人收取0.1425%的手续费。换言之,投资人一进一出,买卖一支股票,总共须付给证券经纪商2次0.1425%的手续费。举例来说,投资人以90元股价买进A股票10张,买进时须付出1,282.5元手续费(算法:90元×1,000股×10×0.001425=1,282.5元)。将来若以100元卖出,则须再付1,425元手续费(算法:100元×1,000股×10×0.001425=1,425元)。\n\n再说财政部征收的证券交易税。\n\n根据证券交易税征收细则的规定,投资人在买进股票时不用缴税,但在卖出股票时,不论盈亏,财政部都会依成交金额,向投资人课征0.3%的证券交易税。以前例来说,卖出10张A股票必须缴交3,000元的证券交易税(算法:100元×1,000股×10×0.003=3,000元)。\n\n千万别小看这0.285%(0.1425%乘以2次)的手续费与0.3%的证券交易税,以2011年为例,投资人一共付给证券经纪商892亿元手续费,并付给财政部939亿元的证券交易税(最近20年,投资人平均每年上缴1,076亿元税金给财政部)。\n\n就帽客与短线客而言,每次进出须付0.585%的费用(0.285%手续费加上0.3%的交易税),假设每次都不赚不赔,只要进出171次(平均大约每2天进出一次),约莫1年的时间,本金就付光了。因此,投资股票进出确实不宜太频繁。\n\n我早期也做过短线,但在领悟出「位置理论」之后,我这几年坚持只做长线,一次出手可能间隔2到3年之久。证券商和财政部想赚到我的钱,很难!","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTMtNi54aHRtbA=="},{"no":27,"title":"第 27 招和号子保持距离 以策安全","short":"和号子保持距离 以策安全","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 27 招\n和号子保持距离 以策安全\n\n▶ 大师心法 ◀\n\n操作股票,记得保持距离以策安全。\n\n 号子就是证券经纪商,也就是投资人下单买卖股票之处。每家号子为了吸引投资人到那里开户并委托交易股票,通常均设有清新宽敞的看盘大厅与交易场所。\n\n有些股票族在买进股票之后,因为关心该支股票的涨跌,每天都会到自己熟悉的号子去观看电子行情揭示表。他们就像在券商上班一样,每天上午9点准时到号子报到,下午1点半收盘时才会离去。若见手中股票上涨就喜形于色,见手中股票下跌则愁容满面。\n\n投资人若得空闲,买了股票到号子关心股价,乃人之常情,无可厚非,问题是买卖股票就是一场感情与理智的争战,投资人一旦身处号子里,极易在现场气氛的感染之下,被群众的盲目意识所左右,犯上「追涨杀跌」的错误。\n\n举例来说,行情大涨,你手中持股的RSI已达90(关于RSI,在第36招有详细说明),表示该档股票超买的情况严重,此时应卖出股票才是上策。你在家中冷静分析后决定卖出。一走进号子,看到许多股票涨停(包括你手中那一支),投资人交易热络欢声雷动,见此情景就把RSI 90忘到九霄云外,结果非但没有卖出持股,反而加码敲进,最后结果当然是高档套牢。\n\n再举例来说,行情大跌,你手中的RSI已达10时,表示该档股票超卖的情况严重,股价随时会反弹,此时应该勇敢进场承接才对。你在家中冷静分析后决定加码敲进。可是一走进号子,看到许多股票跌停(包括你手中那一支),投资人稀稀疏疏,哀声叹气,见此情景你就忘了RSI 10的分析,非但没有把握低档进货的良机,反而卖出手中持股。\n\n你如果曾经在号子的交易现场有过大涨时跟著抢进、暴跌时急忙杀出的经验,就知道我所言不虚。这就是号子里一再重演的「追涨杀跌」。\n\n要避免追涨杀跌的最佳策略就是,跟号子保持距离,利用家中电脑或手机看盘即可。你在开车时,都会牢记「保持距离,以策安全」;请你在买进股票之后,别忘了跟号子「保持距离,以策安全」。\n\n我自己绝对不会上号子,因为券商已经提供即时看盘报价软体,我一个人坐在电脑前,独立思考与判断,最不会受到群众影响。在群众中,因为气氛的关系,特别容易冲动,实在不是冷静思考的理想场所。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTMtNy54aHRtbA=="},{"no":28,"title":"第 28 招靠景气循环 推估股价涨跌","short":"靠景气循环 推估股价涨跌","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 28 招\n靠景气循环 推估股价涨跌\n\n▶ 大师心法 ◀\n\n景气循环与股价循环关系密切。\n\n 所谓景气循环,根据行政院经建会的解释,是一种国家总体性经济活动的波动,每一次景气的循环是指许多经济活动大约同时发生复苏、扩张,随后发生收缩、衰退,然后又开始复苏的情形。\n\n台湾从1954年11月迄今,已经发生过14次的景气循环,目前正在进行第15次的景气循环(见表3-2)。\n\n每一次的景气循环主要包含一个扩张期(Expansion,包括复苏与扩张)与一个收缩期(Contraction,包括收缩与衰退)。扩张期是经济景气由谷底(Trough)上升至高峰(Peak),而收缩期正好相反,经济景气由高峰下降至谷底。\n\n台湾已经发生过的14次景气循环中,有下列5点值得提出来:\n\n❶ 整个景气循环最长的是第2次,计112个月,发生在1956年9月至1966年1月。\n\n❷ 整个景气循环最短的是第1次,计22个月,发生在1954年11月至1956年9月。\n\n❸ 扩张期最长的发生在第2次景气循环中,为1956年9月至1964年9月的96个月。扩张期最短的发生在第1次景气循环中,1954年11月至1955年11月的12个月。\n\n❹ 收缩期最长的发生在第5次景气循环中,为1980年1月至1983年2月的37个月;收缩期最短的发生第1次景气循环中,为1955年11月至1956年9月的10个月。\n\n❺ 在过去的14次景气循环中,扩张期的期间比收缩期来得长,只有第6次景气循环例外,同样是15个月。\n\n不知读者有没有察觉,从表3-2中我们发现景气循环与台股股价间有密切关系:\n\n❶ 台湾第7次景气循环的起升点在1985年8月,与台股第1次循环的636起涨点1985年7月,仅相差1个月(提早景气1个月)。\n\n❷ 台湾第8次景气循环的起升点在1990年8月,与台股第2次循环2,485起涨点1990年10月,仅相差2个月(落后景气2个月)。\n\n❸ 台湾第11次景气循环的起升点在2001年9月,与台股第3次循环3,411起涨点2001年9月完全相同(与景气同时)。\n\n❹ 台湾第13次景气循环的起升点在2009年2月,与台股第4次循环3,955 起涨点2008年11月,仅相差3个月(提早景气3个月)。\n\n❺ 台湾第15次景气循环的起升点在2016年2月,与台股第4次循环第5波7,203起涨点相差6个月。\n\n国外的专家长期研究后发现,股价落底时间往往在景气落底前4至6个月,而台湾的实例告诉我们,有时提前,有时落后,有时甚至同步。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTMtOC54aHRtbA=="},{"no":29,"title":"第 29 招从利率与汇率 看股价变化","short":"从利率与汇率 看股价变化","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 29 招\n从利率与汇率 看股价变化\n\n▶ 大师心法 ◀\n\n我们可以从政府调低或调高利率的动作,看出政府做多或做空的态度。\n\n 有关利率与股价的关系,有两派学者持完全不同的看法。\n\n有一派学者认为利率高低与股价关系密切:\n\n❶ 当利率高时,投资人宁愿把资金放在银行生息,不愿投入股市,故股价会下跌;当利率低时,投资人把钱放在银行中生息不划算,宁愿投入股市,故股价会上涨。\n\n❷ 当利率高时,企业经营负担利息的成本加重,影响获利能力,股价易跌难涨;当利率低时,企业经营负担利息的成本减轻,获利能力增强,股价易涨难跌。\n\n❸ 当利率高时,资金紧俏,股市买卖清淡,股价容易下跌;当利率低时,资金充沛,股市交易热络,股价容易上涨。\n\n然而,另一派的学者却持不同的看法。\n\n他们认为,稳健的投资人无论利率降低到何种程度,皆不敢借钱来买股票,因为他们不愿冒股价下跌的风险。相反的,对于投机的投资人,无论利率高涨到什么程度,也无法阻止他们借钱买卖股票赚取价差的投机行为。\n\n事实上,这两派学者的看法都有道理。从长期的趋势去观察,利率的高低对股价的变动,的确存在著相当的关系;不过,利率并非是影响股价的唯一因素,它只是影响股价变动的因素之一。\n\n我自己宁愿把利率的调高或调低当做政府干预股市的态度。通常台湾政府在股价来到头部区涨得太离谱时,会藉调高利率的动作来冷却股市;相反的,当股价来到底部区跌得太离谱时,会藉调降利率的动作来挽救股市。就举最近的2008年11月3,955点的底部区为例,我看到中央银行在2008年9月股市大跌就开始降息,连续降了7次息,一直到2009年3月股市回升才中止。这就是让我考虑采取买进行动的重要讯息之一。\n\n至于汇率与股价的关系,全看新台币的升值与贬值。\n\n新台币升值,有利进口,不利出口;反之,新台币贬值,有利出口,不利进口。而进口原料亦深受汇率变动的影响。所以,在台币升值时,以内销为主而原料又进口的行业,股价看涨;以外销为主而原料又内购之行业,股价看跌。在台币贬值时,情况就完全相反。\n\n对产业而言,若台币升值,则较有利于水泥、百货、金融等产业;若台币贬值,则较有利于电子、塑胶、纺织等外销产业。\n\n另外,最重要的一点,若台币升值必会引起国外热钱流入台湾。这笔钱一旦进入股市,就会造成一波资金行情。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTMtOS54aHRtbA=="},{"no":30,"title":"第 30 招通膨来临时 股价短涨长跌","short":"通膨来临时 股价短涨长跌","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 30 招\n通膨来临时 股价短涨长跌\n\n▶ 大师心法 ◀\n\n通货膨胀时,股价短期看涨,长期看跌。\n\n 资金是推动股市多头行情的原动力,因此,只要货币供给额增加,不管是热钱的流入,或是外汇存底的增加,还是公共设施保留地大笔款项的发放,只要流入股市,都会刺激股价上扬。\n\n然而,货币供给额并非仅指货币发行的数量而已,还代表了货币经过流通所造成的乘数效果。譬如说,台湾银行在一定期间内发行了100万元钞票,但因为流通的关系,这100万元转了三手,那么货币供给额就变成了300万元。\n\n世界各国为了维持经济的持续成长,都让物价温和上涨以刺激投资意愿,并在货币供给额上均采温和成长的措施。可是,一旦货币流通过于快速,人们不再喜欢拥有货币,而用货币拚命在市场上抢购物品时,物价就会急速飞涨,造成通货膨胀。\n\n那么,发生通货膨胀时,股价会上涨还是下跌呢?在初期,股价会上涨,因为:\n\n❶ 通货膨胀之初,公司的土地、厂房、机器设备等固定资产,因通货膨胀而水涨船高,跟随著增值。资产增值,股价自然会上涨。\n\n❷ 因为通货膨胀,不但存货能以较高价格卖出,而且先前买进的原物料也将大获其利。在盈余大幅增加情况下,股价当然看涨。\n\n❸ 在通货膨胀之初,因为股票有保值的效果,所以会造成投资人的抢购。在需求大于供给的情形下,行情会看涨。\n\n然而,过了一段期间之后,股价会因通货膨胀而下跌,理由是:\n\n❶ 公司资产的增值,仅是虚胖的数字罢了。\n\n❷ 在存货卖光,先前买进的原物料也用完之后,因生产成本增加,势必造成利润下降。\n\n投资人在了解上述情形后,会从股市抽出资金,转而投资黄金或房地产等能够保值的东西。一旦资金抽离股市,股价必定下跌。不过,唯一的例外是资产股,资产股有保值的概念,因此在通货膨胀时反而会上涨。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTMtMTAueGh0bWw="},{"no":31,"title":"第 31 招从市场资金流动 研判多空走势","short":"从市场资金流动 研判多空走势","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 31 招\n从市场资金流动 研判多空走势\n\n▶ 大师心法 ◀\n\nM1B与M2的黄金交叉或死亡交叉,代表长期趋势,必须尊重。\n\n 大家都知道,股市是由白花花的银子堆砌起来的。资金之于股市,就有如血液之于身体。股市若是欠缺资金,就像一个人脸色苍白,身体虚弱,下跌的可能性高;反之,股市若是资金充沛,就像一个人红光满面,身强体壮,上涨的可能性高。\n\n中央银行每月公布的货币供给额3大指标为M1A、M1B以及M2,这3大货币总计数就好比3层的卷心蛋糕,最内层是M1A,中间那一层是M1B,最外层则是M2:\n\nM1A: 指流动性大且具备交易媒介功能的货币(民众口袋里的钱),包括:通货净额、支票存款、活期存款。\n\nM1B: 流动性稍降,指国人手边随时可动用的资金,包括:M1A、活期储蓄存款。M1B一直被外界视为股市资金动能是否活络的指标之一。\n\nM2: 流动性更低,指广义的货币供给而言,包括M1B、定期存款、可转让定期存单、外汇存款、外国人新台币存款、邮汇局转存款等。\n\n要研判市场资金是否充沛,或者要研判市场的趋势是走多或走空,这要观察M1B与M2之间的交叉变化。\n\n❶ M1B 从下向上穿越 M2的黄金交叉(Golden Cross) \n\n台股最近一次M1B与 M2的黄金交叉发生在2009年3月,当时M1B年增率以7.27%向上穿越M2的年增率6.64%,「而后展开长达3年(到2011年2月的 9,220点为止)的大多头(见下方图3-4)。\n\n台股再上一次M1B与M2黄金交叉发生在2007年2月,而后走了9个月多头,一直涨到2007年10月的9,859点。\n\n台股最近一次M1B与M2的黄金交叉发生在2012年10月,此次的黄金交叉促使台股大盘从6,609点上涨至2015年4月的10,014点。\n\n❷ M1B从上向下穿越M2的死亡交叉(Black Cross) \n\n台股上一次M1B 与M2的死亡交叉发生在2007年12月,而后走了1年的空头,一直跌到2008年11月的3,955点为止。\n\n台股最近一次M1B与M2的死亡交叉发生在2011年10月(见图3-4),当时M1B年增率以5.12%向下穿越M2的年增率5.54%;结果经过一年之后,也就是2012年10月,M1B年增率就以3.57%向上穿越M2的年增率3.2%,形成黄金交叉。此次的黄金交叉强烈暗示有波多头行情即将启动。\n\n总之,M1B与M2的黄金交叉乃是流动性较低的钱跑到流动性较高的钱,表示景气转热,资金活络,投资人随时想动用钱买股票;M1B与M2的死亡交叉乃是流动性较高的钱跑到流动性较低的钱,表示景气转冷,资金动能不足,钱离开股市跑回银行定存去了。\n\n利用M1B与M2去研判多空走势,下列3点要特别留意:\n\n❶ M1B与M2的交叉代表的是长天期的走势,是趋势,无论黄金交叉或死亡交叉,都要予以尊重。\n\n❷ M1B与M2的交叉乃是落后指标,不论底部或头部,都会落后几个月。虽然落后,但方向准确,很值得做多或做空的参考。\n\n❸ 每次台股大盘股价指数的底部都会落后在M1B年增率底部4至5个月。我自己就是用这个方法逮到2008年11月3,955点的底部。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTMtMTEueGh0bWw="},{"no":32,"title":"第 32 招KD线操作法","short":"KD线操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 32 招\nKD线操作法\n\n▶ 大师心法 ◀\n\n用月KD值来研判长期趋势的走向最准确。\n\n 技术分析中的KD线,全名叫做「随机指标KD线」,是由英文Stochastics KD Line翻译而来,它结合了移动平均线之中移动线与股价的互变关系、RSI超买与超卖的概念等优点,因准确性高,故广泛被股市投资人所用。\n\nK值是快速变化的数值,D值是慢速变化的数值,个别连接起来即成为K线与D线,合称为KD线。\n\n所谓KD线操作法,乃是根据K值与D值的大小,以及K线与D线交叉的情况找出买卖点的操作方法。\n\n日KD值的计算方法\n\n❶ 先求出RSV\n\nRSV是英文Raw Stochastics Value的缩写,意思是「未成熟随机值」。一般以9天为基数,利用9天内最高股价、最低股价以及收盘价,即可算出第9天的RSV。其公式如下:\n\nRSV=(第9天收盘价-最近9天内最低股价)÷(最近9天内最高股价一最近9天内最低股价)×100\n\n❷ 再用平滑移动平均线的方法,求出K值(也就是RSV的3日平均值),其公式如下:\n\nK值=(前1天K值×2/3)+(当天RVS值×1/3)(若无前1天的K值,用50代入计算)\n\n❸ 继续用平滑移动平均线的方法,求出D值(也就是K值的3日平均值),其公式如下:\n\n D值=(前1天D值×2/3)+(当天K值×1/3)(若无前1天的D值,用50代入计算)\n\nKD线在短线的应用原则\n\n❶ 日K值最小是0,最大是100。日K值若小于20,表示短线处在超卖区;若大于80,表示短线处于超买区。\n\n❷ 日K值若在20附近,而日K线又向上交叉日D线时,为买进讯号;日K值若在80附近,而日K线又向下交叉日D线时,为卖出讯号。\n\n❸ 有不少人用日K值来做短线,当日K值来到90即卖出,日K值来到10即买进,从中赚取价差,这是短线操作很好用的指标。施升辉的「佛性投资术」基本上就是用这个方法。\n\nKD线在长线的应用原则\n\n根据我自己的实战经验,用月KD值来研判长期趋势的走向最好用,我的经验如下:\n\n❶ 从1987年1月到2018年1月的31年里,台股月K值跌破20一共才只有7次,根据经验法则,月K值跌破20之后盘整数个月(2至8个月)之后,必定会展开一段多头行情。\n\n❷ 最稳当的做法是,月K值来到20就应密切注意,耐心等到月K线在20附近向上交叉月D线形成黄金交叉时,赶紧出手买股,因为这是走长多的强烈讯号(见图4-1)。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtMS54aHRtbA=="},{"no":33,"title":"第 33 招移动平均线操作法","short":"移动平均线操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 33 招\n移动平均线操作法\n\n▶ 大师心法 ◀\n\n当多条移动平均线呈现多头排列时,可确认股价走多;反之,可确认股价走空。\n\n 要利用移动平均线来买卖股票,必须先了解移动平均线的特质。\n\n移动平均线(Moving Average,简称MA),是由葛兰碧(Joseph Granville)在1960年所发明,顾名思义,它是把一定期间的股价加以平均(或5日、或10日、或20日、或60日、或120日、或240日),然后画出一条移动平均线。\n\n移动平均线的5个特质\n\n特质❶ 5日与10日移动平均线代表短天期股价走势的变化,亦表示短期的支撑线与压力线;20日与60日移动平均线代表中期股价走势的变化,亦表示中期的支撑线与压力线;120日与240日移动平均线代表长天期股价走势的变化,亦表示长期的支撑线与压力线。\n\n特质❷ 移动平均线的天数越短(譬如5日与10日),对股价的反映越敏感,但代表股价中长期走势的准确性越低;反之,移动平均线的天数越长(譬如120日与240日),对股价的反映越迟钝,但代表股价中长期走势的准确性越高。\n\n特质❸ 当5日(周线)、10日(半月线)、20日(月线)、60日(季线)、120日(半年线)、240日(年线)等移动平均线,从上而下依次排列下来时,称之为多头排列。股价走势呈现多头排列,而5日、10日、20日又是3线纠结在一起,日K线向上穿越起涨,是很好的买点。\n\n特质❹ 当240日(年线)、120日(半年线)、60日(季线)、20日(月线)、10日(半月线)、5日(周线)等移动平均线,从上而下依次排列下来时,称之为空头排列。股价走势呈现空头排列,而5日、10日、20日又是3线纠结在一起,日K线向下穿越起跌,是很好的放空点。\n\n特质❺ 移动平均线除了有支撑与压力的功效,代表多头或空头的走势之外,还有助涨与助跌的效果。\n\n移动平均线的应用原则\n\n若要利用移动平均线来做中长期股票投资,除了必须留意上述5个特质之外,还必须牢记下列2个应用原则:\n\n原则❶ 从事中长期股票投资的人,要特别留意60日移动平均线(季线)、120日移动平均线(半年线)、240日移动平均线(年线)的变化,从这3条线常可准确地看出股价中长期的走势。怎么看?详细说明如下:\n\n1 当股价走到第8波杀C的末跌段,而日K线形成盘整型态,当60日移动平均线(即季线)翻扬向上,此时即可确认行情由空翻多。举例来说,台股在第3次循环末跌段与第4次循环的初升段交接处,大盘季线在2008年6月13日走跌之后,到了2009年2月16日翻扬向上,行情由空翻多(见图4-2)。\n\n2 当股价走到第3波或第5波的顶端,而日K线跌破年线时,应赶紧卖出股票。年线是投资人1年来买进的平均成本,此条线既是重要支撑,也是多空分界点,一旦被掼破,表示空方胜、多方败,头部浮现,赶紧卖股走人(见下图7-7)。\n\n原则❷ 很明显的是,移动平均线是落后指标。举例来说,当多条移动平均线呈现多头排列时,股价已经涨了一段;当多条移动平均线呈现空头排列时,股价已经跌了一段。对于要掌握买卖时机的短线投资人而言,明显慢了半拍,是缺点;但对于要掌握中长期股价走势的中长线投资人而言,却是精确无比,是大优点。这也是我买卖股票的重要参考图形之一。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtMi54aHRtbA=="},{"no":34,"title":"第 34 招乖离率操作法","short":"乖离率操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 34 招\n乖离率操作法\n\n▶ 大师心法 ◀\n\n短期内,股价跌深,负乖离过大,股价会反弹;短期内,股价涨凶,正乖离过大,股价回档。\n\n 乖离率的原文叫做Bias,若直译成中文为「歪斜、偏离」的意思,翻译为乖离率十分贴切。它是指股价与平均股价之间的差距程度,主要用来做为移动平均线的辅助技术分析工具。要运用乖离率操作法,必须先知道葛兰碧进出的8个原则(见图4-3)。\n\n买进的4个原则\n\n原则❶ 移动平均线从下降趋于平稳,而且股价从移动平均线的下方向上突破时(图4-3中的A)。\n\n原则❷ 股价处于移动平均线的上方,而后股价回档,但未跌破移动平均线,此时的移动平均线发挥支撑的效果,股价反转上涨(图4-3中的B)。\n\n原则❸ 股价处于移动平均线的上方,而后股价回档,虽然跌破移动平均线,但此时的移动平均线发挥支撑助涨的效果, 股价很快就弹升至移动平均线之上(图4-3中的C)。\n\n原则❹ 股价与移动平均线均居跌势,而股价处于移动平均线的下方,突然暴跌,距离移动平均线很远,乖离过大时(图4-3中的D)。\n\n卖出的4个原则\n\n原则❶ 移动平均线从上涨趋于平稳,而且股价从移动平均线的上方向下跌破时(图4-3中的E)。\n\n原则❷ 股价处于移动平均线的下方,而后股价反弹,但未突破移动平均线,此时移动平均线发挥压力的效果,股价反转继续下跌(图4-3中的F)。\n\n原则❸ 股价处在移动平均线的下方,而后股价反弹,虽然突破移动平均线,但此时的移动平均线发挥助跌的效果,股价很快就回跌到移动平均线之下,并且继续下挫(图4-3中的G)。\n\n原则❹ 股价与移动平均线均处于上涨之势,而股价处于移动平均线的上方,突然暴涨,距离移动平均线很远,乖离过大时(图4-3中的H)。\n\n上述买进和卖出的原则4中提到的「乖离过大」,到底要如何去衡量呢?只要从乖离率即可算得非常清楚。\n乖离率计算的期间一般都用10天,称之为10日乖离率,其计算公式如下:\n\n▶乖离率计算公式◀\n\n10日乖离率=[ 当日收盘价(加权指数)-最近10日平均收盘价(加权指数)]÷最近10日平均收盘价(加权指数)×100% \n\n注:以收盘价计算个股的乖离率,以加权指数计算大盘的乖离率。\n\n乖离率的应用原则\n\n原则❶ 基本原理是,当负乖离率过大时,股价会有反弹的可能,宜买进;当正乖离率过大时,股价会有回档的可能,宜卖出。\n\n原则❷ 就10日乖离率而言,若低于负10%,就是超卖,乃是买进时机;若高于正10%,就是超买,乃是卖出时机。举例来说,台股大盘在2011年8月2日至8月9日短短6个营业日,加权指数从8,629点暴跌至7,148点,大跌了1,481点,其间第5个营业日(2011年8月8日)的10日乖离率罕见地跌至负10.61%,结果在次日(2011年8月9日)来到低点7,148点之后立刻反弹(见图4-4)。\n\n原则❸ 实际应用中,大盘使用乖离率机会较少,个股使用乖离率的机会较多。\n\n原则❹ 不论大盘或个股,每天涨停式的飙涨,或是每天跌停式的飙跌,均不适用乖离率。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtMy54aHRtbA=="},{"no":35,"title":"第 35 招MACD操作法","short":"MACD操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 35 招\nMACD操作法\n\n▶ 大师心法 ◀\n\nMACD常用来研判中长期的波段行情。\n\n 技术分析中的MACD是英文Moving Average Conver-gence & Divergence的缩写,翻译成中文为「平滑异同移动平均线」,因为译名太长,所以一般就称之为MACD。\n\n它是吸取移动平均线的优点改良而来的技术分析工具,主要是观察2条差离值之间快慢的变化,以研判出一个波段的行情,因其准确性高,故深受中长期股票投资人所重视。\n\n欲看懂MACD,必须先了解DIF。DIF就是差离值,它是快速移动平均值减去慢速移动平均值之后所得的数值,一般以12日移动平均值(12 EMA)减去26日移动平均值(26 EMA),或是13日移动平均值减去39日移动平均值(两者参数不同)。如此可得出1日DIF,或简称DIF。\n\n1日DIF累积9天之后,再除以9,即可得出9日DIF平均值(DIF的9MA)或简称MACD。\n\n在MACD线图中出现的柱状线(向上或向下竖立著),称之为DEF,那是表示由1日DIF减去9日DIF平均值(即DIF减去MACD)所得出的数值。\n\nMACD线图的应用原则\n\n➊ 柱状线以零轴做为多空分水岭,零轴以上是多头,零轴以下是空头。\n\n❷ 当DIF在零轴之上穿越MACD时,表示会有一段上升的波段行情;当DIF在零轴之下穿越MACD时,表示有一波段下跌的走势。这是MACD技术分析精华所在,投资人应多加留意。以宏达电(2498)为例来说明,它在台股第4次循环中,股价于2010年2月的277.5元大涨至2011年4月的1,300元,其间于2010年7月DIF明显地在零轴之上穿越MACD(俗称黄金交叉)之后即展开飙涨行情。\n\n ❸ 当DIF在零轴之下向上穿越MACD时,可能只是反弹而已,并非回升行情,至于反弹是否会转为回升行情,就得观察是否能突破零轴而定;当DIF在零轴之上向下穿越MACD时,一般用来当做高档出脱持股的讯号,至于此回档是否会演变为空头下跌走势,就得观察是否会跌破零轴而定。\n\n ❹ MACD跟移动平均线一样,都属落后指标,但因趋势明确,故为中长期投资者所爱用。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtNC54aHRtbA=="},{"no":36,"title":"第 36 招RSI操作法","short":"RSI操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 36 招\nRSI操作法\n\n▶ 大师心法 ◀\n\n当5月RSI出现做头背离时,是长线股价到顶的强烈警讯。\n\n 技术分析中的RSI乃是英文Relative Strength Index的缩写,直接翻译成中文就叫做「相对强弱指标」,是一种非常普遍的技术分析工具。\n\nRSI是股市名人威利士.王尔德(Welles Wilder)的创见(他另外创立了DMI技术分析)。他长期观察商品价格的变动之后发现,任何商品价格的变动都有轨迹可循:商品的价格若在短期内涨幅过高或跌幅过深,脱离正常价格轨道时,最后仍旧会回到原来正常价格的轨道上。\n\n基于上述的认识,王尔德计算出某种商品一段期间内价格变动的强弱指标(即RSI),从中预测出该商品未来价格的变动。\n\n因为王尔德运用RSI预测商品价格的变动有一定的准确性,后来他就把这套理论运用在预测股价的变动上。结果发现,RSI在预测短期股价的变动,也有相当的准确性,因此逐渐被投资人所重视。\n\nRSI的应用原则\n\n➊ 短线操作者最重视5日RSI,10日RSI次之。\n\n❷ 运用RSI,必须留意20、50、80这3个数值。\n\n ❸ RSI 50是股价强弱的分水岭,就短线而言,超过50反映股价为强势;低于50则是弱势。因此,即使股价下跌,但RSI未跌破50之前,仍属强势整理,不必急于卖出;同理,即使股价反弹上涨,但RSI未突破50之前,仍属弱势反弹,不必急于买进。\n\n ❹ 某档股票的RSI低于20,甚至来到10时,表示该股短线已进入超卖区,未来短线反弹的机率很大,可逢低分批买进;相反的,当某支股票的RSI高于80,甚至来到90时,表示该股短线已进入超买区,未来短线回档的机率很大,应逢高分批卖出。\n\n❺ 当股价进入RSI 20以下的超卖区,仍然持续下跌,可是RSI发生钝化现象不再下跌,这叫打底背离,为短线强烈买进讯号。\n\n❻ 当股价进入RSI 80以上的超买区,仍然持续上涨,可是RSI发生钝化现象不再上涨,这叫做头背离,为短线强烈卖出讯号。\n\n ❼ 我常把RSI用于长线,当高档出现5月RSI做头背离(即股价创新高,5月RSI反而下跌),一定要全数出脱持股;即使高档5周RSI出现做头背离时,我仍是建议先抛再说(见图4-5)。\n\n ❽ 台股大盘在2017年10月的10,793点亦发生5月RSI背离,这也是我研判台股第4循环股价走到顶的重要指标。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtNS54aHRtbA=="},{"no":37,"title":"第 37 招心理线操作法","short":"心理线操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 37 招\n心理线操作法\n\n▶ 大师心法 ◀\n\n心理线仅适用于短线进出者。\n\n 心理线是从英文Psychological Line直接翻译过来,简称PSY,它是利用投资人普遍认为「涨多了总会跌、跌多了总会涨」的心理,来研判股市行情的一种操作方法。\n\n心理线主要研究在某段期间内,股票投资人的心理偏向买方或卖方。此研究的前题假设是:在一段期间内,股价连涨若干天之后,投资人的心理总认为应该有一段回档整理;而股价连跌若干天之后,投资人的心理总认为将会有一段反弹行情。\n\n心理线的算法与画法\n\n➊ 以12天做为样本数,把今天当作第12天。然后拿第12天的收盘价跟第11天的收盘价比较,拿第11天的收盘价跟第10天的收盘价比较,依此向前类推......第1天的收盘价跟前一天的收盘价比较。\n\n❷ 若第12天的收盘价高于第11天的收盘价,则是上涨;若第12天的收盘价低于第11天的收盘价,则是下跌;若2天价格相同,则是不涨不跌。其他依此类推。\n\n ❸ 运用12天内的上涨天数÷12×100%的公式,即可算出每一天的心理点。在公式中「12天内的上涨天数」可能从0到12,因此其心理点依序为:0%、8.3%、16.7%,25%、33.3%、41.7%、50%、58.3%、66.7%、75%、83.3%、91.7%、100%。\n\n ❹ 把每个心理点连接起来就成为心理线。\n\n心理线的应用原则\n\n➊ 短线进出者,应参考心理线。\n\n❷ 25%至75%是常态分布区。\n\n ❸ 低于25%是超卖区,股价反弹机率增加。\n\n ❹ 高于75%是超买区,股价回档机率增加。\n\n❺ 把心理线与5日RSI线或10日RSI线相互比对观察的话,更能看出股价超买或超卖的情况。\n\n❻ 当一段下跌行情开展之前,超买的最高心理点通常会出现2次,第2次就是明显的卖出讯号。\n\n ❼ 当一段上升行情开展之前,超卖的最低心理点通常会出现2次,第2次就是明显的买进讯号。\n\n知名分析师秦筱芳最常用心理线来解盘,投资人可以多加留意。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtNi54aHRtbA=="},{"no":38,"title":"第 38 招反群众心理操作法","short":"反群众心理操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 38 招\n反群众心理操作法\n\n▶ 大师心法 ◀\n\n反群众心理操作法的精髓是:人弃我取,人取我与。\n\n 所谓反群众心理操作法,就是采取跟群众完全相反的操作策略,当股市热闹滚滚,欢声雷动,群众乐观到极点时,要提高警觉,舍得卖出;当股市一片凄惨,哀鸿遍野,群众悲观到极点时,要沉稳镇定,大胆买进。\n\n为什么要采取反群众心理的操作方法呢?因为根据股市的群众理论(见拙作《逮到底部 大胆进场》第8章),投资人在股市中很容易被群众情绪所左右,做出违背常理,既盲目又冲动的买卖行为,最典型的动作就是「追涨杀跌」。当股价越涨越高,风险越来越大时,群众却毫不畏惧,勇于去追高;当股价越跌越低,风险越来越小时,群众仍旧十分担心,怯于去承接。\n\n总之,群众心理倾向于乐观时更乐观,认为上涨的股票就会继续涨上去;悲观时更悲观,认为下跌的股票就会继续跌下去。采取反群众心理操作法,当股价处在头部的高档,群众继续疯狂追高时,我们舍得卖出;当股价处在底部的低档,群众仍然害怕不敢进场时,我们勇敢地分批买进,这样才能获利。\n\n然而,要如何准确地掌握到群众的乐观点与悲观点呢?如果不能拿捏得恰到好处,若太早卖出,股价在卖出后仍继续上涨,那就少赚了一段;若太早买进,股价在买进之后仍继续下跌,那就多赔了一段。下面4项指标可供参考:\n\n指标1|号子里面的人气\n\n当号子里人山人海,热闹非凡,营业员日进斗金,甚至开香槟、放鞭炮庆祝行情(几次大盘攻过万点,均有此情形),这是乐观至极;反之,号子里稀稀疏疏,小猫2、3只,看盘的人唉声叹气,营业员无精打彩,这是悲观至极。\n\n指标2|融资余额的多寡\n\n当融资余额大增,达到前所未有的新高时,这是乐观至极;反之,当融资余额骤减,达到前所未有的新低时,这是悲观至极。\n\n以台股第3循环为例,第5波的最高点2007年10月30日的9,859点,与融资余额最高之日2007年10月31日的4,144亿元仅差1天,这是乐观至极的情况;第8波的最低点2008年11月21日的3,955点,与融资余额最低之日2008年11月24日的1,159亿仅差一个营业日,这是悲观至极的情况。\n\n指标3|日成交量大幅增减\n\n成交量乃是人气的指标。台股在每一次的循环中,从月成交量的大增或大减,均能看出群众的乐观至极与悲观至极的心理表现。\n\n台股第1次循环,从1987年1月的1,039点起涨,多头行情的5波走到1990年2月的12,682点。月成交量也从1987年1月的727亿元大增至1990年2月的35,245亿元,增加48倍,前者是悲观至极之时,后者则是乐观至极之时了。\n\n接下来第1次循环空头行情的3波,从1990年2月的12,682点跌到1990年10月的2,485点。月成交量也从1990年2月的35,245亿元大减到1990年9月的4,557亿,仅达原来的12.9%,前者是乐观至极之时,后者则是悲观至极之时。\n\n台股第2次与第3次循环于高低点时,月成交量均有类似大幅增减的情况(见第46和第47招),此处不再赘述。\n\n指标4|大众传播媒体的反应\n\n电视、报纸、杂志、网路等传播媒体可说是大众的喉舌,会设法充分反应股民的心声。当这些大众传播媒体一致看好时,股市消息十分热门,通常也是群众乐观至极之时;而这些媒体一致看坏时,股市消息无人闻问,通常也是群众悲观至极之时。\n\n我每次看到大家疯狂买进时,我就替大家担心;但看到崩盘时,其实心中暗自窃喜,开始注意买进的讯号。一旦讯号出现,我就买进。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtNy54aHRtbA=="},{"no":39,"title":"第 39 招宝塔线操作法","short":"宝塔线操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 39 招\n宝塔线操作法\n\n▶ 大师心法 ◀\n\n宝塔线操作法比较适合用在短线的进出。\n\n 宝塔线是由英文Tower Line直接翻译过来,因其操作方法简单明了,宝塔线翻红就买进,翻黑就卖出,能够赚到波段的利润,不但深受投资人的喜爱,而且也是欧美股市常用的技术分析工具之一。\n\n宝塔线完全不考虑成交量,只关心股价的变化,用红黑体线画出每天股价涨跌,并从中研判出未来股价涨跌的趋势,由于其画出涨涨跌跌的图形,看起来很像一座宝塔,因此而得名。\n\n宝塔线的画法\n\n➊ 类似K线的画法,不过K线是根据开盘价、收盘价、最高价、最低价等4种价格画成的,而宝塔线仅根据开盘价与收盘价等2种价格画成的。\n\n❷ 拿每天的收盘价跟前一天的收盘价相比,若上涨就画出红体线,若下跌就画出黑体线。\n\n ❸ 假设当天的收盘价是上涨,而第2天的收盘价又上涨,那么只要在原先的红体线向上延伸即可。如图4-6,1日开盘价30元、收盘价30.4元;2日开盘价30.4元、收盘价30.8元;3日开盘价30.8元、收盘价31.3元;4日开盘价31.3元、收盘价31.9元。在这4天里,每天的收盘价跟前一天的收盘价相比都是上涨的,因此就在原先的红体线向上延伸,连续画出红体线。\n\n ❹ 5日的开盘价31.4元,收盘价31.9元,跟4日的收盘价相同,所以仍画红体线。\n\n❺ 8日的开盘价31.9元,收盘价31元,跟5日的收盘价相比,明显下跌了。因此,8日的这一条线的一部分画红体(未低于5日低点部分),另一部分则画黑体(低于5日低点部分)。\n\n❻ 假设当天的收盘价是下跌,而第2天的收盘价又下跌,那么只要在原先的黑体线向下延伸即可(见图4-6的9日、10日的股价)。9日开盘31元,收盘价30.5元;10日开盘价30.5元,收盘价30.1元。在这2天里,每天的收盘价跟前一天的收盘价相比都是下跌的,因此就在原先的黑体线向下延伸,接连画出黑体线。\n\n ❼ 11日的收盘价30.1元,跟10日相同,所以仍然画出黑体线。\n\n ❽ 12日的开盘价30.2元,收盘价 30.8元,跟11日的收盘价相比,明显上涨了。因此,12日的这一条线,部分画黑体(未高于11日高点部分)、部分画红体(高于11日高点部分)。\n\n ❾ 15日的开盘价30.8元,收盘价31.4元,跟12日的收盘价相比,明显上涨了。因此,15日就画出一条红体线。\n\n宝塔线的应用原则\n\n➊ 宝塔线是一种简便可行的操作工具,翻红就买进,翻黑就卖出。虽然买不到最低点,卖不到最高点,却能稳当地掌握到波段的涨幅,赚到可观的利润。\n\n❷ 若出现1阳包3阴的日K线(俗称3线反红)形态时,乃明显的宝塔线翻红,应立刻买进;若出现1阴包3阳的日K线(俗称3线反黑)形态时,乃明显的宝塔线翻黑,应立刻卖出。\n\n ❸ 盘局是日宝塔线的盲点,并不适用。处于盘局时,日宝塔线会在红黑之间翻来覆去。这时,若日宝塔线翻红就买进,翻黑就卖出,常会买到最高点,卖到最低点,两边挨耳光。\n\n ❹ 盘局时建议用周宝塔线,因其涵盖的期间较长,较能准确地掌握未来股价的趋势。\n\n❺ 宝塔线只考虑到股价的变化,忽略了成交量的增减是其缺点。在实际运用时,若能一并留意量价的变化,或与OBV(见第49招)与TAPI(见第50招)等技术分析一并使用,准确性将更高。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtOC54aHRtbA=="},{"no":40,"title":"第 40 招ADL操作法","short":"ADL操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 40 招\nADL操作法\n\n▶ 大师心法 ◀\n\nADL常用来预测未来大盘的短期走势。\n\n 技术分析中的ADL是英文Advance Decline Line的缩写,若直译应该翻成「领先倾斜线」,然而不知何故,一般均称之为「腾落指数」或「腾落指标」,它是累计上市公司涨跌家数,来预测未来大盘短期走势的技术分析工具。\n\nADL的理论基础认为,在正常的情况下,累计上市公司涨跌家数跟大盘的加权股价指数应该如影随形,亦步亦趋;换言之,上涨时,两者皆应涨,下跌时,两者皆应跌。ADL操作法即运用两者之间的同步、背离以及领先等现象来研判买卖股票的时机。\n\nADL的计算方法\n\n➊ 先选定一个基准日,把当天股价上涨的公司家数减去当天股价下跌的公司家数。假设当天上涨500家,下跌450家,500减去450得正50,这就是第一天的ADL。\n\n❷ 第2天的ADL就是,当天上涨家数减去当天下跌家数再加上第1天的ADL。假设第2天上涨600家,下跌300家,那么第2天的ADL就等于,600减去300加上正50,得出结果为正350。\n\n ❸ 1、2天的ADL没什么作用,必须累计10天以上才能显示其意义,一般均以14天为基期。累计的正值越大,显示处于上升行情;累计的负值越大,显示处于下跌行情。\n\nADL的运用原则\n\n使用ADL操作法,必须拿ADL跟大盘指数相互比对,找出其中的意义,原则如下:\n\n➊ 当ADL出现新高值,而大盘指数也上涨时,表示短期后市仍看好,持股应抱牢。\n\n❷ 当ADL出现新低值,而大盘指数也下跌时,表示短期后市仍看坏,应继续空手。\n\n ❸ 当大盘指数仍在前次高点之下,而ADL却率先创新高时,暗示大盘指数有可能跟著创新高,这时持股应抱牢。\n\n ❹ 当大盘指数在前次底部之上,而ADL却率先破底之时,暗示大盘指数有可能跟著破底,这时应继续空手。\n\n❺ 当股价处于高档时,大盘的指数持续上涨或创新高,但ADL却踌躇不前(按理ADL总会领先大盘创高或同步),此一背离现象暗示大盘即将反转下跌,这时应卖出股票。\n\n❻ 当股价处于低档时,大盘的指数继续下跌或破底,但ADL却止跌回稳(按理ADL在此处总会领先大盘破底或同步),此一背离现象暗示大盘已经接近底部区,即将反转上涨,这时应分批买进。\n\n❼ ADL只能研判大盘股价的走势,不适用于个股。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtOS54aHRtbA=="},{"no":41,"title":"第 41 招ADR操作法","short":"ADR操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 41 招\nADR操作法\n\n▶ 大师心法 ◀\n\nADR常用来预测未来大盘的短期走势。\n\n 技术分析中的ADR是英文Advance Decline Ration的缩写,若直译应该翻成「领先倾斜比率」,然而一般称之为「涨跌比率」、「回归腾落指数」或「回归腾落指标」。它跟ADL一样,也是累计上市公司涨跌家数来预测未来大盘短期走势的一种技术分析工具。\n\n然而,ADL与ADR的算法完全不同,前者是拿上涨的公司家数减去下跌的公司家数,而后者则是拿累计上涨的公司家数除以累计下跌的公司家数。因为一般计算ADR均取10天为基期,故其计算公式为:\n\n10日ADR=累计10日上涨的公司家数÷累计10日下跌的公司家数\n\nADR的应用原则\n\n➊ 一般ADR的数值都在0.5至1.5之间游走,这是常态分配情况,小涨小跌的行情,不宜进出,观望即可。\n\n❷ 当ADR的数值低于0.5 时,表示超卖,可考虑买进股票。\n\n ❸ 当ADR的数值高于1.5时,表示超买,可考虑卖出股票。\n\n ❹ 当ADR与大盘指数都上涨时,表示后市行情仍看好,不宜做空。\n\n ❺ 当ADR与大盘指数都下跌时,表示后市行情仍看坏,不宜做多。\n\n ❻ 大盘指数上涨,ADR数值却减少,这表示大盘股价可能会反转下跌,这时应考虑卖出。\n\n ❼ 大盘指数下跌,ADR数值却增加,这表示大盘股价可能反转上涨,这时应考虑买进。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtMTAueGh0bWw="},{"no":42,"title":"第 42 招OBOS操作法","short":"OBOS操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 42 招\nOBOS操作法\n\n▶ 大师心法 ◀\n\nOBOS是用来预测未来大盘的短期走势。\n\n技术分析中的OBOS是英文Overbought Oversold的缩写,翻译成中文称之为「超买超卖指标」,它根据上市公司涨跌家数的多寡,研判出短期大盘行情的多空,供短线进出者寻找买卖机会。\n\nOBOS的计算方法非常简单,只要把当天股价上涨的公司家数,减去当天股价下跌的公司家数即可,计算公式是:\n\nOBOS=当天股价上涨的公司家数-当天股价下跌的公司家数\n\n得出的结果如果是正数,代表大盘处于上涨行情;如果是负数,代表处于下跌行情。举例来说,某一天的上涨公司有600家,下跌公司有400家,结果得正200家,是上涨行情。另外一天的上涨公司有380家,下跌公司有620家,结果得负240家,是下跌行情。\n\nOBOS与ADL十分相似,前者根据上市公司涨跌家数的多寡研判出短期行情的多空,后者累计上市公司涨跌家数来预测未来大盘短期的走势。两者的差别只在于:前者无累计,后者有累计而已。只要比较两者的计算公式,即可了解。\n\nADL=当天股价上涨的公司家数-当天股价下跌的公司家数+前一天的ADL\n\nOBOS的应用原则\n\nOBOS一般都以10天为基期,应用原则如下:\n\n➊ 当大盘的行情多空混沌不明,投资人不知何去何从时,OBOS正负值多寡的变化,可看出端倪,发挥指点迷津的效果。\n\n❷ OBOS具备领先指标的功能。当大盘指数续创新高,而OBOS值已经减少时,这表示行情可能反转下跌;反之,当大盘指数持续下跌,而OBOS值已经增加时,这表示行情可能反转上涨。\n\n❸ OBOS有其盲点。因为台股经常发生「赚了指数,赔了股价」的情况,意思是说,投资人选错了类股,大盘指数虽然上涨,但你买的类股却原地踏步,这时OBOS就失效了。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtMTEueGh0bWw="},{"no":43,"title":"第 43 招买空卖空操作法","short":"买空卖空操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 43 招\n买空卖空操作法\n\n▶ 大师心法 ◀\n\n买空卖空操作法是帽客与短线客的专利,一般人少碰为妙。\n\n买空卖空操作法又称为「当日冲销操作法」,或称「抢帽子操作法」,指投资人在同一个营业日之内,针对相同数量的同一支股票,当天买、当天卖、或是当天卖、当天买(俗话叫做当轧),然后在次日交割时,这两笔买卖互相冲销轧平,不需任何成本买空卖空,从中赚取价差的一种操作方法。\n\n举例来说,假设某支股票在同一个交易日中,先是以跌停板开出,盘中从跌停拉到涨停,最后以平盘收盘。投资人若能在一天之中,针对该支股票,在开出跌停板时买进,并在盘中涨停板时卖出。这么一来,不需任何成本就可赚到2个停板20%的巨额价差,1家绩优公司1年的获利率也不过这么多。\n\n相反的情况,假设某支股票在同一个交易日中,先是以涨停板开出,盘中从涨停被打到跌停,最后以平盘收盘。投资人若能在一天之中,针对该支股票,在开出涨停时先行放空卖出,在盘中跌停板时补回。这么一来,也是不需任何成本就可赚到2个停板20%的巨额价差。\n\n证管会(目前的金管会)在1994年1月5日正式实施当日冲销的制度,凡是开立融资融券信用交易帐户的投资人,都可利用买空卖空操作法赚取价差。\n\n然而,投资人在操作此法时必须留意下列4点:\n\n➊ 买空卖空法固然利润丰厚,却是高难度的操作技巧,乃是股市极少数顶尖高手的专利,一般人不要轻易去尝试,因为稍微操作不当,就会两边挨耳光。\n\n❷ 必须以交易热络的热门股为标的。此类股票每天的交易量较大,买进与卖出都很容易,有利于当日冲销,也比较不会在放空时被轧空。\n\n❸ 投资人必须体认高利润必有高风险,一定要未雨绸缪。情况之一,万一当天买、当天卖,可是买进之后股价不涨反而跌停锁死,这时投资人必须有买下该股票的本钱。情况之二,万一当天卖(放空)、当天买(回补),可是放空之后股价不跌涨停锁死,惨遭轧空,这时必须有花高价回补的心理准备。\n\n❹ 当日冲销成本昂贵。其成本包括0.285%的券商手续费(一进一出或一出一进,一次是0.1425%,两次则是0.285%)、0.3%的证券交易税,以及0.08%的融券手续费,加起来总共的费用达0.665%。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtMTIueGh0bWw="},{"no":44,"title":"第 44 招进三退一操作法","short":"进三退一操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 44 招\n进三退一操作法\n\n▶ 大师心法 ◀\n\n进三退一,就新手而言不失为简易可行的好方法。\n\n股价的变化扑朔迷离,投资人在买进股票之后,不论涨跌都很难去掌握卖点,于是有人想出进三退一的操作方法,股价上涨3成就卖出,股价下跌1成也卖出,简明易懂,一学就会。\n\n进三退一的方法源自见好就收法,该法乃是精于技术分析的股市老手常用的操作方法。他们在买进股票之后,都会根据技术指标订出停利点与停损点,当股价达到停利点或停损点时,立刻卖出。\n\n所谓停利点,乃是股市老手根据技术分析上的压力带所找出的卖出定点。从股票的线形去观察,股价上涨至压力带时,会遭遇庞大的卖压。若能突破压力带,将有另一段上涨行情,应抱牢持股;若无法突破压力带而遭打回时,即应在此点卖出,获利了结。\n\n所谓停损点,乃是股市老手根据技术分析的支撑带所找出的卖出停止损失点,从股票的线形去观察,股价大跌至支撑带时,会吸引著若干承接的买盘。若股价能止跌回稳,则持股可抱牢;若股价跌破支撑带,定会有另一段跌幅,为了减少损失,应卖出持股,认赔了事。\n\n对股市老手而言,从压力带找出停利点,或从支撑带找出停损点乃是轻而易举之事。然而对一些新手而言,根本没能力从压力带去获利了结或从支撑带去认赔了事,因此从见好就收法延伸出简易可行的进三退一法。\n\n采用进三退一的操作方法,人人都会,当买进股票后,股价上涨3成就卖出,获利了结,空手等待下次进场机会;买进股票后,股价下跌1成也卖出,认赔了事,伺机而动,不致伤到元气。\n\n有人批评此法仅赚3成就卖出,没赚到整个上涨波段的行情,未免太可惜了。此批评有其道理,但对不谙技术分析的新手而言,3成已是非常丰厚的利润,而且不需费什么唇舌,一教就会。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtMTMueGh0bWw="},{"no":45,"title":"第 45 招退出观望操作法","short":"退出观望操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 45 招\n退出观望操作法\n\n▶ 大师心法 ◀\n\n股价走多时,做多;走空时,放空;盘整时,退出观望。\n\n投资股票,除了买进与卖出之外,有时必须退出观望,休息一阵子,既不买也不卖,这就叫做「退出观望操作法」。\n\n为什么必须退出观望呢?因为股价的走势,除了上涨与下跌之外,还有盘整期。根据长期统计资料,台股盘整所占的时间长达50%左右,其余才是上涨与下跌。多头行情时应该买进,空头市场时应该放空,盘整行情时就应退出观望,伺机而动。\n\n股价盘整的原因\n\n❶ 多头行情中的回档整理\n\n 确定走入多头行情之后,股价不断向上攀升,上涨到某个程度,遭遇获利回吐的技术性反压,形成回档整理。以艾略特波浪理论来说,多头行情5个波段中的第2波段与第4波段,就是标准的回档整理(见第25招的图3-2)。\n\n❷ 空头行情中的反弹整理\n\n 股价确定走入空头行情之后,股价不断地向下跌落,下跌到某一个程度,价稳量缩,必然会产生跌深之后的反扑,此种反扑就是反弹整理。以艾略特波浪理论来说,空头行情3个波段之中的第7波段就是标准的反弹整理(见图3-2)。\n\n面对盘整的2种状况\n\n不论是多头行情中的回档整理,还是空头行情的反弹整理,投资人可能会发生下列2种状况:\n\n❶ 看不懂行情\n\n 有时股价处在盘整的第2波段、第4波段、第7波段等,上下波动的幅度有限,多方与空方形成拉锯战,投资人若是在此时看不懂股价未来的走向,分不出行情走多或走空时,干脆退出观望一阵子。\n\n❷ 看错行情\n\n 股价处于盘整的位置,除了会看不清行情之外,常常也会看错行情,譬如说:把多头行情中的回档整理,看成反转下跌(这在第4波段最常发生);或是把空头行情的反弹整理,看成多头的延伸波。此时若因看错行情,动辄得咎,买了就跌,卖了就涨的话,不妨退出观望一下。\n\n休息是为了走更远的路。当回档整理结束,确定继续走多头行情时;或是反弹整理结束,确定继续走空头行情时,才再度投入买进或卖出。\n\n还有一种情况,假如投资人如同第9招的股市高手,只做多不做空,而且仅赚到波浪理论8波段中的第3个波段的话,其退出观望等待下一循环底部出现的时间势必要拉长。这就属于更高层次的退出观望操作法了。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTQtMTQueGh0bWw="},{"no":46,"title":"第 46 招量价变化1 股价走到底部","short":"量价变化1 股价走到底部","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 46 招\n量价变化1 股价走到底部\n\n▶ 大师心法 ◀\n\n月成交量明显萎缩,乃是股价在探底过程中的最大特征。\n\n 股价在空头行情的探底过程中,加权股价指数呈现出来的最大特征之一就是,月成交量明显萎缩。\n\n举一个实例来说明,台股第2次循环的大空头,是从2000年2月的10,393点下跌到2001年9月的3,411点;再比较这段期间月成交量的变化,是从2000年1月的45,816亿元萎缩到2001年9月的6,572亿元,缩幅高达86%(见图5-1)。\n\n再举一个实例来说明,台股第3次循环的大空头,是从2007年10月的9,859 点下跌到2008年11月的3,955点;再比较这段期间月成交量的变化,是从2007年7月的50,316亿元萎缩到2009年1月的8,630亿元,缩幅高达83%(见图5-2)。\n\n成交量的明显萎缩有两种意义,一是表示持股者不愿再卖出,卖压减轻;二是表示买盘力道太小,推升无力。\n\n股价在空头行情的探底过程充,除了月成交量明显地萎缩之外,会明显地出现股价横向盘整不再破底的现象。\n\n就举台股第4个循环为例,2008年11月21日杀到最低3,955点,而后不论盘势怎么整理,也不管发生多大的利空,那一个低点就是没再被跌破(见图5-3)。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTUtMS54aHRtbA=="},{"no":47,"title":"第 47 招量价变化2 股价走到头部","short":"量价变化2 股价走到头部","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 47 招\n量价变化2 股价走到头部\n\n▶ 大师心法 ◀\n\n月成交量明显地暴增与量价背离,乃是股价在做头过程中的2个最大特征。\n\n 股价在多头行情的做头过程中,加权股价指数呈现出来的最大特征就是,月成交量明显地暴增。\n\n举一个实例来说明,台股第2次循环的大多头,是从1990年10月的2,485点起涨,多头行情的5波走到1997年2月的10,256点结束;再比较这段期间月成交量的变化,是从1990年9月的4,557.8亿元暴增至1997年7月的51,972亿元,大涨了11.4倍(见图5-4)。\n\n再举一个实例来说明,台股第3次循环的大多头,是从2001年9月的3,411点起涨,多头行情的5波走到2007年10月的9,859点结束;再比较这段期间月成交量的变化,是从2001年9月的6,572亿元暴涨至2007年7月的50,316亿元,大涨了7.66倍(见图5-5)。\n\n台股第1次循环的做头过程,也有成交量暴增现象,请见第38招,此处不再重复。\n\n股价在多头行情的做头过程中,大盘呈现的特征之二就是,月成交量明显量价背离。此处所指的量价背离不外下列2种现象:\n\n❶ 股价不断地创新高,但成交量反而随著减少。\n\n❷ 成交量遽增,但股价不动,甚至下跌。\n\n举一个实例来说明。台股第1次循环的多头行情,从1987年1月的1,039点走5波到1990年2月的最高12,682点。可是,1990年1月收盘12,054点,成交量 23,439亿元;而1990年2月收盘11,661点,成交量35,245亿元,明显地成交量遽增,但股价下跌,为量价背离。\n\n再举一个实例来说明。台股第2次循环的多头行情,从1990年10月的2,485点走5波到1997年8月的最高10,256点。可是,1997年7月最高10,113点,成交量51,972亿元,而1997年8月最高10,256点,成交量38,926亿元,明显地股价创新高,但成交量反而减少,为量价背离(见图5-6)。\n\n又举一个实例来说明。台股第3次循环的多头行情,从2001年9月的3,411点走5波到2007年10月的最高9,859点。可是,2007年7月最高9,807点,成交量50,316亿元,而2007年10月最高9,859点,成交量35,491亿元,明显地股价创新高,但成交量反而减少,为量价背离(见图5-7)。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTUtMi54aHRtbA=="},{"no":48,"title":"第 48 招从成交量研判 股价即将突破盘局","short":"从成交量研判 股价即将突破盘局","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 48 招\n从成交量研判 股价即将突破盘局\n\n▶ 大师心法 ◀\n\n只要用心计算成交量的变化,即可看出股价即将突破盘局。\n\n 根据长期统计资料显示,股价大约有一半的时间处在上涨与下跌,而另一半的时间则在盘整。在震荡整理的盘局中,投资人最关心的是,股价何时才能突破盘局呢?其实只要计算成交量的变化即可瞧出蛛丝马迹。\n\n假设某支股票上涨一段之后,反转下跌,而后进入盘局。理论上,必须先清浮额,也就是让一些意志不坚或认亏杀出的投资人卖出持股,上档无压之后,才会出现另一段上涨行情。一般说来,盘整时间越久,筹码洗得越干净,将来上涨幅度更大。\n\n那么,要如何从成交量看出已经洗清浮额,股价即将突破盘局了呢?根据我多年的实战经验,这可以从周成交量瞧出端倪。\n\n不论是大盘或个股,从周K线去研判,每次经过一波狠狠下杀之后,股价就会进入横向盘整。上述狠狠下杀那一波每周成交量的总和就是上档卖压,而打底横向盘整就是在消化上档卖压。当横向盘整的周成交量总和大于上档卖压的总和时,即表示上档浮额已经被洗清,股价即将反空为多,走出另一段上涨行情。\n\n我们就举2011年8、9月间下杀1,700多点这一波为例来说明(见图5-8)。\n\n❶ 大盘从2011年8月1日那一周开始,连续下杀8周到2011年9月19日那1周为止,加权指数从8,707点下跌到6,997点,大跌了1,710点,其间累积的上档卖压总金额计算如下:\n\n7,147.69亿元+8,454.06亿元+5,567.86亿元+6,018.18亿元+5,238.29亿元+4,808.21亿元+4,468.58亿元+5,338.48亿元=47,041.35亿元\n\n❷ 大盘从2011年9月26日那一周开始横向盘整,一直到2011年12月5日那一周,连续整理了11周,其横向整理周成交金额48,706.43亿元,已经大于上档卖压的总金额47,041.35亿元,其计算方式如下:\n\n5,102.42亿元+4,428.22亿元+4,034.42亿元+3,837.76亿元+5,461.90亿元+5,044.14亿元+4,400.32亿元+3,989.84亿元+4,602.17亿元+4,324.33亿元+3,480.91亿元=48,706.43亿元\n\n❸ 从大盘的周成交量即可看出,在2011年12月5日那一周,上档的筹码已被清洗干净,故股价就在2011年12月19日那一周就反空为多,反转上涨(12月19日与12月5日虽隔了2周,但时间越长,浮额反而洗得越干净)。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTUtMy54aHRtbA=="},{"no":49,"title":"第 49 招OBV操作法","short":"OBV操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 49 招\nOBV操作法\n\n▶ 大师心法 ◀\n\nOBV是从买气的强弱,来决定短线的买进或卖出。\n\n 量价关系中的OBV是英文On Balance Volume的缩写,直译成中文是「均衡量」的意思,但一般称之为「能量潮」。它把成交量与股价之间的变化数据化,之后再画成线,从中研判出买气的强弱,并决定买进或卖出。\n\nOBV线是美国投资专家葛兰碧(Joseph Granville)继移动平均线(Moving Average)理论之外的另一大贡献。他主张,股价只是成交量的表征,成交量才是股市的元气,股价涨跌是果,成交量多寡是因,所以成交量一定走在股价的前面,换言之,量是价的先行指标。\n\n根据葛兰碧的研究,股价的涨跌与成交量的增减有密切的关系。当股价上升时,人气凝聚,一波比一波增加的成交量把股价不断向上推升;当股价下跌时,人气消散,成交量逐渐萎缩,把股价往下打。因此,成交量乃成为人气指标。\n\n大盘OBV线的画法\n\n❶ 先计算每天大盘的OBV值。先选定一个基准日,把当天加权股价指数与前一天的加权股价指数相加,若上涨,就把2个成交值(即成交总金额)相加;若下跌,则用累计成交值减去当天成交值;若不涨不跌,则以前一天的OBV 值计算。\n\n❷ 把每天累计的OBV值当成点,连接起来之后就成为一条OBV线。\n\n❸ 将大盘的股价走势跟OBV线做个比对,即可研判出恰当的买点与卖点。\n\n以上是大盘OBV线的画法。至于个股OBV线的画法,只要把上述各步骤中的成交值换为成交量(即个股成交张数),加权股价指数换为收盘价即可。\n\nOBV线的应用原则\n\n❶ OBV仅适合研判短期走势,不适合研判中长期走势。\n\n❷ 当OBV线上升,而股价还在原地踏步或下跌时,表示股票在低档接手强劲,为短线买进讯号。此情况经常出现在横向整理即将结束时,可特别留意。从图5-9中可明显看出,大盘股价还在3,955点至4,800点之间徘徊,但OBV 线早就上升一大截。\n\n❸ 当OBV线下降,而股价还在原地踏步或上涨时,表示在高档买盘无力,为短线卖出讯号。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTUtNC54aHRtbA=="},{"no":50,"title":"第 50 招TAPI线操作法","short":"TAPI线操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 50 招\nTAPI线操作法\n\n▶ 大师心法 ◀\n\nTAPI也是从买气的强弱,来决定短线的买进或卖出。\n\n 量价关系中的TAPI是英文Trading Amount Per Weight Stock Price Index的缩写,直译成中文的意思为「每一加权指数的交易总数」,但一般均称之为TAPI线指标,或干脆简称为TAPI线。它跟OBV能量潮一样,是基于「成交量是股价的先行指标」的理论,观察成交量与股价之间的变化,从中研判出未来股价的走势。\n\n要画出TAPI线,必须先求出每天的TAPI值。对大盘与个股而言,求出TAPI 值的算法稍有不同,其公式如下:\n\n 大盘TAPI值=当日成交值÷当天加权股价指数 \n\n 注:成交值指的是大盘当天成交的总金额\n\n 个股TAPI值=当日成交量÷当天收盘价 \n\n 注:成交量指的是个股当天成交张数\n\n从上述的公式可知,大盘用的是成交值,个股用的是成交量。不论是用成交值或成交量,均能代表成交总数,亦即其在股市中的动能。\n\n接下来,把每天求出的TAPI值当成点连接起来,就成为TAPI线。\n\nTAPI线的应用原则\n\n❶ 跟OBV线一样,TAPI线仅适合研判短期走势,不适合研判中长期走势。\n\n❷ 量是价的先行指标,当TAPI走在股价之前,领先上升时,后市看多,宜买进;当TAPI走在股价之前,领先下降时,后市看空,宜卖出。\n\n❸ 股价在一路上涨之中,TAPI的高点却一波比一波低,这表示股价与TAPI 背离,显示动能不足,股价有可能下跌。\n\n❹ 股价在下跌一段期间后,TAPI突然上升,这表示有买盘介入,股价有可能上涨。\n\n❺ 股价涨幅已高之后,发现股价有反转下跌迹象,若TAPI线也呈现陡峭下跌走势时,应迅速卖出。\n\n❻ 股价跌幅已深之后,发现股价有反转向上迹象,若TAPI也呈现陡峭上升走势时,短线应立刻买进。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTUtNS54aHRtbA=="},{"no":51,"title":"第 51 招量价变化操作法","short":"量价变化操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 51 招\n量价变化操作法\n\n▶ 大师心法 ◀\n\n新手看价不看量,老手看量不看价,高手只看量与势。\n\n 量价变化操作法,顾名思义就是观察成交量与股价之间的变化(指个股而言,若是大盘,则观察成交值与加权股价指数之间的变化),以决定买进或卖出的方法。\n\n股市里的老手都知道,多头行情必定是由人气堆积起来的,人气的兴旺与衰退最足以显示股市的荣枯。而成交量的扩增与萎缩,正表示了人气的兴旺与衰败,因此成交量就变成股市的人气指标,甚至成为多空的温度计。\n\n股市的新手看价不看量,老手看量不看价,高手只看量与势。成交量为何受老手与高手的重视呢?因为它是唯一能代表股市荣枯的真实指标。股市高手在做行情的技术分析时,不论是KD线、移动平均线、乖离率、MACD、RSI,还是心理线、宝塔线、ADL、ADR、OBOS,都必须参考成交量的变化,才能大幅提高其准确度。\n\n投资人运用量价变化操作法,可参考下列9个法则。这些都是我根据长期股市的量价变化所累积下来的宝贵经验。\n\n❶ 量是因,价为果;量是实,价为虚。量是价的先行指标。股价落底,成交量会明显地萎缩;股价到头,成交量会明显地暴增;股价有行情,成交量会缓步增加。\n\n❷ 股价在上涨时,成交量跟著放大,这表示换手积极,往上推升力道充足,后市看好;而股价在下跌时,成交量跟著缩小,这表示持股者不愿杀低,待打底成功,股价即止跌回涨。这两种情形都是价量同步的情况,应买进。\n\n❸ 股价上涨时,成交量反而缩小,表示换手缩手,往上推升力道不足,后市看坏;股价下跌时,成交量反而扩大,表示持股人信心不足,纷纷杀出持股,一段期间内股价将持续下跌。这两种情形都是价量背离的情况,应卖出。\n\n❹ 在多头行情的末升段(第5波),股价不断创新高,但成交量不增或反而减少;或是股价原地踏步或下跌,而成交量却暴增。这两种情形都是价量背离的现象,应卖出(见图5-6)。\n\n❺ 在多头行情的末升段(第5波),当投资人一致对行情看好时,会形成总买进的疯狂现象,股价全面暴涨,成交量会接近或突破以往的记录,这时应出脱持股。\n\n❻ 在空头行情的打底阶段,整个局势混沌不明,多空均小心翼翼,不敢越雷池一步,这时成交量会出现极度萎缩的现象,这是买进的大好时机。台股2,485点、3,411 点、3,955点等3次的底部区,都曾出现成交量极度萎缩的现象(见图5-1、5-2)。\n\n❼ 股价在走多头行情时,在第1波、第3波与第5波的走势中,为了要冲破空方的坚固堡垒,通常冲第3次关才会成功,而且第3次冲关的成交量还必须放大至前2次冲关平均成交量的1.2倍。\n\n❽ 当股价突破颈线、下降趋势线或移动平均线时,必须同时出现大成交量,上涨走势才告确立。从图5-10可以很明显看出,颈线就在2009年1月7日那根日K线的高点4,817附近,而2009年3月13日那根大涨142点的长红K线收4,897点,不但有效突破颈线,而且出现1,254亿元大量(从2008年8月11日成交1,365亿元以来最大量),上涨走势确立。\n\n❾ 当股价跌破颈线、上升趋势线或移动平均线时,必须同时出现大成交量,下跌走势才告确立。从图5-11可以很明显看出,颈线位在2011年3月15日的低点8,070,上升趋势线位在2010年8月31日的7,577点连接2011年3月15日的8,070 上来的8,413点之处,而移动平均线2011年8月3日的年线位在8,580点。结果股价在2011年8月3日以8,456点掼破年线8,580,股价在2011年8月4日以8,317点掼破上升趋势线8,413点,股价在2011年8月5日以 7,853点掼破颈线8,070点;同时,8月5日、8、9日分别出现1,626亿元、1,683 亿元、2,027亿元的大成交量,至此下跌行情宣告确立。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTUtNi54aHRtbA=="},{"no":52,"title":"第 52 招抓准股价涨跌循环 赚价差","short":"抓准股价涨跌循环 赚价差","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 52 招\n抓准股价涨跌循环 赚价差\n\n▶ 大师心法 ◀\n\n根据科斯托兰尼股价涨跌循环图来低买高卖。\n\n 「低买高卖」是操作股票赚钱的通则,说得更清楚些,就是低价时买进,高价时卖出,然后从中赚到价差。这个简单的道理妇孺皆知,难就难在何者为低价?何者又为高价呢?你今天认定的低价,可能是1个月后的高价;而你今天认定的高价,也可能是1个月后的低价。\n\n为了寻找正确的低价与高价,就得细心去观察股价的循环。有经验的股市老手都知道,股价的起落有循环的现象。此种循环现象请参阅欧洲投机大师安德烈.科斯托兰尼(André Kostolany,1906~1999)的股价涨跌循环图。\n\n这张图清楚地显示,股价大致可区分为低买的低潮期、观望的盘整期、高卖的高潮期,周而复始,循环不已。根据我自己30多年的实战经验,台股的低潮期在加权指数4,000点以下、盘整期在加权指数4,000点至8,000点间、高潮期则是在加权指数8,000点以上。\n\n低潮期是低价买进股票的好时机,它包括了下跌过热(意思是跌很深)与上涨修正阶段(意思是刚起涨)。盘整期是不买不卖纯粹观望的时期,它包括了上涨调整阶段(俗称的回档整理)与下跌调整阶段(俗称的反弹整理)。高潮期是高价卖出股票的好时机,它包括了上涨过热阶段(意思是涨太多)与下跌修正阶段(意思是刚起跌)。\n\n总而言之,台股加权指数来到4,000点的低潮期宜大胆买进;指数在4,000点至8,000点上涨盘整期时,要不买也不卖,抱牢持股;指数在8,000点以上高潮期时,则应毅然出脱持股,然后空手等待指数跌到4,000点以下时再出手买进。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTYtMS54aHRtbA=="},{"no":53,"title":"第 53 招股价暴跌之后 立刻买进","short":"股价暴跌之后 立刻买进","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 53 招\n股价暴跌之后 立刻买进\n\n▶ 大师心法 ◀\n\n股价在多头行情中,暴跌之后必定暴涨。\n\n 股票是一种相当奇特的东西,涨得凶就会跌得惨,怎么来就怎么去,涨多少就会跌多少;反之,跌得惨将来就会张得凶,跌得越深弹得越高,所谓「破底穿头」就是这个意思。\n\n为什么股票会具备此一特性呢?必须从道氏股价理论去理解。美国人查理士.道(Charles H. Dow)是《华尔街日报》的发行人,在1896年自行研发出道琼工业平均指数(Dow Jones Industrial Average)供股市投资人参考研判未来股价的走势,刊出之后大受欢迎。\n\n道氏智慧过人,借由多年在海边观察潮水的起落与波浪变化,与股市里股价涨涨跌跌的走势做比较,终于在1900年领悟出一套颠扑不破的道氏股价理论。\n\n道氏认为,股价的走势好比潮水的起落。股市在多头行情时,股价就像海水的涨潮一样一波接著一波涌过来;而且股价在涨势中的波段行情,也像波浪一样,一波比一波高,后一波的峰顶高于前一波的峰顶,后一波的峰谷也高于前一波的峰谷。\n\n相反地,股市在空头行情时,股价就像海水的退潮一样,一波接著一波消退而去;而且股价也像波浪一样,一波比一波低,后一波的峰顶低于前一波的峰顶,后一波的峰谷也低于前一波的峰谷。\n\n道氏股价理论中,最精彩的是结论。他说:「股价的涨跌好比潮水的起起落落,怎么来就怎么去,而且涨多少就会跌多少,怎么去就怎么来,而且跌多少就会涨多少。」\n\n这句话有2个重大意义:\n\n❶ 股价跟潮水一样来来去去,去去来来,循环不已。聪明的投资人就懂得在循环的高点卖出,低点时买进,如此循环操作,赚取财富。\n\n❷ 投资人若在多头行情的走势中,突逢重大利空股价因而暴跌,这时非但不应惶恐地卖出,反而该在暴跌之后的低档处大量买进,因为根据道氏股价理论,暴跌之后必定暴涨。\n\n举个实例来说明。1988年9月24日因财政部宣布开征证券交易所得税,加权股价指数无量暴跌,从8,831点连续19个跌停板,跌到5,585点,许多新手失望到极点,惶恐地杀出,老手则气定神闲在此敲进,结果指数从5,585点反弹到7,596点。这是暴跌之后暴涨的典型例子(见图6-1)。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTYtMi54aHRtbA=="},{"no":54,"title":"第 54 招4种方法解决套牢危机","short":"4种方法解决套牢危机","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 54 招\n4种方法解决套牢危机\n\n▶ 大师心法 ◀\n\n股票套牢时,依股价所处的位置,有不同的解套方法。\n\n 投资人在看好后市之后,进场买进股票,不料在买进之后,股价不涨反跌,这时投资人就遭套牢了。一旦股票被套之后,根据不同的情况,可采取下列的解套方法:\n\n方法1|持股抱牢\n\n投资人若是价值理论的信徒,并在底部区附近买进物超所值的高殖利率绩优股,其本意就是逢低买进并长期持有,以获取每年配息之后复利的惊人效益,所以根本就不用去在意短期内股价的涨跌。秉持「手中有股票,心中无股价」的信念,持股抱牢,照常上班工作,长期结算下来,获利极为可观(见第22招)。\n\n方法2|摊低成本\n\n投资人若要赚取长波段的价差,而在底部区或是次底部区买进遭短套,非但不应担忧,反而应该见猎心喜,趁股价下跌时加码买进,以摊低成本。\n\n我一向非常反对投资人在高档套牢时摊平,因为那只会越摊越糟;可是我非常赞成投资人在底部区套牢时摊平。这时,投资人可依自己资金水位的情况,买进相等数量的股票或加倍数量的股票。只要是在底部区分批买进的股票,纵使短期内(通常在100个营业日之内)套牢,只需稍加忍耐,很快就会反败为胜。\n\n方法3|停损走人\n\n投资人若是在头部区或是B高(见第66招)买进的股票惨遭套牢,我建议要善设停损(譬如10%或是15%),一旦股价跌破停损就出脱走人。为什么此处要停损走人呢?因为股价若处在头部或B高,一旦跌下来,其跌幅惊人,会令投资人损失惨重,倾家荡产,因此我主张以小痛换取大痛。\n\n方法4|换股操作\n\n投资人若是以短期投机赚取价差的心态介入而遭套牢,就明显表示你选错了标的,这时应该在股价跌到预先设定的停损点时,毅然决然卖出,然后再去选购当时在盘面上最强势的主流股,此乃换股操作。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTYtMy54aHRtbA=="},{"no":55,"title":"第 55 招选股首重 产业强势股","short":"选股首重 产业强势股","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 55 招\n选股首重 产业强势股\n\n▶ 大师心法 ◀\n\n台股在每次循环的多头行情中,强势与弱势类股涨幅差别很大。\n\n 台湾股市投资人几10年来习惯于把上市股票区分为电子、传产、金融等3个大类。而传产又可细分为水泥、食品、塑胶、纺织、电机、电器、化学、化工、生技医疗、玻璃陶瓷、造纸、钢铁、橡胶、汽车、营建、航运、观光、贸易百货、油电燃气等19个类别。\n\n台股近31年来(1987年至2018年)4次循环的强势类股不尽相同。台股第1次循环的多头行情,是以金融与传产为强势股(资金行情)。第2次循环多头行情,是以电子为强势股(电子业荣景)。\n\n台股第3次循环的多头行情5波,是从2001年9月的3,411点上涨到2007年10月的9,859点,这一波的强势类股依次是营建、橡胶、观光、水泥、钢铁、塑胶、航运、纺织、化学、汽车等,其详情如下:\n\n❶ 营建从56.08点上涨到457.09点,上涨了8.15倍(见图6-2)。\n\n❷ 橡胶从29.68点上涨到217.31点,上涨7.32倍。\n\n❸ 观光从26.59点上涨到191.54点,上涨7.2倍。\n\n❹ 水泥从23.51点上涨到164.62点,上涨7倍。\n\n❺ 钢铁从26.89点上涨到179.15点,上涨6.66倍。\n\n❻ 塑胶从45.92点上涨到280.51点,上涨6.1倍。\n\n❼ 航运从26.34点上涨到146点,上涨5.54倍。\n\n❽ 纺织从107.34 点上涨到511.94点,上涨4.77倍。\n\n❾ 化学从30.14点上涨到135.84点,上涨4.5倍。\n\n❿ 汽车从43.13点上涨到184.36点,上涨4.27倍。\n\n上述10个类股中,涨幅最大的是营建、橡胶以及观光,均达7.2倍以上,涨幅最小的是汽车,也有4.27倍。至于电子股只有2.63倍(从156.94点上涨到412.61点),而金融股也只有2.55倍(从488.66点上涨到1,247.31点)。\n\n台股第4次循环的多头行情第1波,是从2008年11月的3,955点,上涨到2011年2月的9,220点,这一波的强势类股依次是汽车、玻璃陶瓷、营建、橡胶、贸易百货、化工、电机、纺织、观光、塑胶等,其详情如下:\n\n❶ 汽车从45.8点上涨到259.31点,上涨了5.66倍(见图6-3)。\n\n❷ 玻璃陶瓷从27.26点上涨到113.14点,上涨4.15倍。\n\n❸ 营建从94.65点上涨到383.58点,上涨4.05倍。\n\n❹ 橡胶从86.11点上涨到334.25点,上涨3.88倍。\n\n❺ 贸易百货从72.17点上涨到267.22点,上涨3.7倍。\n\n❻ 化工从45.76点上涨到157.52 点,上涨3.44倍。\n\n❼ 电机从40.01点上涨到138点,上涨3.45倍。\n\n❽ 纺织从162.84点上涨到554.21点,上涨3.4倍。\n\n❾ 观光从54.21点上涨到178.6点,上涨3.29倍。\n\n❿ 塑胶从104.96点上涨到322.12点,上涨3.07倍。\n\n上述10个类股中,涨幅最大的是汽车、玻璃陶瓷以及营建,均达4倍以上,涨幅最小的是塑胶,也有3倍。至于电子股只有2.41倍(从146.74点上涨到354.28点),而金融股也只有2.5倍(从434.22 点上涨到1,084.05 点)。\n\n接下来,台股第4次循环第2波的回档整理,是从2011年2月的9,220点下跌到2011年12月的6,609点,然后又走3、4、5波涨到2018年1月的11,270点。\n\n从2011年12月的6,609点上涨到2018年1月的11,270点中,是以电子股为主流,其中又以晶圆代工、手机概念、苹果概念类股涨幅最大。\n\n综观4次循环的强势类股,展望未来的发展,有下列3点值得留意:\n\n❶ 在台股第2次循环的1990年10月至2000年2月间表现最强势的电子股,在第3次循环中表现明显落后。许多套牢在「两兆双星」(注)的面板与DRAM的投资人情况极为凄惨。必须特别留意电子股快速兴衰的现象。\n\n❷ 在台股第1次循环的1985年7月至1990年2月间表现最为强势的金融股(当时金融股有6档逾千元,其中龙头国泰人寿曾涨至1,985元),在第3次与第4次循环中表现亦明显落后。看起来金融股再有表现的机会不大。\n\n❸ 展望未来产业的发展,电动车、AI人工智能、机器人、矽晶圆等最值得关注;这将落在电子与传产上。\n\n 注:政府在2002年提出「两兆双星」计划,希望引导台湾经济进入下个世代。「两兆」指的是预期产值分别超过兆元以上的「半导体」产业及「影像显示」产业。「双星」则指「数位内容」产业及「生物技术」产业。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTYtNC54aHRtbA=="},{"no":56,"title":"第 56 招买股前 先深入了解公司","short":"买股前 先深入了解公司","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 56 招\n买股前 先深入了解公司\n\n▶ 大师心法 ◀\n\n男怕入错行,女怕选错郎,投资人最怕买到地雷股。\n\n 当你看中的那支股票,并非你所熟悉的公司时,你就必须透过下面的5个途径进行深入的研究与了解。\n\n途径1|公开说明书\n\n根据证券交易法第30条的规定,公司募集股票上市,或上市公司发行新股时,都得向公众提出一份公开说明书。投资人可透过公开说明书,深入了解该公司。\n\n按照规定,公开说明书应记载公司概况、产业类别、业务范围、营业计划、最近年度营业报告、未来年度营业报告与发展远景、股本架构、债务状况、转投资事业、利益前景预测等等。\n\n因此,投资人只要详阅免费的公开说明书,即可了解该公可的组织与沿革、企业背景、董事资料、营业项目、产销状况与未来业务展望、公司资产、财务结构、获利能力、偿债能力,以及最近3年公司净值、股价与股利分配的情形。而公开说明书除了能在公开资讯观测站及各大券商的网站中下载,也可向各公司的股务单位索取。\n\n途径2|资产负债表\n\n这是指公司在某段期间内,资产、负债以及资本详细状况的报表,其内容包括:\n\n资产:又可分为1流动资产(现金、有价证券、应收票据、应收帐款、存货等)、2长期投资、3固定资产(土地、厂房、机器、设备等)、4其他资产。\n\n负债:又可分为1流动负债(应付票据、应付帐款、1年期长期负债、应付费用、应付所得税、应付股利等)、2长期负债(长期借款、应付公司债等)、3其他负债。\n\n股东权益:股本、累积盈余、法定公积、资本公积、特别公积等。\n\n途径3|损益表\n\n损益表是指公司在某一段期间内,营运与亏损状况的报表。其内容包括:营业收入、营业成本、营业毛利、营业费用、营业净利、营业外收支净额、税前纯益、税后纯益等。\n\n有关资产负债表与损益表,各上市公司都会按季发布在财务报表中。\n\n途径4|年报\n\n每一年上市公司都必须制作年报,向股东报告该公司1年来的营运与财务状况。年报的内容通常包括:1年来先后发生的重大事件、营运状况、资产负债表、损益表、未来展望等等。\n\n途径5|剪报资料\n\n一些特别有心的投资人,会从报纸、杂志、网路搜集有关该公司的资料,巨细靡遗,张贴成册,搜集时间长久,自然而然就变成一本珍贵的资料了。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTYtNS54aHRtbA=="},{"no":57,"title":"第 57 招掌握董监事改选行情","short":"掌握董监事改选行情","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 57 招\n掌握董监事改选行情\n\n▶ 大师心法 ◀\n\n当公司派与市场派发生股权争夺战时,股价必定飙涨。\n\n 公司法规定,董事与监察人的任期均不得超过3年,3年任期一到就得改选,根据以往的统计资料显示,若干公司在董监事改选前后,因为选情激烈,股价常会有巨幅上涨的现象,而且改选竞争得越激烈,股价的涨幅就越大,这就是董监事改选行情。\n\n譬如早年的台火(9902)与近年的大毅(2478)都曾演出董监改选大涨的行情。\n\n为什么董监事改选会出现竞争激烈的情况呢?说白了,就是公司派与市场派的股权争夺战,上市柜公司若有下列4种情况者,比较容易被市场派盯上。\n\n情况1|董监事持股偏低\n\n一般上市柜公司董监事持股大约达20%,若董监事持股低于15%,比较容易被市场派盯上。\n\n情况2|董监事持股质押比率太高\n\n依照公司法2011年修正案规定,公司董监事质押股票若超过当选时持股的2分之1时,其超过2分之1的部分即不得行使表决权。董监事拿股票质押向银行借款,意谓董监事缺资金,此类公司也会被市场派看上。\n\n情况3|公司股价偏低\n\n公司的总市值在类股中偏低,而且股价净值比低于1,此类公司也会被有意借壳上市的市场人士看上。\n\n情况4|土地资产物超所值\n\n当公司的土地资产重估之后,其价值超过争夺经营权所需的股权时,也会被市场派盯上。\n\n为何股权相争会导致股价飙涨呢?原因有3:\n\n❶ 由于董监事当选与否,完全看手中持股多寡。不论公司派或市场派,为了取得足够的股权,势必要在市场中吸足筹码。因需要量大增,买盘力道激增,股价自然就上涨了。\n\n❷ 在董监事改选之前,有意角逐的持股候选人,为了当选一定不敢卖出持股。如此一来,大量筹码被锁住,卖盘力道大减,有利股价上扬。\n\n❸ 在董监事改选之后,当选的董监事为了卖出因改选而多吸的筹码,常会发布利多消息,把股价炒高,拉高出货。\n\n董监事改选行情一般都发生在每年的3、4月间。因为根据证券交易法,上市柜公司在股东会之前2个月,股票必须停止过户。当公司派察觉有市场派欲争夺经营权时,都会把股东会时间拖延到6月。依此往前推算2个月,不论市场派或公司派都必须在4月底前完成股权收购工作,这么一来,3到4月间势必是双方竞争最激烈的时段,自然也是投资人赚取价差的最佳时机。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTYtNi54aHRtbA=="},{"no":58,"title":"第 58 招长期投资0050 有机会打败大盘","short":"长期投资0050 有机会打败大盘","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 58 招\n长期投资0050 有机会打败大盘\n\n▶ 大师心法 ◀\n\n投资人想要买卖基金,我推荐台湾50。\n\n 台湾50(0050)是元大台湾卓越50证券投资信托基金的简称,它是一种指数股票型基金(Exchange Traded Funds,简称ETF),是由宝来投信(现已并入元大投信)于2003年6月30日所成立,自从推出以来广受投资人的喜爱,原因有7:\n\n❶ 台湾50每季都会自动选取台股总市值最大的前50家公司,因为有这种优胜劣败的淘汰机制,使得组合之中永远是台湾最具竞争力的50家公司。\n\n❷ 台湾挂牌的150多档ETF中,以台湾50规模最大(数百亿元)、成交量最大(每日数千张),流通性最佳。\n\n❸ 台湾50是经过挑选,由台湾最具竞争力的上市公司所组成的指数,理论上其操作绩效必定超过大盘。\n\n❹ 可享受配息,依台湾50合约规定,基金累计报酬率大于标的指数累计报酬率达1%以上者,应进行收益分配。假设报酬率达到5%,通常经理人会保留1%,其余4%收益进行配息。\n\n❺ 一般基金不可融资,更不可融券,而台湾50既可融资,亦可融券,而且在平盘以下也可以融券放空。此外,因为台湾50几乎不太可能出现涨停或跌停,既没有卖不出去,也没有融券无法回补的问题。\n\n❻ 手续费与一般买卖股票相当,但只有一般基金的5分之1(一般基金手续费昂贵,常遭人垢病)。另外,证交税为0.1%,是买卖一般股票的3分之1。\n\n❼ 操作简便,其交易方式与股票相似,可透过各大证券公司进行买卖。\n\n0050正是施升辉「佛性投资术」的标的。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTYtNy54aHRtbA=="},{"no":59,"title":"第 59 招挖掘具潜伏底型态的股票","short":"挖掘具潜伏底型态的股票","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 59 招\n挖掘具潜伏底型态的股票\n\n▶ 大师心法 ◀\n\n买进潜伏底的股票之后,投资人只需担心一件事:抱不住。\n\n 潜伏底是股价的反转型态之一,虽然它极少出现,可是一旦某支股票潜伏底型态被确认之后,通常会有一段惊人的大涨行情,因此非常引人注目。\n\n潜伏底形态的股票,具备下列3大特征:\n\n❶ 其股价长达3年以上潜伏在底部区的某一价位。其间股价变动很小,也不随大盘走高或走低,处在一种几乎静止的情况下长期盘整,打出一个既长又平的大底。\n\n❷ 每天在市场的成交量很少,纵使在市场交易极为活络的时期,它每天的成交量也只有几张(即几千股)而已。通常几天、几周均未见成交。而这种几年没有成交的现象,配合股价的潜伏,期间长达3年。\n\n❸ 经过3年以上的潜伏期,有一天突然出现巨大的成交量,股价突破以往3年来的高价,那么潜伏底就被确认了。\n\n通常潜伏底型态的股票会有涨幅达10几倍,甚至数10倍的飙涨行情,为何会如此呢?原来股市的公开交易,一买一卖就能反应每支股票的实际价值,而潜伏底的股票,几乎不见交易,致使其股价偏离实际价值太远,因此一旦有人放出筹码,为了反应其真实的价值,再配合主力炒作的题材,股价很自然地就飙涨了。\n\n在台湾股市中,民国60年代的农林与工矿,70年代中期的国寿,都是典型的潜伏底型态的股票,在结束潜伏期的彻底整理之后,它们上涨的幅度,从底部算起外加配股配息的价值,均高达50倍以上。近年来,2008~2010年的儒鸿(1476)有潜伏底的味道。\n\n倘若投资人能找到一支潜伏底的股票,然后进行长期投资,那他必定是股市的大赢家。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTYtOC54aHRtbA=="},{"no":60,"title":"第 60 招4个要素 找出市场黑马股","short":"4个要素 找出市场黑马股","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 60 招\n4个要素 找出市场黑马股\n\n▶ 大师心法 ◀\n\n人有人性,股有股性。以往飙涨过的股票比较有机会成为黑马股。\n\n 所谓黑马股,就是股价在某段期间内飙涨1倍,甚至数倍的股票。\n\n散户们不辞辛苦,每天一大早就赶到号子的营业厅四处打听消息,其目的无非要寻找出一支会飙涨的黑马股。许多投资人每月花费数万元加入投顾公司的会员,其目的也是希望获悉会大涨的黑马股。\n\n事实上,号子内营业厅里面所流传的消息,可信度不高,许多消息往往是做手故意放出来的耳语,所以散户每每依消息跟进后,不是给大户抬轿,就是高档套牢。至于投顾老师所推荐的「明牌」也不可靠;投资人有没有想过,投顾老师既然手中有那么多的飙股,他自己在家操作赚大钱就好了,何苦解盘招募会员,赚辛苦钱呢?\n\n其实,投资大众不必到号子里打探消息,也不用花钱成为投顾的会员,只要在每次股价循环的底部区(譬如1990年10月的2,485点,2001年9月的3,411点,2008年11月的3,955点),然后参考下列4个要素即可找到会飙涨的黑马股。\n\n要素1|具备产业远景\n\n这是挑选黑马股最重要的考虑因素。因为产业景气大好,就是造成日后股价飙涨最有力的后盾。有远见的投资人,会在某种产业景气尚未明朗之前,选上这种潜力股,待产业景气明朗之后,股价就迅速飙涨。\n\n要素2|有主力照顾的股票\n\n股市老手都知道,必须有主力刻意拉抬的股票,才有可能成为飙涨的黑马股。这个主力有可能是市场派、业内,也可能是外资、投信,只要经常阅读财经杂志,从中即可获悉主力的蛛丝马迹。\n\n要素3|曾经飙涨过的股票\n\n每支股票跟人一样,都具备了不同的个性,我们把股票的个性称之为股性。百试不爽的历史经验告诉我们,在每一次的循环中曾经飙涨过的股票,经过一段时间的整理(长达1、2年)之后,再次飙涨的可能性很大。\n\n要素4|资本额低于10亿元的小型股\n\n所谓小型股,指资本额在10亿元以下的上市柜公司。资本额较少的公司,由于在外流通的筹码有限,主力比较容易拉抬,每当此种公司有利多的炒作题材时,主力顺势哄抬,股价自然就飞涨起来了。\n\n总之,要挑飙涨黑马股,必须从产业远景的爆发力、主力的操作意愿、以往的股性、筹码控制的难易度等4个要素去观察分析再做决定,如此一来,虽不中亦不远矣!","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTYtOS54aHRtbA=="},{"no":61,"title":"第 61 招新手做多 高手放空","short":"新手做多 高手放空","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 61 招\n新手做多 高手放空\n\n▶ 大师心法 ◀\n\n股市里放空要比做多困难许多。\n\n 所谓放空就是做空。亦即空头在股票市场中对行情走势看坏,于是先向券商借出股票(即融券)卖出,等跌到某一低价时再回补,从中赚取价差,此种行为称之为「放空」或「做空」。\n\n为什么投资人除了做多之外,还必须懂得放空呢?因为台股在每一次的循环中,根据艾略特波浪理论,先走完多头行情的5个波段之后,必定会走空头行情的3个波段,投资人必须多空兼做,即在多头行情里做多,在空头行情里放空,如此做多与放空交叉灵活运用,才能在每一次的循环中获取最大的利润。\n\n我们就举台股最近的第3次循环为实例,来说明如何做多与放空。它是从2001年9月的3,411点起涨,多头行情走5波段到2007年10月的9,859点结束;然后,空头行情走3波段,从9,859点下跌到2008年11月的3,955点,完成一个完整的8波段循环(见图7-1)。\n\n❶ 第1波段:从2001年9月的3,411点,上涨到2002年4月的6,484点。\n\n❷ 第2波段:从2002年4月的6,484点,回档整理到2002年10月的3,845 点。\n\n❸ 第3波段:从2002年10月的3,845点,上涨到2004年3月的7,135 点。\n\n ❹ 第4波段:从2004年3月的7,135点,回档整理到2004年8月的5,255点。\n\n❺ 第5波段:从2004年8月的5,255点,上涨到2007年10月的9,859点。\n\n❻ 第6波段(即A波):从2007年10月的9,859点,下跌到2008年1月的7,384点。\n\n❼ 第7波(即B波反弹):从2008年1月的7,384点,反弹整理到2008年5月的9,309点。\n\n❽ 第8波(即杀C波):从2008年5月的9,309点,下杀到2008年11月的3,955点。\n\n很明显的,投资人在台股第3次循环中,从2001年9月的3,411点,到2007年10月的9,859点,5个波段长达6年2个月的多头行情中,必须做多;接下来,从2007年10月的9,859点,到2008年11月的3,955点,3个波段达1年2个月的空头行情中,必须放空,如此多空两面顺势操作,获利最大。\n\n许多投资人只做多不放空,最大的坏处是白白浪费了空头行情那一段时间,以台股第3次循环为例,就会虚耗从2007年10月的9,859点到2008年11月的3,955点那一段1年2个月的时日。\n\n再以台股第4次循环为例(见图7-2),从2008年11月的3,955点起涨,很明显走了5波:\n\n❶ 第1波段:从2008年11月的3,955点,上涨到2011年2月的9,220点。\n\n❷ 第2波段:从2011年2月的9,220点,下跌到2011年12月的6,609点。\n\n❸ 第3波段:从2011年12月的6,609点,上涨到2015年4月的10,014点。\n\n ❹ 第4波段:从2015年4月的10,014点,下跌到2015年8月的7,203点。\n\n❺ 第5波段:从2015年8月的7,203点,上涨到2018年1月的11,270点。接下来以9个月时间(2018年1月至9月)在万点以上筑出一个大头。\n\n从2018年1月的11,270点到2018年10月的9,400点,很可能是空头的A波,而2018年10月至2019年4月正在走空头B波的反弹。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTctMS54aHRtbA=="},{"no":62,"title":"第 62 招放空股票操作法","short":"放空股票操作法","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 62 招\n放空股票操作法\n\n▶ 大师心法 ◀\n\n投资人在学会做多之后,也必须学会放空。\n\n 放空股票,说白一点,就是卖出你手中所没有的股票。换言之,当你认定某支股票即将下跌,但你手中却没有这家公司的股票,于是你向开户的券商开立「股票信用交易户」。完成开户之后,投资人就能在没有该档股票的情形下,向券商借出预计卖出的张数,进行放空,此行为又叫做融券卖出。\n\n举例来说,在2011年初有鉴于全世界手提电脑的市场逐渐被平板电脑所取代,你看坏这个产业,于是你想放空手提电脑品牌大厂宏碁(2353),并且密切注意它的走势。\n\n❶ 你发现在2011年1月5日那天爆量(33,534张)跌3.8元,收85元,跌破年平均线85.74元。\n\n❷ 同一天也跌破2010年8月27日72.5元与2010年9月28日75.6元连接上来的上升趋势线。\n\n❸ 到了2011年1月28日,你查看月KD线,K值以45.24向下交叉D值45.73形成死亡交叉,从长期观察,此股票明显走空。\n\n ❹ 再从月K线去看,明显形成大M头,左边高点出现在2010年1月15日的105.5元,右边高点出现在2010年12月9日的99.4元。\n\n于是你在新春开红盘那一天,即2011年2月8日宏碁一开盘80.4元,放空10张,以80.4元融券卖出。因为你知道宏碁2011年股东会日期是6月15日,依证券交易法规定,放空的投资人必须在股东会2个月加5个交易日之前(即2011年4月8日之前)回补,所以你就在2011年3月30日出现148,493张大量那一天,以60元回补,亦即以60元融券买回。\n\n你在1个多月时间一卖一买,放空1张宏碁,赚进2万4千元,10张总共就赚了24万元,不过还须扣掉借券费、手续费以及交易税。借券费每家券商不尽相同,大约在卖出金额的0.065%至0.05%之间,至于手续费与交易税与一般股票买卖相同。\n\n在这先卖后买的放空过程中,有2 件事你必须知道:\n\n❶ 券商为了预防投资人在融券卖出之后卷款潜逃,不履行归还股票的义务,投资人向券商融券卖出之后,卖股票所得到的钱是由券商帮你保管,等到你融券买进取回股票还给券商之后,才能拿得到钱。\n\n❷ 当你融券卖出时,必须准备所卖出股票总金额的9成做为「融券保证金」。以前例来说,你融券卖出价值80万4,000元的宏碁股票,就必须提出72万3,600元的保证金抵押给券商。这是为了预防投资人在放空之后,股价不跌反涨,而投资人在无力偿还股票的情况下毁约,因而所订立的「融券保证金」。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTctMi54aHRtbA=="},{"no":63,"title":"第 63 招想做空 先面对3种压力","short":"想做空 先面对3种压力","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 63 招\n想做空 先面对3种压力\n\n▶ 大师心法 ◀\n\n放空是高手玩的游戏,一般投资人大都承受不了放空的庞大压力。\n\n 若干股市好手在一个循环的多头行情中,于高档获利了结,尝到做多的甜美味道之后,反过头来,总想在空头行情中尝尝放空的滋味。\n\n可是放空不比做多,难度高,风险大,首先就必须承受下列3种压力:\n\n压力1|背负莫须有的罪名\n\n台湾大多数的投资人,除了不懂得放空之外,对放空者也恨之入骨,视之如毒蛇猛兽。在台股中放空者,轻者遭白眼,重者被咒骂,其实这种视空头为坏人的观念是错误的,放眼望去,全世界各国的股市,既没有永远的多头市场,也没有永远的空头市场,股票涨多了自然就会跌,跌多了自然就会涨,股市永远在涨涨跌跌之间不断地循环。而且,现在放空是空头,将来回补时就成多头,所以根本谈不上有好坏或善恶之分。\n\n话虽如此,但放空者总觉得自己在打压行情,扮演恶人干坏事,背负一种莫须有的罪名。\n\n压力2|担心被轧空的精神折磨\n\n投资人融券放空之后,万一股价不跌反涨的话,其精神折磨非常可怕,因为担心若遭轧空的话,其亏损往往数倍于放空赚进的金额。\n\n举例来说,若以50元融券放空某支股票,即使该支股票跌到剩下10元(下跌8成),顶多赚进40元;可是若因某种因素(譬如说股权相争)而被轧空了,当时价涨至100元,就亏损50元,若股价涨至200元,就亏损150元。因此,放空万一遭轧空时,其亏损理论上是无止尽的,非常可怕。\n\n压力3|放空胜算低于做多\n\n为什么放空的胜算要低于做多呢?因为台股从长期趋势去观察,走空头的时间大约只有走多头时间的三分之一强,故胜算较低。\n\n以台股第1次循环为例,多头行情是从1987年1月的1,039点涨到1990年2月的12,682点,一共走了38个月;而空头行情是从1990年2月的12,682点跌到1990年10月的2,485点,一共走了9个月(见图7-3)。\n\n以台股第2次循环为例,多头行情是从1990年10月的2,485点涨到1997年2月的10,256点,一共走了83个月;而空头行情是从1997年2月的10,256点跌到2001年9月的3,411点,一共走了50个月(见图7-4)。\n\n以台股第3次循环为例,多头行情是从2001年9月的3,411点涨到2007年10月的9,859点,一共走了74个月;而空头行情是从2007年10月的9,859点跌到2008年11月的3,955点,一共走了14个月(见图7-5)。\n\n综合台股第1、第2、第3次的循环,多头行情一共走了195个月(38个月加83个月加74个月);而空头行情一共走了73个月(9个月加50个月加14个月),后者只有前者的三分之一强的时间。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTctMy54aHRtbA=="},{"no":64,"title":"第 64 招放空时 小心3个陷阱","short":"放空时 小心3个陷阱","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 64 招\n放空时 小心3个陷阱\n\n▶ 大师心法 ◀\n\n股市里多空地位不平等,放空时务必小心强迫回补与诱空的陷阱。\n\n 投资人在放空股票时,除了必须承受第63招所述的3种压力之外,还必须特别小心下列3个陷阱:\n\n陷阱1|股东会开会前、除权、除息强迫回补\n\n根据证券交易法的规定,上市柜公司在每年股东会之前的2个月加5个交易日,空单(即融券卖出的股票)必须强制回补,否则就算是违约交易。\n\n为什么空单必须强制回补呢?因为公司在开股东会之前,必须要造出当年度的股东名册。这时,公司就得确认股票所有人的姓名,以便通知开股东会并发放股利。\n\n而投资人融券放空的股票,是来自融资买进但被押在券商的股票,融资买进股票的投资人理应享有股东之权益;但另一方当融券卖出股票时,买进该融券放空股票的投资人也应享有股东的权益。\n\n这时为了避免股东权发生重复的纠纷,融券放空的投资人就必须强制回补,把原先借出卖掉的股票买回来,还给原先融资买进股票的投资人,使其能办理过户手续,享有当股东的权益。\n\n放空者可能会认为,我只要在股东会开会之前的2个月加5个交易日补回,不就没事了吗?问题是有些做手会与公司勾结,以开临时股东会名义,逼得放空者措手不及,被迫强制回补而损失惨重,故投资人事前一定要有防备。\n\n此外,每年7、8月间公司除权除息,融券也要强制回补,这也得特别留意。\n\n陷阱2|做手诱空\n\n当股价的循环走入空头行情时,大盘跌多涨少,散户融资的筹码逐渐松动,常会因为忧虑整户担保率不足120%遭到断头而停损减码,这时会有越来越多的投资人退场观望,甚至反多为空,造成融券余额逐渐增加,而融资余额逐渐递减的现象。\n\n这时若干基本面很差或是线形不佳的股票会成为投资人放空的标的,因为此时只要敢放空就能获利,因此在得意忘形之际很容易落入做手诱空的圈套之中。\n\n通常做手会挑选股本小(资本额在10亿元以下)、业绩很差(空头会丧失收心)、线形不佳(引诱空方上当)的股票,在下跌过程中筹码逐渐落入做手的手中,在下跌之后的反弹初期,融券数量会逐渐增加,随著做手的拉抬,会引来看不顺眼的空头加码放空,刚开始做手为了诱空,会故意让股价下跌,让空头尝到甜头而不断加码。\n\n做手会很有耐心地养空,等空单累积到一定数量(通常是放空比达30%以上时),有一天这支股票的融券会暴增,而融资会大减,造成资券严重失衡,逼迫空方必须标借的情况,而后连续几天一开盘就涨停,让空方回补无门,演出漂亮的轧空,这就是做手诱空的陷阱。\n\n为了防止放空时跌入做手诱空的陷阱,放空的标的绝不能选资本额小的公司,应选股本大(譬如资本额达百亿元)而且交易热络的公司,这些大公司筹码锁定不易,比较不会被轧空。\n\n做手要诱空,打的是筹码战,通常跟业绩与线形无关,他们甚至会故意找业绩很差,或是线形不佳的小型股来引诱投资人上当。\n\n陷阱3|多空地位不平等\n\n投资人不论融资买进或融券卖出都有断头的压力,这对多空而言是公平的,然而放空者多一项限制,即上市公司召开股东会之前2个月加5个交易日,放空的股票必须强迫回补;而融资做多者除了断头之外,并没有强迫卖出的限制。\n\n另外很重要的一点,平时空方融券卖出,固然其卖价可以在当天的涨停价与跌停价之间,但在台股1千多支股票中也仅限于台湾50成分股与中型100成分股这150支股票可以在平盘以下放空,可是一旦股市陷入低迷,政府为了挽救股市,往往一纸行政命令,立刻限定空方融券卖出价格,必须高于当天的平盘价。换言之,就是所有股票平盘以下不得放空,这么一来,多空立刻处在不平等的地位,此时站在空方就会处在不利位置。\n\n举例来说,台股第3次循环于2008年9月间跌得唏哩哗啦,一片低迷,金管会立刻从2008年10月1日开始宣布全面禁止放空(这是比平盘以下不得放空更严厉的措施),一直到同年11月28日股市逐渐恢复元气才解禁,这就是多空地位不平等的陷阱。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTctNC54aHRtbA=="},{"no":65,"title":"第 65 招辨别股价走空的4个讯号","short":"辨别股价走空的4个讯号","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 65 招\n辨别股价走空的4个讯号\n\n▶ 大师心法 ◀\n\n大盘的股价一旦走空,必定有明显的讯号会出现。\n\n 投资人要如何研判大盘的股价已经走入空头行情(亦即走入艾略特波浪理论中的第6、第7、第8这3个波段)?这里有4个讯号可供参考:\n\n讯号1|月KD在80附近形成死亡交叉\n\n所谓月KD在80附近形成死亡交叉是指,月KD的K值来到80之上,而月K线向下交叉月D线的状况。\n举例来说,台股第4次的循环中曾经发生过7次月KD在80附近形成死亡交叉(见图7-6):\n\n❶ 第1次是在2010年2月,月K线以75.13向下交叉月D线80.68,而前1个月的K线仍在83.95。\n\n❷ 第2次是在2011年3月,月K线以80.22向下交叉月D线80.66。\n\n❸ 第3次是在2011年6月,月K线以73.57向下交叉月D线79.20,而前1个月的月K线仍为83.49。\n\n❹ 第4次出现在2014年7月,K线以84.79向下交叉D线90.37。\n\n❺ 第5次出现在2015年6月,K线以72.78向下交叉D线77.81,而前1个月(2015年5月)的K线仍为82.01。\n\n❻ 第6次出现在2017年9月,K线以89.35向下交叉D线91.08。\n\n❼ 第7次出现在2017年11月,K线以86.38向下交叉D线89.66。\n\n讯号2|股价跌破移动平均线的年线\n\n移动平均线的年线代表投资人1年来买进的平均成本,是多方非常重要的防守线,若带量被跌破的话,表示多方重要据点被攻破,股价开始走空。\n\n举例来说,台股在第4次循环中,于2011年8月3日大盘股价指数以8,456点带量跌破年线8,580点,股价开始走空(见图7-7)。此处要特别留意的是在年线的真假跌破,年线的真跌破必定带量并见缺口;年线的假跌破不见大量亦不见缺口,而且很快股价又回到年线之上,2011年7月12日、13日、14日、18日、19日的跌破年线,乃假跌破。\n\n后来,台股从2018年1月至9月以9个月时间在万点以上筑出一个大头部之外,又在2018年10月4日收盘10,718点,正式跌破年线10,822点,台股至此正式宣告走空。\n\n讯号3|股价跌破上升趋势线\n\n上升趋势线是指股价走到多头行情第3波或第5波的末端时,连接股价波动的2个低点画出的那一条直线。就技术分析理论而言,股价跌破上升趋势线的严重性甚至要超过跌破年线,这表示大盘股价明显走空。\n\n举例来说,台股在第4次的循环中,当股价走到第3波的末端时,于2011年8月4日大盘指数收8,317点,明显跌破了2010年8月31日低点7,577点连接2011年3月15日低点8,070点的上升趋势线,大盘股价宣告走空(见图7-8)。\n\n不知聪明的读者有没有发现,大盘股价在2011年8月3日跌破年线,在2011年8月4日跌破上升趋势线,两者跌破日期仅差1天,股价走空的趋势更加被确认。\n\n讯号4|M1B与M2形成死亡交叉\n\n台股第4次循环的M1B与M2的死亡交叉发生在2011年10月,当时M1B年增率以5.12%向下穿越M2年增率5.54%,这乃是流动性较高的钱跑到流动性较低的钱,表示景气转冷,股市里的钱跑回银行定存去了(见第31招的图3-4),不过此讯号通常是落后指标。\n\n当股市陆续出现上述4个讯号之后,根据我多年的实战经验,已经可以断定大盘股价有7成左右在走空了。\n\n那么剩余的3成呢?我会借助下面3个辅助讯号来判断:\n\n❶ 月K线明显走完艾略特波浪理论的前面5个波段。\n\n❷ 5月RSI呈现背离。\n\n❸ 最大量月K线的低点被跌破。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTctNS54aHRtbA=="},{"no":66,"title":"第 66 招B高才是最佳空点","short":"B高才是最佳空点","text":"抄底实战66招-从台股赚ㄧ亿变可能\n\n 第 66 招\nB高才是最佳空点\n\n▶ 大师心法 ◀\n\n除了B高点之外,不要随便去放空。\n\n 所谓B高就是B波反弹的高点,也就是艾略特波浪理论中第7波反弹整理的高点。位置理论是我自己的创见,在一个股价完整循环中,有2个好买点,2个好卖点,以及1个最佳的空点。这要先从波浪理论说起。\n\n波浪理论并不难懂,其重点有2:\n\n重点1|完整8波段 周而复始、不断循环\n\n股价在一个完整的循环中,会呈现出好比波浪般8个波段的走势,走完一个循环的8波段之后,又来下一个8波段的循环,周而复始,永不停止。\n\n重点2|前面5波段走多头 后面3波段走空头\n\n在一个完整的8个波段循环中,前面的5个波段是多头行情,后面的3个波段是空头行情。在多头行情的5个波段中,第1波段(初升段)、第3波段(主升段)、第5波段(末升段)是上涨;而第2波段与第4波段是下跌,因跌后续涨,故又叫做回档整理。在空头行情的3个波段中,第6波段(初跌段、又叫A波)、第8波段(主跌段、又叫C波)是下跌;而第7波段(又叫B波)是上涨,因涨后续跌,故又叫做反弹整理,本单元所指的B高就是此处(见图3-2)。\n\n我们在一个完整循环8波段的高低点标上a、b、c、d、 e、f、g、h、i等9个英文字母,于是出现了位置理论的9个位置(见图3-3)。\n\n对照图3-2与图3-3即可得到下面3个重要结论:\n\n❶ a是第1波段的起涨点,c是第3波段的起涨点,a与c均属底部区,是2个好买点。\n\n❷ d是第3波段的最高点,f是第5波段的最高点,d与f均属头部区,是2个好卖点。当多头行情走5波段时f是好卖点,若仅走3波段时d反而是好卖点。\n\n❸ h是B高,为最佳的空点。f虽是多头行情最高点,却并非最佳空点,股价走到B波反弹的高点h时,空头行情才算被确立,故h才是最佳空点。\n\n举例来说,我认为台股第4次循环的B高很可能出现在2019年4月18日的最高11,077点之处(见图7-9)。然而也有可能走台股第2次循环的模式,跳B杀C,意思是:B波的反弹超过11,270点的高点,然后才开始C波的下杀。\n\n假设2018年1月的11,270点到2018年10月的9,400点是A波下跌,那么2018年10月的9,400点到2019年4月的11,077点有可能是B波反弹高点;若是跳B杀C,B波高点会超越11,270点。\n\n若出现跳B杀C的走势,历史经验告诉我们,杀C的这一波必定非常惨烈(第2次循环的是从10,393点下杀到3,411点)。","f":"ZXB1Yi9PRUJQUy9UZXh0L21vbmV5MDAxLTctNi54aHRtbA=="}]}</script>
+
+<script id="srcModalJs">
+(function () {
+  'use strict';
+  var DATA = JSON.parse(document.getElementById('srcData').textContent);
+  var TIPS = DATA.tips;
+  var BY_NO = {};
+  TIPS.forEach(function (t) { BY_NO[t.no] = t; });
+  var NOS = TIPS.map(function (t) { return t.no; }).sort(function (a, b) { return a - b; });
+
+  var modal = document.createElement('div');
+  modal.className = 'src-modal';
+  modal.setAttribute('role', 'dialog');
+  modal.setAttribute('aria-modal', 'true');
+  modal.innerHTML =
+    '<div class="src-modal__card">' +
+      '<div class="src-modal__head">' +
+        '<div class="src-modal__title"><span id="srcModalTitle"></span><small id="srcModalSub"></small></div>' +
+        '<button class="src-modal__close" type="button" aria-label="关闭">&times;</button>' +
+      '</div>' +
+      '<div class="src-modal__body" id="srcModalBody"></div>' +
+      '<div class="src-modal__foot">' +
+        '<div class="src-modal__nav">' +
+          '<button class="src-btn" type="button" id="srcPrev">上一招</button>' +
+          '<select class="src-modal__select" id="srcSelect" aria-label="选择招数"></select>' +
+          '<button class="src-btn" type="button" id="srcNext">下一招</button>' +
+        '</div>' +
+        '<a class="src-btn src-btn--primary" id="srcEpubLink" target="_blank" rel="noopener">打开原始 EPUB 页面</a>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(modal);
+        try { if (location.protocol === 'file:') { if (!(TIPS[0] && TIPS[0].f)) elEpub.style.display = 'none'; } else if (TIPS[0] && TIPS[0].f) { fetch(atob(TIPS[0].f), { method: 'HEAD' }).then(function (r) { if (!r.ok) elEpub.style.display = 'none'; }).catch(function () { elEpub.style.display = 'none'; }); } else { elEpub.style.display = 'none'; } } catch (e) { elEpub.style.display = 'none'; }
+
+  var elTitle = document.getElementById('srcModalTitle');
+  var elSub = document.getElementById('srcModalSub');
+  var elBody = document.getElementById('srcModalBody');
+  var elPrev = document.getElementById('srcPrev');
+  var elNext = document.getElementById('srcNext');
+  var elSel = document.getElementById('srcSelect');
+  var elEpub = document.getElementById('srcEpubLink');
+  var cur = null;
+
+  NOS.forEach(function (no) {
+    var o = document.createElement('option');
+    o.value = String(no);
+    o.textContent = '第' + no + '招 · ' + BY_NO[no].short;
+    elSel.appendChild(o);
+  });
+
+  function show(no) {
+    var t = BY_NO[no];
+    if (!t) return;
+    cur = no;
+    elTitle.textContent = t.title;
+    elSub.textContent = '《' + DATA.bookName + '》原文 · 第 ' + no + ' 招（已转简体）';
+    elBody.textContent = t.text;
+    elEpub.href = t.f ? atob(t.f) : '#';
+    var i = NOS.indexOf(no);
+    elPrev.disabled = i <= 0;
+    elNext.disabled = i >= NOS.length - 1;
+    elSel.value = String(no);
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    elBody.scrollTop = 0;
+  }
+  function close() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+  function step(d) { var i = NOS.indexOf(cur); var j = i + d; if (j >= 0 && j < NOS.length) show(NOS[j]); }
+
+  elPrev.addEventListener('click', function () { step(-1); });
+  elNext.addEventListener('click', function () { step(1); });
+  elSel.addEventListener('change', function () { show(parseInt(elSel.value, 10)); });
+  modal.querySelector('.src-modal__close').addEventListener('click', close);
+  modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') step(-1);
+    else if (e.key === 'ArrowRight') step(1);
+  });
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a.src-open') : null;
+    if (!a) return;
+    e.preventDefault();
+    e.stopPropagation();
+    show(parseInt(a.getAttribute('data-tip'), 10) || 1);
+  }, true);
+})();
+</script>
+</body>
+</html>

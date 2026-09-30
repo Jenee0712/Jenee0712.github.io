@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>我的深度书房 · 个人书籍研读库</title>
+<style>
+:root{
+  --ink:#0f1b2d; --ink-2:#33415c; --muted:#64748b; --line:#dbe4f0;
+  --paper:#f4f7fc; --card:#ffffff;
+  --blue:#2563eb; --blue-deep:#1d4ed8; --navy:#0b1f3f; --navy-2:#123363;
+  --sky:#38bdf8; --blue-soft:#eaf1fd; --blue-soft-2:#dce9fb;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:"Microsoft YaHei","微软雅黑","PingFang SC","Segoe UI",system-ui,sans-serif;
+  background:var(--paper);color:var(--ink);line-height:1.72;font-size:15.5px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 26px}
+a{color:var(--blue-deep);text-decoration:none}
+a:hover{text-decoration:none}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;color:#fff;overflow:hidden;
+  background:
+    radial-gradient(1100px 480px at 82% -12%, rgba(56,189,248,.28), transparent 60%),
+    radial-gradient(900px 420px at -8% 112%, rgba(37,99,235,.32), transparent 58%),
+    linear-gradient(158deg,#081833 0%,#0b2653 46%,#123a7e 100%);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(720px 380px at 68% 8%,#000 30%,transparent 78%);
+  -webkit-mask-image:radial-gradient(720px 380px at 68% 8%,#000 30%,transparent 78%);
+}
+.hero-in{position:relative;padding:60px 0 54px}
+.kicker{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:600;letter-spacing:.42em;text-transform:uppercase;
+  color:#9dc4ff;margin-bottom:18px;
+}
+.kicker::before,.kicker::after{content:"";width:34px;height:1px;background:linear-gradient(90deg,transparent,#5b8df0);display:inline-block}
+.kicker::after{background:linear-gradient(90deg,#5b8df0,transparent)}
+.hero h1{
+  font-size:44px;font-weight:800;letter-spacing:.05em;line-height:1.25;
+  background:linear-gradient(92deg,#ffffff 30%,#bfd9ff 78%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero .sub{margin-top:14px;max-width:660px;color:#c9d9f2;font-size:15.5px;font-weight:300}
+.hero .sub b{color:#fff;font-weight:600}
+.glass{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.gpill{
+  display:flex;align-items:baseline;gap:8px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(157,196,255,.28);
+  backdrop-filter:blur(8px);border-radius:12px;padding:10px 18px;
+}
+.gpill b{font-size:21px;font-weight:800;color:#fff;letter-spacing:.01em}
+.gpill span{font-size:12.5px;color:#a9c3ec;font-weight:400}
+
+/* ============ SHELF BAR ============ */
+.shelfbar{
+  position:relative;z-index:5;margin-top:-30px;margin-bottom:26px;
+  background:rgba(255,255,255,.86);backdrop-filter:blur(12px);
+  border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 18px 44px rgba(11,31,63,.16);
+  padding:16px 22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;
+}
+.shelfbar h2{font-size:18px;font-weight:800;color:var(--ink);letter-spacing:.04em;display:flex;align-items:center;gap:10px}
+.shelfbar h2 .dot{width:9px;height:9px;border-radius:3px;background:linear-gradient(135deg,var(--blue),var(--sky));box-shadow:0 0 0 4px var(--blue-soft)}
+.count{font-size:13px;color:var(--muted);font-weight:400}
+.search{
+  margin-left:auto;display:flex;align-items:center;gap:9px;
+  background:#fff;border:1.5px solid var(--line);border-radius:12px;padding:9px 14px;
+  min-width:250px;transition:border-color .18s, box-shadow .18s;
+}
+.search:focus-within{border-color:var(--blue);box-shadow:0 0 0 4px rgba(37,99,235,.13)}
+.search svg{width:16px;height:16px;color:var(--muted);flex:none;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.search input{border:0;outline:0;background:none;font-family:inherit;font-size:14px;color:var(--ink);width:100%}
+.search input::placeholder{color:#9aa9c0}
+
+/* ============ BOOK CARDS ============ */
+.shelf{display:flex;flex-direction:column;gap:20px}
+.bk{
+  position:relative;display:grid;grid-template-columns:158px 1fr;
+  background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;
+  box-shadow:0 4px 18px rgba(11,31,63,.05);
+  transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+.bk:hover{transform:translateY(-4px);box-shadow:0 22px 48px rgba(18,58,126,.15);border-color:#b9cff2}
+.bk.hide{display:none}
+
+/* cover */
+.cover{
+  position:relative;display:block;width:176px;cursor:pointer;overflow:hidden;
+  background:linear-gradient(168deg,#0b2653,#123a7e);
+  box-shadow:inset -16px 0 22px -14px rgba(0,0,0,.45);
+}
+.cover img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .38s ease;
+}
+.bk:hover .cover img{transform:scale(1.05)}
+
+/* content */
+.bk-main{padding:24px 28px 20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.bk-top{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.bk-title{font-size:19.5px;font-weight:800;color:var(--ink);letter-spacing:.01em}
+.bk-sub{font-size:13px;color:var(--muted)}
+.bk-claim{
+  color:var(--ink-2);font-size:14.5px;font-weight:300;
+  padding-left:14px;border-left:3px solid var(--blue-soft-2);
+}
+.bk-claim::before{content:"「";color:var(--blue);font-weight:700}
+.bk-claim::after{content:"」";color:var(--blue);font-weight:700}
+
+.bk-stats{display:flex;gap:12px;flex-wrap:wrap}
+.mini{
+  position:relative;border:1px solid var(--line);border-radius:12px;padding:9px 16px 8px;min-width:112px;
+  background:linear-gradient(180deg,#ffffff,#f7faff);overflow:hidden;
+}
+.mini::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--blue),var(--sky))}
+.mini .v{font-size:17px;font-weight:800;color:var(--navy);white-space:nowrap;font-variant-numeric:tabular-nums}
+.mini .k{font-size:11.5px;color:var(--muted);margin-top:1px}
+
+.bk-feats{display:flex;gap:8px;flex-wrap:wrap}
+.feat{
+  font-size:11.5px;font-weight:600;border-radius:999px;padding:3px 12px;
+  background:var(--blue-soft);color:var(--blue-deep);
+}
+.feat.hot{
+  background:linear-gradient(92deg,#1d4ed8,#3b82f6);color:#fff;
+  box-shadow:0 3px 10px rgba(37,99,235,.3);
+}
+
+.bk-actions{display:flex;align-items:center;gap:11px;flex-wrap:wrap;margin-top:2px}
+.btn{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:13.5px;font-weight:700;border-radius:10px;padding:9px 20px;cursor:pointer;letter-spacing:.02em;
+  border:0;background:linear-gradient(92deg,#1d4ed8,#3b82f6);color:#fff;
+  box-shadow:0 6px 16px rgba(37,99,235,.32);transition:transform .16s, box-shadow .16s, filter .16s;
+}
+.btn:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(37,99,235,.4)}
+.btn.ghost{
+  background:#fff;color:var(--blue-deep);border:1.5px solid #c4d8f6;box-shadow:none;
+}
+.btn.ghost:hover{background:var(--blue-soft);border-color:var(--blue)}
+.plink{font-size:12.5px;color:var(--muted);display:inline-flex;align-items:center;gap:5px}
+.plink:hover{color:var(--blue-deep)}
+.sp{flex:1}
+
+/* ============ GUIDE ============ */
+.guide{
+  margin:44px 0 0;background:var(--card);border:1px solid var(--line);border-radius:18px;
+  padding:28px 32px;position:relative;overflow:hidden;
+}
+.guide::before{
+  content:"";position:absolute;top:-60px;right:-60px;width:220px;height:220px;border-radius:50%;
+  background:radial-gradient(circle,rgba(56,189,248,.14),transparent 70%);
+}
+.guide h3{font-size:17px;font-weight:800;letter-spacing:.05em;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.guide h3 .dot{width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px var(--blue-soft)}
+.guide ol{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.guide li{display:flex;gap:13px;color:var(--ink-2);font-size:14px;line-height:1.75}
+.guide .no{
+  flex:none;width:26px;height:26px;border-radius:9px;margin-top:3px;
+  background:linear-gradient(135deg,#1d4ed8,#38bdf8);color:#fff;
+  font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 10px rgba(37,99,235,.28);
+}
+.guide code{
+  font-family:Consolas,"Courier New",monospace;font-size:12.5px;
+  background:var(--blue-soft);border:1px solid var(--blue-soft-2);border-radius:6px;padding:1px 7px;color:var(--blue-deep);
+}
+.guide kbd{
+  font-family:Consolas,monospace;font-size:11.5px;border:1px solid var(--line);border-bottom-width:2.5px;
+  border-radius:6px;padding:0 6px;background:#fff;color:var(--ink-2);
+}
+
+/* ============ FOOTER ============ */
+.footer{
+  margin-top:46px;padding:26px 0 46px;color:var(--muted);font-size:12.5px;
+  border-top:1px solid var(--line);
+}
+.footer .wrap{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.footer b{color:var(--ink-2)}
+
+/* ============ RESPONSIVE / PRINT ============ */
+@media (max-width:760px){
+  .hero h1{font-size:33px}
+  .hero-in{padding:44px 0 44px}
+  .bk{grid-template-columns:104px 1fr}
+  .cover{width:104px}
+  .search{min-width:0;width:100%}
+  .bk-main{padding:16px 18px}
+  .guide{padding:22px}
+  .guide ol{grid-template-columns:1fr}
+}
+@media print{
+  .hero{background:var(--navy)}
+  .search,.guide,.footer{display:none}
+  .bk:hover{transform:none;box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <div class="kicker">Personal Deep-Reading Library</div>
+    <h1>我的深度书房</h1>
+    <p class="sub" id="modeSub">五本好书的<b>深度研读报告</b>聚合为一个纯本地网站——每份报告内嵌原书全文提取，<b>点击页码即可对照原文</b>；无需联网，双击即用。</p>
+    <div class="glass">
+      <div class="gpill"><b>5</b><span>本藏书</span></div>
+      <div class="gpill"><b>735</b><span>处页码直跳原文</span></div>
+      <div class="gpill"><b>1,039</b><span>页/招原文嵌入</span></div>
+      <div class="gpill"><b>0</b><span>外部依赖 · 完全离线</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="shelfbar">
+    <h2><span class="dot"></span>书架</h2>
+    <span class="count" id="count"></span>
+    <div class="search">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="q" type="text" placeholder="搜索书名 / 主题 / 关键词…" aria-label="搜索书目">
+    </div>
+  </div>
+
+  <div class="shelf" id="shelf">
+
+    <!-- 1. AI 超级周期 -->
+    <article class="bk" data-search="ai 超级周期 产业链 基础设施 投资 能源 算力 云 capex 科技">
+      <a class="cover" href="books/ai-supercycle/index.html" title="打开研读报告">
+        <img src="books/ai-supercycle/cover.jpg" alt="《AI 超级周期》封面" loading="lazy">
+      </a>
+      <div class="bk-main">
+        <div class="bk-top">
+          <span class="bk-title">《AI 超级周期》深度研读</span>
+          <span class="bk-sub">五层产业链视角下的 AI 基础设施投资框架</span>
+        </div>
+        <p class="bk-claim">从能源、算力到应用，一条产业链看懂 AI 投资的底层逻辑。</p>
+        <div class="bk-stats">
+          <div class="mini"><div class="v">$6,900亿</div><div class="k">2026 五大云厂 AI CapEx</div></div>
+          <div class="mini"><div class="v">6 层</div><div class="k">产业链框架</div></div>
+          <div class="mini"><div class="v">13 章</div><div class="k">完整论证链</div></div>
+        </div>
+        <div class="bk-feats">
+          <span class="feat hot">424 页原文弹窗</span>
+          <span class="feat hot">272 处页码直跳</span>
+          <span class="feat">PDF 原文直跳</span>
+        </div>
+        <div class="bk-actions">
+          <a class="btn" href="books/ai-supercycle/index.html">打开研读报告</a>
+          <a class="btn ghost" href="books/ai-supercycle/book.pdf" class="btn ghost local-only">原书 PDF</a>
+          <span class="sp"></span>
+          <a class="plink" href="books/ai-supercycle/report-print.pdf">打印版 PDF</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. The AI Money Toolkit Vol.2 -->
+    <article class="bk" data-search="ai money toolkit 收入 副业 saas 出版 金融 智能 英文 双语 赚钱">
+      <a class="cover" href="books/ai-money-v2/index.html" title="打开研读报告">
+        <img src="books/ai-money-v2/cover.jpg" alt="《The AI Money Toolkit, Volume 2》封面" loading="lazy">
+      </a>
+      <div class="bk-main">
+        <div class="bk-top">
+          <span class="bk-title">《The AI Money Toolkit, Vol.2》深度研读</span>
+          <span class="bk-sub">进阶 AI 收入系统：扩张至月入 5 万美元</span>
+        </div>
+        <p class="bk-claim">把「用时间换钱」改造成「让资产生钱」：经常性收入 × 目录飞轮 × 资本增值。</p>
+        <div class="bk-stats">
+          <div class="mini"><div class="v">11 套</div><div class="k">进阶收入方法</div></div>
+          <div class="mini"><div class="v">247 页</div><div class="k">原书全文嵌入</div></div>
+          <div class="mini"><div class="v">$50K/月</div><div class="k">系统整合目标</div></div>
+        </div>
+        <div class="bk-feats">
+          <span class="feat hot">中英双语切换</span>
+          <span class="feat hot">247 页原文弹窗</span>
+          <span class="feat">259 处页码直跳</span>
+          <span class="feat">PDF 原文直跳</span>
+        </div>
+        <div class="bk-actions">
+          <a class="btn" href="books/ai-money-v2/index.html">打开研读报告</a>
+          <a class="btn ghost" href="books/ai-money-v2/book.pdf" class="btn ghost local-only">原书 PDF</a>
+          <span class="sp"></span>
+          <a class="plink" href="books/ai-money-v2/report-print.pdf">打印版 PDF</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3. 抄底实战66招 -->
+    <article class="bk" data-search="抄底 实战 66招 台股 郭泰 位置哲学 底部 头部 波段 放空 股票">
+      <a class="cover" href="books/chaodi-66/index.html" title="打开研读报告">
+        <img src="books/chaodi-66/cover.jpg" alt="《抄底实战66招》封面" loading="lazy">
+      </a>
+      <div class="bk-main">
+        <div class="bk-top">
+          <span class="bk-title">《抄底实战66招：从台股赚一亿变可能》深度研读</span>
+          <span class="bk-sub">郭泰 31 年台股实战 ·「位置哲学」操盘法完整体系</span>
+        </div>
+        <p class="bk-claim">底部区买进、头部区卖出，只赚大波段，平均获利 5 倍。</p>
+        <div class="bk-stats">
+          <div class="mini"><div class="v">66 招</div><div class="k">完整操盘体系</div></div>
+          <div class="mini"><div class="v">4 次循环</div><div class="k">台股 31 年数据验证</div></div>
+          <div class="mini"><div class="v">平均 5 倍</div><div class="k">大波段报酬率</div></div>
+        </div>
+        <div class="bk-feats">
+          <span class="feat hot">66 招原文弹窗</span>
+          <span class="feat">EPUB 原页直跳</span>
+          <span class="feat">7 PART 完整拆解</span>
+        </div>
+        <div class="bk-actions">
+          <a class="btn" href="books/chaodi-66/index.html">打开研读报告</a>
+          <span class="sp"></span>
+          <a class="plink" href="books/chaodi-66/report-print.pdf">打印版 PDF</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4. 韩国最强法人交易员 -->
+    <article class="bk" data-search="韩国 法人 交易员 获利 关键 券商 价值分析 技术分析 市况分析 机构">
+      <a class="cover" href="books/korea-trader/index.html" title="打开研读报告">
+        <img src="books/korea-trader/cover.jpg" alt="《韩国最强法人交易员的获利关键》封面" loading="lazy">
+      </a>
+      <div class="bk-main">
+        <div class="bk-top">
+          <span class="bk-title">《韩国最强法人交易员的获利关键》深度研读</span>
+          <span class="bk-sub">25 年券商老兵的法人视角 · 交易操作系统</span>
+        </div>
+        <p class="bk-claim">价值分析 + 技术分析 + 市况分析，三位一体的法人交易操作系统。</p>
+        <div class="bk-stats">
+          <div class="mini"><div class="v">3 大</div><div class="k">分析工具支柱</div></div>
+          <div class="mini"><div class="v">7+12+11</div><div class="k">亏损关键·真相·进阶题</div></div>
+          <div class="mini"><div class="v">50 案例</div><div class="k">40 标的盘点</div></div>
+        </div>
+        <div class="bk-feats">
+          <span class="feat hot">附原书全文 HTML</span>
+          <span class="feat">案例总账 + 标的盘</span>
+        </div>
+        <div class="bk-actions">
+          <a class="btn" href="books/korea-trader/index.html">打开研读报告</a>
+          <a class="btn ghost" href="books/korea-trader/book.html" class="btn ghost local-only">读原书全文</a>
+          <span class="sp"></span>
+          <a class="plink" href="books/korea-trader/report-print.pdf">打印版 PDF</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5. 王川宝典 -->
+    <article class="bk" data-search="王川 宝典 硅谷 投资人 公众号 认知 财富自由 时间自由 效率 选择权 闲暇">
+      <a class="cover" href="books/wangchuan/index.html" title="打开研读报告">
+        <img src="books/wangchuan/cover.jpg" alt="《王川宝典》封面" loading="lazy">
+      </a>
+      <div class="bk-main">
+        <div class="bk-top">
+          <span class="bk-title">《王川宝典》深度研读</span>
+          <span class="bk-sub">硅谷独立投资人 2015–2024 公众号文章合集 · 认知操作系统</span>
+        </div>
+        <p class="bk-claim">财富的本质是能量和信息效率，赚钱的本质是增加选择权，最大的财富是闲暇时间。</p>
+        <div class="bk-stats">
+          <div class="mini"><div class="v">9 年</div><div class="k">持续写作积累</div></div>
+          <div class="mini"><div class="v">6 维</div><div class="k">财富认知体系</div></div>
+          <div class="mini"><div class="v">302 页</div><div class="k">原文嵌入弹窗</div></div>
+        </div>
+        <div class="bk-feats">
+          <span class="feat hot">302 页原文弹窗</span>
+          <span class="feat hot">204 处页码直跳</span>
+          <span class="feat">PDF 原文直跳</span>
+        </div>
+        <div class="bk-actions">
+          <a class="btn" href="books/wangchuan/index.html">打开研读报告</a>
+          <a class="btn ghost" href="books/wangchuan/book.pdf" class="btn ghost local-only">原书 PDF</a>
+          <span class="sp"></span>
+          <a class="plink" href="books/wangchuan/report-print.pdf">打印版 PDF</a>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <section class="guide">
+    <h3><span class="dot"></span>使用说明</h3>
+    <ol>
+      <li><span class="no">1</span><div><b>纯本地网站</b>：双击本文件夹中的 <code>index.html</code> 即可使用，无需联网。整个 <code>my-bookshelf</code> 文件夹拷贝到 U 盘、网盘同步目录或另一台电脑，同样直接可用。</div></li>
+      <li><span class="no">2</span><div><b>点击页码看原文</b>：进入任意研读报告后，正文中的页码标签（如 <code>p.13</code>）单击即弹窗显示原书该页原文；<kbd>Ctrl</kbd>/<kbd>⌘</kbd> + 点击或右键「在新标签页打开」，可直接跳转到 PDF 原文对应页。</div></li>
+      <li><span class="no">3</span><div><b>收纳新书</b>：以后每深读一本新书，在 <code>books/</code> 下新建一个文件夹放入报告与原书，再在 <code>index.html</code> 中仿照现有卡片加一条即可（也可以直接让 AI 帮你加）。</div></li>
+    </ol>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p><b>我的深度书房</b> · 个人研读库 · 生成于 2026-09-30 · 5 本书 / 735 处页码直跳 / 1,039 页原文嵌入 · 仅供个人学习使用，请勿公开传播原书文件</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var q = document.getElementById('q');
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.bk'));
+  var countEl = document.getElementById('count');
+  function update(){
+    var kw = q.value.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(c){
+      var hit = !kw || (c.getAttribute('data-search') + ' ' + c.textContent).toLowerCase().indexOf(kw) >= 0;
+      c.classList.toggle('hide', !hit);
+      if (hit) shown++;
+    });
+    countEl.textContent = shown + ' / ' + cards.length + ' 本';
+  }
+  q.addEventListener('input', update);
+  update();
+})();
+</script>
+<script>
+(function(){
+  if (location.protocol === 'file:') return;
+  var els = document.querySelectorAll('.local-only');
+  for (var i = 0; i < els.length; i++) els[i].style.display = 'none';
+  var sub = document.getElementById('modeSub');
+  if (sub) sub.innerHTML = '五本好书的<b>深度研读报告</b>在线书房——每份报告内嵌原书全文提取，<b>点击页码即可对照原文</b>；后续新书持续上架。';
+})();
+</script>
+</body>
+</html>
