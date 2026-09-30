@@ -1722,5 +1722,274 @@ a.src-open:hover { background: var(--page-brand-soft-strong, #D6E6FA); }
   }, true);
 })();
 </script>
+<script>window.__ENC_CFG = {file:'book.pdf.enc', mime:'application/pdf', probe:'../../probe.enc'};</script>
+<script>
+(function () {
+  'use strict';
+  if (location.protocol === 'file:') return;
+  var CFG = window.__ENC_CFG;
+  if (!CFG) return;
+  if (!window.crypto || !crypto.subtle || !window.TextEncoder) return;
+  var PW_KEY = 'bkshelf_pw';
+  var blobUrls = {};
+  var panel, pwInput, errTxt, pill;
+
+  var CSS = '#encBar{position:fixed;right:18px;bottom:18px;z-index:2147483000;font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;display:flex;flex-direction:column;align-items:flex-end;gap:8px}'
+    + '#encPill{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(92deg,#1d4ed8,#3b82f6);color:#fff;font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(37,99,235,.38);cursor:pointer;border:none;letter-spacing:.02em}'
+    + '#encPill:hover{filter:brightness(1.08)}'
+    + '#encPill:disabled{filter:grayscale(.2) brightness(.9)}'
+    + '#encPill svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}'
+    + '#encPanel{display:none;background:#fff;border:1px solid #dbe4f0;border-radius:14px;box-shadow:0 18px 48px rgba(11,31,63,.22);padding:18px 20px;width:308px}'
+    + '#encPanel.open{display:block}'
+    + '#encPanel h4{margin:0 0 6px;font-size:15px;color:#0f1b2d}'
+    + '#encPanel p{margin:0 0 12px;font-size:12.5px;color:#64748b;line-height:1.65}'
+    + '#encPanel p b{color:#1d4ed8}'
+    + '#encRow{display:flex;gap:8px}'
+    + '#encPw{flex:1;border:1.5px solid #dbe4f0;border-radius:9px;padding:8px 11px;font-size:13.5px;font-family:inherit;outline:none;color:#0f1b2d}'
+    + '#encPw:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.14)}'
+    + '#encGo{border:none;background:linear-gradient(92deg,#1d4ed8,#3b82f6);color:#fff;font-size:13px;font-weight:700;padding:8px 16px;border-radius:9px;cursor:pointer;font-family:inherit}'
+    + '#encGo:disabled{opacity:.5;cursor:default}'
+    + '#encErr{display:none;margin-top:9px;font-size:12.5px;color:#dc2626}'
+    + '#encNote{margin-top:10px;font-size:11.5px;color:#94a3b8}';
+
+  function getPw() { try { return localStorage.getItem(PW_KEY) || ''; } catch (e) { return ''; } }
+  function setPw(v) { try { localStorage.setItem(PW_KEY, v); } catch (e) {} }
+  function clearPw() { try { localStorage.removeItem(PW_KEY); } catch (e) {} }
+
+  var LOCK = '<svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>';
+  var BOOK = '<svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h14v18H6a2 2 0 0 0-2 2z"/><path d="M20 17H6a2 2 0 0 0-2 2"/></svg>';
+
+  function buildBar() {
+    var st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
+    var bar = document.createElement('div'); bar.id = 'encBar';
+    panel = document.createElement('div'); panel.id = 'encPanel';
+    panel.innerHTML = '<h4>解锁原书</h4>'
+      + '<p>原书文件以<b>加密</b>形式存放在本站，只有你的密码能打开。解锁后：'
+      + (CFG.hint || '<b>Ctrl/⌘ + 点击报告页码</b>，新标签页直跳原书对应页。')
+      + '</p>'
+      + '<div id="encRow"><input id="encPw" type="password" placeholder="输入解锁密码" autocomplete="off">'
+      + '<button id="encGo" type="button">解锁</button></div>'
+      + '<div id="encErr"></div>'
+      + '<div id="encNote">密码仅保存在本浏览器，不会上传。</div>';
+    pill = document.createElement('button'); pill.id = 'encPill'; pill.type = 'button';
+    pill.innerHTML = LOCK + '<span id="encPillTxt">解锁原书</span>';
+    bar.appendChild(panel); bar.appendChild(pill);
+    document.body.appendChild(bar);
+    pwInput = document.getElementById('encPw');
+    errTxt = document.getElementById('encErr');
+    pill.addEventListener('click', function () {
+      if (getPw()) { panel.classList.remove('open'); openEnc(CFG.file, CFG.mime, 1); }
+      else { panel.classList.toggle('open'); if (panel.classList.contains('open')) pwInput.focus(); }
+    });
+    document.getElementById('encGo').addEventListener('click', doUnlock);
+    pwInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') doUnlock(); });
+    refreshPill();
+  }
+
+  function refreshPill() {
+    pill.innerHTML = (getPw() ? BOOK : LOCK) + '<span id="encPillTxt">' + (getPw() ? '原书已解锁 · 打开' : '解锁原书') + '</span>';
+  }
+
+  function setBusy(t) {
+    if (!pill) return;
+    pill.disabled = !!t;
+    var el = document.getElementById('encPillTxt');
+    if (el) el.textContent = t || (getPw() ? '原书已解锁 · 打开' : '解锁原书');
+  }
+
+  async function deriveKey(pw, salt) {
+    var km = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+    return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: salt, iterations: 200000, hash: 'SHA-256' }, km, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+  }
+  async function rawDecrypt(u8, pw) {
+    if (u8.length < 33 || u8[0] !== 0x45 || u8[1] !== 0x4e || u8[2] !== 0x43 || u8[3] !== 0x31) throw new Error('文件格式错误');
+    var key = await deriveKey(pw, u8.slice(4, 20));
+    return new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv: u8.slice(20, 32) }, key, u8.slice(32)));
+  }
+  async function fetchBuf(path, onProg) {
+    var resp = await fetch(path);
+    if (!resp.ok) throw new Error('下载失败 HTTP ' + resp.status);
+    if (!resp.body || !resp.body.getReader) return new Uint8Array(await resp.arrayBuffer());
+    var total = +(resp.headers.get('Content-Length') || 0);
+    var reader = resp.body.getReader(), chunks = [], got = 0;
+    for (;;) {
+      var r = await reader.read();
+      if (r.done) break;
+      chunks.push(r.value); got += r.value.length;
+      if (onProg && total) onProg(got, total);
+    }
+    var out = new Uint8Array(got), off = 0;
+    for (var i = 0; i < chunks.length; i++) { out.set(chunks[i], off); off += chunks[i].length; }
+    return out;
+  }
+  function joinDir(path, name) { var i = path.lastIndexOf('/'); return i < 0 ? name : path.slice(0, i + 1) + name; }
+
+  // whole file or chunked parts (book.pdf.enc.parts.json lists chunk files)
+  async function fetchEncBytes(path, onProg) {
+    var pr = null;
+    try { pr = await fetch(path + '.parts.json'); } catch (e) {}
+    if (pr && pr.ok) {
+      var parts = await pr.json();
+      var chunks = [], total = 0;
+      for (var i = 0; i < parts.length; i++) {
+        onProg && onProg('下载 ' + (i + 1) + '/' + parts.length + ' 段…');
+        var u8 = await fetchBuf(joinDir(path, parts[i]));
+        chunks.push(u8); total += u8.length;
+      }
+      var out = new Uint8Array(total), off = 0;
+      chunks.forEach(function (b) { out.set(b, off); off += b.length; });
+      return out;
+    }
+    return await fetchBuf(path, function (g, t) { onProg && onProg('下载 ' + Math.round(g / t * 100) + '%…'); });
+  }
+
+  async function verifyPw(pw) {
+    var u8 = await fetchBuf(CFG.probe);
+    var pt = await rawDecrypt(u8, pw);
+    return new TextDecoder().decode(pt) === 'BOOKSHELF-PROBE-v1';
+  }
+
+  async function doUnlock() {
+    var pw = pwInput.value;
+    if (!pw) return;
+    var go = document.getElementById('encGo');
+    go.disabled = true; go.textContent = '校验中…'; errTxt.style.display = 'none';
+    try {
+      if (await verifyPw(pw)) {
+        setPw(pw); panel.classList.remove('open'); pwInput.value = '';
+        refreshPill(); setBusy('已解锁');
+        setTimeout(function () { setBusy(null); }, 1200);
+      } else { throw new Error('bad'); }
+    } catch (e) {
+      errTxt.textContent = '密码不正确，请重试';
+      errTxt.style.display = 'block';
+    }
+    go.disabled = false; go.textContent = '解锁';
+  }
+
+  function openPanel(msg) {
+    panel.classList.add('open'); pwInput.focus();
+    if (msg) { errTxt.textContent = msg; errTxt.style.display = 'block'; }
+  }
+
+  function handleErr(e) {
+    if (e && (e.name === 'OperationError' || /decrypt|format/i.test(String(e)))) {
+      clearPw(); refreshPill(); openPanel('密码校验失败，请重新输入');
+    } else { openPanel('打开失败：' + (e && e.message ? e.message : e)); }
+  }
+
+  async function openEnc(path, mime, page) {
+    var pw = getPw();
+    if (!pw) { openPanel(); return; }
+    if (blobUrls[path]) { window.open(blobUrls[path] + (page ? '#page=' + page : ''), '_blank'); return; }
+    setBusy('下载加密文件…');
+    try {
+      var u8 = await fetchEncBytes(path, function (label) { setBusy(label); });
+      setBusy('解密中…');
+      var pt = await rawDecrypt(u8, pw);
+      blobUrls[path] = URL.createObjectURL(new Blob([pt], { type: mime || 'application/octet-stream' }));
+      setBusy(null); refreshPill();
+      window.open(blobUrls[path] + (page ? '#page=' + page : ''), '_blank');
+    } catch (e) { setBusy(null); handleErr(e); }
+  }
+
+  window.addEventListener('click', function (e) {
+    if (!(e.ctrlKey || e.metaKey || e.button === 1)) return;
+    var a = e.target && e.target.closest ? e.target.closest('a.pg-link,[data-pg]') : null;
+    if (!a) return;
+    var pg = parseInt(a.getAttribute('data-pg'), 10);
+    if (!pg) return;
+    e.preventDefault(); e.stopPropagation();
+    openEnc(CFG.file, CFG.mime, pg);
+  }, true);
+
+  // ---- optional: EPUB per-page decrypt (chaodi-66) ----
+  var EMIME = { jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', gif: 'image/gif', svg: 'image/svg+xml', css: 'text/css' };
+  function extMime(p) { var m = /\.([a-z0-9]+)$/i.exec(p); return m ? (EMIME[m[1].toLowerCase()] || 'application/octet-stream') : 'application/octet-stream'; }
+  function resolvePath(base, href) {
+    var stack = base.split('/'); stack.pop();
+    href.split('/').forEach(function (seg) {
+      if (seg === '' || seg === '.') return;
+      if (seg === '..') stack.pop(); else stack.push(seg);
+    });
+    return stack.join('/');
+  }
+  function u8ToB64(u8) { var s = '', CH = 0x8000; for (var i = 0; i < u8.length; i += CH) s += String.fromCharCode.apply(null, u8.subarray(i, i + CH)); return btoa(s); }
+
+  async function decryptToDataUrl(vpath) {
+    var u8 = await fetchBuf(vpath + '.enc');
+    var pt = await rawDecrypt(u8, getPw());
+    return 'data:' + extMime(vpath) + ';base64,' + u8ToB64(pt);
+  }
+
+  async function openEpubPage(vpath) {
+    if (!getPw()) { openPanel(); return; }
+    setBusy('解密原书页…');
+    try {
+      var u8 = await fetchBuf(vpath + '.enc');
+      var pt = await rawDecrypt(u8, getPw());
+      var text = new TextDecoder('utf-8').decode(pt);
+      if (/\.x?html?$/i.test(vpath)) text = await rewriteEpubHtml(text, vpath);
+      var url = URL.createObjectURL(new Blob([text], { type: 'application/xhtml+xml' }));
+      setBusy(null);
+      window.open(url, '_blank');
+    } catch (e) { setBusy(null); handleErr(e); }
+  }
+
+  async function rewriteEpubHtml(text, vpath) {
+    var doc = new DOMParser().parseFromString(text, 'application/xhtml+xml');
+    var imgs = doc.querySelectorAll('img[src]');
+    for (var i = 0; i < imgs.length; i++) {
+      var ref = imgs[i].getAttribute('src');
+      if (!ref || /^[a-z]+:/i.test(ref) || ref.charAt(0) === '#') continue;
+      try { imgs[i].setAttribute('src', await decryptToDataUrl(resolvePath(vpath, ref))); } catch (e) {}
+    }
+    var links = doc.querySelectorAll('link[rel="stylesheet"][href]');
+    for (var j = 0; j < links.length; j++) {
+      var href = links[j].getAttribute('href');
+      if (!href || /^[a-z]+:/i.test(href)) continue;
+      try {
+        var cu8 = await fetchBuf(resolvePath(vpath, href) + '.enc');
+        var cpt = await rawDecrypt(cu8, getPw());
+        var styleEl = doc.createElement('style');
+        styleEl.textContent = new TextDecoder('utf-8').decode(cpt);
+        doc.documentElement.firstChild ? doc.documentElement.insertBefore(styleEl, doc.documentElement.firstChild) : doc.documentElement.appendChild(styleEl);
+        links[j].parentNode.removeChild(links[j]);
+      } catch (e) {}
+    }
+    var as = doc.querySelectorAll('a[href]');
+    for (var k = 0; k < as.length; k++) {
+      var h = as[k].getAttribute('href');
+      if (!h || /^[a-z]+:/i.test(h) || h.charAt(0) === '#') continue;
+      var clean = h.split('#')[0];
+      if (!/\.(x?html?)$/i.test(clean)) continue;
+      as[k].setAttribute('data-nav', resolvePath(vpath, clean));
+      as[k].setAttribute('href', '#');
+    }
+    var sc = doc.createElement('script');
+    sc.textContent = "document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[data-nav]'):null;if(!a)return;e.preventDefault();try{window.opener.postMessage({__encEpubNav:a.getAttribute('data-nav')},'*')}catch(x){}});";
+    (doc.body || doc.documentElement).appendChild(sc);
+    return new XMLSerializer().serializeToString(doc);
+  }
+
+  if (CFG.epub) {
+    window.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href^="epub/"]') : null;
+      if (!a) return;
+      e.preventDefault(); e.stopPropagation();
+      openEpubPage(a.getAttribute('href'));
+    }, true);
+    window.addEventListener('message', function (ev) {
+      if (ev.data && ev.data.__encEpubNav) openEpubPage(ev.data.__encEpubNav);
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', buildBar);
+  else buildBar();
+
+  window.__encOpen = openEnc;
+})();
+
+</script>
 </body>
 </html>
