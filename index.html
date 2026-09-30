@@ -258,7 +258,7 @@ a:hover{text-decoration:none}
         </div>
         <div class="bk-actions">
           <a class="btn" href="books/ai-supercycle/index.html">打开研读报告</a>
-          <a class="btn ghost" href="books/ai-supercycle/book.pdf" class="btn ghost local-only">原书 PDF</a>
+          <a class="btn ghost local-only" href="books/ai-supercycle/book.pdf">原书 PDF</a>
           <span class="sp"></span>
           <a class="plink" href="books/ai-supercycle/report-print.pdf">打印版 PDF</a>
         </div>
@@ -289,7 +289,7 @@ a:hover{text-decoration:none}
         </div>
         <div class="bk-actions">
           <a class="btn" href="books/ai-money-v2/index.html">打开研读报告</a>
-          <a class="btn ghost" href="books/ai-money-v2/book.pdf" class="btn ghost local-only">原书 PDF</a>
+          <a class="btn ghost local-only" href="books/ai-money-v2/book.pdf">原书 PDF</a>
           <span class="sp"></span>
           <a class="plink" href="books/ai-money-v2/report-print.pdf">打印版 PDF</a>
         </div>
@@ -347,7 +347,7 @@ a:hover{text-decoration:none}
         </div>
         <div class="bk-actions">
           <a class="btn" href="books/korea-trader/index.html">打开研读报告</a>
-          <a class="btn ghost" href="books/korea-trader/book.html" class="btn ghost local-only">读原书全文</a>
+          <a class="btn ghost local-only" href="books/korea-trader/book.html">读原书全文</a>
           <span class="sp"></span>
           <a class="plink" href="books/korea-trader/report-print.pdf">打印版 PDF</a>
         </div>
@@ -377,7 +377,7 @@ a:hover{text-decoration:none}
         </div>
         <div class="bk-actions">
           <a class="btn" href="books/wangchuan/index.html">打开研读报告</a>
-          <a class="btn ghost" href="books/wangchuan/book.pdf" class="btn ghost local-only">原书 PDF</a>
+          <a class="btn ghost local-only" href="books/wangchuan/book.pdf">原书 PDF</a>
           <span class="sp"></span>
           <a class="plink" href="books/wangchuan/report-print.pdf">打印版 PDF</a>
         </div>
@@ -702,14 +702,14 @@ a:hover{text-decoration:none}
     'books/wangchuan/book.pdf': ['books/wangchuan/book.pdf.enc', 'application/pdf'],
     'books/korea-trader/book.html': ['books/korea-trader/book.html.enc', 'text/html']
   };
-  var els = document.querySelectorAll('.local-only');
-  for (var i = 0; i < els.length; i++) {
-    (function(a){
-      var t = MAP[a.getAttribute('href')];
-      if (!t) return;
-      a.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); window.__encOpen(t[0], t[1], 1); });
-    })(els[i]);
-  }
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a) return;
+    var t = MAP[a.getAttribute('href')];
+    if (!t) return;
+    e.preventDefault(); e.stopPropagation();
+    window.__encOpen(t[0], t[1], 1);
+  }, true);
 })();
 </script>
 </body>
