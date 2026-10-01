@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《时寒冰说：未来二十年，经济大趋势（合订版）》深度研读</title>
+<style>
+:root {
+  --page-bg: #F7F8FA; --page-surface: #FFFFFF; --page-surface-muted: #F1F3F6;
+  --page-border: #E3E7ED; --page-text: #1F2733; --page-text-secondary: #4A5568;
+  --page-text-muted: #8592A6; --page-text-disabled: #B9C2CF;
+  --page-brand: #0B5CAB; --page-brand-text: #083E72; --page-brand-soft: #E8F0F9; --page-brand-soft-strong: #CBDEEE;
+  --success: #1B7F4D; --soft-success: #E3F2E9; --danger: #C0392B; --soft-danger: #FAE8E6;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Courier New", monospace;
+}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: var(--font-sans); color: var(--page-text); background: var(--page-bg); line-height: 1.7; font-size: 15px; }
+.wrap { max-width: 1020px; margin: 0 auto; padding: 0 20px; }
+.ic { width: 18px; height: 18px; } .ic-lg { width: 22px; height: 22px; }
+a { color: var(--page-brand); text-decoration: none; } a:hover { text-decoration: underline; }
+
+/* Intro 封面 */
+.report-intro { background: linear-gradient(160deg, var(--page-brand-text) 0%, #0A4C8C 60%, #0B5CAB 100%); color: #fff; padding: 58px 0 46px; }
+.report-intro__content { max-width: 1020px; margin: 0 auto; padding: 0 20px; }
+.report-intro .eyebrow { font-size: 13px; letter-spacing: .18em; opacity: .75; margin: 0 0 10px; }
+.report-intro h1 { font-size: 32px; margin: 0 0 10px; line-height: 1.3; }
+.report-intro .subtitle { font-size: 15.5px; opacity: .85; margin: 0 0 16px; max-width: 760px; }
+.intro-summary { font-size: 14.5px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); border-radius: 10px; padding: 14px 18px; max-width: 860px; }
+.intro-meta { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 18px 0 0; font-size: 13px; opacity: .85; }
+.intro-meta span { display: inline-flex; align-items: center; gap: 7px; }
+.intro-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 22px 0 0; }
+.intro-stats .stat { background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.16); border-radius: 10px; padding: 14px 16px; }
+.intro-stats strong { font-size: 22px; display: block; line-height: 1.3; }
+.intro-stats span { font-size: 12.5px; opacity: .8; display: block; margin-top: 3px; line-height: 1.5; }
+
+/* Sticky nav */
+.sticky-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--page-border); transform: translateY(-100%); transition: transform .25s ease; }
+.sticky-nav.show { transform: none; }
+.sticky-nav__inner { max-width: 1020px; margin: 0 auto; padding: 0 16px; display: flex; align-items: center; gap: 2px; overflow-x: auto; scrollbar-width: none; }
+.sticky-nav__inner::-webkit-scrollbar { display: none; }
+.sticky-nav__brand { font-size: 13px; font-weight: 700; color: var(--page-brand-text); white-space: nowrap; padding-right: 10px; }
+.sticky-nav a { font-size: 13px; color: var(--page-text-secondary); padding: 11px 10px 9px; white-space: nowrap; border-bottom: 2px solid transparent; }
+.sticky-nav a:hover { text-decoration: none; color: var(--page-brand); }
+.sticky-nav a.active { color: var(--page-brand); border-bottom-color: var(--page-brand); font-weight: 600; }
+
+/* TOC */
+.toc { padding-top: 48px; }
+.toc-card { background: var(--page-surface); border: 1px solid var(--page-border); border-radius: 12px; padding: 24px 26px; }
+.toc-card h2 { margin: 0; font-size: 17px; display: flex; align-items: center; gap: 10px; }
+.toc-card ol { list-style: none; margin: 14px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 4px 28px; }
+.toc-card li { display: flex; align-items: baseline; gap: 10px; padding: 4px 0; }
+.toc-card li .no { font-family: var(--font-mono); font-size: 12px; color: var(--page-brand); font-weight: 700; width: 20px; flex-shrink: 0; }
+.toc-card li a { color: var(--page-text); font-size: 14.5px; }
+.toc-card li .en { color: var(--page-text-muted); font-size: 12px; margin-left: 4px; }
+
+/* Sections */
+section.sec { padding: 56px 0 10px; scroll-margin-top: 64px; }
+.sec-head { display: flex; align-items: center; gap: 14px; margin-bottom: 8px; }
+.sec-no { font-family: var(--font-mono); font-size: 12.5px; font-weight: 700; color: var(--page-brand-text); border: 1px solid var(--page-brand-soft-strong); background: var(--page-brand-soft); padding: 3px 11px; border-radius: 999px; white-space: nowrap; }
+.sec-icon { color: var(--page-brand); display: inline-flex; }
+.sec-head h2 { margin: 0; font-size: 24px; line-height: 1.35; }
+.sec-sub { color: var(--page-text-muted); font-size: 14px; margin: 6px 0 26px; }
+
+/* Inline elements */
+mark.hl { background: var(--page-brand-soft-strong); color: var(--page-brand-text); padding: 1px 6px; border-radius: 5px; font-weight: 600; font-style: normal; white-space: nowrap; }
+.pg { font-family: var(--font-mono); font-size: 11px; color: var(--page-text-muted); background: var(--page-surface-muted); border-radius: 4px; padding: 0 5px; white-space: nowrap; }
+a.pg-link { color: var(--page-brand); cursor: pointer; text-decoration: none; }
+a.pg-link:hover { text-decoration: underline; }
+a.pg-link:hover::after { content: ' →'; }
+
+/* Callout */
+.callout { background: var(--page-surface); border: 1px solid var(--page-border); border-radius: 12px; padding: 18px 22px; display: flex; gap: 14px; margin: 22px 0; }
+.callout__icon { color: var(--page-brand); flex-shrink: 0; margin-top: 3px; }
+.callout__body { flex: 1; min-width: 0; }
+.callout__body .label { font-size: 12px; font-weight: 700; letter-spacing: .1em; color: var(--page-text-muted); margin: 0 0 6px; }
+.callout__body p { margin: 0 0 6px; font-size: 14.5px; }
+.callout__body p:last-child { margin-bottom: 0; }
+.callout--danger .callout__icon { color: var(--danger); }
+.callout--danger .callout__body .label { color: var(--danger); }
+
+/* Argument flow（论证链） */
+.arg-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin: 18px 0 8px; }
+.arg-step { border: 1px solid var(--page-border); border-radius: 10px; padding: 12px 13px; background: var(--page-surface); }
+.arg-step .k { font-family: var(--font-mono); font-size: 11px; color: var(--page-brand); font-weight: 700; display: block; margin-bottom: 5px; letter-spacing: .04em; }
+.arg-step .t { font-size: 13px; font-weight: 700; margin: 0 0 4px; }
+.arg-step .d { font-size: 12px; color: var(--page-text-muted); margin: 0; line-height: 1.6; }
+
+/* 观点关联列表 */
+.rel-list { list-style: none; margin: 14px 0; padding: 0; }
+.rel-list li { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; padding: 10px 2px; border-bottom: 1px solid var(--page-border); font-size: 14px; }
+.rel-list li:last-child { border-bottom: none; }
+.rel-k { font-size: 11.5px; font-weight: 700; border-radius: 5px; padding: 1px 8px; flex-shrink: 0; }
+.rel-k--pre { background: var(--page-surface-muted); color: var(--page-text-secondary); }
+.rel-k--der { background: var(--page-brand-soft); color: var(--page-brand-text); }
+.rel-k--ref { background: var(--soft-danger); color: #A40E26; }
+.rel-k--ext { background: #F3EEFB; color: #5B34B5; }
+
+/* 折叠章节卡片 */
+.btn-row { display: flex; gap: 10px; margin: 0 0 18px; }
+.btn { font-size: 13px; padding: 7px 15px; border-radius: 8px; border: 1px solid var(--page-border); background: #fff; color: var(--page-text-secondary); cursor: pointer; font-family: inherit; display: inline-flex; align-items: center; gap: 7px; }
+.btn:hover { border-color: var(--page-brand); color: var(--page-brand); }
+.ch-group { display: flex; align-items: center; gap: 12px; margin: 30px 0 14px; }
+.ch-group h3 { margin: 0; font-size: 15px; white-space: nowrap; }
+.ch-group .rule { flex: 1; height: 1px; background: var(--page-border); }
+.chapter-card { border: 1px solid var(--page-border); border-radius: 12px; background: #fff; margin-bottom: 12px; overflow: hidden; }
+.chapter-head { display: flex; width: 100%; text-align: left; background: none; border: none; padding: 15px 20px; cursor: pointer; gap: 14px; align-items: flex-start; font-family: inherit; font-size: inherit; color: inherit; }
+.chapter-head:hover { background: var(--page-surface); }
+.chapter-no { font-family: var(--font-mono); font-weight: 700; font-size: 12.5px; color: var(--page-brand-text); background: var(--page-brand-soft); border-radius: 8px; padding: 7px 10px; line-height: 1; margin-top: 3px; flex-shrink: 0; min-width: 44px; text-align: center; }
+.chapter-title { flex: 1; min-width: 0; }
+.chapter-title h3 { margin: 0; font-size: 16px; line-height: 1.45; }
+.chapter-title h3 .pages { font-family: var(--font-mono); font-size: 11.5px; color: var(--page-text-muted); font-weight: 400; margin-left: 8px; }
+.chapter-claim { margin: 5px 0 0; font-size: 13.5px; color: var(--page-text-secondary); line-height: 1.65; }
+.chapter-chev { color: var(--page-text-muted); transition: transform .28s ease; flex-shrink: 0; margin-top: 5px; }
+.chapter-card.open .chapter-chev { transform: rotate(180deg); }
+.chapter-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .3s ease; }
+.chapter-card.open .chapter-body { grid-template-rows: 1fr; }
+.chapter-body-inner { overflow: hidden; }
+.chapter-body-content { padding: 16px 20px 20px 78px; border-top: 1px dashed var(--page-border); }
+.ch-block { margin-bottom: 14px; }
+.ch-block h4 { font-size: 12px; margin: 0 0 8px; color: var(--page-text-muted); font-weight: 700; letter-spacing: .08em; display: flex; align-items: center; gap: 7px; }
+.ch-block ul { margin: 0; padding-left: 18px; }
+.ch-block li { margin-bottom: 7px; font-size: 14px; line-height: 1.7; }
+.ch-link { font-size: 13px; color: var(--page-text-secondary); background: var(--page-surface); border: 1px dashed var(--page-border); border-radius: 8px; padding: 9px 14px; margin: 0; }
+.ch-link strong { color: var(--page-brand-text); }
+
+/* 领域图谱纵向层级 */
+.chain { max-width: 880px; margin: 0 auto; }
+.layer-node { border: 1px solid var(--page-border); border-radius: 12px; background: #fff; padding: 18px 22px; }
+.layer-head { display: flex; align-items: center; gap: 13px; margin-bottom: 4px; }
+.layer-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--page-brand-soft); color: var(--page-brand); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.layer-title { flex: 1; min-width: 0; }
+.layer-title h3 { margin: 0; font-size: 16.5px; }
+.layer-title .sub { font-size: 12.5px; color: var(--page-text-muted); }
+.cycle-tag { font-size: 11.5px; font-weight: 700; padding: 3px 11px; border-radius: 999px; border: 1px solid var(--page-border); background: var(--page-surface); color: var(--page-text-secondary); white-space: nowrap; flex-shrink: 0; }
+.layer-body dl { display: grid; grid-template-columns: 1.2fr 1.2fr 1fr; gap: 12px 20px; margin: 12px 0 0; }
+.layer-body dt { font-size: 11.5px; color: var(--page-text-muted); font-weight: 700; margin-bottom: 3px; letter-spacing: .06em; }
+.layer-body dd { margin: 0; font-size: 13px; line-height: 1.65; }
+.flow-connector { display: flex; flex-direction: column; align-items: center; gap: 1px; padding: 8px 0; }
+.flow-connector .arr { color: var(--page-brand); }
+.flow-connector .lbl { font-size: 12.5px; color: var(--page-text-muted); text-align: center; max-width: 620px; line-height: 1.55; }
+
+/* 表格（移动端自动堆叠） */
+.tbl-title { font-size: 14px; font-weight: 700; margin: 22px 0 4px; display: flex; align-items: center; gap: 8px; }
+.tbl-note { font-size: 12.5px; color: var(--page-text-muted); margin: 0 0 10px; }
+.tbl-wrap { overflow-x: auto; border: 1px solid var(--page-border); border-radius: 12px; }
+table.tbl { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+.tbl th { background: var(--page-surface-muted); text-align: left; font-size: 12.5px; padding: 10px 14px; border-bottom: 1px solid var(--page-border); color: var(--page-text-secondary); white-space: nowrap; font-weight: 700; }
+.tbl td { padding: 11px 14px; border-bottom: 1px solid var(--page-border); vertical-align: top; line-height: 1.65; }
+.tbl tr:last-child td { border-bottom: none; }
+.tbl .pos { font-weight: 700; color: var(--page-brand-text); }
+.tbl td .pg { display: inline-block; margin-top: 2px; }
+
+/* 信号卡 / 时间轴 / 问答卡 */
+.signal-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.signal-card { border: 1px solid var(--page-border); border-radius: 12px; padding: 16px 20px; background: #fff; }
+.signal-card h4 { display: flex; align-items: center; gap: 8px; margin: 0 0 10px; font-size: 14.5px; }
+.signal-card ul { margin: 0; padding-left: 18px; font-size: 13.5px; }
+.signal-card li { margin-bottom: 6px; }
+.timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin: 14px 0; }
+.tl-node { border: 1px solid var(--page-border); border-radius: 12px; padding: 13px 14px; background: var(--page-surface); }
+.tl-node time { font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: var(--page-brand-text); display: block; margin-bottom: 5px; }
+.tl-node p { margin: 0; font-size: 12.5px; line-height: 1.6; color: var(--page-text-secondary); }
+.qa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+.qa-card { border: 1px solid var(--page-border); border-radius: 12px; padding: 16px 20px; background: #fff; }
+.qa-card h4 { margin: 0 0 8px; font-size: 14.5px; display: flex; gap: 9px; line-height: 1.5; }
+.qa-card h4 .qno { font-family: var(--font-mono); color: var(--page-brand); font-size: 13px; flex-shrink: 0; }
+.qa-card p { font-size: 13.5px; margin: 0; color: var(--page-text-secondary); }
+.qa-card .how { margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--page-border); font-size: 12.5px; color: var(--page-text-muted); }
+
+/* 06 案例与投资标的 */
+.ctx-pill { display: inline-block; font-size: 11px; font-weight: 700; line-height: 1; padding: 4px 9px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
+.ctx-pill--pos { background: var(--soft-success); color: var(--success); }
+.ctx-pill--neg { background: var(--soft-danger); color: var(--danger); }
+.ctx-pill--demo { background: var(--page-brand-soft); color: var(--page-brand-text); }
+.ctx-pill--mention { background: var(--page-surface-muted); color: var(--page-text-muted); }
+.asset-group { border: 1px solid var(--page-border); border-radius: 12px; background: #fff; margin-bottom: 16px; overflow: hidden; }
+.asset-group-head { display: flex; align-items: center; gap: 10px; padding: 12px 18px; background: var(--page-surface-muted); border-bottom: 1px solid var(--page-border); }
+.asset-group-head .g-name { font-size: 14px; font-weight: 700; color: var(--page-brand-text); flex: 1; }
+.asset-group-head .g-count { font-family: var(--font-mono); font-size: 11.5px; color: var(--page-text-muted); }
+.asset-item { display: flex; gap: 12px; padding: 13px 18px; border-bottom: 1px solid var(--page-border); }
+.asset-item:last-child { border-bottom: none; }
+.asset-item .a-name { width: 150px; flex-shrink: 0; font-size: 13.5px; font-weight: 700; color: var(--page-text); }
+.asset-item .a-name .a-type { display: block; font-size: 11.5px; font-weight: 400; color: var(--page-text-muted); margin-top: 2px; }
+.asset-item .a-body { flex: 1; min-width: 0; font-size: 13px; line-height: 1.65; color: var(--page-text-secondary); }
+.asset-item .a-body .a-data { color: var(--page-text); }
+.asset-item .a-judge { font-size: 12.5px; color: var(--page-text-muted); margin-top: 3px; }
+.asset-item .a-pg { flex-shrink: 0; align-self: flex-start; margin-top: 2px; }
+.case-note { font-size: 12.5px; color: var(--page-text-muted); background: var(--page-surface); border: 1px dashed var(--page-border); border-radius: 8px; padding: 9px 14px; margin: 0 0 14px; }
+.ctx-legend { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 0 0 16px; font-size: 12.5px; color: var(--page-text-secondary); }
+
+/* Footer */
+footer { margin-top: 64px; border-top: 1px solid var(--page-border); background: var(--page-surface); padding: 30px 0 40px; }
+footer .f-title { font-size: 13px; font-weight: 700; color: var(--page-text-secondary); margin: 0 0 8px; }
+footer p { font-size: 12.5px; color: var(--page-text-muted); margin: 0 0 6px; }
+
+/* Print：卡片全部展开 */
+@page { size: A4; margin: 14mm 12mm; }
+@media print {
+  html, body { background: #fff; font-size: 11.5pt; }
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .wrap { max-width: none; padding: 0; }
+  .sticky-nav, .btn-row, .toc { display: none !important; }
+  .report-intro { padding: 22px 0 18px; background: #0B5CAB !important; }
+  .report-intro h1 { font-size: 22pt; }
+  .report-intro .subtitle, .intro-summary { font-size: 10pt; }
+  .intro-stats { grid-template-columns: repeat(3, 1fr); }
+  section.sec { padding: 18px 0 4px; break-inside: auto; }
+  .sec-head, .tbl-title { break-after: avoid; }
+  .chapter-card { break-inside: avoid; }
+  .chapter-body { grid-template-rows: 1fr !important; }
+  .chapter-head { pointer-events: none; }
+  .chapter-chev { display: none; }
+  .tbl-wrap, .callout, .layer-node, .arg-flow, .signal-grid, .qa-grid, .timeline { break-inside: avoid; }
+  .tbl { font-size: 9.5pt; }
+  .tbl th, .tbl td { padding: 5px 7px; }
+  .tbl thead { display: table-header-group; }
+  a { color: inherit; text-decoration: none; }
+  .pg { color: #6B7686; }
+  a.pg-link { color: #6B7686; }
+}
+@media (max-width: 860px) {
+  .layer-body dl { grid-template-columns: 1fr 1fr; }
+  .timeline { grid-template-columns: repeat(2, 1fr); }
+  .arg-flow { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .report-intro h1 { font-size: 26px; }
+  .intro-stats { grid-template-columns: 1fr; }
+  .toc-card ol { grid-template-columns: 1fr; }
+  .sec-head h2 { font-size: 20px; }
+  .signal-grid, .qa-grid, .timeline, .layer-body dl { grid-template-columns: 1fr; }
+  .chapter-body-content { padding: 14px 18px 18px; }
+  .tbl--stack { display: block; }
+  .tbl--stack thead { display: none; }
+  .tbl--stack tbody, .tbl--stack tr, .tbl--stack td { display: block; width: 100%; }
+  .tbl--stack tr { border-bottom: 1px solid var(--page-border); padding: 6px 14px; }
+  .tbl--stack tr:last-child { border-bottom: none; }
+  .tbl--stack td { border: none; padding: 5px 0; }
+  .tbl--stack td::before { content: attr(data-label); display: block; font-size: 11.5px; font-weight: 700; color: var(--page-text-muted); margin-bottom: 2px; }
+  .asset-item { flex-direction: column; gap: 6px; padding: 11px 14px; }
+  .asset-item .a-name { width: auto; }
+}
+</style>
+</head>
+<body>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></g></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></g></symbol>
+    <symbol id="i-map" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></g></symbol>
+    <symbol id="i-scale" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></g></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></g></symbol>
+    <symbol id="i-compass" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></g></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></g></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></g></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></g></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></g></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></g></symbol>
+    <symbol id="i-arrowdown" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></g></symbol>
+    <symbol id="i-arrowright" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="report-intro" id="top">
+  <div class="report-intro__content">
+    <p class="eyebrow">书籍深度研读 · 美元周期与全球资产框架</p>
+    <h1>《时寒冰说：未来二十年，经济大趋势（合订版）》深度研读</h1>
+    <p class="subtitle">从美元周期律到资源为王——一部把 1971–2034 全球资本流动、危机节奏与地缘重组的因果链完整拆开的宏观趋势框架书</p>
+    <p class="intro-summary">全书以"美元周期律"为总纲：1971 年美元与黄金脱钩后按"弱势—强势"周期循环，每次强势周期都通过资金回流引爆外围危机，再由美国低价收购资源与资产。作者据此判断——2003 年（房地产被定为支柱产业）才是中国的真正转折点，2012 年是五重临界汇聚的临界点，2016～2022 是美元暴涨、新兴市场与资源国集体危机的阶段，2023～2034 则进入"美元大贬值＋资源超级大牛市＋大滞胀"时代。本报告把这条传导链拆成货币、资本、资产、实体、地缘五层，并整理出可直接跟踪的指标与标的。</p>
+    <div class="intro-meta">
+      <span><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg>原著：时寒冰</span>
+      <span><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>书中数据截至 2014 年</span>
+      <span><svg class="ic" aria-hidden="true"><use href="#i-layers"/></svg>4 篇序 + 37 章 + 结语 · 811 页</span>
+      <span><svg class="ic" aria-hidden="true"><use href="#i-arrowdown"/></svg><a href="book.pdf" target="_blank" style="color:rgba(255,255,255,0.85)">原文 PDF</a></span>
+    </div>
+    <div class="intro-stats">
+      <div class="stat"><strong>5 倍</strong><span>中国 M2 十年扩张：22.12 万亿 → 110.65 万亿元（2003→2013），货币存量/GDP 达 200%</span></div>
+      <div class="stat"><strong>164.72</strong><span>美元指数目标位：作者对 2016～2022 美元加速上涨周期高点的预判</span></div>
+      <div class="stat"><strong>37 章</strong><span>全书骨架：上部现实篇 15 章 + 下部未来篇 22 章 + 结语，共 811 页</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="sticky-nav" aria-label="页面导航">
+  <div class="sticky-nav__inner">
+    <span class="sticky-nav__brand">未来二十年 · 研读</span>
+    <a href="#overview">概览</a>
+    <a href="#skeleton">书籍骨架</a>
+    <a href="#chain">趋势图谱</a>
+    <a href="#mapping">趋势—资产映射</a>
+    <a href="#indicators">指标追踪</a>
+    <a href="#cases">案例与标的</a>
+    <a href="#risks">风险反证</a>
+    <a href="#conclusion">可操作结论</a>
+  </div>
+</nav>
+
+<div class="wrap">
+  <nav class="toc" id="toc" aria-label="目录">
+    <div class="toc-card">
+      <h2>目录</h2>
+      <ol>
+        <li><span class="no">01</span><a href="#overview">全书概览与核心论点<span class="en">结构逻辑 · 误区 · 观点关联</span></a></li>
+        <li><span class="no">02</span><a href="#skeleton">书籍知识骨架<span class="en">序 + 37 章折叠卡片</span></a></li>
+        <li><span class="no">03</span><a href="#chain">宏观趋势传导图谱<span class="en">五层结构 · 传导链</span></a></li>
+        <li><span class="no">04</span><a href="#mapping">趋势—资产映射<span class="en">变量 × 资产 × 指标 × 依据</span></a></li>
+        <li><span class="no">05</span><a href="#indicators">关键指标追踪清单<span class="en">先行/同步指标 · 信号</span></a></li>
+        <li><span class="no">06</span><a href="#cases">案例与投资标的<span class="en">案例总账 · 标的盘分组</span></a></li>
+        <li><span class="no">07</span><a href="#risks">风险与反证<span class="en">风险矩阵 · 失效传导链</span></a></li>
+        <li><span class="no">08</span><a href="#conclusion">可操作结论<span class="en">关注位置 · 待验证问题</span></a></li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <!-- 01 全书概览 -->
+    <section class="sec" id="overview">
+      <div class="sec-head"><span class="sec-no">01</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-book"/></svg></span><h2>全书概览与核心论点</h2></div>
+      <p class="sec-sub">还原书籍的知识骨架：章节逻辑、核心论点与论证链条</p>
+
+      <div class="callout">
+        <span class="callout__icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-quote"/></svg></span>
+        <div class="callout__body">
+          <p class="label">核心论断</p>
+          <p>全书是一套<mark class="hl">"美元周期—资本流动—资产价格—地缘重组"</mark>的传导框架。美元周期律是总纲：美元走弱时全球流动性泛滥、资源与新兴市场资产暴涨；美元走强时资金回流美国、外围国家货币崩盘、债务爆雷、资源价格暴跌。美国从不靠货币贬值减债（那会动摇美元地位），而是<mark class="hl">强化美元、引爆全球危机、再抄底优质资产</mark><a href="book.pdf#page=273" target="_blank" class="pg pg-link">p.273–274</a>。</p>
+          <p>中国的位置被这本书放得很清楚：2003 年 18 号文把房地产定为国民经济支柱产业，是资源错配与货币超发的<mark class="hl">总开关</mark><a href="book.pdf#page=44" target="_blank" class="pg pg-link">p.44–49</a>；2012 年是投资率越界、消费率塌陷、财政与债务同时触顶的五重临界年<a href="book.pdf#page=109" target="_blank" class="pg pg-link">p.109–130</a>；2016～2022 债务总危机显性化，2023～2034 全球进入资源超级大牛市与大滞胀<a href="book.pdf#page=748" target="_blank" class="pg pg-link">p.748、p.754</a>。</p>
+        </div>
+      </div>
+
+      <div class="tbl-title" style="margin-top:26px;">论证链：五个环节如何咬合</div>
+      <div class="arg-flow">
+        <div class="arg-step"><span class="k">起点 · 2003</span><p class="t">制度开关</p><p class="d">18 号文把房地产定为支柱产业，叠加 1994 年起的强制结售汇制，资源与基础货币同时涌向房地产<a href="book.pdf#page=44" target="_blank" class="pg pg-link">p.44、p.97</a></p></div>
+        <div class="arg-step"><span class="k">锁定 · 2003–2011</span><p class="t">中美恐怖平衡</p><p class="d">"举债—购债""发货币—储备货币""先进技术—落后生产力"三重依赖，使中国高增长被美元体系锁定<a href="book.pdf#page=89" target="_blank" class="pg pg-link">p.89–104</a></p></div>
+        <div class="arg-step"><span class="k">积累 · 2012</span><p class="t">五重临界</p><p class="d">投资率越界、消费率塌陷、财政收入触顶、地方债务超 10 万亿、M2 全球第一<a href="book.pdf#page=109" target="_blank" class="pg pg-link">p.109–130</a></p></div>
+        <div class="arg-step"><span class="k">引爆 · 2016–2022</span><p class="t">美元周期反转</p><p class="d">美元加速上涨（目标指数 164.72），资金大回流美国；金砖与资源国货币贬值、资本外逃、债务爆雷<a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509、p.531</a></p></div>
+        <div class="arg-step"><span class="k">收束 · 2023–2034</span><p class="t">资源为王</p><p class="d">美元大贬值＋大滞胀；美国低价控制的优质资源价值成倍上升，粮食成为终极战略武器<a href="book.pdf#page=748" target="_blank" class="pg pg-link">p.748、p.754、p.757</a></p></div>
+      </div>
+
+      <div class="callout callout--danger">
+        <span class="callout__icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-x"/></svg></span>
+        <div class="callout__body">
+          <p class="label">书中点破的四个常见误判</p>
+          <p><strong>误判一：把 2008 年当作转折点。</strong>作者认为 2003 年（房地产支柱产业定位）才是资源错配的起点，2012 年才是临界点，4 万亿只是把投资拉动思维做了一次更集中的表达<a href="book.pdf#page=44" target="_blank" class="pg pg-link">p.44、p.109</a>。</p>
+          <p><strong>误判二：认为房价由供需决定。</strong>房价永远是区域问题，由"资源吸引能力＋财富创造能力"决定——鄂尔多斯（资源输出型）与温州（资本输出型）是房价见顶的两个完整样本<a href="book.pdf#page=238" target="_blank" class="pg pg-link">p.238、p.245</a>。</p>
+          <p><strong>误判三：认为美国靠货币贬值减轻债务。</strong>美国不会让美元信用受损，而是强化美元与金融体系、引爆全球危机后抄底优质资产<a href="book.pdf#page=273" target="_blank" class="pg pg-link">p.273</a>。</p>
+          <p><strong>误判四：认为美元信用即将崩塌。</strong>美元计价资产池无可替代——2013 年可供国际投资者投资的美元资产以万亿美元计，而人民币计价资产仅约 2500 亿美元<a href="book.pdf#page=744" target="_blank" class="pg pg-link">p.744</a>。</p>
+        </div>
+      </div>
+
+      <div class="tbl-title" style="margin-top:26px;">观点关联：书内论点之间的四种关系</div>
+      <ul class="rel-list">
+        <li><span class="rel-k rel-k--pre">前提 → 推论</span><span>美元周期律（1971 年以来多轮弱—强循环）</span><a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509</a><span>→</span><span>2016～2022 资金大回流美国，美股、房市、债市三线齐涨，家庭财富净值创 80.66 万亿美元新高</span><a href="book.pdf#page=496" target="_blank" class="pg pg-link">p.496–498</a></li>
+        <li><span class="rel-k rel-k--ext">延伸</span><span>货币超发不止中国——日本安倍"三支箭"（无限量宽松＋贬值＋2% 通胀目标）与欧央行德拉吉的"无限货币火力＋OMT"，本质都是"以印钞换时间"</span><a href="book.pdf#page=683" target="_blank" class="pg pg-link">p.683、p.723</a></li>
+        <li><span class="rel-k rel-k--ref">反驳</span><span>主流把"城镇化"视为下一台增长引擎 → 作者反驳：资源与环境约束（北京人口 2069 万已超 1800 万极限）使城镇化无法复制 4 万亿式刺激</span><a href="book.pdf#page=208" target="_blank" class="pg pg-link">p.208–213</a></li>
+        <li><span class="rel-k rel-k--der">结论</span><span>资源超级为王 → 2023～2034 美国对粮食战略的运用达到极致，资源与粮食成为终极武器</span><a href="book.pdf#page=757" target="_blank" class="pg pg-link">p.757–758</a></li>
+        <li><span class="rel-k rel-k--pre">前提 → 推论</span><span>人口结构逆转（劳动年龄人口 2012 年首次绝对下降）</span><a href="book.pdf#page=397" target="_blank" class="pg pg-link">p.397</a><span>→</span><span>参照"日本生育率跌破 1.8 十年后爆发房地产危机"，中国房价一旦转跌，债务危机立即显性化</span><a href="book.pdf#page=391" target="_blank" class="pg pg-link">p.391、p.395</a></li>
+      </ul>
+    </section>
+
+    <!-- 02 章节卡片 -->
+    <section class="sec" id="skeleton">
+      <div class="sec-head"><span class="sec-no">02</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-layers"/></svg></span><h2>书籍知识骨架</h2></div>
+      <p class="sec-sub">4 篇序 + 37 章 + 结语的折叠卡片：每章一句话核心论断（标注原书页码）、关键案例与数据、章节在论证链中的角色。点击卡片展开。</p>
+      <div class="btn-row">
+        <button class="btn" id="expand-all" type="button"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg>展开全部</button>
+        <button class="btn" id="collapse-all" type="button"><svg class="ic" aria-hidden="true" style="transform:rotate(180deg)"><use href="#i-chev"/></svg>收起全部</button>
+      </div>
+      <div class="ch-group"><h3>序言 · 四位作序者与作者自述</h3><span class="rule"></span></div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">序一</span>
+          <span class="chapter-title">
+            <h3>在严冬到来前拉响警报<span class="pages">p.9–11 · 乔良（国防大学教授、空军少将）</span></h3>
+            <p class="chapter-claim">美元指数下跌周期结束后必有最长 6 年的上涨周期，美国借此剪全球羊毛；而"全球金融监管权"是美国在危机后新得的一颗霸权宝石。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>1978.10–1985.2 美元指数 <a href="book.pdf#page=84" target="_blank" class="pg pg-link">84.13 → 128.44</a>（+52%），引爆拉美债务危机，阿根廷等国由发达重新沦为发展中<a href="book.pdf#page=9" target="_blank" class="pg pg-link">p.9</a>。</li>
+            <li>1995.4–2001.7 美元指数 <a href="book.pdf#page=80" target="_blank" class="pg pg-link">80.05 → 121.01</a>（+51%），引发亚洲金融危机与新兴市场货币大贬值<a href="book.pdf#page=9" target="_blank" class="pg pg-link">p.9</a>。</li>
+            <li>2011.5 起新一轮上涨周期，从 73.70 起算 6 年至 2017.7，按 50% 涨幅预估目标约 <a href="book.pdf#page=110" target="_blank" class="pg pg-link">110</a><a href="book.pdf#page=9" target="_blank" class="pg pg-link">p.9</a>。</li>
+            <li>Libor 掌控权以 <a href="book.pdf#page=1" target="_blank" class="pg pg-link">仅 1 英镑</a>从欧洲转移到美国；研究显示美国利用危机脱困的比率高达 <a href="book.pdf#page=60" target="_blank" class="pg pg-link">60%</a><a href="book.pdf#page=10" target="_blank" class="pg pg-link">p.10–11</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>为全书"美元周期律"提供外部权威背书，并提前预告了"金融监管权扩张→剪羊毛→地区危机"的完整路径。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">序二</span>
+          <span class="chapter-title">
+            <h3>碧血照丹心<span class="pages">p.12–14 · 周洛华（金融学家）</span></h3>
+            <p class="chapter-claim">这是一部为还房贷的普通人写的世界经济现代史片段；核心判断是"以房地产投资和信贷扩张为主的经济增长模式分明是不可持续的"。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>指出中国同时面临"外部摩擦与日俱增、新的经济增长点尚未建立、经济体制全面改革仍有待启动"，却又要"守住不发生系统性金融风险"的底线<a href="book.pdf#page=12" target="_blank" class="pg pg-link">p.12–13</a>。</li>
+            <li>借十字军东征与山楂树的隐喻，提出全书的价值立场：<span class="pg">偏离了人的发展、背离了人的天性，任何崇高目标都注定失败</span><a href="book.pdf#page=13" target="_blank" class="pg pg-link">p.13</a>。</li>
+            <li>引用其祖父（历史学家周谷城）诗句"世界须有新秩序，中华应许献良方"<a href="book.pdf#page=12" target="_blank" class="pg pg-link">p.12</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>点出全书的价值底色——把宏观趋势研究落到普通人的财富与尊严上。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">序三</span>
+          <span class="chapter-title">
+            <h3>侠之大者，为国为民<span class="pages">p.15–16 · 劳玉仪（香港财华社集团主席）</span></h3>
+            <p class="chapter-claim">趋势研究重在"以史为鉴、研究人性"；美国将借全球大洗牌强化单极霸权——军事力量之外，美元霸权是最犀利的武器。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>列举中国内部隐患清单：货币超发严重、债务隐患严重、人口出生率不足、老龄化加剧、能源消耗增大且严重依赖进口、耕地逐渐减少以致无法提供足够粮食<a href="book.pdf#page=16" target="_blank" class="pg pg-link">p.16</a>。</li>
+            <li>列举外部摩擦清单：中日东海争端、南海争端、中印领土与印度洋利益分歧、中美在非洲与南美的能源博弈<a href="book.pdf#page=16" target="_blank" class="pg pg-link">p.16</a>。</li>
+            <li>强调作者"将所有数据与原始出处一一核对"，力求以最原始、最权威的数据作为分析基础<a href="book.pdf#page=15" target="_blank" class="pg pg-link">p.15</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>从香港视角确认"美国借危机强化霸权"这一总判断，并强调本书的数据纪律。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">自序</span>
+          <span class="chapter-title">
+            <h3>感悟趋势之美<span class="pages">p.17–20 · 时寒冰</span></h3>
+            <p class="chapter-claim">研究中国经济趋势必须站在大国博弈的战略高度、以全球化视野分析；全书围绕三条主线——中国自身的内在力量、美国（全球趋势主导者）、全球大国的能源角逐与地缘博弈。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>结构交代：上部"现实篇"写到 2015 年，偏重写<span class="pg">原因、规律和战略布局</span>；下部"未来篇"从 2016 年写到 2034 年，是由"因"与战略布局引申出的"果"<a href="book.pdf#page=18" target="_blank" class="pg pg-link">p.18</a>。</li>
+            <li>方法论自述：作者此前反复强调"2012 年大转折之后，中国经济将告别辉煌，步入三年大纠结的过渡期，而后再步入一个漫长和痛苦的调整期"<a href="book.pdf#page=17" target="_blank" class="pg pg-link">p.17</a>。</li>
+            <li>写作状态：2012 年辞去工作专事研究，每天工作 14–15 小时<a href="book.pdf#page=19" target="_blank" class="pg pg-link">p.19</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>交代全书的三主线方法论与上下部结构，是理解后续 37 章布局的钥匙。</p>
+        </div></div></div>
+      </div>
+
+      <div class="ch-group"><h3>上部 现实篇 · 第 1–15 章（原因、规律与战略布局）</h3><span class="rule"></span></div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">01</span>
+          <span class="chapter-title">
+            <h3>大变革：1978～2002<span class="pages">p.21–42</span></h3>
+            <p class="chapter-claim">改革开放的本质是"政策决定资源流向"——资源先被引向农业与工业，再被房地产投机抽走，最后在调控后被重新引回制造业。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>海南房地产泡沫</strong>：1992 年海南房地产投资 87 亿元、占固定资产投资一半，海口开发面积达 800 万㎡，地价从 1991 年十几万元/亩飙至 600 多万元/亩<a href="book.pdf#page=33" target="_blank" class="pg pg-link">p.33</a>。</li>
+            <li>泡沫破灭代价：烂尾楼 600 多栋、1600 多万㎡，积压资金 800 亿元，四大国有商业银行坏账 300 亿元，银行不良率一度超 60%<a href="book.pdf#page=35" target="_blank" class="pg pg-link">p.35</a>。</li>
+            <li><strong>海发行关闭</strong>：1998.6.21 央行宣布关闭海南发展银行，为新中国首家因支付危机关闭的省级商业银行<a href="book.pdf#page=35" target="_blank" class="pg pg-link">p.35</a>。</li>
+            <li>汇率并轨：人民币 1 美元兑 1.4984 元贬至 1994 年 8.6187 元，大幅提升产品竞争力<a href="book.pdf#page=36" target="_blank" class="pg pg-link">p.36</a>；CPI 低于 1% 时股市易涨、接近或高于 7% 时易暴跌<a href="book.pdf#page=25" target="_blank" class="pg pg-link">p.25、p.39</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>全书第一个完整的资源错配样本，为后文房地产泡沫提供历史参照系。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">02</span>
+          <span class="chapter-title">
+            <h3>辉煌与危机：2003～2011<span class="pages">p.43–71</span></h3>
+            <p class="chapter-claim">2003 年 18 号文把房地产定为国民经济支柱产业，是资源涌向房地产、货币超发与产能过剩的总开关；2008 年 4 万亿只是把投资拉动思维做了一次更集中的表达。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>2004 年每平方米房价比上年暴涨 <a href="book.pdf#page=352" target="_blank" class="pg pg-link">352 元</a>；2003 年投资率高达 <a href="book.pdf#page=42" target="_blank" class="pg pg-link">42.3%</a>（改革开放以来最高），房地产类贷款占比 21%、超过制造业贷款<a href="book.pdf#page=44" target="_blank" class="pg pg-link">p.44–48</a>。</li>
+            <li><strong>M2 膨胀</strong>：22.12 万亿元（2003）→ 110.65 万亿元（2013），相当于 5 倍；货币存量/GDP 比重达 <a href="book.pdf#page=200" target="_blank" class="pg pg-link">200%</a><a href="book.pdf#page=64" target="_blank" class="pg pg-link">p.64–66</a>。</li>
+            <li>产能过剩：中国粗钢产量占全球 48.5%；2012 年底新增熟料产能 7.07 亿吨，水泥产能过剩超 30%<a href="book.pdf#page=60" target="_blank" class="pg pg-link">p.60–61</a>。</li>
+            <li>炒房样本：秦晓天以不足 300 万元本金持有超 2000 万元房产；2009 下半年出手买房者中 80% 为投资<a href="book.pdf#page=51" target="_blank" class="pg pg-link">p.51</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>确立全书最关键的时间定位——<strong>2003 年才是真正的转折点，而非 2008 年</strong>。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">03</span>
+          <span class="chapter-title">
+            <h3>美国的 2003～2011<span class="pages">p.72–88</span></h3>
+            <p class="chapter-claim">小布什的反恐战争与能源—军工集团利益高度绑定，战争重新确立美国主导地位并强化石油美元体系，这正是 2003 年后大宗商品暴涨的根源。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>油价大牛市</strong>：美原油 19.35 美元/桶（2001.11.20）→ <a href="book.pdf#page=148" target="_blank" class="pg pg-link">148.13 美元/桶</a>（2008.7.11）<a href="book.pdf#page=72" target="_blank" class="pg pg-link">p.72</a>。</li>
+            <li>凯雷集团管理投资超 900 亿美元、回报率超 30%，被称"五角大楼公司"；徐工并购案拟以 2.55 亿美元获约 82% 股权<a href="book.pdf#page=73" target="_blank" class="pg pg-link">p.73</a>。</li>
+            <li><strong>iPad 利润分配</strong>：每台售价 299 美元，美国获 163 美元，中国企业共拿 4 美元（加工费 3 美元，占售价 1%）<a href="book.pdf#page=83" target="_blank" class="pg pg-link">p.83</a>。</li>
+            <li>钢铁业惨状：2012 年 1–9 月大中型钢企亏损 267.26 亿元、同比增 41.5 倍，亏损面 45%<a href="book.pdf#page=85" target="_blank" class="pg pg-link">p.85</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>把美元霸权与能源—军工利益链绑定，解释大宗商品牛市的制度根源。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">04</span>
+          <span class="chapter-title">
+            <h3>中美恐怖平衡：2003～2011<span class="pages">p.89–108</span></h3>
+            <p class="chapter-claim">中美形成"举债—购债""发货币—储备货币""先进技术—落后生产力"三重恐怖平衡，中国的高速增长被美元体系深度锁定。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>中国持有美债及机构债占美国 M2 余额比例，从 <a href="book.pdf#page=3" target="_blank" class="pg pg-link">3.37% 升至 31.8%</a>（2012）；1994 年起实行强制结售汇制使央行被动投放基础货币<a href="book.pdf#page=97" target="_blank" class="pg pg-link">p.97</a>。</li>
+            <li>收益剪刀差：中国工资占 GDP 48%（美、欧 64%、日本 62%）；美债收益率 3%–6%，外资在华年利润高达 <a href="book.pdf#page=33" target="_blank" class="pg pg-link">33%</a><a href="book.pdf#page=98" target="_blank" class="pg pg-link">p.98–100</a>。</li>
+            <li>芯片利润分配：一枚芯片总利润 <a href="book.pdf#page=80" target="_blank" class="pg pg-link">80% 以上</a>被英特尔、超微等美国公司瓜分，中国企业仅得不到 5%<a href="book.pdf#page=101" target="_blank" class="pg pg-link">p.101</a>。</li>
+            <li>美国在世界 45 个国家建有 395 个大型军事基地、部署 25 万军队；全国科研经费约 40% 真正用于研发<a href="book.pdf#page=102" target="_blank" class="pg pg-link">p.102–104</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>解释中国高增长为何被美元体系锁定，代价是国民福利与产业升级的长期损失。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">05</span>
+          <span class="chapter-title">
+            <h3>大转折：中国的 2012<span class="pages">p.109–136</span></h3>
+            <p class="chapter-claim">2012 年是中国经济由"投资拉动"转入"临界"的转折年——投资率越界、消费率塌陷、财政与债务触顶，五重临界点同时出现。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>资本形成率 41.8%→48.6%（2006→2010）；投资对经济增长贡献率 2009 年高达 <a href="book.pdf#page=87" target="_blank" class="pg pg-link">87.6%</a><a href="book.pdf#page=110" target="_blank" class="pg pg-link">p.110</a>。</li>
+            <li>最终消费率 1981 年 67.1%、长期停留在 50% 以下；消费贡献率由 65.1% 降至 55.5%<a href="book.pdf#page=118" target="_blank" class="pg pg-link">p.118</a>。</li>
+            <li><strong>债务临界</strong>：2010 年底全国省市县三级地方政府性债务余额 <a href="book.pdf#page=10" target="_blank" class="pg pg-link">10.7 万亿元</a>，负有偿还责任的债务率已超 100%、最高达 189%<a href="book.pdf#page=130" target="_blank" class="pg pg-link">p.130–131</a>。</li>
+            <li>光伏兴衰：多晶硅从近 500 美元/公斤（2008.9）跌至 110 元人民币/公斤（2012.12），赛维 2379.3 万美元可转债违约<a href="book.pdf#page=113" target="_blank" class="pg pg-link">p.113–114</a>。</li>
+            <li>房地产吞噬居民收入：2007 年后转移城镇居民 40% 以上可支配收入<a href="book.pdf#page=121" target="_blank" class="pg pg-link">p.121</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>全书"转折年"论断的核心证据章，五个临界点在同一时点汇聚。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">06</span>
+          <span class="chapter-title">
+            <h3>大转折：美国的 2012<span class="pages">p.137–163</span></h3>
+            <p class="chapter-claim">2012 年是美国"再工业化＋能源独立＋房市复苏＋汽车业复兴"的转折年，制造业回归与页岩革命共同让美国重获成本优势，中美制造成本差收窄到 15%。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>制造业产出占 GNP 由 27% 降至 2004 年 13.8%；美国研发支出占世界 40%，70% 诺奖获得者在美国受聘<a href="book.pdf#page=138" target="_blank" class="pg pg-link">p.138–140</a>。</li>
+            <li><strong>能源大帝国</strong>：天然气价格自 2008 年以来降幅超 80%；页岩气相关岗位超 170 万个；IEA 预测 2017 年美国将超沙特成为第一大产油国<a href="book.pdf#page=145" target="_blank" class="pg pg-link">p.145–147</a>。</li>
+            <li>页岩质疑：蒙特利页岩可采储量预测从 154 亿桶调降至 <a href="book.pdf#page=6" target="_blank" class="pg pg-link">6 亿桶</a>（下调 96%）<a href="book.pdf#page=149" target="_blank" class="pg pg-link">p.149</a>。</li>
+            <li>道琼斯指数 6470.11（2009.3）→ 16586.65（2013.12）；中国买家占外国购房者比重由 5% 升至约 11%<a href="book.pdf#page=152" target="_blank" class="pg pg-link">p.152–154</a>。</li>
+            <li>底特律衰败：市区白人仅占 10.6%，许多市中心房子标价仅 1 美元<a href="book.pdf#page=155" target="_blank" class="pg pg-link">p.155–156</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>与第 5 章构成中美 2012 的镜像对照——一边触顶、一边重获成本优势。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">07</span>
+          <span class="chapter-title">
+            <h3>大纠结：中国的 2013～2015（上）<span class="pages">p.164–196</span></h3>
+            <p class="chapter-claim">货币超发与产能过剩并存，简政放权、上海自贸区等改革与地方投资冲动相互撕扯，"钱荒"暴露金融体系脆弱。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>中国传统产业产能利用率仅 <a href="book.pdf#page=60" target="_blank" class="pg pg-link">60%</a>（国际合理区间 80%–85%）；中国 M2 是美国的 1.66 倍<a href="book.pdf#page=172" target="_blank" class="pg pg-link">p.172</a>。</li>
+            <li><strong>钱荒</strong>：2013.6 银行间 7 天回购利率最高达 <a href="book.pdf#page=28" target="_blank" class="pg pg-link">28%</a>（往年往往不到 3%）<a href="book.pdf#page=185" target="_blank" class="pg pg-link">p.185–186</a>。</li>
+            <li>地方投资冲动：湖北"12 万亿投资计划"、四川 4.3 万亿、贵州近 1.7 万亿、广东超 10 万亿，各地新一轮投资总金额超 <a href="book.pdf#page=20" target="_blank" class="pg pg-link">20 万亿元</a>，远超 2008 年 4 万亿<a href="book.pdf#page=184" target="_blank" class="pg pg-link">p.184</a>。</li>
+            <li>GDP 注水：各省 GDP 之和长期高于全国，2012 年相差 5.76 万亿元（相当于广东经济总量）<a href="book.pdf#page=190" target="_blank" class="pg pg-link">p.190</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>过渡期"大纠结"的现实刻画——改革与保增长难以两全。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">08</span>
+          <span class="chapter-title">
+            <h3>大纠结：中国的 2013～2015（中）<span class="pages">p.197–216</span></h3>
+            <p class="chapter-claim">东西失衡、城乡失衡与城镇化困局，是投资拉动模式在空间与社会结构上的投影；资源与环境约束已使城镇化难以复制 4 万亿式刺激。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>西部大开发 2000–2012 累计新开工重点工程 187 项、投资总规模 3.68 万亿元<a href="book.pdf#page=198" target="_blank" class="pg pg-link">p.198</a>。</li>
+            <li><strong>三剪刀差</strong>：征地剪刀差——失地农民一年为城市贡献约 1 万亿元；金融剪刀差——农民存款仅 46% 能用、54% 流向城市（占全国 80% 人口用不到 6% 贷款）；工资剪刀差——1.2 亿农民工一年差额接近 1 万亿元<a href="book.pdf#page=202" target="_blank" class="pg pg-link">p.202</a>。</li>
+            <li>北京的城市极限：常住人口 2069 万 vs 资源环境极限 1800 万；拥堵每年损失 1056 亿元（占 GDP 7.5%）<a href="book.pdf#page=208" target="_blank" class="pg pg-link">p.208–210</a>。</li>
+            <li>全国"小产权房"总量或超 70 亿㎡（约 7000 万套）；WHO 研究显示 2010 年污染在中国造成 120 万人死亡<a href="book.pdf#page=208" target="_blank" class="pg pg-link">p.208、p.212</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>把"失衡"从经济指标落到空间与社会结构，反驳"城镇化是新引擎"的主流预期。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">09</span>
+          <span class="chapter-title">
+            <h3>大纠结：中国的 2013～2015（下）<span class="pages">p.217–237</span></h3>
+            <p class="chapter-claim">2013～2015 年是中国房地产"站在辉煌光环中黯然谢幕"的筑顶阶段；根源在于 1998 与 2003 两次房改把住房责任从政府转给个人、把"经济适用房为主"偷换为"商品房为主"。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>1998 年 23 号文供应结构为廉租房 10%、经济适用房 80%、商品房 10%；1998–2003 年全国商品住房每㎡总共只增加 343 元<a href="book.pdf#page=221" target="_blank" class="pg pg-link">p.221–222</a>。</li>
+            <li>新加坡组屋对照：2006 年 82% 居民拥有产权、4% 租住组屋、14% 住商品房<a href="book.pdf#page=223" target="_blank" class="pg pg-link">p.223–224</a>。</li>
+            <li>保障房占比国际对比：中国内地仅约 <a href="book.pdf#page=10" target="_blank" class="pg pg-link">10%</a>（英国峰值 60%、日本超 50%、香港超 45%、新加坡超 90%），不足 50% 时难以约束房价<a href="book.pdf#page=228" target="_blank" class="pg pg-link">p.228</a>。</li>
+            <li>房屋竣工造价 1273 元/㎡（2003）→ 2498 元/㎡（2012），仅增 96.2%，远低于同期售价涨幅；建筑平均寿命仅 25–30 年<a href="book.pdf#page=229" target="_blank" class="pg pg-link">p.229、p.232</a>。</li>
+            <li>阿迪达斯 2012.7 关闭在华唯一自有工厂——高房价推高地价、租金、工资，分流产业资本<a href="book.pdf#page=233" target="_blank" class="pg pg-link">p.233</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>给出房价失控的制度性解释——支柱产业定位＋保障房偷换是制度起点。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">10</span>
+          <span class="chapter-title">
+            <h3>中国大趋势：2013～2015（上）<span class="pages">p.238–254</span></h3>
+            <p class="chapter-claim">房价永远是区域问题，由"资源吸引能力＋财富创造能力"决定；一旦城市从资源/资本输入者变成输出者，房价就见顶回落。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>鄂尔多斯（资源输出型样本）</strong>：GDP 从 204 亿元（2002）增至 3656.8 亿元（2012，10 年增 17 倍），2012 年煤炭产量 5.9 亿吨占 GDP 80%；2012 年 GDP 增速从内蒙古首位跌至倒数第一，住宅销售额降 51.4%<a href="book.pdf#page=244" target="_blank" class="pg pg-link">p.244–245</a>。</li>
+            <li><strong>温州（资本输出型样本）</strong>：截至 2013.9 房价连续 <a href="book.pdf#page=25" target="_blank" class="pg pg-link">25 个月</a>单边下滑，是唯一下跌的"孤城"，有的楼盘跌幅超 50%<a href="book.pdf#page=245" target="_blank" class="pg pg-link">p.245、p.249</a>。</li>
+            <li>中国房价收入比约 7.68（2008），深圳 16、北京 13.56、杭州 12.4，纽约约 6.5<a href="book.pdf#page=246" target="_blank" class="pg pg-link">p.246</a>。</li>
+            <li>李嘉诚家族 2013.8–2014.1 五个月内出售价值 <a href="book.pdf#page=200" target="_blank" class="pg pg-link">200 亿元</a>中国内地物业；克鲁格曼、希勒等诺奖得主集体示警<a href="book.pdf#page=250" target="_blank" class="pg pg-link">p.250–251</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>房价"区域决定论"的核心章——两个完整样本（资源输出型、资本输出型）验证见顶机制。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">11</span>
+          <span class="chapter-title">
+            <h3>中国大趋势：2013～2015（下）<span class="pages">p.255–272</span></h3>
+            <p class="chapter-claim">房地产已把银行绑架（一损俱损），而中国银行业是"拔苗助长"式的脆弱崛起；未来评价银行的标准将从盈利能力转向逃生能力。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>2013.12 人民币房地产贷款余额 <a href="book.pdf#page=14" target="_blank" class="pg pg-link">14.61 万亿元</a>（+19.1%）；约 80% 的土地购置和房地产开发资金直接或间接来自银行信贷，而美国该比例仅 1%<a href="book.pdf#page=255" target="_blank" class="pg pg-link">p.255–256</a>。</li>
+            <li>催肥路径：汇金 2003–2005 年注资 450 亿美元＋工行 150 亿美元；2004 年剥离坏账共计数千亿元；10 年次级债发行超万亿元（占外源性融资 66%）<a href="book.pdf#page=258" target="_blank" class="pg pg-link">p.258</a>。</li>
+            <li>不良贷款：2013 年前三季度商业银行不良率 0.97%、已连续 <a href="book.pdf#page=8" target="_blank" class="pg pg-link">8 个季度</a>上升；银行资产/GDP 达 2.6 倍<a href="book.pdf#page=261" target="_blank" class="pg pg-link">p.261、p.263</a>。</li>
+            <li>中美此消彼长：2013.7 富国银行取代工行成为全球市值最大银行；中国银行业整体市净率仅 0.99 倍（美国 1.2 倍）<a href="book.pdf#page=264" target="_blank" class="pg pg-link">p.264–265</a>。</li>
+            <li>丽水银泰非法集资案涉案 55.69 亿元、集资户 1.5 万余户<a href="book.pdf#page=268" target="_blank" class="pg pg-link">p.268</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>把房地产风险与金融系统风险连成一体——"要死肯定是银行先死"。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">12</span>
+          <span class="chapter-title">
+            <h3>美国金融杀：2013～2015（上）<span class="pages">p.273–286</span></h3>
+            <p class="chapter-claim">2013～2015 年是美国"大布局"阶段——先以《多德-弗兰克法案》把监管权扩到全球，再以 Libor 操纵案为抓手把基准利率控制权从伦敦搬到纽约。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>Libor 易主</strong>：2013.7.9 英国委员会与纽约泛欧交易所宣布 Libor 以 <a href="book.pdf#page=1" target="_blank" class="pg pg-link">仅 1 英镑</a>出售；全球超 800 万亿美元证券或贷款与 Libor 相联系（含 350 万亿美元掉期合约）<a href="book.pdf#page=274" target="_blank" class="pg pg-link">p.274–275</a>。</li>
+            <li>监管权扩张四步：保尔森 218 页改革计划（2008.3）→《金融监管改革：新的基础》（2009.6）→ 众议院法案（2009.12）→《多德-弗兰克法案》（2010.7 签署）<a href="book.pdf#page=275" target="_blank" class="pg pg-link">p.275</a>。</li>
+            <li>2012 年美国对欧洲大型银行罚款至少 <a href="book.pdf#page=61" target="_blank" class="pg pg-link">61 亿美元</a>，约等于这些银行当年预估获利的 1/4<a href="book.pdf#page=274" target="_blank" class="pg pg-link">p.274</a>。</li>
+            <li>巴克莱：2012.6 CFTC 罚款 4.5 亿美元，CEO 戴蒙德 2012.7.3 辞职；汇丰 2012.12 和解 19.21 亿美元；渣打罚款总额可能高达 9.4 亿美元<a href="book.pdf#page=279" target="_blank" class="pg pg-link">p.279–283</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>揭示"金融杀"的本质是收编而非对抗——把全球金融机构纳入美国监管。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">13</span>
+          <span class="chapter-title">
+            <h3>美国金融杀：2013～2015（下）<span class="pages">p.287–308</span></h3>
+            <p class="chapter-claim">美国以 FATCA 长臂征税、终结瑞士银行保密、连环处罚 Libor/黄金/汇率/能源基准操纵案，让全球金融活动在美国监管下"裸奔"。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>FATCA 对未申报海外账户课 <a href="book.pdf#page=30" target="_blank" class="pg pg-link">30%</a>惩罚性税收；美国向瑞士索要 5.2 万个账户信息，瑞士还价到 4450 个<a href="book.pdf#page=287" target="_blank" class="pg pg-link">p.287–289</a>。</li>
+            <li>瑞银案：缴纳 7.8 亿美元赔偿金，举报人伯肯菲尔德获美国国税局 <a href="book.pdf#page=1" target="_blank" class="pg pg-link">1.04 亿美元</a>奖金；瑞士最古老私人银行缴 7.4 亿美元后永久歇业<a href="book.pdf#page=289" target="_blank" class="pg pg-link">p.289–290</a>。</li>
+            <li>危机以来金融机构在美已支付 <a href="book.pdf#page=1000" target="_blank" class="pg pg-link">1000 亿美元</a>诉讼和解金（2013 年占一半以上）；摩根大通相关罚款超 220 亿美元＝其 2012 年全年净利润<a href="book.pdf#page=299" target="_blank" class="pg pg-link">p.299、p.303</a>。</li>
+            <li>SAC 资本内幕交易认罪、罚 18 亿美元（美国针对内幕交易最大罚单）；标普下调美债评级致两周全球股市蒸发约 4 万亿美元<a href="book.pdf#page=301" target="_blank" class="pg pg-link">p.301、p.304</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>金融监管权扩张的完整清单，是"全球金融监管权"这一霸权新宝石的证据集。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">14</span>
+          <span class="chapter-title">
+            <h3>美国的战略棋局：2013～2015（上）<span class="pages">p.309–337</span></h3>
+            <p class="chapter-claim">美国以"离岸平衡手"策略同时经营大国强人博弈、中东乱局与叙利亚"斗法"，通过代理人战争与油价波动坐收危机红利。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>军售霸权：2010 年向沙特出售价值 600 亿美元军火；2011 年美国海外武器销售 663 亿美元、占全球 853 亿美元的 <a href="book.pdf#page=78" target="_blank" class="pg pg-link">78%</a><a href="book.pdf#page=320" target="_blank" class="pg pg-link">p.320–321</a>。</li>
+            <li>油价与俄罗斯财政：国际油价每桶上涨 1 美元，俄罗斯可多收入近 20 亿美元；俄罗斯把预算基准从每桶 100 美元下调到 60 美元<a href="book.pdf#page=326" target="_blank" class="pg pg-link">p.326、p.333</a>。</li>
+            <li>2013.9 中国原油日净进口量 630 万桶，超过美国的 624 万桶；2012 年中国原油对外依存度 56.4%<a href="book.pdf#page=331" target="_blank" class="pg pg-link">p.331</a>。</li>
+            <li><strong>可验证预言</strong>：从 2012 年全球大转折点起至 2016～2022 周期，将是大宗商品惨烈下跌的时间<a href="book.pdf#page=333" target="_blank" class="pg pg-link">p.333</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>把地缘博弈与大宗商品周期挂钩，提出全书最重要的可验证预言之一。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">15</span>
+          <span class="chapter-title">
+            <h3>美国的战略棋局：2013～2015（下）<span class="pages">p.338–359</span></h3>
+            <p class="chapter-claim">美国"战略新移"——以伊朗核谈变脸、TPP、亚太军力再平衡、挑动中日矛盾为组合拳，把战略重心移向亚太并锁定中国。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li>美国决定 2020 年前将 <a href="book.pdf#page=60" target="_blank" class="pg pg-link">60%</a> 的海军力量部署在亚太；与菲律宾达成 10 年协议允许美军使用其基地<a href="book.pdf#page=345" target="_blank" class="pg pg-link">p.345</a>。</li>
+            <li>TPP：2012 年美国对亚太产品出口额 9420 亿美元、占美国出口 61%，目标是 5 年内出口翻番<a href="book.pdf#page=352" target="_blank" class="pg pg-link">p.352</a>。</li>
+            <li>人民币贸易融资占比从 4.4%（2012）升至 <a href="book.pdf#page=8" target="_blank" class="pg pg-link">8.7%</a>（2013），超过欧元和日元（美元 81%）<a href="book.pdf#page=342" target="_blank" class="pg pg-link">p.342</a>。</li>
+            <li>中国投资者 2012.3–2013.3 在美房地产投资 81 亿美元；土耳其红旗-9 合同价值 40 亿美元引发北约不满<a href="book.pdf#page=343" target="_blank" class="pg pg-link">p.343、p.348</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>亚太再平衡与人民币国际化并置——地缘压制与货币突围同时展开。</p>
+        </div></div></div>
+      </div>
+    <div class="ch-group"><h3>下部 未来篇 · 第 16–37 章（危机节奏与终局判断）</h3><span class="rule"></span></div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">16</span>
+          <span class="chapter-title">
+            <h3>大危机：中国的2016～2022（上）<span class="pages">p.360–390</span></h3>
+            <p class="chapter-claim">2016～2022 年中国将爆发债务总危机——政府债务、企业债务（三角债）、影子银行三重叠加；2016 年开启的新周期是做实业者最艰难的时刻。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>债务总规模</strong>：2012 年末中央与地方政府加总债务接近 <a href="book.pdf#page=27" target="_blank" class="pg pg-link">27.7 万亿元</a>、占 GDP 53%；住户部门未偿贷款 16.1 万亿元、占 GDP 31%；另有测算经济整体债务达 <a href="book.pdf#page=111" target="_blank" class="pg pg-link">111.6 万亿元</a><a href="book.pdf#page=364" target="_blank" class="pg pg-link">p.364–365、p.387</a>。</li>
+            <li><strong>企业债务</strong>：2012 年房地产开发企业负债约 26.46 万亿元、资产负债率 <a href="book.pdf#page=72" target="_blank" class="pg pg-link">72% 以上</a>；中国企业债规模 14.2 万亿美元、高于美国的 13.1 万亿、位居世界第一；63 家上市公司债务占股权比例超 400%<a href="book.pdf#page=366" target="_blank" class="pg pg-link">p.366–370、p.373</a>。</li>
+            <li><strong>三角债</strong>：2013 年规模以上工业企业应收账款 9.52 万亿元、产成品存货 3.25 万亿元；温州处于停产和半停产的企业起码超过 <a href="book.pdf#page=50" target="_blank" class="pg pg-link">50%</a><a href="book.pdf#page=370" target="_blank" class="pg pg-link">p.370–372</a>。</li>
+            <li><strong>影子银行</strong>：信托资产同比增长 46%、2009～2012 连续 4 年增速超 50%；影子银行总量约 <a href="book.pdf#page=20" target="_blank" class="pg pg-link">20 万亿元</a>（相当于全国 GDP 的 20%）；2015 年是信托产品集中偿付高峰期<a href="book.pdf#page=361" target="_blank" class="pg pg-link">p.361、p.380</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>把第 5 章的"2012 临界"落到具体债务科目上——政府、企业、影子银行三条线同时绷紧。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">17</span>
+          <span class="chapter-title">
+            <h3>大危机：中国的2016～2022（中）<span class="pages">p.391–427</span></h3>
+            <p class="chapter-claim">人口结构逆转与房地产"夺命索"共同构成中国 2016～2022 危机的内在基础——房价一旦步入跌势，债务危机立即会显现出来。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>房地产市值</strong>：房地产总市值是 GDP 的 <a href="book.pdf#page=2" target="_blank" class="pg pg-link">2.9 倍</a>；住宅总价值超出 GDP 近 2 倍；作者核算全国城市住房总价值约 75.52 万亿元<a href="book.pdf#page=392" target="_blank" class="pg pg-link">p.392、p.422</a>。</li>
+            <li><strong>人口转折</strong>：2012 年 15～59 岁劳动年龄人口 9.3727 亿、比 2011 年减少 345 万（<span class="pg">首次绝对下降</span>）；美国国家情报委员会预测中国经济增速将从 8% 降到 2030 年的 3%<a href="book.pdf#page=397" target="_blank" class="pg pg-link">p.397–398</a>。</li>
+            <li><strong>日本经验</strong>：日本总和生育率跌破 1.8 的十年后爆发房地产危机；中国在生育率同样跌破 1.8 后，"房价一旦步入跌势，债务危机立即会显现"<a href="book.pdf#page=391" target="_blank" class="pg pg-link">p.391、p.395</a>。</li>
+            <li><strong>民工荒</strong>：2004 年春开始的第一轮"民工荒"是人口结构变化的第一个转折点，范围从珠三角扩至长三角<a href="book.pdf#page=396" target="_blank" class="pg pg-link">p.396</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>为"房价是债务危机的引信"提供人口与估值双重证据。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">18</span>
+          <span class="chapter-title">
+            <h3>大危机：中国的2016～2022（下）<span class="pages">p.428–446</span></h3>
+            <p class="chapter-claim">人民币"外升内贬"是中国制造业的绞索——对外升值挤压出口利润、对内贬值推高成本；2016 年后所有货币将逐步迈入贬值时代。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>货币总量</strong>：截至 2014 年 5 月美联储 M2 为 11.3 万亿美元；中国广义货币总量是美国的 <a href="book.pdf#page=170" target="_blank" class="pg pg-link">170%</a>（超过美国 70%）；2013 年末中国 M2 增长 13.6%、新增 13.23 万亿元<a href="book.pdf#page=429" target="_blank" class="pg pg-link">p.429–430</a>。</li>
+            <li><strong>人民币升值</strong>：2005 年 1 美元兑 8.27 元 → 2013 年只能兑 6.1 元；2005 年至 2011 年 10 月中间价累计升值超 <a href="book.pdf#page=30" target="_blank" class="pg pg-link">30%</a><a href="book.pdf#page=434" target="_blank" class="pg pg-link">p.434–435</a>。</li>
+            <li><strong>出口利润</strong>：<a href="book.pdf#page=84" target="_blank" class="pg pg-link">84.07%</a> 的出口企业利润率集中在 5% 以内；许多纺织中小企业能把利润率控制在 3% 已属幸运<a href="book.pdf#page=437" target="_blank" class="pg pg-link">p.437</a>。</li>
+            <li><strong>拉美镜鉴</strong>：拉美整体债务从 1975 年的 750 亿美元涨到 1983 年的 3150 亿美元；利率每上调 1 个百分点，巴西多付利息 5.7 亿美元、墨西哥 5.2 亿、阿根廷 1.8 亿<a href="book.pdf#page=431" target="_blank" class="pg pg-link">p.431</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>把汇率与债务周期连成一条链——升值压利润、加息引爆债务。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">19</span>
+          <span class="chapter-title">
+            <h3>危险的粮食：中国的2016～2022<span class="pages">p.447–466</span></h3>
+            <p class="chapter-claim">粮食是大宗商品中的例外——2016～2022 周期中粮价将逆势上涨；中国耕地被"吃掉"、自给率跌破 90%、进口依赖加深，粮食安全成为国家战略首要任务。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>全球需求</strong>：世界银行预计到 2030 年全球粮食需求将增长 <a href="book.pdf#page=50" target="_blank" class="pg pg-link">50% 以上</a>；到 2025 年将有 36 个国家的 14 亿人陷入缺少足够食物或饮用水的危机<a href="book.pdf#page=447" target="_blank" class="pg pg-link">p.447</a>。</li>
+            <li><strong>美国农业霸权</strong>：联邦政府每年农业开支约 1000 亿美元、近 80% 用于食品券；食品券项目 800 亿美元相当于其 2013 年农业出口额（1305 亿美元）的 <a href="book.pdf#page=55" target="_blank" class="pg pg-link">55.5%</a><a href="book.pdf#page=447" target="_blank" class="pg pg-link">p.447–448</a>。</li>
+            <li><strong>中国进口</strong>：2012 年谷物进口飙升 156% 至 1398 万吨；大豆进口创纪录达 5838 万吨、相当于国际贸易量的 60%、国内自给率仅 20%；含大豆口径自给率已<a href="book.pdf#page=90" target="_blank" class="pg pg-link">跌破 90%</a><a href="book.pdf#page=451" target="_blank" class="pg pg-link">p.451</a>。</li>
+            <li><strong>耕地流失</strong>：人均耕地 1.59 亩、不足世界平均的 43%；666 个县人均耕地低于联合国粮农组织 0.8 亩警戒线；约 5000 万亩耕地受中重度污染大多不宜耕种；撂荒近 3000 万亩<a href="book.pdf#page=453" target="_blank" class="pg pg-link">p.453–459</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>全书唯一"逆周期上涨"的大宗品类，也是 2023～2034"粮食武器化"的前置伏笔。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">20</span>
+          <span class="chapter-title">
+            <h3>美国大扩张：2016～2022（上）<span class="pages">p.467–488</span></h3>
+            <p class="chapter-claim">美联储是美国金融帝国的核心引擎——通过 QE 把资产负债表从 8800 亿美元扩张到 4.03 万亿美元，靠"印钞—购债—派生存款"机制向全球输出流动性。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>美联储收益</strong>：近年来每年扣除费用后的净收益高达 <a href="book.pdf#page=400" target="_blank" class="pg pg-link">400 亿美元</a>；2009 年度利润 450 亿美元、为该机构创立 96 年以来之最<a href="book.pdf#page=468" target="_blank" class="pg pg-link">p.468、p.476</a>。</li>
+            <li><strong>QE 全程</strong>：QE1（2008.11–2010.3）购买 17250 亿美元资产，资产负债表从 8800 亿扩至 2.3 万亿美元；QE3 每月采购 850 亿美元；截至 2013.12.25 达 <a href="book.pdf#page=4" target="_blank" class="pg pg-link">4.03 万亿美元</a>、数量上超过德国 GDP<a href="book.pdf#page=479" target="_blank" class="pg pg-link">p.479–481</a>。</li>
+            <li><strong>纽约联储</strong>：资产 2013 年底达 2.49 万亿美元（2008 年 8 月底仅 0.33 万亿），另储存价值超 1000 亿美元的黄金<a href="book.pdf#page=482" target="_blank" class="pg pg-link">p.482–483</a>。</li>
+            <li><strong>货币创造机制</strong>：买 1000 美元债券 → 银行留 100 美元准备金放贷 900 美元 → 货币供给 1900 美元 → 再放贷 → 2620 美元……派生存款使货币成倍扩张<a href="book.pdf#page=483" target="_blank" class="pg pg-link">p.483</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>解释"美元回流"的供给侧来源——美国先把水放出去，再收回来。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">21</span>
+          <span class="chapter-title">
+            <h3>美国大扩张：2016～2022（中）<span class="pages">p.489–508</span></h3>
+            <p class="chapter-claim">美国大扩张的核心是"资金大回流"——股市、房市、债市三线齐涨，家庭财富净值创 80.66 万亿美元新高。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>美股大扩张</strong>：道指从 2009 年 3 月的 6470.11 点涨到 2013.12.31 的 16586.65 点；2013 年连续 <a href="book.pdf#page=52" target="_blank" class="pg pg-link">52 次</a>创历史新高、全年大涨 33%<a href="book.pdf#page=489" target="_blank" class="pg pg-link">p.489–491</a>。</li>
+            <li><strong>银行市值</strong>：2013 年 7 月中旬美国各银行总市值再超 1 万亿美元，两倍于金砖四国能源、材料和采矿公司总市值（4320 亿美元）还多<a href="book.pdf#page=491" target="_blank" class="pg pg-link">p.491</a>。</li>
+            <li><strong>企业现金</strong>：美国企业坐拥现金和短期投资 9430 亿美元；科技公司最多达 2070 亿；仅苹果一家 2013 年底就有 <a href="book.pdf#page=1700" target="_blank" class="pg pg-link">1700 亿美元</a><a href="book.pdf#page=492" target="_blank" class="pg pg-link">p.492</a>。</li>
+            <li><strong>巴菲特</strong>：伯克希尔净利润 47.1 亿美元，手上现金增加 10 亿美元至 491 亿美元，拥有更充沛的"火力"来猎取<a href="book.pdf#page=493" target="_blank" class="pg pg-link">p.493</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>与第 23 章新兴市场危机互为镜像——资金从哪里流出，就流进哪里。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">22</span>
+          <span class="chapter-title">
+            <h3>美国大扩张：2016～2022（下）<span class="pages">p.509–530</span></h3>
+            <p class="chapter-claim">美元周期律是全书核心框架——1971 年以来美元经历多轮"弱势→强势"周期，2016～2022 是美元加速上涨阶段（目标指数可能达 164.72），2023 年后又走十年以上熊市。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>美元周期律</strong>：1971.8.15 尼克松宣布停止美元兑换黄金；第二次上涨周期为 1995.9–2002.3，美元指数从 78.33 涨到 120.04、涨幅 <a href="book.pdf#page=53" target="_blank" class="pg pg-link">53.25%</a>；作者判断 2016～2022 有涨到 164.72 的可能性，2023 年后又走十年以上熊市<a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509</a>。</li>
+            <li><strong>石油美元</strong>：1972 年起美国与沙特达成协议把石油销售与美元挂钩；石油在全球能源结构中占比 <a href="book.pdf#page=46" target="_blank" class="pg pg-link">46%</a>；到 1976 年沙特在美国投资 600 亿美元<a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509–510</a>。</li>
+            <li><strong>沃尔克与黄金</strong>：沃尔克把联邦基金利率一口气提至 <a href="book.pdf#page=19" target="_blank" class="pg pg-link">19%</a>；1980.1.21 黄金涨到 852 美元/盎司，1984 年 5 月回落至平均 377 美元<a href="book.pdf#page=511" target="_blank" class="pg pg-link">p.511–512</a>。</li>
+            <li><strong>广场协议与日本泡沫</strong>：1985 年广场协议逼日元升值一倍；三菱 14 亿美元买下洛克菲勒中心；1992 年日经 225 跌至 14000 点、跌幅 64.1%；泡沫破灭后日本国民总资产中高达 1000 万亿日元瞬间消失<a href="book.pdf#page=512" target="_blank" class="pg pg-link">p.512–515</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>全书理论中枢——前 21 章是现象，本章给出解释现象的周期机制。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">23</span>
+          <span class="chapter-title">
+            <h3>新兴经济体大危机：2016～2022<span class="pages">p.531–551</span></h3>
+            <p class="chapter-claim">金砖国家与新兴市场将在 2016～2022 年集体陷入危机——货币贬值、资本外逃、股市暴跌，根源是美元周期与自身结构失衡；同时美国将瓜分其资源。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>金砖隐忧</strong>：金砖增速 8%、全球经济增长的 1/3 与之有关；2011 年金砖四国经济总量占全球 25%；但高新产业很弱，俄罗斯信息技术产业产值仅占 GDP 的 <a href="book.pdf#page=1" target="_blank" class="pg pg-link">1.5%</a><a href="book.pdf#page=532" target="_blank" class="pg pg-link">p.532、p.536</a>。</li>
+            <li><strong>资源消耗</strong>：全球森林覆盖面积减少 12%、欧洲河流湖泊生物种类减少 55%；美国人口不到全球 5% 却消耗全球 20% 的能源；按当前消费到 21 世纪中期需两个地球<a href="book.pdf#page=533" target="_blank" class="pg pg-link">p.533</a>。</li>
+            <li><strong>产能过剩</strong>：毕马威研究显示，到 2016 年全球汽车市场产能将过剩 <a href="book.pdf#page=20" target="_blank" class="pg pg-link">20%～30%</a><a href="book.pdf#page=534" target="_blank" class="pg pg-link">p.534</a>。</li>
+            <li><strong>货币贬值</strong>：巴西雷亚尔、俄罗斯卢布、南非兰特 2011→2014 大幅贬值；2013 年多国货币对美元贬值幅度均超 10%，最高达 <a href="book.pdf#page=35" target="_blank" class="pg pg-link">35.9%</a><a href="book.pdf#page=535" target="_blank" class="pg pg-link">p.535、p.537</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>把"美元走强"翻译成新兴市场的具体损失清单。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">24</span>
+          <span class="chapter-title">
+            <h3>俄罗斯的生死劫：2016～2022（上）<span class="pages">p.552–572</span></h3>
+            <p class="chapter-claim">乌克兰危机是美国对俄罗斯的"一步狠棋"——通过克里米亚、金融战与石油战三重打击，耗尽俄外储、压低油价，重创靠能源立国的俄罗斯。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>乌克兰的战略地位</strong>：俄罗斯与欧洲国家 80% 以上的能源交易要通过乌克兰输送；俄有 6 个州与乌接壤、共同边界 2000 多公里；俄每年 60% 的进口货物经乌克兰输入<a href="book.pdf#page=552" target="_blank" class="pg pg-link">p.552–554</a>。</li>
+            <li><strong>克里米亚入俄</strong>：2014.3.16 全民公投 <a href="book.pdf#page=96" target="_blank" class="pg pg-link">96.6%</a> 选民赞成加入俄罗斯；3.21 俄联邦委员会全票批准克里米亚入俄条约<a href="book.pdf#page=554" target="_blank" class="pg pg-link">p.554–557</a>。</li>
+            <li><strong>苏联卢布崩溃</strong>：1961 年卢布兑美元 1:1.1，最后为 1400:1，美元实际贬值程度竟高达 <a href="book.pdf#page=112000" target="_blank" class="pg pg-link">112000 倍</a>；美国仅动用几亿美元就在几年内洗劫苏联人民 70 多年积攒的 28 万亿美元财富<a href="book.pdf#page=559" target="_blank" class="pg pg-link">p.559</a>。</li>
+            <li><strong>金融战与资本外逃</strong>：2014.3.3 俄央行把关键利率从 5.5% 上调至 7%，当日抛售 113 亿美元干预汇市；2014 一季度资本外逃 500～550 亿美元（2013 全年 630 亿）<a href="book.pdf#page=559" target="_blank" class="pg pg-link">p.559–561</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>全书"金融战摧毁大国"的最完整案例。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">25</span>
+          <span class="chapter-title">
+            <h3>俄罗斯的生死劫：2016～2022（下）<span class="pages">p.573–587</span></h3>
+            <p class="chapter-claim">俄罗斯将深陷"资源诅咒"——过去 10 年 GDP 年均增长 7% 全靠油价上涨（剔除油价因素仅 3%），2016～2022 资源下跌期叠加人口萎缩与资本外逃，俄将由"能源帝国"滑向滞胀与脆弱大国。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>资源诅咒</strong>：过去 10 年俄 GDP 年均增长约 7%，减去石油价格上涨因素后只有 <a href="book.pdf#page=3" target="_blank" class="pg pg-link">3%</a>；2012 年起世界步入资源下跌期，2013.12 美联储开始削减购债又加速资源下跌<a href="book.pdf#page=573" target="_blank" class="pg pg-link">p.573–574</a>。</li>
+            <li><strong>卢布与贸易</strong>：2009 年 1～10 月卢布平均汇率较 2008 年同期贬值 32.66%，对外贸易总额同比下降 41.04%、出口下降 42.28%<a href="book.pdf#page=575" target="_blank" class="pg pg-link">p.575</a>。</li>
+            <li><strong>资本外逃</strong>：俄公司债务从 1998 年底不到 300 亿美元升至高峰期的 5000 亿美元；1998～2011 年 13 年间资本账户累计逆差 2770 亿美元；2012 年资本流出 568 亿美元<a href="book.pdf#page=578" target="_blank" class="pg pg-link">p.578</a>。</li>
+            <li><strong>外储缩水</strong>：俄外汇储备峰值出现在 2008.8.1 为 5965.66 亿美元，到 2009.5.1 降至 3839.05 亿美元<a href="book.pdf#page=579" target="_blank" class="pg pg-link">p.579</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>论证"资源国在美元紧缩期必然被反噬"。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">26</span>
+          <span class="chapter-title">
+            <h3>危机大扩散：2016～2022<span class="pages">p.588–606</span></h3>
+            <p class="chapter-claim">危机将从中亚、东欧向中欧大扩散——中亚因油气依赖与储蓄率低而脆弱，东欧被俄欧夹在中间成为牺牲品，中欧债务高企，2016～2022 将成为"危机加油站"。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>中国—中亚能源通道</strong>：2013 年中国从中亚进口管输天然气 278.26 亿立方米、同比增长 37.3%；中国—中亚天然气管道设计输气量 300～400 亿立方米；哈萨克斯坦约 22% 的石油生产出自中哈合作<a href="book.pdf#page=588" target="_blank" class="pg pg-link">p.588</a>。</li>
+            <li><strong>渝新欧铁路</strong>：2012 年起运营，比经马六甲海峡—苏伊士运河的海运通道缩短 <a href="book.pdf#page=1" target="_blank" class="pg pg-link">1 万公里</a>，每标箱运费约 4100 美元<a href="book.pdf#page=589" target="_blank" class="pg pg-link">p.589</a>。</li>
+            <li><strong>哈萨克斯坦银行危机</strong>：个人存款占银行业负债比例仅 14%，靠国外中短期贷款扩张国内长期贷款；2009.2 约 <a href="book.pdf#page=70" target="_blank" class="pg pg-link">70%</a> 的经营者已经或接近于破产<a href="book.pdf#page=589" target="_blank" class="pg pg-link">p.589–591</a>。</li>
+            <li><strong>中亚粮水</strong>：吉尔吉斯斯坦 2010 年通胀率高达 19%；吉尔吉斯斯坦、塔吉克斯坦两国拥有中亚地区 90% 的水资源<a href="book.pdf#page=592" target="_blank" class="pg pg-link">p.592</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>把危机的地理半径从"金砖"扩展到中亚—东欧—中欧一整条带。</p>
+        </div></div></div>
+      </div>
+
+    <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">27</span>
+          <span class="chapter-title">
+            <h3>中印角逐：2016～2022<span class="pages">p.607–630</span></h3>
+            <p class="chapter-claim">印度以"东向政策"＋美日联手包围中国，同时自身深陷"生死劫"——卢比贬值、经常账户赤字、通胀高企、国有银行坏账，2016～2022 将是印度经济最危险的阶段。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>印度洋的战略位置</strong>：印度洋地区拥有全球 <a href="book.pdf#page=65" target="_blank" class="pg pg-link">65%</a> 的战略性原材料储备；印度军费占 GDP 的 2.5%、位居全球第六，计划未来十年投资约 1500 亿美元升级军事装备<a href="book.pdf#page=607" target="_blank" class="pg pg-link">p.607–608</a>。</li>
+            <li><strong>印日联动</strong>：2000 年印日建立"全球伙伴关系"，2007 年末发表《战略性全球伙伴关系新维度路线图》，2012 年举行首次联合军演；印度向越南提供帮助<a href="book.pdf#page=608" target="_blank" class="pg pg-link">p.608–610</a>。</li>
+            <li><strong>克拉运河</strong>：建成后可使大型油轮每趟航程节省约 18 万英镑；若建成中国石油安全将得到更多保障<a href="book.pdf#page=610" target="_blank" class="pg pg-link">p.610</a>。</li>
+            <li><strong>缅甸</strong>：唯一与中国和印度都接壤的东盟成员国，是中国"两洋战略"与印度"东向政策"的必经之道；2013.5 缅甸总统吴登盛成为 47 年来首位正式访美的缅甸国家元首<a href="book.pdf#page=616" target="_blank" class="pg pg-link">p.616–617</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>把"包围中国"的第二条弧线（印度洋方向）补全。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">28</span>
+          <span class="chapter-title">
+            <h3>中美拉美博弈：2016～2022<span class="pages">p.631–645</span></h3>
+            <p class="chapter-claim">拉美资源依赖型经济在危机中崩塌——委内瑞拉恶性通胀＋本币一次性贬值 89%，巴西外债高筑、房价 5 年涨 200%，"债务是一条带血的主线"，2016～2022 拉美将再演危机。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>资源格局</strong>：委内瑞拉奥里诺科地区资源储量高达 1.3 万亿桶；1993 年中国石油公司以 2500 万美元取得秘鲁塔拉拉油田 7 区块 20 年开采权，是中国第一次进入拉美<a href="book.pdf#page=631" target="_blank" class="pg pg-link">p.631–632</a>。</li>
+            <li><strong>资源国有化</strong>：2006～2007 年查韦斯将委内瑞拉石油勘探与生产全部国有化；厄瓜多尔 2007.10 把因油价上涨超出原合同部分的上缴比例突然提高到 <a href="book.pdf#page=99" target="_blank" class="pg pg-link">99%</a> 且无补偿<a href="book.pdf#page=632" target="_blank" class="pg pg-link">p.632–633</a>。</li>
+            <li><strong>委内瑞拉对古巴输血</strong>：以超乎想象的低价每天向古巴出口超 10 万桶石油，带给古巴经济收入近 60 亿美元，而 2011 年古巴 GDP 仅 687 亿美元<a href="book.pdf#page=633" target="_blank" class="pg pg-link">p.633</a>。</li>
+            <li><strong>委内瑞拉崩溃</strong>：石油收入占其出口收入 95%、近 50% 的联邦预算收入；新汇率制度下玻利瓦尔一次性贬值 <a href="book.pdf#page=89" target="_blank" class="pg pg-link">89%</a>；外债 436 亿美元而国际储备仅 269 亿美元<a href="book.pdf#page=635" target="_blank" class="pg pg-link">p.635</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>拉美是"资源国—美元周期"关系的又一个闭环样本。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">29</span>
+          <span class="chapter-title">
+            <h3>中美非洲博弈：2016～2022<span class="pages">p.646–661</span></h3>
+            <p class="chapter-claim">非洲是中美能源与地缘新战场——几内亚湾石油储量约占世界 10%，美国"战略转向撒哈拉以南非洲"、以圣普雷达网监控几内亚湾；中国在苏丹、南非深耕，但政权更迭使投资屡遭损失。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>非洲能源格局</strong>：2013 年中国来自中东的原油进口达 1.4654 亿吨、占 52%；来自拉美、非洲的原油分别占 9.8%、22.8%；几内亚湾石油储量约占世界 10%、预计储量超 380 亿桶<a href="book.pdf#page=646" target="_blank" class="pg pg-link">p.646</a>。</li>
+            <li><strong>尼日利亚与安哥拉</strong>：尼日利亚已探明石油储量 372 亿桶、居世界第十位；美国 2012 年从大西洋两岸进口原油超 2.9 亿吨、约占其总进口量 70%<a href="book.pdf#page=647" target="_blank" class="pg pg-link">p.647</a>。</li>
+            <li><strong>苏丹</strong>：苏丹油气资源保守估计至少 80～100 亿桶；中国石油公司拥有苏丹石油业务约 <a href="book.pdf#page=40" target="_blank" class="pg pg-link">40%</a> 权益、苏丹约 60% 的石油出口中国；2011 年南苏丹独立并停止石油生产（日产约 35 万桶）<a href="book.pdf#page=648" target="_blank" class="pg pg-link">p.648–649</a>。</li>
+            <li><strong>非洲冲突</strong>：非洲的冲突数量占全球 75%、吸纳全球维和经费 65%；2005.3 安理会正式宣布制裁苏丹<a href="book.pdf#page=648" target="_blank" class="pg pg-link">p.648</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>把能源博弈的第三块大陆（非洲）纳入框架，并提示"政权更迭风险"。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">30</span>
+          <span class="chapter-title">
+            <h3>中日之役：2016～2022（上）<span class="pages">p.662–682</span></h3>
+            <p class="chapter-claim">日本安倍政权全力围堵中国——以"民主安全菱形"（日美印澳）为框架、以钓鱼岛为引爆点，配合美国重返亚太，构建对华包围网。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>安倍的战略构想</strong>：2006.7 安倍《献给美丽的国家》提出日美印澳四国合作框架以制衡中国；2012.12.16 自民党众议院选举大胜获 325 席（可在众议院以 2/3 多数重新表决）；2013 年 1 月起高密度出访十余国<a href="book.pdf#page=662" target="_blank" class="pg pg-link">p.662–665</a>。</li>
+            <li><strong>对印援助</strong>：2013 年安倍访印宣布提供 2000 亿日元（约合人民币 118 亿元）基础设施贷款；2014.1.25 以主宾身份出席印度"共和国日"庆典<a href="book.pdf#page=665" target="_blank" class="pg pg-link">p.665</a>。</li>
+            <li><strong>日本军费</strong>：2014 年度预算较 2013 年再增 3%、达 <a href="book.pdf#page=4" target="_blank" class="pg pg-link">4.89 万亿日元</a>；计划耗巨资在 7 年内建成弹道导弹防御系统<a href="book.pdf#page=665" target="_blank" class="pg pg-link">p.665–667</a>。</li>
+            <li><strong>钓鱼岛"国有化"</strong>：2012.9.10 日本内阁正式做出将钓鱼岛"国有化"的决定，中日关系降入冰点<a href="book.pdf#page=667" target="_blank" class="pg pg-link">p.667、p.676</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>东亚方向的"引爆点"设置——地缘冲突被明确定位为美元周期的配套条件。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">31</span>
+          <span class="chapter-title">
+            <h3>中日之役：2016～2022（下）<span class="pages">p.683–707</span></h3>
+            <p class="chapter-claim">安倍"三支箭"是"不计后果的豪赌"——无限量货币宽松＋日元贬值＋2% 通胀目标，而日本中央政府负债已超 1000 万亿日元、平均每位国民负债近 8 万美元，2016～2022 对日本将比 90 年代泡沫破裂更痛苦。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>安倍豪赌</strong>：2012.12.23 安倍威胁若日本央行不设定 2% 通胀目标，将设法修改保证央行独立性的法律；作者判断安倍在进行"完全不计后果的豪赌"<a href="book.pdf#page=683" target="_blank" class="pg pg-link">p.683–685</a>。</li>
+            <li><strong>公共养老基金入市</strong>：安倍欲拿该国公共养老基金旗下 <a href="book.pdf#page=2" target="_blank" class="pg pg-link">2 万亿美元</a> 增加股市和海外资产比重<a href="book.pdf#page=685" target="_blank" class="pg pg-link">p.685</a>。</li>
+            <li><strong>修宪</strong>：2014.2.15 安倍在自民党宪法修正会议上建议降低修宪门槛，为"修宪"做准备<a href="book.pdf#page=686" target="_blank" class="pg pg-link">p.686</a>。</li>
+            <li><strong>稀土</strong>：日本是稀土附加值利用最高的国家、高新技术领域用量占其消费总量 90% 以上；1990～2005 年中国稀土出口量增长近 10 倍而均价跌至极低水平；作者警告中国到时也许要花比现在高数百倍的价钱从国外进口稀土<a href="book.pdf#page=687" target="_blank" class="pg pg-link">p.687</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>与欧央行德拉吉并列，作为"以印钞换时间"的第二样本。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">32</span>
+          <span class="chapter-title">
+            <h3>欧债危机：2016～2022（上）<span class="pages">p.708–722</span></h3>
+            <p class="chapter-claim">欧债危机转入"塞浦路斯模式"——首次动用储户存款救银行，暴露欧元区"敌友之谜"与美国的"黄雀在后"：IMF 与美欧博弈、美国借危机削弱欧元。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>欧元与美元博弈</strong>：2013 年后欧元在全球外汇储备中呈明显上升势头；中国外汇储备规模多达 3.8 万亿美元、短期除继续持有美元外别无选择<a href="book.pdf#page=708" target="_blank" class="pg pg-link">p.708–709</a>。</li>
+            <li><strong>跨境资本萎缩</strong>：2012 年全球国与国之间跨境贷款与投资总计 4.6 万亿美元，2007 年为 11.8 万亿、降幅高达 <a href="book.pdf#page=61" target="_blank" class="pg pg-link">61%</a>；流入 G20 的跨境资本自 2007 年中起下滑 67.5%<a href="book.pdf#page=710" target="_blank" class="pg pg-link">p.710</a>。</li>
+            <li><strong>虚拟经济</strong>：美国 12～14 万亿美元国民收入形成的资产价值高达 400～500 万亿美元，虚拟经济约为实体经济的 <a href="book.pdf#page=30" target="_blank" class="pg pg-link">30 倍</a><a href="book.pdf#page=710" target="_blank" class="pg pg-link">p.710</a>。</li>
+            <li><strong>杠杆贷卷土重来</strong>：截至 2013.11 杠杆贷规模已达 5480 亿美元、超过次贷危机前的 5352 亿美元；新增"精简版贷款"中 60% 出自影子银行<a href="book.pdf#page=711" target="_blank" class="pg pg-link">p.711–712</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>指出欧元是美元霸权最大的潜在替代者，因而也是被打击目标。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">33</span>
+          <span class="chapter-title">
+            <h3>欧债危机：2016～2022（下）<span class="pages">p.723–740</span></h3>
+            <p class="chapter-claim">欧债危机靠"超级拯救"续命但裂痕洞开——德拉吉以无限货币火力＋OMT 救欧元，但欧元区陷入通缩、青年失业高企；2016 年后危机将沿债务链条被外部冲击点燃，去杠杆规模可能达 2.6 万亿美元。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>德拉吉"超级拯救"</strong>：2012.7.25 德拉吉称欧央行权限允许它对过高的借贷成本进行干预；2012.9 宣布将部署无限的货币火力、按 OMT 计划购债；德国央行行长魏德曼警告 3 年期逾 1 万亿欧元贷款造成巨大隐患<a href="book.pdf#page=723" target="_blank" class="pg pg-link">p.723–724</a>。</li>
+            <li><strong>意大利风险</strong>：2011 年底未清偿债务本金 1.58 万亿欧元、本息 2.18 万亿欧元；债务占 GDP 比例从 2007Q4 的 103.3% 升至 2013Q2 的 <a href="book.pdf#page=133" target="_blank" class="pg pg-link">133.3%</a>；49% 的贷款来自国外<a href="book.pdf#page=725" target="_blank" class="pg pg-link">p.725–726</a>。</li>
+            <li><strong>欧央行资产负债表</strong>：总规模已急剧扩张到 <a href="book.pdf#page=3" target="_blank" class="pg pg-link">3.2 万亿欧元</a>、甚至超过美联储<a href="book.pdf#page=725" target="_blank" class="pg pg-link">p.725</a>。</li>
+            <li><strong>债务与失业</strong>：政府债务率希腊 171.8%、意大利 132.9%、葡萄牙 128.7%、爱尔兰 124.8%；欧元区 2012 年青年失业率 23.1%（希腊 55.4%、西班牙 53.2%）；去杠杆规模可能高达 2.6 万亿美元<a href="book.pdf#page=726" target="_blank" class="pg pg-link">p.726、p.728、p.737</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>欧洲是"美元周期外围危机"的第三极（继新兴市场、资源国之后）。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">34</span>
+          <span class="chapter-title">
+            <h3>世界的2023～2034<span class="pages">p.741–763</span></h3>
+            <p class="chapter-claim">2023～2034 是"美元大贬值＋资源超级大牛市＋大滞胀"时代——2016～2022 美元暴涨、非美货币大贬，2023～2034 美元大贬值，美国低价控制的大量优质资源价值成倍上升，全球进入"资源超级为王"时代。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>美国大帝国时代</strong>：经过 2016～2022 惨烈洗牌，世界的单极特点将更加明显、美元地位更稳固；美国能源信息署预测未来十年页岩油产量将以年均 23.4 万桶/日的速度增长<a href="book.pdf#page=741" target="_blank" class="pg pg-link">p.741–742</a>。</li>
+            <li><strong>石油美元</strong>：1974 年美国与中东国家达成"石油单一使用美元计价"协议；美国国家情报委员会预测若能源领域取得进展，到 2030 年美国 GDP 会多增长 <a href="book.pdf#page=1" target="_blank" class="pg pg-link">1.7%～2.2%</a><a href="book.pdf#page=742" target="_blank" class="pg pg-link">p.742</a>。</li>
+            <li><strong>页岩油气储量</strong>：美国可能拥有 6 万亿桶页岩原油储量、含有原油的 70% 土地在美国；可开采页岩气储量达 25 万亿立方米；石油产品日产量 1127 万桶、已非常接近 1970 年的 1130 万桶峰值<a href="book.pdf#page=743" target="_blank" class="pg pg-link">p.743</a>。</li>
+            <li><strong>美元资产规模</strong>：2013 年英镑计价资产 16 万亿美元、欧元（或英镑）计价 9 万亿美元，而以人民币计价的资产仅 <a href="book.pdf#page=2500" target="_blank" class="pg pg-link">2500 亿美元</a><a href="book.pdf#page=744" target="_blank" class="pg pg-link">p.744</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>全书终局判断——美元先强后弱，资源在弱美元期完成价值重估。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">35</span>
+          <span class="chapter-title">
+            <h3>大动荡大变革：2023～2034（上）<span class="pages">p.764–771</span></h3>
+            <p class="chapter-claim">2016～2022 全球大危机将促使欧洲右转、俄罗斯与独联体陷入危机、中亚发生"颜色革命"——危机是全球权力重组的手术刀。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>欧洲向右</strong>：欧债危机爆发到 2012.7，欧元区各成员国极右翼政党的得票率或民调结果都比以往水平增长一倍；2013.4.14 以抛弃欧元为核心目标的"德国的选择"在柏林成立、同年 9 月德国联邦议会选举中赢得 4.7% 支持率<a href="book.pdf#page=764" target="_blank" class="pg pg-link">p.764–765</a>。</li>
+            <li><strong>欧元区解体风险</strong>：美国国家情报委员会认为倘若欧元毫无预兆地突然解体，很可能引发一场全球大衰退或如同 20 世纪 30 年代那样的"大萧条"；作者判断这符合美国大战略的最终结果<a href="book.pdf#page=766" target="_blank" class="pg pg-link">p.766–767</a>。</li>
+            <li><strong>苏联解体的石油武器</strong>：1988 年苏联石油工业陷入危机；1991 年美国释放战略石油储备、沙特把石油产量提高 3 倍，国际原油价格迅速跌到 <a href="book.pdf#page=8" target="_blank" class="pg pg-link">8 美元</a>——而西伯利亚石油生产成本是每桶 9 美元；苏联最终于 1991.12 解体<a href="book.pdf#page=768" target="_blank" class="pg pg-link">p.768</a>。</li>
+            <li><strong>俄罗斯风险</strong>：2016～2022 大宗商品价格下跌对俄罗斯无异于灭顶之灾；俄罗斯由 80 多个联邦主体组成、属温和的专制主义，而专制主义制度通常不稳固、容易崩溃<a href="book.pdf#page=768" target="_blank" class="pg pg-link">p.768</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>把"危机"从经济现象提升为政治重组机制。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">36</span>
+          <span class="chapter-title">
+            <h3>大动荡大变革：2023～2034（中）<span class="pages">p.772–784</span></h3>
+            <p class="chapter-claim">2016～2022 危机将冲击东亚、东南亚与南亚、拉美、非洲——日本陷入大衰退、东盟被削弱、印度矛盾可能爆发、拉美动荡、非洲动乱，危机是重塑全球格局的手术刀。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>日本大衰退</strong>：自 20 世纪 90 年代泡沫破灭后日本步入"失去的 20 年"，2016～2022 将是最痛苦的阶段；2023～2034 资源上涨周期到来时，资源短缺的日本经济将遭受进一步重创<a href="book.pdf#page=772" target="_blank" class="pg pg-link">p.772</a>。</li>
+            <li><strong>东南亚与"大米换高铁"</strong>：东盟内部贸易比重一直在 25% 附近；泰国 2.2 万亿泰铢贷款案终止标志中泰"大米换高铁"项目受重创；2014.3 中国企业牵头组成泰国克拉运河筹建小组<a href="book.pdf#page=773" target="_blank" class="pg pg-link">p.773–774</a>。</li>
+            <li><strong>印尼排华</strong>：1965 年"930"事件中国媒体称至少 30 万华人丧生（国外认为死亡人数高达 100 万）；1998 年 5 月印尼"五月暴乱"至少 1188 人死亡、40 家大型商场被毁<a href="book.pdf#page=775" target="_blank" class="pg pg-link">p.775</a>。</li>
+            <li><strong>印度风险</strong>：2016～2022 矛盾很可能在印度与周边爆发；危机冲击将给美国把势力向缅甸延伸提供更好机会<a href="book.pdf#page=776" target="_blank" class="pg pg-link">p.776</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>补全危机的东亚—东南亚—南亚侧翼。</p>
+        </div></div></div>
+      </div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">37</span>
+          <span class="chapter-title">
+            <h3>大动荡大变革：2023～2034（下）<span class="pages">p.785–808</span></h3>
+            <p class="chapter-claim">中东是 2016～2022 最动荡的地区之一——教派对立、伊以对抗、库尔德建国梦，石油美元的循环支撑美国霸权；2023～2034 油价暴涨将放大产油国财政危机与社会动荡。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>中东地位</strong>：在伊拉克钻一口新油井只需几十万美元，而在墨西哥湾或北极近海则需至少 5000 万美元；"谁掌握了中东，谁就卡住了世界的脖子"<a href="book.pdf#page=785" target="_blank" class="pg pg-link">p.785</a>。</li>
+            <li><strong>教派对立</strong>：巴林人口仅 130 万、70% 以上是什叶派穆斯林；什叶派主导的伊朗希望什叶派势力扩张<a href="book.pdf#page=786" target="_blank" class="pg pg-link">p.786、p.789</a>。</li>
+            <li><strong>巴以与以色列</strong>：1947.11.29 联大 181 号决议中"犹太国"面积 1.16 万平方公里（占 44%）；以色列此后控制地域膨胀 4 倍多、总面积达 8.7 万平方公里；实际控制巴勒斯坦全境与戈兰高地共 2.78 万平方公里<a href="book.pdf#page=790" target="_blank" class="pg pg-link">p.790</a>。</li>
+            <li><strong>军费与美元循环</strong>：沙特军费占 GDP 比例即使在最低年份也在 7% 以上、2013 年达 <a href="book.pdf#page=9" target="_blank" class="pg pg-link">9.3%</a>、军费总额跃升全球第四；中东紧张局势为美国以武器销售为基础的美元循环创造条件<a href="book.pdf#page=794" target="_blank" class="pg pg-link">p.794</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>把"地缘—石油—美元"闭环补上最后一环。</p>
+        </div></div></div>
+      </div>
+
+      <div class="ch-group"><h3>结语 · 向均衡的目标前进</h3><span class="rule"></span></div>
+
+      <div class="chapter-card">
+        <button class="chapter-head" type="button" aria-expanded="false">
+          <span class="chapter-no">结语</span>
+          <span class="chapter-title">
+            <h3>债务全球化与劳动生产率下降<span class="pages">p.809–811</span></h3>
+            <p class="chapter-claim">债务全球化与劳动生产率下降是最大隐患——全球债券市值 70 万亿美元、衍生品票面价值达全球 GDP 的 10 倍，人口红利 2035 年结束，人类需"向均衡的目标前进"而非维持旧增长。</p>
+          </span>
+          <span class="chapter-chev"><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></span>
+        </button>
+        <div class="chapter-body"><div class="chapter-body-inner"><div class="chapter-body-content">
+          <div class="ch-block"><h4>关键案例与数据</h4><ul>
+            <li><strong>债务全球化</strong>：2011 年全球所有国内债券市场总市值已高达 <a href="book.pdf#page=70" target="_blank" class="pg pg-link">70 万亿美元</a>、与全球 GDP 相等；全球衍生对赌协议存量的票面价值已达全球 GDP 的 10 倍、分摊到全球每个人身上人均超过 100 万美元<a href="book.pdf#page=809" target="_blank" class="pg pg-link">p.809</a>。</li>
+            <li><strong>劳动生产率下降</strong>：全球劳动生产率增速从 2010 年的 3.9% 降到 2012 年的 1.8%、2013 年的 1.7%；全要素生产率下跌 0.1%<a href="book.pdf#page=809" target="_blank" class="pg pg-link">p.809</a>。</li>
+            <li><strong>人口红利终结</strong>：支撑经济高速增长的"人口红利"已开始放缓、并将在 <a href="book.pdf#page=2035" target="_blank" class="pg pg-link">2035 年</a>结束增长<a href="book.pdf#page=809" target="_blank" class="pg pg-link">p.809</a>。</li>
+            <li><strong>作者的收束</strong>：人类需要使社会改变方向，向均衡的目标前进，而不是维持以往的增长<a href="book.pdf#page=810" target="_blank" class="pg pg-link">p.810</a>。</li>
+          </ul></div>
+          <p class="ch-link"><strong>在论证链中的角色：</strong>全书落点——对旧增长模式的反思，也是全书的"终局判断"。</p>
+        </div></div></div>
+      </div>
+
+    </section>
+
+    <!-- 03 领域图谱 -->
+    <section class="sec" id="chain">
+      <div class="sec-head"><span class="sec-no">03</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-map"/></svg></span><h2>宏观趋势传导图谱</h2></div>
+      <p class="sec-sub">把全书拆成货币信用、资本流动、资产价格、实体经济、地缘政治五层，每层标注书中依据与传导逻辑<a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509、p.89、p.392、p.172、p.764</a></p>
+      <div class="chain">
+
+        <div class="layer-node">
+          <div class="layer-head">
+            <span class="layer-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-zap"/></svg></span>
+            <div class="layer-title"><h3>第一层 · 货币信用</h3><span class="sub">美元周期律是总开关，决定其余四层的方向</span></div>
+            <span class="cycle-tag">弱 → 强 → 弱</span>
+          </div>
+          <div class="layer-body"><dl>
+            <dt>书中依据</dt><dd>1971.8.15 美元与黄金脱钩后，美元指数按"下跌—上涨"周期循环；1995.9–2002.3 指数 78.33→120.04（+53.25%）；作者预判 2016～2022 加速上涨、目标 164.72，2023 年后转入十年以上熊市<a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509</a>。</dd>
+            <dt>传导机制</dt><dd>弱美元期：QE 输出流动性、非美货币升值、资源与新兴市场资产上涨。强美元期：美联储加息＋缩表，资金回流美国，外围货币贬值、债务爆雷。</dd>
+            <dt>跟踪指标</dt><dd>美元指数（DXY）、美联储资产负债表规模、联邦基金利率、Libor/SOFR 利差</dd>
+          </dl></div>
+        </div>
+
+        <div class="flow-connector"><span class="arr"><svg class="ic" aria-hidden="true"><use href="#i-arrowdown"/></svg></span><span class="lbl">美元由弱转强 → 全球流动性从"泛滥"切换为"抽水"，跨境资金方向逆转</span></div>
+
+        <div class="layer-node">
+          <div class="layer-head">
+            <span class="layer-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-arrowright"/></svg></span>
+            <div class="layer-title"><h3>第二层 · 资本流动</h3><span class="sub">危机的地理半径由资本流向决定</span></div>
+            <span class="cycle-tag">回流美国</span>
+          </div>
+          <div class="layer-body"><dl>
+            <dt>书中依据</dt><dd>2012 年全球跨境贷款与投资总计 4.6 万亿美元，而 2007 年为 11.8 万亿、降幅 61%；流入 G20 的跨境资本自 2007 年中起下滑 67.5%；美国 2013 年道指 52 次创历史新高、银行总市值再破 1 万亿美元<a href="book.pdf#page=710" target="_blank" class="pg pg-link">p.710、p.489–491</a>。</dd>
+            <dt>传导机制</dt><dd>资本流出外围 → 外汇储备被消耗 → 本币贬值与资产抛售 → 危机自我强化；资本流入美国 → 美股/美债/美国房市三线齐涨。</dd>
+            <dt>跟踪指标</dt><dd>新兴市场资本外逃额、各国外汇储备变动、EPFR 全球资金流向、美国 TIC 国际资本流动报告</dd>
+          </dl></div>
+        </div>
+
+        <div class="flow-connector"><span class="arr"><svg class="ic" aria-hidden="true"><use href="#i-arrowdown"/></svg></span><span class="lbl">资金抽离 → 资产价格失去承接力，"去杠杆"从金融体系传导到实体资产负债表</span></div>
+
+        <div class="layer-node">
+          <div class="layer-head">
+            <span class="layer-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-scale"/></svg></span>
+            <div class="layer-title"><h3>第三层 · 资产价格</h3><span class="sub">泡沫的估值刻度与破裂顺序</span></div>
+            <span class="cycle-tag">泡沫 → 破裂</span>
+          </div>
+          <div class="layer-body"><dl>
+            <dt>书中依据</dt><dd>房地产总市值是 GDP 的 2.9 倍、全国城市住房总价值约 75.52 万亿元<a href="book.pdf#page=392" target="_blank" class="pg pg-link">p.392、p.422</a>；美国虚拟经济约为实体经济 30 倍（400～500 万亿美元资产）<a href="book.pdf#page=710" target="_blank" class="pg pg-link">p.710</a>；2013 年人民币计价资产仅约 2500 亿美元，美元资产池无可替代<a href="book.pdf#page=744" target="_blank" class="pg pg-link">p.744</a>。</dd>
+            <dt>传导机制</dt><dd>流动性推高估值 → 杠杆放大涨幅 → 紧缩期估值与杠杆同时收缩 → 抵押品贬值触发追保与抛售 → 价格加速下跌。</dd>
+            <dt>跟踪指标</dt><dd>房价收入比 / 房价租金比、股债房三市估值、大宗商品价格指数、黄金价格</dd>
+          </dl></div>
+        </div>
+
+        <div class="flow-connector"><span class="arr"><svg class="ic" aria-hidden="true"><use href="#i-arrowdown"/></svg></span><span class="lbl">资产价格下跌 → 抵押品缩水、企业利润被成本与汇率双向挤压，债务显性化</span></div>
+
+        <div class="layer-node">
+          <div class="layer-head">
+            <span class="layer-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-activity"/></svg></span>
+            <div class="layer-title"><h3>第四层 · 实体经济</h3><span class="sub">债务与利润是危机的最终落点</span></div>
+            <span class="cycle-tag">债务显性化</span>
+          </div>
+          <div class="layer-body"><dl>
+            <dt>书中依据</dt><dd>中国 M2 十年扩张 22.12 → 110.65 万亿元、货币存量/GDP 达 200%<a href="book.pdf#page=429" target="_blank" class="pg pg-link">p.429</a>；经济整体债务测算达 111.6 万亿元<a href="book.pdf#page=387" target="_blank" class="pg pg-link">p.387</a>；84.07% 的出口企业利润率在 5% 以内<a href="book.pdf#page=437" target="_blank" class="pg pg-link">p.437</a>；2012 年劳动年龄人口首次绝对下降<a href="book.pdf#page=397" target="_blank" class="pg pg-link">p.397</a>。</dd>
+            <dt>传导机制</dt><dd>外需萎缩＋汇率升值 → 出口利润被吞噬 → 应收账款（三角债）拉长 → 企业违约 → 银行坏账 → 财政与货币被迫救助。</dd>
+            <dt>跟踪指标</dt><dd>M2/GDP、PPI 与 CPI 剪刀差、工业企业利润与应收账款、宏观杠杆率、失业率与青年失业率</dd>
+          </dl></div>
+        </div>
+
+        <div class="flow-connector"><span class="arr"><svg class="ic" aria-hidden="true"><use href="#i-arrowdown"/></svg></span><span class="lbl">经济与债务压力外溢为地缘摩擦——"地区危机"是美元收割闭环的最后一块拼图</span></div>
+
+        <div class="layer-node">
+          <div class="layer-head">
+            <span class="layer-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-map"/></svg></span>
+            <div class="layer-title"><h3>第五层 · 地缘政治</h3><span class="sub">危机既是结果，也是被主动制造的工具</span></div>
+            <span class="cycle-tag">制造危机</span>
+          </div>
+          <div class="layer-body"><dl>
+            <dt>书中依据</dt><dd>美国决定 2020 年前将 60% 海军力量部署亚太<a href="book.pdf#page=345" target="_blank" class="pg pg-link">p.345</a>；2012.9.10 日本将钓鱼岛"国有化"<a href="book.pdf#page=667" target="_blank" class="pg pg-link">p.667</a>；乌克兰危机与克里米亚入俄<a href="book.pdf#page=554" target="_blank" class="pg pg-link">p.554–557</a>；中东紧张为美国以武器销售为基础的美元循环创造条件，沙特 2013 年军费占 GDP 9.3%<a href="book.pdf#page=794" target="_blank" class="pg pg-link">p.794</a>。</dd>
+            <dt>传导机制</dt><dd>美元回流需要"99℃ 再加 1℃"的地区热点 → 冲突推高油价与避险需求 → 强化美元与美债 → 完成对危机国优质资源的低价收购。</dd>
+            <dt>跟踪指标</dt><dd>地缘冲突事件密度、国际油价、黄金与美债收益率、各国军费占 GDP 比例、资源国政权稳定性</dd>
+          </dl></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 04 映射主表 -->
+    <section class="sec" id="mapping">
+      <div class="sec-head"><span class="sec-no">04</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-scale"/></svg></span><h2>趋势—资产映射</h2></div>
+      <p class="sec-sub">把书中的宏观变量翻译成可跟踪的资产与指标：每个趋势变量 → 传导环节 → 受影响资产 → 跟踪指标 → 书中依据</p>
+
+      <div class="tbl-title">趋势变量 × 受影响资产（方向按书中逻辑标注）</div>
+      <p class="tbl-note">"多/空"为按书中论证推出的方向，非投资建议；页码为原书 PDF 页码。</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>趋势变量</th><th>传导环节</th><th>受影响资产（方向）</th><th>跟踪指标</th><th>书中依据</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>美元由弱转强（2016～2022）</strong></td>
+              <td>资本回流美国</td>
+              <td>美元、美债、美股 <span class="pos">多</span>；新兴市场股/汇/债 <span class="pos">空</span></td>
+              <td>美元指数、联邦基金利率、TIC 资本流动</td>
+              <td><a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509、p.531</a></td>
+            </tr>
+            <tr>
+              <td><strong>美元大贬值（2023～2034）</strong></td>
+              <td>流动性泛滥＋大滞胀</td>
+              <td>大宗商品、资源股、黄金 <span class="pos">多</span>；美元计价长久期债 <span class="pos">空</span></td>
+              <td>美元指数下行趋势、CRB 商品指数</td>
+              <td><a href="book.pdf#page=741" target="_blank" class="pg pg-link">p.741、p.748、p.754</a></td>
+            </tr>
+            <tr>
+              <td><strong>美联储加息与缩表</strong></td>
+              <td>全球融资成本抬升</td>
+              <td>高外债新兴市场货币与主权债 <span class="pos">空</span></td>
+              <td>联邦基金利率、Libor/SOFR 利差</td>
+              <td><a href="book.pdf#page=431" target="_blank" class="pg pg-link">p.431、p.559</a></td>
+            </tr>
+            <tr>
+              <td><strong>人民币"外升内贬"</strong></td>
+              <td>出口利润被双向挤压</td>
+              <td>出口制造、纺织 <span class="pos">空</span>；内需与进口替代 <span class="pos">中性偏多</span></td>
+              <td>汇率中间价、出口企业利润率</td>
+              <td><a href="book.pdf#page=434" target="_blank" class="pg pg-link">p.434–437</a></td>
+            </tr>
+            <tr>
+              <td><strong>房地产市值＝GDP 的 2.9 倍</strong></td>
+              <td>抵押品与土地财政收缩</td>
+              <td>房地产、土地财政链、银行 <span class="pos">空</span></td>
+              <td>房价收入比、土地成交金额</td>
+              <td><a href="book.pdf#page=392" target="_blank" class="pg pg-link">p.392、p.422</a></td>
+            </tr>
+            <tr>
+              <td><strong>债务总规模 111.6 万亿元</strong></td>
+              <td>违约与坏账暴露</td>
+              <td>银行、信托、影子银行产品 <span class="pos">空</span></td>
+              <td>宏观杠杆率、信托集中到期规模</td>
+              <td><a href="book.pdf#page=387" target="_blank" class="pg pg-link">p.387、p.361</a></td>
+            </tr>
+            <tr>
+              <td><strong>粮食自给率跌破 90%</strong></td>
+              <td>农产品逆周期上涨</td>
+              <td>农产品、农业与种业 <span class="pos">多</span></td>
+              <td>大豆/谷物进口量、国际粮价指数</td>
+              <td><a href="book.pdf#page=447" target="_blank" class="pg pg-link">p.447、p.451</a></td>
+            </tr>
+            <tr>
+              <td><strong>人口红利 2035 年结束</strong></td>
+              <td>长期需求与劳动力收缩</td>
+              <td>长期消费、地产、养老 <span class="pos">空</span></td>
+              <td>劳动年龄人口、总和生育率</td>
+              <td><a href="book.pdf#page=397" target="_blank" class="pg pg-link">p.397、p.809</a></td>
+            </tr>
+            <tr>
+              <td><strong>能源自足＋石油美元</strong></td>
+              <td>美元霸权与能源定价权强化</td>
+              <td>页岩油气、美元资产 <span class="pos">多</span></td>
+              <td>美国原油产量、美元计价资产规模</td>
+              <td><a href="book.pdf#page=742" target="_blank" class="pg pg-link">p.742–743</a></td>
+            </tr>
+            <tr>
+              <td><strong>地缘热点被主动制造</strong></td>
+              <td>避险需求与油价波动</td>
+              <td>黄金、原油、军工 <span class="pos">多</span></td>
+              <td>地缘冲突事件密度、国际油价</td>
+              <td><a href="book.pdf#page=345" target="_blank" class="pg pg-link">p.345、p.794</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 05 指标清单 -->
+    <section class="sec" id="indicators">
+      <div class="sec-head"><span class="sec-no">05</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-activity"/></svg></span><h2>关键指标追踪清单</h2></div>
+      <p class="sec-sub">从书中提取的可定期跟踪指标，附买入/卖出触发条件（书中未给出阈值的，按书内逻辑构造并注明）</p>
+
+      <div class="signal-grid">
+        <div class="signal-card">
+          <h4><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg>货币与汇率（先行）</h4>
+          <ul>
+            <li><strong>美元指数</strong>：书中锚点为 2016～2022 加速上行、目标位 164.72；若指数持续站上并加速，则外围危机概率上升<a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509</a>。</li>
+            <li><strong>联邦基金利率</strong>：加息周期启动＝新兴市场债务压力开始累积<a href="book.pdf#page=431" target="_blank" class="pg pg-link">p.431</a>。</li>
+            <li><strong>美联储资产负债表</strong>：购债结束／缩表＝全球美元供给拐点（书中以 2013.12 削减购债为标志）<a href="book.pdf#page=479" target="_blank" class="pg pg-link">p.479–481、p.573</a>。</li>
+            <li><strong>CPI 与股市</strong>：书中经验规律——CPI 低于 1% 时股市易涨，接近或高于 <a href="book.pdf#page=7" target="_blank" class="pg pg-link">7%</a> 时易暴跌<a href="book.pdf#page=25" target="_blank" class="pg pg-link">p.25、p.39</a>。</li>
+          </ul>
+        </div>
+        <div class="signal-card">
+          <h4><svg class="ic" aria-hidden="true"><use href="#i-arrowright"/></svg>资本与流动性（先行）</h4>
+          <ul>
+            <li><strong>跨境资本流量</strong>：全球跨境贷款与投资从 11.8 万亿美元（2007）降至 4.6 万亿（2012）、降幅 61%，是"去全球化＋回流美国"的直接读数<a href="book.pdf#page=710" target="_blank" class="pg pg-link">p.710</a>。</li>
+            <li><strong>新兴市场资本外逃额</strong>：书中以俄罗斯 2014 年一季度外逃 500～550 亿美元为样本<a href="book.pdf#page=561" target="_blank" class="pg pg-link">p.561</a>。</li>
+            <li><strong>各国外汇储备变动</strong>：外储快速下降＝干预汇市消耗家底（俄 2008.8→2009.5 由 5965.66 亿降至 3839.05 亿美元）<a href="book.pdf#page=579" target="_blank" class="pg pg-link">p.579</a>。</li>
+            <li><strong>影子银行/信托到期</strong>：书中提示 2015 年是信托产品集中偿付高峰<a href="book.pdf#page=361" target="_blank" class="pg pg-link">p.361</a>。</li>
+          </ul>
+        </div>
+        <div class="signal-card">
+          <h4><svg class="ic" aria-hidden="true"><use href="#i-activity"/></svg>实体与债务（同步）</h4>
+          <ul>
+            <li><strong>M2/GDP</strong>：中国货币存量/GDP 达 200%，M2 是美国的 170%——货币超发程度是债务风险的先行刻度<a href="book.pdf#page=429" target="_blank" class="pg pg-link">p.429</a>。</li>
+            <li><strong>宏观杠杆率与债务总额</strong>：书中测算经济整体债务达 111.6 万亿元、企业债 14.2 万亿美元居世界第一<a href="book.pdf#page=387" target="_blank" class="pg pg-link">p.387、p.373</a>。</li>
+            <li><strong>出口企业利润率</strong>：84.07% 的出口企业利润率在 5% 以内——汇率升值与成本上升直接击穿这一缓冲垫<a href="book.pdf#page=437" target="_blank" class="pg pg-link">p.437</a>。</li>
+            <li><strong>劳动年龄人口与生育率</strong>：2012 年首次绝对下降；书中以"生育率跌破 1.8 后十年"作为房地产危机的经验时滞<a href="book.pdf#page=397" target="_blank" class="pg pg-link">p.397、p.395</a>。</li>
+          </ul>
+        </div>
+        <div class="signal-card">
+          <h4><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg>地缘与商品（事件驱动）</h4>
+          <ul>
+            <li><strong>国际油价</strong>：油价每桶上涨 1 美元，俄罗斯可多收入近 20 亿美元——油价是资源国的"命门杠杆"<a href="book.pdf#page=326" target="_blank" class="pg pg-link">p.326</a>。</li>
+            <li><strong>粮食价格</strong>：粮食是大宗商品中的例外，书中判断 2016～2022 粮价将逆势上涨<a href="book.pdf#page=447" target="_blank" class="pg pg-link">p.447</a>。</li>
+            <li><strong>产能过剩度</strong>：毕马威预计到 2016 年全球汽车产能过剩 20%～30%，是判断大宗商品需求侧的重要参照<a href="book.pdf#page=534" target="_blank" class="pg pg-link">p.534</a>。</li>
+            <li><strong>军费占 GDP 比例</strong>：沙特长期在 7% 以上、2013 年达 9.3%，军备竞赛为美国"武器销售型美元循环"创造条件<a href="book.pdf#page=794" target="_blank" class="pg pg-link">p.794</a>。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tbl-title">时间窗：书中给出的五个阶段锚点</div>
+      <div class="timeline">
+        <div class="tl-node"><time>2003</time><p>18 号文把房地产定为支柱产业，资源错配与货币超发的总开关<a href="book.pdf#page=44" target="_blank" class="pg pg-link">p.44</a></p></div>
+        <div class="tl-node"><time>2012</time><p>投资率越界、消费率塌陷、财政与债务同时触顶的五重临界年<a href="book.pdf#page=109" target="_blank" class="pg pg-link">p.109–130</a></p></div>
+        <div class="tl-node"><time>2016–2022</time><p>美元加速上涨（目标 164.72）、外围货币贬值与债务总危机显性化<a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509、p.531</a></p></div>
+        <div class="tl-node"><time>2023–2034</time><p>美元大贬值＋资源超级大牛市＋大滞胀，粮食成为终极武器<a href="book.pdf#page=748" target="_blank" class="pg pg-link">p.748、p.754、p.757</a></p></div>
+        <div class="tl-node"><time>2035</time><p>支撑高增长的"人口红利"结束增长，全球需"向均衡的目标前进"<a href="book.pdf#page=809" target="_blank" class="pg pg-link">p.809–810</a></p></div>
+      </div>
+
+      <div class="signal-grid">
+        <div class="signal-card">
+          <h4><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>按书中逻辑的"风险上升"触发</h4>
+          <ul>
+            <li>美元指数进入加速上行且美联储同步加息 → 新兴市场与资源国货币、主权债风险上升<a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509、p.431</a>。</li>
+            <li>房价由涨转跌（书中以鄂尔多斯、温州为见顶样本）→ 抵押品收缩、债务危机显性化<a href="book.pdf#page=238" target="_blank" class="pg pg-link">p.238、p.245、p.391</a>。</li>
+            <li>信托/影子产品集中到期叠加企业应收账款拉长 → 违约与坏账暴露<a href="book.pdf#page=361" target="_blank" class="pg pg-link">p.361、p.370</a>。</li>
+          </ul>
+        </div>
+        <div class="signal-card">
+          <h4><svg class="ic" aria-hidden="true"><use href="#i-compass"/></svg>按书中逻辑的"机会出现"触发</h4>
+          <ul>
+            <li>美元转入长期贬值周期 → 资源类资产进入"超级为王"阶段<a href="book.pdf#page=741" target="_blank" class="pg pg-link">p.741、p.748</a>。</li>
+            <li>危机后期优质资源与资产被低价收购（书中以阿根廷、泰国、韩国、俄罗斯为历史样本）→ 抄底窗口<a href="book.pdf#page=11" target="_blank" class="pg pg-link">p.11、p.559</a>。</li>
+            <li>粮价逆势上行、耕地与自给率持续下滑 → 农产品与农业链相对占优<a href="book.pdf#page=447" target="_blank" class="pg pg-link">p.447、p.451</a>。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 案例与投资标的 -->
+    <section class="sec" id="cases">
+      <div class="sec-head"><span class="sec-no">06</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-briefcase"/></svg></span><h2>案例与投资标的</h2></div>
+      <p class="sec-sub">全书案例总账 + 书中提及的全部投资标的（按资产类型分组，标注叙事语境）</p>
+
+      <div class="tbl-title">案例总账：书中反复引用的十个关键样本</div>
+      <p class="tbl-note">这些案例在书中承担"证明周期律"的功能，是全书论证的证据底座。</p>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>案例</th><th>时间</th><th>关键数据</th><th>书中结论</th><th>页码</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>海南房地产泡沫</strong></td><td>1992–1998</td><td>1992 年海南房地产投资 87 亿元、占固定资产投资一半；地价由十几万元/亩飙至 600 多万元/亩；烂尾楼 600 多栋、积压资金 800 亿元</td><td>资源错配的第一个完整样本，最终以海发行关闭收场</td><td><a href="book.pdf#page=33" target="_blank" class="pg pg-link">p.33–35</a></td></tr>
+            <tr><td><strong>拉美债务危机</strong></td><td>1978–1985</td><td>美元指数 84.13 → 128.44（+52%）；拉美债务从 750 亿（1975）涨到 3150 亿美元（1983）</td><td>美元强势周期引爆外围债务，阿根廷等国由发达沦为发展中</td><td><a href="book.pdf#page=9" target="_blank" class="pg pg-link">p.9、p.431</a></td></tr>
+            <tr><td><strong>亚洲金融危机</strong></td><td>1995–2001</td><td>美元指数 80.05 → 121.01（+51%）</td><td>同一周期律的重演，新兴市场货币大幅贬值</td><td><a href="book.pdf#page=9" target="_blank" class="pg pg-link">p.9</a></td></tr>
+            <tr><td><strong>苏联解体</strong></td><td>1988–1991</td><td>1991 年美国释放战略石油储备、沙特增产 3 倍，油价跌到 8 美元（西伯利亚成本 9 美元/桶）；卢布最终 1400:1，美元实际贬值程度达 112000 倍</td><td>金融战＋石油战可以摧毁一个超级大国，28 万亿美元财富被洗劫</td><td><a href="book.pdf#page=559" target="_blank" class="pg pg-link">p.559、p.768</a></td></tr>
+            <tr><td><strong>日本泡沫破裂</strong></td><td>1985–1992</td><td>广场协议逼日元升值一倍；1992 年日经 225 跌至 14000 点、跌幅 64.1%；银行坏账超 1 万亿美元；1000 万亿日元国民资产消失</td><td>本币被迫升值＋资产泡沫，是"失去的 20 年"的起点</td><td><a href="book.pdf#page=512" target="_blank" class="pg pg-link">p.512–515</a></td></tr>
+            <tr><td><strong>鄂尔多斯 / 温州房价见顶</strong></td><td>2011–2013</td><td>资源输出型（鄂尔多斯）与资本输出型（温州）两类样本</td><td>房价由"资源吸引能力＋财富创造能力"决定，非单纯供需</td><td><a href="book.pdf#page=238" target="_blank" class="pg pg-link">p.238、p.245</a></td></tr>
+            <tr><td><strong>欧债危机</strong></td><td>2009–2014</td><td>政府债务率希腊 171.8%、意大利 132.9%；2012 年欧元区青年失业率 23.1%（希腊 55.4%、西班牙 53.2%）；去杠杆规模可能达 2.6 万亿美元</td><td>以"超级拯救"续命，但核心国与边缘国撕裂</td><td><a href="book.pdf#page=726" target="_blank" class="pg pg-link">p.726、p.728、p.737</a></td></tr>
+            <tr><td><strong>塞浦路斯模式</strong></td><td>2013</td><td>首次动用储户存款救助银行</td><td>危机成本开始向普通存款人转移，欧元区"敌友之谜"暴露</td><td><a href="book.pdf#page=708" target="_blank" class="pg pg-link">p.708–709</a></td></tr>
+            <tr><td><strong>委内瑞拉崩溃</strong></td><td>2012–2014</td><td>石油收入占出口收入 95%、近 50% 联邦预算；外债 436 亿美元而国际储备仅 269 亿美元；玻利瓦尔一次性贬值 89%</td><td>资源依赖型经济在油价下跌时财政立即崩塌</td><td><a href="book.pdf#page=635" target="_blank" class="pg pg-link">p.635</a></td></tr>
+            <tr><td><strong>克里米亚入俄</strong></td><td>2014</td><td>3.16 公投 96.6% 赞成入俄；俄央行关键利率 5.5%→7%、单日抛售 113 亿美元干预汇市；一季度资本外逃 500～550 亿美元</td><td>乌克兰是美国对俄"一步狠棋"，金融战与石油战同步展开</td><td><a href="book.pdf#page=554" target="_blank" class="pg pg-link">p.554–561</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tbl-title" style="margin-top:26px;">投资标的：按资产类型分组</div>
+      <div class="ctx-legend">
+        <span><span class="ctx-pill ctx-pill--pos">正面案例</span> 书中作为机会/受益方出现</span>
+        <span><span class="ctx-pill ctx-pill--neg">反面警示</span> 书中作为风险/受损方出现</span>
+        <span><span class="ctx-pill ctx-pill--demo">论证示例</span> 用于说明机制，未直接给方向</span>
+        <span><span class="ctx-pill ctx-pill--mention">仅提及</span> 仅在叙事中出现</span>
+      </div>
+
+      <div class="asset-group">
+        <div class="asset-group-head"><span class="g-name">一、货币与汇率</span><span class="g-count">6 项</span></div>
+        <div class="asset-item">
+          <div class="a-name">美元<span class="a-type">主权货币</span></div>
+          <div class="a-body">强周期回流、弱周期贬值的总枢纽；2013 年可供国际投资者投资的美元资产以万亿美元计，而人民币计价资产仅约 2500 亿美元。<div class="a-judge">结论：美元资产池无可替代，是全书所有周期判断的基准。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--pos">正面案例</span><a href="book.pdf#page=744" target="_blank" class="pg pg-link">p.744</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">欧元<span class="a-type">主权货币</span></div>
+          <div class="a-body">2013 年后在全球外汇储备中明显上升，是美元霸权最大的潜在替代者；但德拉吉的 OMT 与 3.2 万亿欧元资产负债表显示其靠"无限印钞"续命。<div class="a-judge">结论：被削弱符合美国大战略。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=708" target="_blank" class="pg pg-link">p.708、p.725</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">人民币<span class="a-type">主权货币</span></div>
+          <div class="a-body">2005→2013 对美元中间价累计升值超 30%，同时 M2 是美国的 170%——"外升内贬"双向挤压制造业。<div class="a-judge">结论：升值与超发并存，是制造业的绞索。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=429" target="_blank" class="pg pg-link">p.429、p.434</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">卢布 / 雷亚尔 / 兰特<span class="a-type">新兴市场货币</span></div>
+          <div class="a-body">2013 年多国货币对美元贬值幅度均超 10%，最高达 35.9%；2009 年卢布平均汇率同比贬值 32.66%。<div class="a-judge">结论：强美元周期中首当其冲。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=535" target="_blank" class="pg pg-link">p.535、p.575</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">玻利瓦尔<span class="a-type">资源国货币</span></div>
+          <div class="a-body">新汇率制度下一次贬值 89%；石油收入占出口 95%，外债 436 亿美元对国际储备 269 亿美元。<div class="a-judge">结论：资源国财政崩塌的极端样本。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=635" target="_blank" class="pg pg-link">p.635</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">日元<span class="a-type">主权货币</span></div>
+          <div class="a-body">安倍"三支箭"以无限量宽松＋贬值＋2% 通胀目标推动日元走弱，中央政府负债超 1000 万亿日元。<div class="a-judge">结论："以印钞换时间"的豪赌。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--demo">论证示例</span><a href="book.pdf#page=683" target="_blank" class="pg pg-link">p.683、p.693</a></div>
+        </div>
+      </div>
+
+      <div class="asset-group">
+        <div class="asset-group-head"><span class="g-name">二、权益与股票</span><span class="g-count">5 项</span></div>
+        <div class="asset-item">
+          <div class="a-name">美股（道指）<span class="a-type">股票指数</span></div>
+          <div class="a-body">道指 2009.3 的 6470.11 点 → 2013.12.31 的 16586.65 点；2013 年 52 次创历史新高、全年涨 33%。<div class="a-judge">结论：资金回流的直接受益者。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--pos">正面案例</span><a href="book.pdf#page=489" target="_blank" class="pg pg-link">p.489–491</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">美国银行股<span class="a-type">金融权益</span></div>
+          <div class="a-body">2013 年 7 月中旬美国各银行总市值再破 1 万亿美元，两倍于金砖四国能源、材料和采矿公司总市值（4320 亿美元）。<div class="a-judge">结论：金融霸权在估值上的体现。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--pos">正面案例</span><a href="book.pdf#page=491" target="_blank" class="pg pg-link">p.491</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">金砖四国股市<span class="a-type">新兴市场权益</span></div>
+          <div class="a-body">金砖增速 8%、占全球经济增长 1/3，但高新产业薄弱（俄罗斯 IT 产值仅占 GDP 1.5%），资本外逃与货币贬值同时发生。<div class="a-judge">结论：危机中的主要受损方。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=532" target="_blank" class="pg pg-link">p.532、p.536</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">中国房地产开发企业<span class="a-type">权益</span></div>
+          <div class="a-body">2012 年负债约 26.46 万亿元、资产负债率 72% 以上；63 家上市公司债务占股权比例超 400%。<div class="a-judge">结论：企业债务中最危险的一环。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=366" target="_blank" class="pg pg-link">p.366–370</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">资源 / 能源股<span class="a-type">权益</span></div>
+          <div class="a-body">2023～2034 美元大贬值期，美国低价控制的大量优质资源价值成倍上升，全球进入"资源超级为王"时代。<div class="a-judge">结论：弱美元期的核心受益方向。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--pos">正面案例</span><a href="book.pdf#page=748" target="_blank" class="pg pg-link">p.748、p.754</a></div>
+        </div>
+      </div>
+
+      <div class="asset-group">
+        <div class="asset-group-head"><span class="g-name">三、债券与固定收益</span><span class="g-count">4 项</span></div>
+        <div class="asset-item">
+          <div class="a-name">美国国债<span class="a-type">主权债</span></div>
+          <div class="a-body">强美元周期中资金回流推高美债与美股；"举债—购债"是中美恐怖平衡的一环。<div class="a-judge">结论：全球资金的默认避风港。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--pos">正面案例</span><a href="book.pdf#page=89" target="_blank" class="pg pg-link">p.89–104、p.496</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">意大利 / 希腊国债<span class="a-type">外围主权债</span></div>
+          <div class="a-body">意大利未清偿本息 2.18 万亿欧元、债务/GDP 升至 133.3%、49% 贷款来自国外；希腊债务率 171.8%。<div class="a-judge">结论："大而不能倒"与债务不可持续并存。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=725" target="_blank" class="pg pg-link">p.725–726</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">信托 / 影子银行产品<span class="a-type">类固收</span></div>
+          <div class="a-body">信托资产同比增 46%、单一信托规模约 2 万亿元而行业净资产仅约 2700 亿元；影子银行总量约 20 万亿元。<div class="a-judge">结论：2015 年集中偿付高峰是最脆弱时点。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=361" target="_blank" class="pg pg-link">p.361、p.380</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">美国杠杆贷<span class="a-type">信用债</span></div>
+          <div class="a-body">截至 2013.11 规模已达 5480 亿美元，超过次贷危机前 5352 亿美元；新增"精简版贷款"60% 出自影子银行。<div class="a-judge">结论：危机前的杠杆模式以新形式重现。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=711" target="_blank" class="pg pg-link">p.711–712</a></div>
+        </div>
+      </div>
+
+      <div class="asset-group">
+        <div class="asset-group-head"><span class="g-name">四、大宗商品与资源</span><span class="g-count">5 项</span></div>
+        <div class="asset-item">
+          <div class="a-name">原油<span class="a-type">能源</span></div>
+          <div class="a-body">油价每桶上涨 1 美元，俄罗斯可多收入近 20 亿美元；1991 年油价跌到 8 美元成为苏联解体的推手之一。<div class="a-judge">结论：既是商品，也是地缘武器。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--demo">论证示例</span><a href="book.pdf#page=326" target="_blank" class="pg pg-link">p.326、p.768</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">页岩油气<span class="a-type">能源</span></div>
+          <div class="a-body">美国可能拥有 6 万亿桶页岩原油储量、可开采页岩气 25 万亿立方米；石油产品日产量 1127 万桶，接近 1970 年峰值。<div class="a-judge">结论：能源自足是美元底气的物质基础。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--pos">正面案例</span><a href="book.pdf#page=743" target="_blank" class="pg pg-link">p.743</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">黄金<span class="a-type">贵金属</span></div>
+          <div class="a-body">1980.1.21 涨到 852 美元/盎司的历史高点，1984 年 5 月回落至平均 377 美元；纽约联储储存超 1000 亿美元黄金。<div class="a-judge">结论：强美元与高利率下被压制，弱美元期回归。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--demo">论证示例</span><a href="book.pdf#page=511" target="_blank" class="pg pg-link">p.511–512、p.482</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">稀土<span class="a-type">战略资源</span></div>
+          <div class="a-body">日本高新技术领域稀土用量占其消费总量 90% 以上；1990～2005 年中国稀土出口量增长近 10 倍而均价跌至极低水平。<div class="a-judge">结论：贱卖战略资源，未来或需以数百倍价钱回购。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=687" target="_blank" class="pg pg-link">p.687</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">工业金属 / 大宗商品<span class="a-type">商品</span></div>
+          <div class="a-body">2012 年全球大转折点起至 2016～2022 周期，书中判断将是大宗商品惨烈下跌的时间；2023～2034 又转入超级大牛市。<div class="a-judge">结论：两个周期方向完全相反。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--demo">论证示例</span><a href="book.pdf#page=333" target="_blank" class="pg pg-link">p.333、p.754</a></div>
+        </div>
+      </div>
+
+      <div class="asset-group">
+        <div class="asset-group-head"><span class="g-name">五、房地产与土地</span><span class="g-count">4 项</span></div>
+        <div class="asset-item">
+          <div class="a-name">中国住房<span class="a-type">不动产</span></div>
+          <div class="a-body">房地产总市值是 GDP 的 2.9 倍、全国城市住房总价值约 75.52 万亿元；房价一旦步入跌势，债务危机立即显性化。<div class="a-judge">结论：危机的引信。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=392" target="_blank" class="pg pg-link">p.392、p.422</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">美国房地产<span class="a-type">不动产</span></div>
+          <div class="a-body">中国投资者 2012.3–2013.3 在美国房地产投资 81 亿美元；2013 年 1–10 月商业地产投资 58.9 亿美元，近 6 倍于前两年总额。<div class="a-judge">结论：资金回流美国的受益方向之一。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--pos">正面案例</span><a href="book.pdf#page=343" target="_blank" class="pg pg-link">p.343</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">伦敦中心区住宅<span class="a-type">不动产</span></div>
+          <div class="a-body">外国人买走伦敦中心区新住宅物业的七成，卖家要价一个月内升 10%。<div class="a-judge">结论：全球避险资金推高核心城市物业。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--pos">正面案例</span><a href="book.pdf#page=343" target="_blank" class="pg pg-link">p.343</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">土地财政<span class="a-type">财政链</span></div>
+          <div class="a-body">2013 年上半年北京土地总收入已达 664 亿元、成交土地面积 813 万平方米；海南泡沫中地价由十几万元/亩飙至 600 多万元/亩。<div class="a-judge">结论：房地产与地方财政深度绑定。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=392" target="_blank" class="pg pg-link">p.392、p.33</a></div>
+        </div>
+      </div>
+
+      <div class="asset-group">
+        <div class="asset-group-head"><span class="g-name">六、粮食与农业</span><span class="g-count">3 项</span></div>
+        <div class="asset-item">
+          <div class="a-name">大豆<span class="a-type">农产品</span></div>
+          <div class="a-body">2012 年进口创纪录达 5838 万吨、相当于国际贸易量的 60%，国内自给率仅 20%。<div class="a-judge">结论：进口依赖最深、风险最集中的品类。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=451" target="_blank" class="pg pg-link">p.451</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">谷物 / 粮价<span class="a-type">农产品</span></div>
+          <div class="a-body">2012 年谷物进口飙升 156% 至 1398 万吨；世界银行预计到 2030 年全球粮食需求增长 50% 以上。<div class="a-judge">结论：书中唯一判断逆周期上涨的大宗品类。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--pos">正面案例</span><a href="book.pdf#page=447" target="_blank" class="pg pg-link">p.447、p.451</a></div>
+        </div>
+        <div class="asset-item">
+          <div class="a-name">耕地<span class="a-type">资源</span></div>
+          <div class="a-body">人均耕地 1.59 亩、不足世界平均的 43%；666 个县人均耕地低于 0.8 亩警戒线；约 5000 万亩受中重度污染大多不宜耕种。<div class="a-judge">结论：账面平衡掩盖实际流失，"占优补劣"是核心问题。</div></div>
+          <div class="a-pg"><span class="ctx-pill ctx-pill--neg">反面警示</span><a href="book.pdf#page=453" target="_blank" class="pg pg-link">p.453–459</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 风险反证 -->
+    <section class="sec" id="risks">
+      <div class="sec-head"><span class="sec-no">07</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-alert"/></svg></span><h2>风险与反证</h2></div>
+      <p class="sec-sub">书中点出的风险、反面证据，以及作者自身逻辑可能失效的条件</p>
+
+      <div class="tbl-title">书中点出的六类风险（风险矩阵）</div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead>
+            <tr><th>风险</th><th>触发条件</th><th>书中依据</th><th>现实校验点</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>货币超发反噬</strong></td><td>M2/GDP 持续抬升而实体回报下降</td><td>中国货币存量/GDP 达 200%，M2 是美国的 170%<a href="book.pdf#page=429" target="_blank" class="pg pg-link">p.429</a></td><td>M2 增速与名义 GDP 增速之差</td></tr>
+            <tr><td><strong>房地产泡沫破裂</strong></td><td>房价由涨转跌，抵押品价值收缩</td><td>房地产总市值是 GDP 的 2.9 倍<a href="book.pdf#page=392" target="_blank" class="pg pg-link">p.392</a>；鄂尔多斯、温州为见顶样本<a href="book.pdf#page=238" target="_blank" class="pg pg-link">p.238、p.245</a></td><td>房价收入比、二手房成交与挂牌量</td></tr>
+            <tr><td><strong>债务总危机</strong></td><td>企业违约＋信托集中到期＋银行坏账共振</td><td>整体债务 111.6 万亿元、企业债世界第一<a href="book.pdf#page=387" target="_blank" class="pg pg-link">p.387、p.373</a>；2015 年信托偿付高峰<a href="book.pdf#page=361" target="_blank" class="pg pg-link">p.361</a></td><td>宏观杠杆率、信用债违约额</td></tr>
+            <tr><td><strong>外部金融战</strong></td><td>美元走强＋利率上行＋资金回流</td><td>FATCA 长臂管辖、Libor 掌控权转移<a href="book.pdf#page=287" target="_blank" class="pg pg-link">p.287–291</a>；苏联 28 万亿美元财富被洗劫<a href="book.pdf#page=559" target="_blank" class="pg pg-link">p.559</a></td><td>美元指数、跨境资本流向</td></tr>
+            <tr><td><strong>粮食安全</strong></td><td>进口依赖度上升＋耕地持续流失</td><td>自给率跌破 90%、大豆自给率仅 20%<a href="book.pdf#page=451" target="_blank" class="pg pg-link">p.451</a></td><td>大豆/谷物进口量、耕地保有量</td></tr>
+            <tr><td><strong>地缘冲突</strong></td><td>强美元周期中"地区危机"被引爆</td><td>美国 60% 海军力量部署亚太、钓鱼岛"国有化"、乌克兰危机<a href="book.pdf#page=345" target="_blank" class="pg pg-link">p.345、p.667、p.554</a></td><td>地缘冲突事件密度、油价与避险资产</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout--danger" style="margin-top:26px;">
+        <span class="callout__icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-alert"/></svg></span>
+        <div class="callout__body">
+          <p class="label">作者逻辑可能失效的六个条件（本报告补充）</p>
+          <p><strong>1. 周期律的样本量太小。</strong>1971 年后完整的美元上涨周期仅两次（1978–1985、1995–2001），用两次样本推出"规律"，统计上属于归纳而非验证。</p>
+          <p><strong>2. 美元周期与美元信用的内在矛盾。</strong>书中假设美国"不会让美元信用受损"，但美国自身债务与财政赤字持续扩张，长期看可能同时削弱美元——这与"强化美元"的假设存在张力。</p>
+          <p><strong>3. 政策干预会改变时滞。</strong>书中把 2016～2022 设为债务总危机的显性化窗口，但房价与债务的联动可被行政与货币手段延后，时间窗本身可能是最脆弱的一环。</p>
+          <p><strong>4. 页岩油的双刃性。</strong>能源自足确实强化美元，但页岩油高成本特性使其在低价环境中自我摧毁，产量与地缘杠杆未必同步。</p>
+          <p><strong>5. 2023～2034 美元大贬值的预判需重估。</strong>该判断建立在"美元十年以上熊市"的周期推演上，若美元在 2022 年后维持强势，则后续资产结论需整体重算。</p>
+          <p><strong>6. 粮食"逆势上涨"的兑现度。</strong>书中判断粮价在 2016～2022 逆势上涨，但粮价受补贴、库存与贸易政策影响极大，未必严格服从美元周期。</p>
+        </div>
+      </div>
+
+      <div class="tbl-title">书中自身保留的反面证据</div>
+      <ul class="rel-list">
+        <li><span class="rel-k rel-k--ref">保留</span><span>序一明确提到"也有人拿出了一些相反的证据，来抵消悲观预测给人们带来的疑虑"——作者与作序者都承认存在反证<a href="book.pdf#page=9" target="_blank" class="pg pg-link">p.9</a></span></li>
+        <li><span class="rel-k rel-k--ref">概率表述</span><span>美元指数 164.72 是"有涨到的可能性"，而非确定结论；作者多处用"如果……那么"的条件式表述<a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509</a></span></li>
+        <li><span class="rel-k rel-k--ref">长期变量</span><span>人口红利 2035 年结束、劳动生产率下降，属于长期趋势变量，短期价格判断不宜直接套用<a href="book.pdf#page=809" target="_blank" class="pg pg-link">p.809</a></span></li>
+        <li><span class="rel-k rel-k--ref">结构分化</span><span>欧元区内部"只有德国、奥地利、荷兰青年失业率低于 10%"，说明危机并非均匀发生，需区分核心国与边缘国<a href="book.pdf#page=728" target="_blank" class="pg pg-link">p.728</a></span></li>
+      </ul>
+    </section>
+
+    <!-- 08 可操作结论 -->
+    <section class="sec" id="conclusion">
+      <div class="sec-head"><span class="sec-no">08</span><span class="sec-icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-compass"/></svg></span><h2>可操作结论</h2></div>
+      <p class="sec-sub">书中给出的关注位置、需要进一步验证的问题，以及已到期预言的自检清单</p>
+
+      <div class="tbl-title">书中给出的五个"关注位置"</div>
+      <div class="signal-grid">
+        <div class="signal-card">
+          <h4><svg class="ic" aria-hidden="true"><use href="#i-zap"/></svg>1. 美元指数与美联储操作</h4>
+          <ul>
+            <li>美元指数是全书唯一的总开关指标：方向决定其余四层的方向<a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509</a>。</li>
+            <li>关注"购债结束／缩表→加息"的时点，这是外围危机的发令枪<a href="book.pdf#page=479" target="_blank" class="pg pg-link">p.479–481</a>。</li>
+          </ul>
+        </div>
+        <div class="signal-card">
+          <h4><svg class="ic" aria-hidden="true"><use href="#i-scale"/></svg>2. 中国房价的方向</h4>
+          <ul>
+            <li>房价是债务危机的引信："房价一旦步入跌势，债务危机立即会显现"<a href="book.pdf#page=391" target="_blank" class="pg pg-link">p.391</a>。</li>
+            <li>按"资源吸引能力＋财富创造能力"判断区域房价，而非泛泛谈供需<a href="book.pdf#page=238" target="_blank" class="pg pg-link">p.238、p.245</a>。</li>
+          </ul>
+        </div>
+        <div class="signal-card">
+          <h4><svg class="ic" aria-hidden="true"><use href="#i-activity"/></svg>3. 债务与影子银行到期节奏</h4>
+          <ul>
+            <li>信托集中偿付高峰（书中指向 2015 年）是压力测试时点<a href="book.pdf#page=361" target="_blank" class="pg pg-link">p.361</a>。</li>
+            <li>企业应收账款（三角债）拉长是违约的前置信号<a href="book.pdf#page=370" target="_blank" class="pg pg-link">p.370–372</a>。</li>
+          </ul>
+        </div>
+        <div class="signal-card">
+          <h4><svg class="ic" aria-hidden="true"><use href="#i-briefcase"/></svg>4. 粮食与耕地</h4>
+          <ul>
+            <li>粮食是唯一被判断为"逆周期上涨"的大宗品类<a href="book.pdf#page=447" target="_blank" class="pg pg-link">p.447</a>。</li>
+            <li>自给率与耕地质量是长期战略变量，需按年跟踪<a href="book.pdf#page=451" target="_blank" class="pg pg-link">p.451、p.453</a>。</li>
+          </ul>
+        </div>
+        <div class="signal-card">
+          <h4><svg class="ic" aria-hidden="true"><use href="#i-map"/></svg>5. 油价与地缘热点</h4>
+          <ul>
+            <li>油价是资源国的命门，也是美国可调节的杠杆<a href="book.pdf#page=326" target="_blank" class="pg pg-link">p.326</a>。</li>
+            <li>"地区危机"是美元收割闭环的最后一块拼图，需关注热点事件密度<a href="book.pdf#page=11" target="_blank" class="pg pg-link">p.11、p.764</a>。</li>
+          </ul>
+        </div>
+        <div class="signal-card">
+          <h4><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg>6. 时间窗本身</h4>
+          <ul>
+            <li>2003（制度开关）→ 2012（临界）→ 2016～2022（危机）→ 2023～2034（资源为王）→ 2035（人口红利终结）<a href="book.pdf#page=44" target="_blank" class="pg pg-link">p.44、p.109、p.509、p.748、p.809</a>。</li>
+            <li>时间窗是全书最需要被现实校验的部分。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tbl-title" style="margin-top:26px;">四个待验证问题（附核验方法）</div>
+      <div class="qa-grid">
+        <div class="qa-card">
+          <h4><span class="qno">Q1</span>2016～2022 美元指数是否达到 164.72？</h4>
+          <p>书中预判：美元在 2016～2022 加速上涨，按 50% 涨幅预估有涨到 164.72 的可能性<a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509</a>。</p>
+          <div class="how">核验方法：调取美元指数（DXY）2016–2022 年月度高点，与该目标位比对；同时对照 1978–1985、1995–2001 两轮周期的实际涨幅。</div>
+        </div>
+        <div class="qa-card">
+          <h4><span class="qno">Q2</span>中国是否在 2016～2022 爆发债务总危机？</h4>
+          <p>书中预判：政府债务、企业债务（三角债）、影子银行三重叠加，2016 年开启的新周期是做实业者最艰难的时刻<a href="book.pdf#page=360" target="_blank" class="pg pg-link">p.360–361</a>。</p>
+          <div class="how">核验方法：对比 2016–2022 宏观杠杆率、信用债违约规模、房企债务违约与信托兑付情况，判断是"显性爆发"还是"被延后"。</div>
+        </div>
+        <div class="qa-card">
+          <h4><span class="qno">Q3</span>2012 年起大宗商品是否"惨烈下跌"？</h4>
+          <p>书中预判：从 2012 年全球大转折点起至 2016～2022 周期，将是大宗商品惨烈下跌的时间<a href="book.pdf#page=333" target="_blank" class="pg pg-link">p.333</a>。</p>
+          <div class="how">核验方法：以 CRB 指数或布伦特原油 2012–2022 走势核验；注意区分能源、工业金属与农产品的分化（书中特别指出粮食是例外）。</div>
+        </div>
+        <div class="qa-card">
+          <h4><span class="qno">Q4</span>2023 年后美元是否进入十年以上熊市？</h4>
+          <p>书中预判：2023 年以后美元又将走出一波十年以上的熊市，全球进入"资源超级为王"时代<a href="book.pdf#page=509" target="_blank" class="pg pg-link">p.509、p.754</a>。</p>
+          <div class="how">核验方法：跟踪美元指数 2023 年以来的趋势方向；若与"长期贬值"相反，则第 34 章的资源与资产结论需整体重估。</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <span class="callout__icon"><svg class="ic ic-lg" aria-hidden="true"><use href="#i-compass"/></svg></span>
+        <div class="callout__body">
+          <p class="label">阅读与使用建议</p>
+          <p>把这本书当作<mark class="hl">一套因果框架</mark>而非预言清单来用：它的价值在于把"美元周期—资本流动—资产价格—实体债务—地缘冲突"五层串成一条可检验的传导链，而不在于某一个具体点位或年份是否命中。</p>
+          <p>建议的使用顺序是：先用第 03 节的五层图谱建立自己的传导认知 → 用第 05 节的指标清单定期跟踪 → 用第 08 节的四个问题逐项核验作者判断，凡与现实背离之处，回到第 07 节检查是哪一环的假设失效。</p>
+          <p>全书数据截至 2014 年，所有涉及 2016 年之后的判断均属作者当时的前瞻性推演，需结合现实自行校验，不构成投资建议。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="f-title">引用与说明</p>
+    <p>本报告全部数据、观点与分析框架均提炼自《时寒冰说：未来二十年，经济大趋势（合订版）》（时寒冰著，811 页 PDF）。文中 p.XX 为原书 PDF 页码，可点击<a href="book.pdf" target="_blank">原文 PDF</a>对照查阅。书中市场数据与案例截至 2014 年。</p>
+    <p>书中对 2016～2034 的判断属于作者当时的前瞻性预测，部分时间窗已经过去，阅读时请结合现实自行校验，不应视为投资建议。</p>
+    <p>本报告为书籍内容的结构化研读笔记，仅供学习与研究参考。</p>
+    <p class="top-link"><a href="#top">返回顶部 ↑</a></p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var nav = document.querySelector('.sticky-nav');
+  var toc = document.getElementById('toc');
+  var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+  var sections = links.map(function (a) {
+    var id = a.getAttribute('href').slice(1);
+    return { id: id, el: document.getElementById(id) };
+  }).filter(function (s) { return s.el; });
+
+  function onScroll() {
+    nav.classList.toggle('show', window.scrollY > (toc.offsetTop + 120));
+    var pos = window.scrollY + 130;
+    var current = sections[0] ? sections[0].id : null;
+    sections.forEach(function (s) { if (s.el.offsetTop <= pos) current = s.id; });
+    links.forEach(function (a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  document.querySelectorAll('.chapter-head').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var card = btn.closest('.chapter-card');
+      var open = card.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+
+  function setAll(open) {
+    document.querySelectorAll('.chapter-card').forEach(function (c) {
+      c.classList.toggle('open', open);
+      var h = c.querySelector('.chapter-head');
+      if (h) h.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  var exp = document.getElementById('expand-all');
+  var col = document.getElementById('collapse-all');
+  if (exp) exp.addEventListener('click', function () { setAll(true); });
+  if (col) col.addEventListener('click', function () { setAll(false); });
+})();
+</script>
+<script>window.__ENC_CFG = {file:'book.pdf.enc', mime:'application/pdf', probe:'../../probe.enc'};</script>
+<script>
+(function () {
+  'use strict';
+  if (location.protocol === 'file:') return;
+  var CFG = window.__ENC_CFG;
+  if (!CFG) return;
+  if (!window.crypto || !crypto.subtle || !window.TextEncoder) return;
+  var PW_KEY = 'bkshelf_pw';
+  var blobUrls = {};
+  var panel, pwInput, errTxt, pill;
+
+  var CSS = '#encBar{position:fixed;right:18px;bottom:18px;z-index:2147483000;font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;display:flex;flex-direction:column;align-items:flex-end;gap:8px}'
+    + '#encPill{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(92deg,#1d4ed8,#3b82f6);color:#fff;font-size:13px;font-weight:700;padding:9px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(37,99,235,.38);cursor:pointer;border:none;letter-spacing:.02em}'
+    + '#encPill:hover{filter:brightness(1.08)}'
+    + '#encPill:disabled{filter:grayscale(.2) brightness(.9)}'
+    + '#encPill svg{width:14px;height:14px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}'
+    + '#encPanel{display:none;background:#fff;border:1px solid #dbe4f0;border-radius:14px;box-shadow:0 18px 48px rgba(11,31,63,.22);padding:18px 20px;width:308px}'
+    + '#encPanel.open{display:block}'
+    + '#encPanel h4{margin:0 0 6px;font-size:15px;color:#0f1b2d}'
+    + '#encPanel p{margin:0 0 12px;font-size:12.5px;color:#64748b;line-height:1.65}'
+    + '#encPanel p b{color:#1d4ed8}'
+    + '#encRow{display:flex;gap:8px}'
+    + '#encPw{flex:1;border:1.5px solid #dbe4f0;border-radius:9px;padding:8px 11px;font-size:13.5px;font-family:inherit;outline:none;color:#0f1b2d}'
+    + '#encPw:focus{border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,.14)}'
+    + '#encGo{border:none;background:linear-gradient(92deg,#1d4ed8,#3b82f6);color:#fff;font-size:13px;font-weight:700;padding:8px 16px;border-radius:9px;cursor:pointer;font-family:inherit}'
+    + '#encGo:disabled{opacity:.5;cursor:default}'
+    + '#encErr{display:none;margin-top:9px;font-size:12.5px;color:#dc2626}'
+    + '#encNote{margin-top:10px;font-size:11.5px;color:#94a3b8}';
+
+  function getPw() { try { return localStorage.getItem(PW_KEY) || ''; } catch (e) { return ''; } }
+  function setPw(v) { try { localStorage.setItem(PW_KEY, v); } catch (e) {} }
+  function clearPw() { try { localStorage.removeItem(PW_KEY); } catch (e) {} }
+
+  var LOCK = '<svg viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>';
+  var BOOK = '<svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h14v18H6a2 2 0 0 0-2 2z"/><path d="M20 17H6a2 2 0 0 0-2 2"/></svg>';
+
+  function buildBar() {
+    var st = document.createElement('style'); st.textContent = CSS; document.head.appendChild(st);
+    var bar = document.createElement('div'); bar.id = 'encBar';
+    panel = document.createElement('div'); panel.id = 'encPanel';
+    panel.innerHTML = '<h4>解锁原书</h4>'
+      + '<p>原书文件以<b>加密</b>形式存放在本站，只有你的密码能打开。解锁后：'
+      + (CFG.hint || '<b>Ctrl/⌘ + 点击报告页码</b>，新标签页直跳原书对应页。')
+      + '</p>'
+      + '<div id="encRow"><input id="encPw" type="password" placeholder="输入解锁密码" autocomplete="off">'
+      + '<button id="encGo" type="button">解锁</button></div>'
+      + '<div id="encErr"></div>'
+      + '<div id="encNote">密码仅保存在本浏览器，不会上传。</div>';
+    pill = document.createElement('button'); pill.id = 'encPill'; pill.type = 'button';
+    pill.innerHTML = LOCK + '<span id="encPillTxt">解锁原书</span>';
+    bar.appendChild(panel); bar.appendChild(pill);
+    document.body.appendChild(bar);
+    pwInput = document.getElementById('encPw');
+    errTxt = document.getElementById('encErr');
+    pill.addEventListener('click', function () {
+      if (getPw()) { panel.classList.remove('open'); openEnc(CFG.file, CFG.mime, 1); }
+      else { panel.classList.toggle('open'); if (panel.classList.contains('open')) pwInput.focus(); }
+    });
+    document.getElementById('encGo').addEventListener('click', doUnlock);
+    pwInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') doUnlock(); });
+    refreshPill();
+  }
+
+  function refreshPill() {
+    pill.innerHTML = (getPw() ? BOOK : LOCK) + '<span id="encPillTxt">' + (getPw() ? '原书已解锁 · 打开' : '解锁原书') + '</span>';
+  }
+
+  function setBusy(t) {
+    if (!pill) return;
+    pill.disabled = !!t;
+    var el = document.getElementById('encPillTxt');
+    if (el) el.textContent = t || (getPw() ? '原书已解锁 · 打开' : '解锁原书');
+  }
+
+  async function deriveKey(pw, salt) {
+    var km = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+    return crypto.subtle.deriveKey({ name: 'PBKDF2', salt: salt, iterations: 200000, hash: 'SHA-256' }, km, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+  }
+  async function rawDecrypt(u8, pw) {
+    if (u8.length < 33 || u8[0] !== 0x45 || u8[1] !== 0x4e || u8[2] !== 0x43 || u8[3] !== 0x31) throw new Error('文件格式错误');
+    var key = await deriveKey(pw, u8.slice(4, 20));
+    return new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv: u8.slice(20, 32) }, key, u8.slice(32)));
+  }
+  async function fetchBuf(path, onProg) {
+    var resp = await fetch(path);
+    if (!resp.ok) throw new Error('下载失败 HTTP ' + resp.status);
+    if (!resp.body || !resp.body.getReader) return new Uint8Array(await resp.arrayBuffer());
+    var total = +(resp.headers.get('Content-Length') || 0);
+    var reader = resp.body.getReader(), chunks = [], got = 0;
+    for (;;) {
+      var r = await reader.read();
+      if (r.done) break;
+      chunks.push(r.value); got += r.value.length;
+      if (onProg && total) onProg(got, total);
+    }
+    var out = new Uint8Array(got), off = 0;
+    for (var i = 0; i < chunks.length; i++) { out.set(chunks[i], off); off += chunks[i].length; }
+    return out;
+  }
+  function joinDir(path, name) { var i = path.lastIndexOf('/'); return i < 0 ? name : path.slice(0, i + 1) + name; }
+
+  // whole file or chunked parts (book.pdf.enc.parts.json lists chunk files)
+  async function fetchEncBytes(path, onProg) {
+    var pr = null;
+    try { pr = await fetch(path + '.parts.json'); } catch (e) {}
+    if (pr && pr.ok) {
+      var parts = await pr.json();
+      var chunks = [], total = 0;
+      for (var i = 0; i < parts.length; i++) {
+        onProg && onProg('下载 ' + (i + 1) + '/' + parts.length + ' 段…');
+        var u8 = await fetchBuf(joinDir(path, parts[i]));
+        chunks.push(u8); total += u8.length;
+      }
+      var out = new Uint8Array(total), off = 0;
+      chunks.forEach(function (b) { out.set(b, off); off += b.length; });
+      return out;
+    }
+    return await fetchBuf(path, function (g, t) { onProg && onProg('下载 ' + Math.round(g / t * 100) + '%…'); });
+  }
+
+  async function verifyPw(pw) {
+    var u8 = await fetchBuf(CFG.probe);
+    var pt = await rawDecrypt(u8, pw);
+    return new TextDecoder().decode(pt) === 'BOOKSHELF-PROBE-v1';
+  }
+
+  async function doUnlock() {
+    var pw = pwInput.value;
+    if (!pw) return;
+    var go = document.getElementById('encGo');
+    go.disabled = true; go.textContent = '校验中…'; errTxt.style.display = 'none';
+    try {
+      if (await verifyPw(pw)) {
+        setPw(pw); panel.classList.remove('open'); pwInput.value = '';
+        refreshPill(); setBusy('已解锁');
+        setTimeout(function () { setBusy(null); }, 1200);
+      } else { throw new Error('bad'); }
+    } catch (e) {
+      errTxt.textContent = '密码不正确，请重试';
+      errTxt.style.display = 'block';
+    }
+    go.disabled = false; go.textContent = '解锁';
+  }
+
+  function openPanel(msg) {
+    panel.classList.add('open'); pwInput.focus();
+    if (msg) { errTxt.textContent = msg; errTxt.style.display = 'block'; }
+  }
+
+  function handleErr(e) {
+    if (e && (e.name === 'OperationError' || /decrypt|format/i.test(String(e)))) {
+      clearPw(); refreshPill(); openPanel('密码校验失败，请重新输入');
+    } else { openPanel('打开失败：' + (e && e.message ? e.message : e)); }
+  }
+
+  async function openEnc(path, mime, page) {
+    var pw = getPw();
+    if (!pw) { openPanel(); return; }
+    if (blobUrls[path]) { window.open(blobUrls[path] + (page ? '#page=' + page : ''), '_blank'); return; }
+    setBusy('下载加密文件…');
+    try {
+      var u8 = await fetchEncBytes(path, function (label) { setBusy(label); });
+      setBusy('解密中…');
+      var pt = await rawDecrypt(u8, pw);
+      blobUrls[path] = URL.createObjectURL(new Blob([pt], { type: mime || 'application/octet-stream' }));
+      setBusy(null); refreshPill();
+      window.open(blobUrls[path] + (page ? '#page=' + page : ''), '_blank');
+    } catch (e) { setBusy(null); handleErr(e); }
+  }
+
+  window.addEventListener('click', function (e) {
+    if (!(e.ctrlKey || e.metaKey || e.button === 1)) return;
+    var a = e.target && e.target.closest ? e.target.closest('a.pg-link,[data-pg]') : null;
+    if (!a) return;
+    var pg = parseInt(a.getAttribute('data-pg'), 10);
+    if (!pg) return;
+    e.preventDefault(); e.stopPropagation();
+    openEnc(CFG.file, CFG.mime, pg);
+  }, true);
+
+  // ---- optional: EPUB per-page decrypt (chaodi-66) ----
+  var EMIME = { jpg: 'image/jpeg', jpeg: 'image/jpeg', png: 'image/png', gif: 'image/gif', svg: 'image/svg+xml', css: 'text/css' };
+  function extMime(p) { var m = /\.([a-z0-9]+)$/i.exec(p); return m ? (EMIME[m[1].toLowerCase()] || 'application/octet-stream') : 'application/octet-stream'; }
+  function resolvePath(base, href) {
+    var stack = base.split('/'); stack.pop();
+    href.split('/').forEach(function (seg) {
+      if (seg === '' || seg === '.') return;
+      if (seg === '..') stack.pop(); else stack.push(seg);
+    });
+    return stack.join('/');
+  }
+  function u8ToB64(u8) { var s = '', CH = 0x8000; for (var i = 0; i < u8.length; i += CH) s += String.fromCharCode.apply(null, u8.subarray(i, i + CH)); return btoa(s); }
+
+  async function decryptToDataUrl(vpath) {
+    var u8 = await fetchBuf(vpath + '.enc');
+    var pt = await rawDecrypt(u8, getPw());
+    return 'data:' + extMime(vpath) + ';base64,' + u8ToB64(pt);
+  }
+
+  async function openEpubPage(vpath) {
+    if (!getPw()) { openPanel(); return; }
+    setBusy('解密原书页…');
+    try {
+      var u8 = await fetchBuf(vpath + '.enc');
+      var pt = await rawDecrypt(u8, getPw());
+      var text = new TextDecoder('utf-8').decode(pt);
+      if (/\.x?html?$/i.test(vpath)) text = await rewriteEpubHtml(text, vpath);
+      var url = URL.createObjectURL(new Blob([text], { type: 'application/xhtml+xml' }));
+      setBusy(null);
+      window.open(url, '_blank');
+    } catch (e) { setBusy(null); handleErr(e); }
+  }
+
+  async function rewriteEpubHtml(text, vpath) {
+    var doc = new DOMParser().parseFromString(text, 'application/xhtml+xml');
+    var imgs = doc.querySelectorAll('img[src]');
+    for (var i = 0; i < imgs.length; i++) {
+      var ref = imgs[i].getAttribute('src');
+      if (!ref || /^[a-z]+:/i.test(ref) || ref.charAt(0) === '#') continue;
+      try { imgs[i].setAttribute('src', await decryptToDataUrl(resolvePath(vpath, ref))); } catch (e) {}
+    }
+    var links = doc.querySelectorAll('link[rel="stylesheet"][href]');
+    for (var j = 0; j < links.length; j++) {
+      var href = links[j].getAttribute('href');
+      if (!href || /^[a-z]+:/i.test(href)) continue;
+      try {
+        var cu8 = await fetchBuf(resolvePath(vpath, href) + '.enc');
+        var cpt = await rawDecrypt(cu8, getPw());
+        var styleEl = doc.createElement('style');
+        styleEl.textContent = new TextDecoder('utf-8').decode(cpt);
+        doc.documentElement.firstChild ? doc.documentElement.insertBefore(styleEl, doc.documentElement.firstChild) : doc.documentElement.appendChild(styleEl);
+        links[j].parentNode.removeChild(links[j]);
+      } catch (e) {}
+    }
+    var as = doc.querySelectorAll('a[href]');
+    for (var k = 0; k < as.length; k++) {
+      var h = as[k].getAttribute('href');
+      if (!h || /^[a-z]+:/i.test(h) || h.charAt(0) === '#') continue;
+      var clean = h.split('#')[0];
+      if (!/\.(x?html?)$/i.test(clean)) continue;
+      as[k].setAttribute('data-nav', resolvePath(vpath, clean));
+      as[k].setAttribute('href', '#');
+    }
+    var sc = doc.createElement('script');
+    sc.textContent = "document.addEventListener('click',function(e){var a=e.target.closest?e.target.closest('a[data-nav]'):null;if(!a)return;e.preventDefault();try{window.opener.postMessage({__encEpubNav:a.getAttribute('data-nav')},'*')}catch(x){}});";
+    (doc.body || doc.documentElement).appendChild(sc);
+    return new XMLSerializer().serializeToString(doc);
+  }
+
+  if (CFG.epub) {
+    window.addEventListener('click', function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href^="epub/"]') : null;
+      if (!a) return;
+      e.preventDefault(); e.stopPropagation();
+      openEpubPage(a.getAttribute('href'));
+    }, true);
+    window.addEventListener('message', function (ev) {
+      if (ev.data && ev.data.__encEpubNav) openEpubPage(ev.data.__encEpubNav);
+    });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', buildBar);
+  else buildBar();
+
+  window.__encOpen = openEnc;
+})();
+
+</script>
+</body>
+</html>
