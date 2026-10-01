@@ -1035,11 +1035,18 @@ window.addEventListener('scroll', onScroll, { passive: true });
           '<select class="src-modal__select" id="srcSelect" aria-label="选择招数"></select>' +
           '<button class="src-btn" type="button" id="srcNext">下一招</button>' +
         '</div>' +
-        '<a class="src-btn src-btn--primary" id="srcEpubLink" target="_blank" rel="noopener">打开原始 EPUB 页面</a>' +
+        '<a class="src-btn src-btn--primary" id="srcEpubLink">打开原始 EPUB 页面（自动解密）</a>' +
       '</div>' +
     '</div>';
   document.body.appendChild(modal);
-        try { if (location.protocol === 'file:') { if (!(TIPS[0] && TIPS[0].f)) elEpub.style.display = 'none'; } else if (TIPS[0] && TIPS[0].f) { fetch(atob(TIPS[0].f), { method: 'HEAD' }).then(function (r) { if (!r.ok) elEpub.style.display = 'none'; }).catch(function () { elEpub.style.display = 'none'; }); } else { elEpub.style.display = 'none'; } } catch (e) { elEpub.style.display = 'none'; }
+
+  // EPUB 原页直跳按钮：仅当存在可用的加密 EPUB 页时才显示
+  try {
+    if (!(TIPS[0] && TIPS[0].f)) {
+      var _e0 = document.getElementById('srcEpubLink');
+      if (_e0) _e0.style.display = 'none';
+    }
+  } catch (e) {}
 
   var elTitle = document.getElementById('srcModalTitle');
   var elSub = document.getElementById('srcModalSub');
@@ -1064,7 +1071,11 @@ window.addEventListener('scroll', onScroll, { passive: true });
     elTitle.textContent = t.title;
     elSub.textContent = '《' + DATA.bookName + '》原文 · 第 ' + no + ' 招（已转简体）';
     elBody.textContent = t.text;
-    elEpub.href = t.f ? atob(t.f) : '#';
+    var _epubHref = t.f ? atob(t.f) : '';
+    elEpub.href = _epubHref || '#';
+    // 记录当前招的 EPUB 路径，供「打开原始页面」走解密通道（避免右键/新标签直达明文 404）
+    elEpub.setAttribute('data-epub-path', _epubHref);
+    elEpub.setAttribute('data-epub-title', '第 ' + no + ' 招 · 原始 EPUB 页面');
     var i = NOS.indexOf(no);
     elPrev.disabled = i <= 0;
     elNext.disabled = i >= NOS.length - 1;
@@ -1079,6 +1090,11 @@ window.addEventListener('scroll', onScroll, { passive: true });
   elPrev.addEventListener('click', function () { step(-1); });
   elNext.addEventListener('click', function () { step(1); });
   elSel.addEventListener('change', function () { show(parseInt(elSel.value, 10)); });
+  // 「打开原始 EPUB 页面」：href 指向 epub/ 明文路径，由内联 enc overlay 的 capture 监听器
+  // （a[href^="epub/"]）拦截后解密打开；target=_blank 已移除，避免右键直达明文 404。
+  elEpub.addEventListener('click', function (ev) {
+    if (!elEpub.getAttribute('href') || elEpub.getAttribute('href') === '#') ev.preventDefault();
+  });
   modal.querySelector('.src-modal__close').addEventListener('click', close);
   modal.addEventListener('click', function (e) { if (e.target === modal) close(); });
   document.addEventListener('keydown', function (e) {
@@ -1268,7 +1284,7 @@ window.addEventListener('scroll', onScroll, { passive: true });
   }
 
   window.addEventListener('click', function (e) {
-    if (!(e.ctrlKey || e.metaKey || e.button === 1)) return;
+    // left/ctrl/meta/middle all allowed
     var a = e.target && e.target.closest ? e.target.closest('a.pg-link,[data-pg]') : null;
     if (!a) return;
     var pg = parseInt(a.getAttribute('data-pg'), 10);
