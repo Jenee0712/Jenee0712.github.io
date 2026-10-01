@@ -192,6 +192,14 @@ footer p { font-size: 12.5px; color: var(--page-text-muted); margin: 0 0 6px; }
   section.sec { padding: 28px 0 6px; page-break-inside: avoid; }
   a { color: inherit; }
 }
+
+.src-open--chip { display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:700; color:#0550AE; border:1px solid #B9D3F5; background:#EAF2FC; padding:3px 11px; border-radius:999px; text-decoration:none; cursor:pointer; white-space:nowrap; flex:none; }
+.src-open--chip:hover { background:#D6E6FA; }
+.src-open--lg { font-size:14.5px; padding:11px 22px; gap:9px; box-shadow:0 4px 14px rgba(5,80,174,.18); }
+.src-open--lg .ic { width:17px; height:17px; }
+.src-open-row--hero { display:flex; align-items:center; gap:14px; flex-wrap:wrap; margin:18px 0 20px; }
+.src-open-note { font-size:12.5px; color:var(--page-fg-muted,#5A6675); }
+@media print { .src-open--chip, .src-open-row--hero { display:none !important; } }
 </style>
 
 <style id="srcModalCss">
@@ -251,6 +259,13 @@ a.src-open:hover { background: var(--page-brand-soft-strong, #D6E6FA); }
 <span>增订版</span>
 <span>台股操作实战</span>
 <span>66招 + 7大单元</span>
+</div>
+<div class="src-open-row src-open-row--hero">
+<a class="src-open src-open--lg" data-tip="1" href="#">
+<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3 3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+查看原书全文 · 66 招逐招阅读
+</a>
+<span class="src-open-note">原书共 66 招，弹窗内可逐招阅读并直接打开对应 EPUB 原页</span>
 </div>
 <div class="intro-stats">
 <div class="stat"><strong>7 PART</strong><span>从入门到放空<br>完整操作体系</span></div>
@@ -359,7 +374,7 @@ a.src-open:hover { background: var(--page-brand-soft-strong, #D6E6FA); }
 <h3>散户亏钱的5大原因 & 股市赢家的3个等级</h3>
 <p class="chapter-claim">8成散户亏钱源于：观念错误、缺基本功、不懂技巧、不知量价、无赢家策略。真正高手分初段（逮底卖头）、中段（多空双赚）、高段（每波精准）。</p>
 </div>
-<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+<a class="src-open src-open--chip" data-tip="1" href="#" title="查看第 1–10 招原书全文">原书 1–10 招</a><svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </button>
 <div class="chapter-body"><div class="chapter-body-inner">
 <div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="1" href="#">查看原文 · 第 1–10 招（弹窗逐招阅读）</a></div>
@@ -396,7 +411,7 @@ a.src-open:hover { background: var(--page-brand-soft-strong, #D6E6FA); }
 <h3>买股如买房——10个必知问题</h3>
 <p class="chapter-claim">像买房子一样慎重买股票。价值理论核心：崩盘时买进物超所值的高殖利率绩优股。底部区11个讯号确认进场时机。</p>
 </div>
-<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+<a class="src-open src-open--chip" data-tip="11" href="#" title="查看第 11–20 招原书全文">原书 11–20 招</a><svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </button>
 <div class="chapter-body"><div class="chapter-body-inner">
 <div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="11" href="#">查看原文 · 第 11–20 招（弹窗逐招阅读）</a></div>
@@ -433,7 +448,7 @@ a.src-open:hover { background: var(--page-brand-soft-strong, #D6E6FA); }
 <h3>位置理论与总经基本功</h3>
 <p class="chapter-claim">「位置理论」：买在a、c、i三个位置就不会受伤。景气循环与股价循环密切相关，M1B与M2交叉是趋势判断的关键指标。</p>
 </div>
-<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+<a class="src-open src-open--chip" data-tip="21" href="#" title="查看第 21–31 招原书全文">原书 21–31 招</a><svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </button>
 <div class="chapter-body"><div class="chapter-body-inner">
 <div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="21" href="#">查看原文 · 第 21–31 招（弹窗逐招阅读）</a></div>
@@ -465,7 +480,7 @@ a.src-open:hover { background: var(--page-brand-soft-strong, #D6E6FA); }
 <h3>12种技术分析操作法</h3>
 <p class="chapter-claim">从KD线、移动平均线、RSI到反群众心理，12种技术分析工具的实战应用。月KD值研判长期趋势最准确，5月RSI背离是长线到顶的强烈警讯。</p>
 </div>
-<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+<a class="src-open src-open--chip" data-tip="32" href="#" title="查看第 32–45 招原书全文">原书 32–45 招</a><svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </button>
 <div class="chapter-body"><div class="chapter-body-inner">
 <div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="32" href="#">查看原文 · 第 32–45 招（弹窗逐招阅读）</a></div>
@@ -501,7 +516,7 @@ a.src-open:hover { background: var(--page-brand-soft-strong, #D6E6FA); }
 <h3>量价关系的6大法则</h3>
 <p class="chapter-claim">成交量是唯一的诚实人。底部区成交量萎缩83-86%，头部区暴增7-11倍并出现量价背离。量是因价是果，量是先行指标。</p>
 </div>
-<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+<a class="src-open src-open--chip" data-tip="46" href="#" title="查看第 46–51 招原书全文">原书 46–51 招</a><svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </button>
 <div class="chapter-body"><div class="chapter-body-inner">
 <div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="46" href="#">查看原文 · 第 46–51 招（弹窗逐招阅读）</a></div>
@@ -534,7 +549,7 @@ a.src-open:hover { background: var(--page-brand-soft-strong, #D6E6FA); }
 <h3>赢家策略：循环、选股、黑马</h3>
 <p class="chapter-claim">科斯托兰尼循环图：4000点以下低潮期买进，4000-8000盘整期抱牢，8000以上高潮期出脱。选股首重产业强势股，4要素找黑马。</p>
 </div>
-<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+<a class="src-open src-open--chip" data-tip="52" href="#" title="查看第 52–60 招原书全文">原书 52–60 招</a><svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </button>
 <div class="chapter-body"><div class="chapter-body-inner">
 <div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="52" href="#">查看原文 · 第 52–60 招（弹窗逐招阅读）</a></div>
@@ -566,7 +581,7 @@ a.src-open:hover { background: var(--page-brand-soft-strong, #D6E6FA); }
 <h3>放空操作与B高最佳空点</h3>
 <p class="chapter-claim">多空两面操作才能获取最大利润。B高（B波反弹高点）才是最佳空点。放空需面对3种压力、小心3个陷阱。</p>
 </div>
-<svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+<a class="src-open src-open--chip" data-tip="61" href="#" title="查看第 61–66 招原书全文">原书 61–66 招</a><svg class="chapter-chev ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
 </button>
 <div class="chapter-body"><div class="chapter-body-inner">
 <div class="chapter-body-content"><div class="src-open-row"><a class="src-open" data-tip="61" href="#">查看原文 · 第 61–66 招（弹窗逐招阅读）</a></div>
